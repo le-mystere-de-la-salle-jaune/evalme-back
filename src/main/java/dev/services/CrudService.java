@@ -2,6 +2,8 @@ package dev.services;
 
 import java.util.List;
 
+import dev.entites.Sondage;
+
 /**
  * Interface de base des services.
  *
