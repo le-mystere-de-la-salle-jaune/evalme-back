@@ -5,23 +5,34 @@ import java.util.List;
 
 public class Quizz extends BaseEntite {
 
-    private String titre;
+	public Quizz(String titre, List<Question> questions) {
+		super();
+		this.titre = titre;
+		this.questions = questions;
+	}
 
-    private List<Question> questions = new ArrayList<>();
+	public Quizz(String titre) {
+		super();
+		this.titre = titre;
+	}
 
-    public String getTitre() {
-        return titre;
-    }
+	private String titre;
 
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
+	private List<Question> questions = new ArrayList<>();
 
-    public List<Question> getQuestions() {
-        return questions;
-    }
+	public String getTitre() {
+		return titre;
+	}
 
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+	public List<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(List<Question> questions) {
+		this.questions = questions;
+	}
 }

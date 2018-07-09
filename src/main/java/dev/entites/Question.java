@@ -4,23 +4,28 @@ import java.util.List;
 
 public class Question extends BaseEntite {
 
-    private String titre;
+	public Question(String titre) {
+		super();
+		this.titre = titre;
+	}
 
-    private List<OptionQuestion> options;
+	private String titre;
 
-    public String getTitre() {
-        return titre;
-    }
+	private List<OptionQuestion> options;
 
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
+	public String getTitre() {
+		return titre;
+	}
 
-    public List<OptionQuestion> getOptions() {
-        return options;
-    }
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 
-    public void setOptions(List<OptionQuestion> options) {
-        this.options = options;
-    }
+	public List<OptionQuestion> getOptions() {
+		return options;
+	}
+
+	public void setOptions(List<OptionQuestion> options) {
+		this.options = options;
+	}
 }
