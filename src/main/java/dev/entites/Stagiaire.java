@@ -1,41 +1,41 @@
 package dev.entites;
 
-public class Stagiaire  extends BaseEntite {
+public class Stagiaire extends BaseEntite {
 
-    private String prenom;
-    private String nom;
-    private String email;
-    private String photoUrl;
+	private String prenom;
+	private String nom;
+	private String email;
+	private String photoUrl;
 
-    public String getPhotoUrl() {
-        return photoUrl;
-    }
+	public String getPhotoUrl() {
+		return photoUrl;
+	}
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
-    }
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
+	}
 
-    public String getPrenom() {
-        return prenom;
-    }
+	public String getPrenom() {
+		return prenom;
+	}
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
 
-    public String getNom() {
-        return nom;
-    }
+	public String getNom() {
+		return nom;
+	}
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
