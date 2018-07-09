@@ -1,14 +1,21 @@
 package dev.entites;
 
-public abstract  class BaseEntite {
+public abstract class BaseEntite {
 
-    private Long id;
+	private Long id;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public boolean equals(Object obj) {
+		if (obj instanceof BaseEntite) {
+			return id.equals(((BaseEntite) obj).getId());
+		}
+		return false;
+	}
 }

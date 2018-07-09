@@ -21,13 +21,25 @@ public class ExamenServiceMemoireTest {
 	private ExamenServiceMemoire examenService;
 
 	@Test
-	public void test_ENTITE_1() {
+	public void testContext() {
 
-		Examen examentest = examenService.findAll().get(0);
+		Examen examentest = (Examen) examenService.findAll().get(0);
 
 		assertTrue(examentest.getTitre().equals("Java EE"));
 		assertTrue(examentest.getNotes().get(0).getNoteSur20() == 12);
 		assertTrue(examentest.getClasse().getStagiaires().get(1).getEmail().equals("rourou@gmail.com"));
+
+	}
+
+	@Test
+	public void testSave() {
+
+		Examen examToSave = new Examen();
+		examToSave.setId(Long.parseLong("254"));
+
+		examenService.save(examToSave);
+
+		assertTrue(examenService.findAll().contains(examToSave));
 
 	}
 
