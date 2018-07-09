@@ -12,6 +12,11 @@ public class Quizz extends BaseEntite {
 	public Quizz() {
 	}
 
+	public Quizz(String titre) {
+		super();
+		this.titre = titre;
+	}
+
 	public Quizz(String titre, List<Question> questions) {
 		this.titre = titre;
 		this.questions = questions;
