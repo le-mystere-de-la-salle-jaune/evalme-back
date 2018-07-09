@@ -32,6 +32,7 @@
 	</bean>
 
 	<bean id="sondage1" class="dev.entites.Sondage">
+		<property name="id" value="1"></property>
 		<property name="titre" value="Titre sondage 1"></property>
 		<property name="options">
 			<util:list>
@@ -44,6 +45,7 @@
 	</bean>
 	
 	<bean id="sondage2" class="dev.entites.Sondage">
+	<property name="id" value="2"></property>
 		<property name="titre" value="Titre sondage 2"></property>
 		<property name="options">
 			<util:list>
@@ -56,6 +58,7 @@
 	</bean>
 	
 	<bean id="sondage3" class="dev.entites.Sondage">
+		<property name="id" value="1"></property>
 		<property name="titre" value="Titre sondage 3"></property>
 		<property name="options">
 			<util:list>
