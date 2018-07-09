@@ -7,6 +7,16 @@ public class Stagiaire extends BaseEntite {
 	private String email;
 	private String photoUrl;
 
+	public Stagiaire() {
+
+	}
+
+	public Stagiaire(String prenom, String nom) {
+		super();
+		this.prenom = prenom;
+		this.nom = nom;
+	}
+
 	public String getPhotoUrl() {
 		return photoUrl;
 	}

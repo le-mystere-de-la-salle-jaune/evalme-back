@@ -4,33 +4,41 @@ import java.util.List;
 
 public class Concours extends BaseEntite {
 
-    private String titre;
+	private String titre;
 
-    private List<Stagiaire> participants;
+	private List<Stagiaire> participants;
 
-    private List<Quizz> quizzes;
+	private List<Quizz> quizzes;
 
-    public String getTitre() {
-        return titre;
-    }
+	public Concours(String titre, List<Stagiaire> participants, List<Quizz> quizzes) {
+		super();
+		this.titre = titre;
+		this.participants = participants;
+		this.quizzes = quizzes;
+	}
 
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
+	public String getTitre() {
+		return titre;
+	}
 
-    public List<Stagiaire> getParticipants() {
-        return participants;
-    }
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 
-    public void setParticipants(List<Stagiaire> participants) {
-        this.participants = participants;
-    }
+	public List<Stagiaire> getParticipants() {
+		return participants;
+	}
 
-    public List<Quizz> getQuizzes() {
-        return quizzes;
-    }
+	public void setParticipants(List<Stagiaire> participants) {
+		this.participants = participants;
+	}
 
-    public void setQuizzes(List<Quizz> quizzes) {
-        this.quizzes = quizzes;
-    }
+	public List<Quizz> getQuizzes() {
+		return quizzes;
+	}
+
+	public void setQuizzes(List<Quizz> quizzes) {
+		this.quizzes = quizzes;
+	}
+
 }
