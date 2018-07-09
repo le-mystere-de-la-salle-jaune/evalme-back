@@ -103,17 +103,17 @@
 
 	<bean id="option1" class="dev.entites.OptionQuestion">
 		<property name="libelle" value="plop"></property>
-		<property name="OK" value="false"></property>
+		<property name="ok" value="false"></property>
 	</bean>
 
 	<bean id="option2" class="dev.entites.OptionQuestion">
 		<property name="libelle" value="foo"></property>
-		<property name="OK" value="false"></property>
+		<property name="ok" value="false"></property>
 	</bean>
 
 	<bean id="option3" class="dev.entites.OptionQuestion">
 		<property name="libelle" value="bar"></property>
-		<property name="OK" value="false"></property>
+		<property name="ok" value="false"></property>
 	</bean>
 
 </beans>
