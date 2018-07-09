@@ -36,10 +36,11 @@ public class ClasseServiceMemoireTest {
 		List<Classe> classe = classeServiceMemoire.findAll();
 		Classe c = classe.get(0);
 		c.setId(4L);
+		int size = classe.size();
 
 		classe.add(c);
 
-		assertThat(classe.size()).isEqualTo(4);
+		assertThat(classe.size()).isEqualTo(size + 1);
 	}
 
 	@Test
@@ -60,10 +61,11 @@ public class ClasseServiceMemoireTest {
 		// TODO Auto-generated method stub
 		List<Classe> classe = classeServiceMemoire.findAll();
 		Classe c = classe.get(3);
+		int size = classe.size();
 
 		classe.remove(c);
 
-		assertThat(classe.size()).isEqualTo(3);
+		assertThat(classe.size()).isEqualTo(size - 1);
 
 	}
 
