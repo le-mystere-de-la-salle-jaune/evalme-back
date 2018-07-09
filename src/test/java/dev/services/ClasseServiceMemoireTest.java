@@ -59,11 +59,11 @@ public class ClasseServiceMemoireTest {
 	public void TestDelete() {
 		// TODO Auto-generated method stub
 		List<Classe> classe = classeServiceMemoire.findAll();
-		Classe c = classe.get(2);
+		Classe c = classe.get(3);
 
 		classe.remove(c);
 
-		assertThat(classe.size()).isEqualTo(2);
+		assertThat(classe.size()).isEqualTo(3);
 
 	}
 
