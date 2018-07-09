@@ -7,7 +7,9 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public abstract class ServiceMemoire<T> implements CrudService<T> {
+import dev.entites.BaseEntite;
+
+public abstract class ServiceMemoire<T extends BaseEntite> implements CrudService<T> {
 
 	private List<T> entityList = new ArrayList<>();
 	private String contextpath;
@@ -39,7 +41,7 @@ public abstract class ServiceMemoire<T> implements CrudService<T> {
 	@Override
 	public void update(T entityWithId) {
 		for (T elem : entityList) {
-			if (elem.equals(entityWithId)) {
+			if (elem.getId().equals(entityWithId.getId())) {
 				entityList.set(entityList.indexOf(elem), entityWithId);
 			}
 		}

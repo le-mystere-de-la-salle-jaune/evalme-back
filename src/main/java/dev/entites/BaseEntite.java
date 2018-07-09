@@ -12,10 +12,4 @@ public abstract class BaseEntite {
 		this.id = id;
 	}
 
-	public boolean equals(Object obj) {
-		if (obj instanceof BaseEntite) {
-			return id.equals(((BaseEntite) obj).getId());
-		}
-		return false;
-	}
 }
