@@ -22,6 +22,7 @@
     			<ref bean="animaux1"/>
     		</list>
     	</constructor-arg>
+    	<property name="id" value="0"/>
     </bean>
     
     <bean id="geo" class="dev.entites.Quizz">
@@ -31,6 +32,7 @@
     			<ref bean="geo1"/>
     		</list>
     	</constructor-arg>
+    	<property name="id" value="1"/>
     </bean>
     
     <bean id="math" class="dev.entites.Quizz">
@@ -40,6 +42,7 @@
     			<ref bean="math1"/>
     		</list>
     	</constructor-arg>
+    	<property name="id" value="2"/>
     </bean>
 
 </beans>
