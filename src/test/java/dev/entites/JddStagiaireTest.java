@@ -29,7 +29,7 @@ public class JddStagiaireTest {
 	}
 
 	@Test
-	public void test_STAGIARE_2() {
+	public void test_STAGIAIRE_2() {
 		Stagiaire stagiaire2 = context.getBean("stagiaire2", Stagiaire.class);
 		assertThat(stagiaire2.getPrenom()).isEqualTo("Marine");
 		assertThat(stagiaire2.getNom()).isEqualTo("Martin");
