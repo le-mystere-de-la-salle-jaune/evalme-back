@@ -8,13 +8,20 @@ public class Stagiaire extends BaseEntite {
 	private String photoUrl;
 
 	public Stagiaire() {
-
 	}
 
 	public Stagiaire(String prenom, String nom) {
 		super();
 		this.prenom = prenom;
 		this.nom = nom;
+	}
+
+	public Stagiaire(String prenom, String nom, String email, String photoUrl) {
+		super();
+		this.prenom = prenom;
+		this.nom = nom;
+		this.email = email;
+		this.photoUrl = photoUrl;
 	}
 
 	public String getPhotoUrl() {
@@ -48,4 +55,5 @@ public class Stagiaire extends BaseEntite {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 }
