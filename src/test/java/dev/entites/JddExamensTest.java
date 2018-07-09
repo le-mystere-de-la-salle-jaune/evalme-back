@@ -1,4 +1,4 @@
-package dev.entities;
+package dev.entites;
 
 import static org.junit.Assert.assertTrue;
 
