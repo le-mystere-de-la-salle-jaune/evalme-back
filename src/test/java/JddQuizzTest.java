@@ -13,7 +13,7 @@ public class JddQuizzTest {
 
 	@Before
 	public void onSetup() {
-		context = new ClassPathXmlApplicationContext("jdd/jdd-Quizz.xml");
+		this.context = new ClassPathXmlApplicationContext("jdd/jdd-quizz.xml");
 	}
 
 	@Test
