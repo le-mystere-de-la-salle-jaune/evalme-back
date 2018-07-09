@@ -2,23 +2,31 @@ package dev.entites;
 
 public class OptionQuestion extends BaseEntite {
 
-    private String libelle;
+	private String libelle;
 
-    private Boolean isOK;
+	private Boolean ok;
 
-    public String getLibelle() {
-        return libelle;
-    }
+	public String getLibelle() {
+		return libelle;
+	}
 
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
-    }
+	public void setLibelle(String libelle) {
+		this.libelle = libelle;
+	}
 
-    public Boolean getOK() {
-        return isOK;
-    }
+	/**
+	 * @return the ok
+	 */
+	public Boolean getOk() {
+		return ok;
+	}
 
-    public void setOK(Boolean OK) {
-        isOK = OK;
-    }
+	/**
+	 * @param ok
+	 *            the ok to set
+	 */
+	public void setOk(Boolean ok) {
+		this.ok = ok;
+	}
+
 }
