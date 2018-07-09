@@ -23,7 +23,7 @@ public class UtilisateursServiceMemoireTest {
 	@Test
 	public void test_ENTITE_1() {
 
-		Utilisateur utilTest = utilisateurService.findAll().get(1);
+		Utilisateur utilTest = (Utilisateur) utilisateurService.findAll().get(1);
 
 		assertTrue(utilTest.getIdentifiant().equals("11111"));
 		assertTrue(utilTest.getMotDePasse().equals("11111"));
