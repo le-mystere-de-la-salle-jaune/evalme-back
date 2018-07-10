@@ -1,10 +1,19 @@
 package dev.entites;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class Stagiaire extends BaseEntite {
 
+	@Size(min = 2)
 	private String prenom;
+	@Size(min = 2)
 	private String nom;
+	@NotEmpty
+	@Email
 	private String email;
+	@NotEmpty
 	private String photoUrl;
 
 	public Stagiaire() {
