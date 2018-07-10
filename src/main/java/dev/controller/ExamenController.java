@@ -26,6 +26,7 @@ import dev.metiers.StagiaireService;
 public class ExamenController {
 
 	private ExamenService examenService;
+
 	private QuizzService quizzService;
 	private ClasseService classeService;
 	private StagiaireService stagiaireService;
@@ -39,6 +40,7 @@ public class ExamenController {
 		this.quizzService = quizzService;
 		this.classeService = classeService;
 		this.stagiaireService = stagiaireService;
+
 	}
 
 	@GetMapping("/lister")
