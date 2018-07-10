@@ -8,11 +8,11 @@ import java.util.Map.Entry;
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import dev.entites.Sondage;
 
-@Service
+@Repository
 public class SondageRepositoryMemoire implements SondageRepository {
 
 	private List<Sondage> sondages = new ArrayList<>();
