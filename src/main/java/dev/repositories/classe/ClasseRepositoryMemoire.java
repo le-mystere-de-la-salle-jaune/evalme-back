@@ -23,8 +23,8 @@ public class ClasseRepositoryMemoire implements ClasseRepository {
 			Classe classe3 = context.getBean("c3", Classe.class);
 
 			classe1.setId(1L);
-			classe1.setId(2L);
-			classe1.setId(3L);
+			classe2.setId(2L);
+			classe3.setId(3L);
 
 			classes.add(classe1);
 			classes.add(classe2);
