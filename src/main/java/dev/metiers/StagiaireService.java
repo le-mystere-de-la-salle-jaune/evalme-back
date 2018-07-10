@@ -24,11 +24,4 @@ public class StagiaireService {
 	public void save(Stagiaire stagiaire) {
 		stagiaireRepository.save(stagiaire);
 	}
-
-	/*
-	 * public List<Stagiaire> update() { return stagiaireRepository.update(); }
-	 * 
-	 * public List<Stagiaire> delete() { return
-	 * stagiaireRepository.delete(entite);; }
-	 */
 }

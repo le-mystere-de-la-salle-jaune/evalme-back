@@ -43,28 +43,16 @@ public class StagiaireController {
 	@PostMapping("/creer")
 	public ModelAndView postForm2(@ModelAttribute("stagiaire") @Valid Stagiaire s, BindingResult result) {
 		ModelAndView mv = new ModelAndView();
-		s.setNom(s.getNom());
-		s.setPrenom(s.getPrenom());
-		s.setEmail(s.getEmail());
-		s.setPhotoUrl(s.getPhotoUrl());
-		mv.addObject("stagiaire", s);
-		// si erreur renvoyer le formulaire avec les erreurs
-		mv.setViewName("stagiaires/creerStagiaires");
-		// si tout est ok il faut sauvegarder dans service;
-		mv.setViewName("redictect:/lister");
+		if (result.hasErrors()) {
+			// si erreur renvoyer le formulaire avec les erreurs de form error
+			mv.addObject("stagiaire", s);
+			mv.setViewName("stagiaires/creerStagiaires");
+		} else {
+			// si tout est ok on sauvegarde le nouveau stagiaire et on redirige
+			// vers lister;
+			stagiaireService.save(s);
+			mv.setViewName("redirect:/stagiaires/lister");
+		}
 		return mv;
 	}
-
-	/*
-	 * @GetMapping("/update") public ModelAndView update() { ModelAndView mv =
-	 * new ModelAndView(); mv.addObject("listeStagiaires",
-	 * stagiaireService.update());
-	 * mv.setViewName("stagiaires/updateStagiaires"); return mv; }
-	 *
-	 * @GetMapping("/delete") public ModelAndView delete() { ModelAndView mv =
-	 * new ModelAndView(); mv.addObject("listeStagiaires",
-	 * stagiaireService.delete());
-	 * mv.setViewName("stagiaires/deleteStagiaires"); return mv; }
-	 */
-
 }
