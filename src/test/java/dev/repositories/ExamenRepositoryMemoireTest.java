@@ -2,17 +2,17 @@ package dev.repositories;
 
 import static org.junit.Assert.assertTrue;
 
-import dev.entites.Examen;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import dev.entites.Examen;
 import dev.repositories.examen.ExamenBaseRepositoryMemoire;
 
 //Sélection des classes de configuration Spring à utiliser lors du test
-@ContextConfiguration(classes = { ExamenBaseRepositoryMemoire.class })
+@ContextConfiguration(classes = { ExamenBaseRepositoryMemoire.class, ExamenRepositoryTestConfig.class })
 // Configuration JUnit pour que Spring prenne la main sur le cycle de vie du
 // test
 @RunWith(SpringRunner.class)
