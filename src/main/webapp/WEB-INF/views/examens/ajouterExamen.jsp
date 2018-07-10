@@ -9,30 +9,63 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-	<form:form method="post" modelAttribute="examen">
-		<tr>
-			<td>Titre</td>
-			<td><form:input path="titre" /></td>
-		</tr>
-		<tr>
-			<td>Quizz</td>
-			<form:select path="quizz.id">
-				<form:option value="NONE" label="--- Select ---" />
-				<form:options items="${quizzList}" itemValue="id" itemLabel="titre" />
-			</form:select>
-		</tr>
-		<tr>
-			<td>Classe</td>
-			<form:select path="classe.id">
-				<form:option value="NONE" label="--- Select ---" />
-				<form:options items="${classeList}" itemValue="id" itemLabel="nom" />
-			</form:select>
-		</tr>
+	<div class="container">
+		<div class="row centered-form">
+			<div
+				class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Ajout d'un nouveau quizz</h3>
+					</div>
+					<div class="panel-body">
+						<form:form method="post" modelAttribute="examen" role="form">
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<form:input path="titre" class="form-control input-sm"
+											placeholder="Titre du quizz" />
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<form:select path="quizz.id" class="form-control input-sm">
+											<form:option value="NONE" label="--- Select ---" />
+											<form:options items="${quizzList}" itemValue="id"
+												itemLabel="titre" />
+										</form:select>
+									</div>
+								</div>
+							</div>
 
-		<input type="submit" value="Valider">
-	</form:form>
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-12">
+									<div class="form-group">
+										<form:select path="classe.id" class="form-control input-sm">
+											<form:option value="NONE" label="--- Select ---" />
+											<form:options items="${classeList}" itemValue="id" itemLabel="nom" />
+										</form:select>
+									</div>
+								</div>
+
+							</div>
+
+							<input type="submit" value="Ajouter"
+								class="btn btn-info btn-block">
+
+						</form:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<!-- Optional JavaScript -->
