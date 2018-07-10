@@ -6,11 +6,11 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import dev.entites.Stagiaire;
 
-@Service
+@Repository
 public class StagiaireRepositoryMemoire implements StagiaireRepository {
 
 	private List<Stagiaire> stagiaires = new ArrayList<>();
