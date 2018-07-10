@@ -8,18 +8,21 @@
 	<bean id="reponse1" class="dev.entites.OptionQuestion">
 		<property name="libelle" value="1"/>
 		<property name="ok" value="false"/>
+		<property name="id" value="1"/>
 	</bean>
 	
 	<!--  Option question 2  -->
 	<bean id="reponse2" class="dev.entites.OptionQuestion">
 		<property name="libelle" value="2"/>
 		<property name="ok" value="true" />
+		<property name="id" value="2"/>
 	</bean>
 	
 	<!--  Option question 3  -->
 	<bean id="reponse3" class="dev.entites.OptionQuestion">
 		<property name="libelle" value="3"/>
 		<property name="ok" value="false" />
+		<property name="id" value="3"/>
 	</bean>
 
 	<!-- La question -->
@@ -32,6 +35,7 @@
 				<ref bean="reponse3"/>
 			</util:list>
 		</property>
+		<property name="id" value="1"/>
 	</bean>
 
 </beans>
