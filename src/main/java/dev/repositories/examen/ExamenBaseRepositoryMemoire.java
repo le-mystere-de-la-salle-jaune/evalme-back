@@ -1,15 +1,16 @@
 package dev.repositories.examen;
 
-import dev.repositories.BaseRepositoryMemoire;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 import dev.entites.Examen;
+import dev.repositories.BaseRepositoryMemoire;
 
-@Service
-public class ExamenBaseRepositoryMemoire extends BaseRepositoryMemoire {
+@Repository
+public class ExamenBaseRepositoryMemoire extends BaseRepositoryMemoire<Examen> implements ExamenRepository {
 
-	public ExamenBaseRepositoryMemoire() {
-		super("jdd/jdd-examens.xml", Examen.class);
+	public ExamenBaseRepositoryMemoire(@Value("${jdd.examens}") String path) {
+		super(path, Examen.class);
 	}
 
 }
