@@ -29,9 +29,9 @@
 				<tr>
 					<td>${c.getId()}</td>
 					<td>${c.nom}</td>
-					<td><c:forEach items="${c.stagiaires}" var="st">
-							[${st.nom} , $ {st.prenom}]
-						</c:forEach></td>
+					<td>[ <c:forEach items="${c.stagiaires}" var="st">
+							[${st.nom} , ${st.prenom}]
+						</c:forEach> ]</td>
 				</tr>
 			</c:forEach>
 		</tbody>
