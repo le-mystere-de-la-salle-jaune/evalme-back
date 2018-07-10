@@ -31,7 +31,8 @@
 					<td>${c.nom}</td>
 					<td>[ <c:forEach items="${c.stagiaires}" var="st">
 							[${st.nom} , ${st.prenom}]
-						</c:forEach> ]</td>
+						</c:forEach> ]
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -49,5 +50,7 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script>
+	<script rel="stylesheet"
+		href="/webjars/bootstrap/4.1.1/css/bootstrap.min.css"></script>
 </body>
 </html>

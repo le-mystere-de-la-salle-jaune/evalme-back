@@ -46,6 +46,7 @@ public class JddClasseTest {
 		assertThat(classe2.getStagiaires().size()).isEqualTo(2);
 		assertThat(classe2.getStagiaires().get(0).getPrenom()).isEqualTo("Maxime");
 		assertThat(classe2.getStagiaires().get(1).getPrenom()).isEqualTo("Melissa");
+
 	}
 
 	@Test
@@ -59,6 +60,7 @@ public class JddClasseTest {
 		assertThat(classe3.getStagiaires().get(0).getPrenom()).isEqualTo("Maxime");
 		assertThat(classe3.getStagiaires().get(1).getPrenom()).isEqualTo("Anna");
 		assertThat(classe3.getStagiaires().get(2).getPrenom()).isEqualTo("Melissa");
+
 	}
 
 	@After
