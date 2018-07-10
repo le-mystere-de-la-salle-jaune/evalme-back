@@ -1,3 +1,6 @@
+
+<%@page import="java.util.List"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!doctype html>
@@ -15,7 +18,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th scope="col">#</th>
+				<th scope="col">Id</th>
 				<th scope="col">Nom</th>
 				<th scope="col">Liste des Stagiaires</th>
 			</tr>
@@ -27,7 +30,7 @@
 					<th scope="row">${c.getId()}</th>
 					<td>${c.nom}</td>
 					<td><c:forEach items="${c.stagiaires}" var="st">
-							${c.nom}
+							${st.nom}
 						</c:forEach></td>
 				</tr>
 			</c:forEach>
