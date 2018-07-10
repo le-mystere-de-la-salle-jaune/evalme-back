@@ -25,6 +25,7 @@ public class QuizzController {
 		super();
 		this.quizzService = quizzService;
 		this.questionService = questionService;
+
 	}
 
 	@GetMapping("/lister")
@@ -60,5 +61,4 @@ public class QuizzController {
 		}
 		return mv;
 	}
-
 }
