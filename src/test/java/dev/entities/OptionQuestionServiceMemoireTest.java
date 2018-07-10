@@ -1,4 +1,5 @@
-package dev.paie.services;
+package dev.entities;
+
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -11,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import dev.entites.OptionQuestion;
+import dev.paie.services.OptionQuestionServiceMemoire;
 
 //Sélection des classes de configuration Spring à utiliser lors du test
 @ContextConfiguration(classes = { OptionQuestionServiceMemoire.class })
