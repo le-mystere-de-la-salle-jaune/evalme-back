@@ -27,10 +27,10 @@
 		<tbody>
 			<c:forEach items="${listeClasses}" var="c">
 				<tr>
-					<th scope="row">${c.getId()}</th>
+					<td>${c.getId()}</td>
 					<td>${c.nom}</td>
 					<td><c:forEach items="${c.stagiaires}" var="st">
-							${st.nom}
+							[${st.nom} , $ {st.prenom}]
 						</c:forEach></td>
 				</tr>
 			</c:forEach>
