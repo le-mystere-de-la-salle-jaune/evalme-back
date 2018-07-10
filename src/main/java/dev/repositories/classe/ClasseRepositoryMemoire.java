@@ -13,7 +13,7 @@ import dev.entites.Classe;
 @Repository
 public class ClasseRepositoryMemoire implements ClasseRepository {
 
-	private List<Classe> classes = new ArrayList();
+	private List<Classe> classes = new ArrayList<>();
 
 	@PostConstruct
 	public void initialiser() {

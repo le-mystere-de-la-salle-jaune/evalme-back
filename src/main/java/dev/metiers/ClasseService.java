@@ -20,5 +20,4 @@ public class ClasseService {
 	public List<Classe> lister() {
 		return classeRepository.findAll();
 	}
-
 }

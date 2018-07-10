@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import dev.metiers.OptionSondageService;
 
 @Controller
-@RequestMapping("/sondage/option")
+@RequestMapping("/sondages/options")
 public class OptionSondageController {
 
 	private OptionSondageService optionSondageService;
