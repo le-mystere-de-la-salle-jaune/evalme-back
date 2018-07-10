@@ -18,7 +18,6 @@ public class ExamenService {
 	}
 
 	public List<Examen> lister() {
-
 		return examenRepository.findAll();
 	}
 
