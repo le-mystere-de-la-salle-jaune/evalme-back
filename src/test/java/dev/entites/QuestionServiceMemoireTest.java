@@ -13,17 +13,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import dev.paie.services.QuestionServiceMemoire;
+import dev.repositories.question.QuestionRepositoryMemoire;
 
 //Sélection des classes de configuration Spring à utiliser lors du test
-@ContextConfiguration(classes = { QuestionServiceMemoire.class })
+@ContextConfiguration(classes = { QuestionRepositoryMemoire.class })
 // Configuration JUnit pour que Spring prenne la main sur le cycle de vie du
 // test
 @RunWith(SpringRunner.class)
 public class QuestionServiceMemoireTest {
 
 	@Autowired
-	private QuestionServiceMemoire service;
+	private QuestionRepositoryMemoire service;
 
 	@Test
 	public void test_Initialiser() {

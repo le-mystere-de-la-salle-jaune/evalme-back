@@ -1,4 +1,4 @@
-package dev.paie.services;
+package dev.repositories.question;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,12 +8,12 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import dev.entites.OptionQuestion;
 
-@Component
-public class OptionQuestionServiceMemoire implements OptionQuestionService {
+@Repository
+public class OptionQuestionRepositoryMemoire implements OptionQuestionRepository {
 
 	private List<OptionQuestion> optionQuestions = new ArrayList<>();
 

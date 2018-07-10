@@ -1,4 +1,4 @@
-package dev.entities;
+package dev.repositories;
 
 
 import static org.junit.Assert.assertEquals;
@@ -16,17 +16,17 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import dev.entites.OptionQuestion;
 import dev.entites.Question;
-import dev.paie.services.QuestionServiceMemoire;
+import dev.repositories.question.QuestionRepositoryMemoire;
 
 //Sélection des classes de configuration Spring à utiliser lors du test
-@ContextConfiguration(classes = { QuestionServiceMemoire.class })
+@ContextConfiguration(classes = { QuestionRepositoryMemoire.class })
 // Configuration JUnit pour que Spring prenne la main sur le cycle de vie du
 // test
 @RunWith(SpringRunner.class)
-public class QuestionServiceMemoireTest {
+public class QuestionRepositoryMemoireTest {
 
 	@Autowired
-	private QuestionServiceMemoire service;
+	private QuestionRepositoryMemoire service;
 
 	@Test
 	public void test_Initialiser() {
