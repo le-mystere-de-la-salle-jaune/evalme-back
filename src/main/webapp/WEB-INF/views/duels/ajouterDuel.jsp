@@ -16,7 +16,7 @@
 <body>
 	<div class="container-fluid">
 		<h1>Ajouter un duel</h1>
-		<form:form method="post" modelAttribute="duel" onsubmit="validate()">
+		<form:form method="post" modelAttribute="duel">
 			<div class="form-group">
 				<label for="stagiairesSelect">Stagiaires</label> <select multiple
 					name="listeIds" class="multiselect form-control ${isInvalidClass}"

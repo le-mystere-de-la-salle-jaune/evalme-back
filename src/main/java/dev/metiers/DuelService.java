@@ -59,4 +59,11 @@ public class DuelService {
 		this.duelRepository.delete(duel);
 	}
 
+	public Duel getById(Long id) {
+		for (Duel duel : duelRepository.findAll())
+			if (duel.getId().equals(id))
+				return duel;
+		return null;
+	}
+
 }

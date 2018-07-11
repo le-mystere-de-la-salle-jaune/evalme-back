@@ -70,7 +70,7 @@ public class DuelController {
 			mav.addObject("listeQuizzes", quizzRepository.findAll());
 			mav.setViewName("duels/ajouterDuel");
 			if (!isListeIdsOK)
-				mav.addObject("erreurListeIds", "Veuillez sélectionner deux stagiaires différents.");
+				mav.addObject("erreurListeIds", "#");
 		} else {
 			try {
 				duelService.creer(listeIds, duel.getQuizz());
@@ -80,6 +80,39 @@ public class DuelController {
 				e.printStackTrace();
 			}
 		}
+		return mav;
+	}
+
+	@GetMapping("/editer")
+	public ModelAndView setupEditerForm(@RequestParam("id") Long id) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("duel", duelService.getById(id));
+		mav.addObject("listeStagiaires", stagiaireRepository.findAll());
+		mav.addObject("listeQuizzes", quizzRepository.findAll());
+		mav.setViewName("duels/editerDuel");
+		return mav;
+	}
+
+	@PostMapping("/editer")
+	public ModelAndView submitEditerForm(@ModelAttribute("duel") Duel duel, @RequestParam("id") Long id)
+			throws Exception {
+		ModelAndView mav = new ModelAndView();
+
+		if (duel.getStagiaireA().getId().equals(duel.getStagiaireB().getId())) {
+			mav.addObject("duel", duelService.getById(id));
+			mav.addObject("listeStagiaires", stagiaireRepository.findAll());
+			mav.addObject("listeQuizzes", quizzRepository.findAll());
+			mav.addObject("erreurDoublons", "#");
+			mav.setViewName("duels/editerDuel");
+		} else {
+			duel.setId(id);
+			duel.setStagiaireA(stagiaireRepository.findById(duel.getStagiaireA().getId()).orElseThrow(Exception::new));
+			duel.setStagiaireB(stagiaireRepository.findById(duel.getStagiaireB().getId()).orElseThrow(Exception::new));
+			duel.setQuizz(quizzRepository.findById(duel.getQuizz().getId()).orElseThrow(Exception::new));
+			duelService.editer(duel);
+			mav.setViewName("redirect:/duels/lister");
+		}
+
 		return mav;
 	}
 
