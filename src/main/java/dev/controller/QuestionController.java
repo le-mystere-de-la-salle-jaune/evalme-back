@@ -61,4 +61,33 @@ public class QuestionController {
 		return mv;
 	}
 
+	@GetMapping("/maj")
+	public ModelAndView majOption() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("listeQuestions", questionService.lister());
+		mv.addObject("listeOptions", optionQuestionService.lister());
+		mv.addObject("question", new Question("0", "?"));
+		mv.setViewName("questions/majQuestions");
+		return mv;
+	}
+
+	@PostMapping("/maj")
+	public ModelAndView postMajOption(@ModelAttribute("question") Question question, @RequestParam String choix,
+			@RequestParam String[] choixOptions, BindingResult result) {
+
+		ArrayList<OptionQuestion> maList = new ArrayList<OptionQuestion>();
+		for (String option : choixOptions) {
+			maList.add(optionQuestionService.trouverAvecId(option));
+		}
+		question.setOptions(maList);
+
+		question.setId(Long.parseLong(choix));
+		questionService.getQuestionRepository().update(question);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("listeQuestions", questionService.lister());
+		mv.addObject("listeOptions", optionQuestionService.lister());
+		mv.setViewName("questions/majQuestions");
+		return mv;
+	}
+
 }
