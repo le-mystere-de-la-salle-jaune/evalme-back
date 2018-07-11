@@ -26,15 +26,15 @@ public class StagiaireRepositoryMemoireTest {
 	@Test
 	public void testFindAll() {
 		List<Stagiaire> stagiaires = service.findAll();
-		assertThat(stagiaires.size()).isEqualTo(3);
+		assertThat(stagiaires.size()).isEqualTo(8);
 
 	}
 
 	@Test
 	public void testSave() {
-		assertThat(service.findAll().size()).isEqualTo(3);
+		assertThat(service.findAll().size()).isEqualTo(8);
 		service.save(new Stagiaire());
-		assertThat(service.findAll().size()).isEqualTo(4);
+		assertThat(service.findAll().size()).isEqualTo(9);
 	}
 
 	@Test
@@ -49,10 +49,10 @@ public class StagiaireRepositoryMemoireTest {
 
 	@Test
 	public void testDelete() {
-		assertThat(service.findAll().size()).isEqualTo(4);
+		assertThat(service.findAll().size()).isEqualTo(9);
 		Stagiaire s = service.findAll().get(0);
 		service.delete(s);
-		assertThat(service.findAll().size()).isEqualTo(3);
+		assertThat(service.findAll().size()).isEqualTo(8);
 	}
 
 	// tester toutes les méthodes du service
