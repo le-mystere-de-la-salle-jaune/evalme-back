@@ -20,4 +20,8 @@ public class OptionSondageService {
 	public List<OptionSondage> lister() {
 		return optionSondageRepository.findAll();
 	}
+
+	public void save(OptionSondage option) {
+		optionSondageRepository.save(option);
+	}
 }

@@ -21,4 +21,8 @@ public class SondageService {
 		return sondageRepository.findAll();
 	}
 
+	public void save(Sondage s) {
+		sondageRepository.save(s);
+	}
+
 }
