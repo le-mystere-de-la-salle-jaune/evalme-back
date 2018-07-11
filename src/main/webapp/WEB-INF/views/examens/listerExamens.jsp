@@ -18,6 +18,7 @@
 			<th>Quizz</th>
 			<th>Classe</th>
 			<th>Moy</th>
+			<th>Edition</th>
 		</tr>
 		<c:forEach items="${ examList}" var="exam">
 			<tr>
@@ -25,6 +26,9 @@
 				<td>${exam.quizz.titre}</td>
 				<td>${exam.classe.nom}</td>
 				<td>${exam.getAvg()}</td>
+				<td><a href="/examens/editer?id=${exam.id}" class="btn btn-secondary" role="button">
+					 Editer
+				</a></td>
 			</tr>
 		</c:forEach>
 	</table>

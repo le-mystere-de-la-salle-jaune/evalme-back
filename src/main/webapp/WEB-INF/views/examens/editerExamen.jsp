@@ -12,7 +12,7 @@
 <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-	<link rel="stylesheet" href="ajouterExamen.css">
+<link rel="stylesheet" href="ajouterExamen.css">
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -20,28 +20,27 @@
 <body>
 	<div class="container">
 		<div class="row centered-form">
-			<div
-				class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+			<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h3 class="panel-title">Ajout d'un nouveau quizz</h3>
 					</div>
-					
 					<div class="panel-body">
-						<form:form method="post" modelAttribute="examen" role="form">
+						<form:form method="post" modelAttribute="examen" role="form" action="/examens/editer">
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<form:select path="classe.id" class="form-control input-sm">
-											<form:option value="NONE" label="--- Select ---" />
-											<form:options items="${classeList}" itemValue="id" itemLabel="nom" />
+											<option value="NONE" label="--- Select ---" />
+											<form:options items="${classeList}" itemValue="id"
+												itemLabel="nom" />
 										</form:select>
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
 										<form:select path="quizz.id" class="form-control input-sm">
-											<form:option value="NONE" label="--- Select ---" />
+											<option value="NONE" label="--- Select ---" />
 											<form:options items="${quizzList}" itemValue="id" itemLabel="titre" />
 										</form:select>
 									</div>
@@ -54,9 +53,9 @@
 											placeholder="Titre du quizz" />
 									</div>
 								</div>
-
 							</div>
-							<input type="submit" value="Ajouter" class="btn btn-info btn-block">
+							<form:hidden path = "id" value = "${examen.id}"/>
+							<input type="submit" value="Valider" class="btn btn-info btn-block">
 						</form:form>
 					</div>
 				</div>
@@ -64,6 +63,39 @@
 		</div>
 	</div>
 
+	<div class="container">
+		<table class="table table-striped col-12">
+			<tr>
+				<th>Stagiaire</th>
+				<th>Note</th>
+			</tr>
+			<c:forEach items="${ noteList}" var="note">
+				<tr>
+					<td>${note.stagiaire.prenom}</td>
+					<td>${note.noteSur20}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	
+	
+	<div class="row">
+			<form:form method="post" modelAttribute="note" role="form" action="/examens/editer/note">
+			<div class=" col-12 col-sm-4">
+				<form:select path="stagiaire.id" class="form-control input-sm ">
+					<option value="NONE" label="--- Select ---" />
+					<form:options items="${listStagiaire}" itemValue="id" itemLabel="prenom" />
+				</form:select>
+		</div>
+		<div class="col-12 col-sm-4">
+			<form:input path="noteSur20"/>
+		</div>
+		<div class="col-12 col-sm-4">
+			<input type="submit" value="Valider" class="btn btn-info">
+		</div>
+		<form:hidden path = "id" value = "${examen.id}"/>
+		</form:form>
+	</div>
+</div>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
