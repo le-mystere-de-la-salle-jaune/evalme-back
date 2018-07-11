@@ -11,12 +11,13 @@
 	
 	<bean id="q1" class="dev.entites.Quizz">
 		<constructor-arg name="titre" value="le carre rouge"> </constructor-arg>
-		<constructor-arg name="questions">
+		
+		<!--<constructor-arg name="questions">
 			<util:list>
 				<ref bean="q3"/>
 				<ref bean="q2"/>
 			</util:list>
-		</constructor-arg>
+		</constructor-arg>-->
 	</bean>
 	
 	<bean id="q2" class="dev.entites.Question">
@@ -61,6 +62,8 @@
 		<constructor-arg name="quizzes">
 			<util:list>
 				<ref bean="q1"/>
+				<ref bean="qs1"/>
+				<ref bean="qs2"/>
 			</util:list>
 		</constructor-arg>
 	</bean>

@@ -21,4 +21,7 @@ public class StagiaireService {
 		return stagiaireRepository.findAll();
 	}
 
+	public void save(Stagiaire stagiaire) {
+		stagiaireRepository.save(stagiaire);
+	}
 }
