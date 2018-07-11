@@ -24,4 +24,15 @@ public class StagiaireService {
 	public void save(Stagiaire stagiaire) {
 		stagiaireRepository.save(stagiaire);
 	}
+
+	public void update(Stagiaire StagiaireAvecId) {
+		stagiaireRepository.update(StagiaireAvecId);
+	}
+
+	public Stagiaire findStagiaireById(Long id) {
+		return stagiaireRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("stagiaire non trouvé avec l'id " + id));
+
+	}
+
 }

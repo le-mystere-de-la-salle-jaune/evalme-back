@@ -11,7 +11,7 @@
 
 <body>
 	<div class="container-fluid">
-		<h1>Créer mon profil</h1>
+		<h1>Editer mon profil</h1>
 		<form:form modelAttribute="stagiaire">
 			<div class="form-group row justify-center">
 				<label for="inputName" class="col-md-2 col-form-label">Nom</label>
@@ -51,7 +51,7 @@
 			</div>
 			<div class="row justify-content-end">
 				<div class="col-10">
-					<button type="submit" class="btn-create btn btn-primary">Créer</button>
+					<button type="submit" class="btn-create btn btn-primary">Sauvegarder</button>
 				</div>
 			</div>
 		</form:form>
