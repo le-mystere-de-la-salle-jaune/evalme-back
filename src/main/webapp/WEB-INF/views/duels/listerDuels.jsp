@@ -19,7 +19,7 @@
 					"${duel.quizz.titre}" </a>
 			</c:forEach>
 		</div>
-		<a href='<c:url value="/duels/ajouter" />' class="btn btn-primary mt-2">Créer
+		<a href='<c:url value="/duels/ajouter" />' class="btn btn-primary mt-2">Ajouter
 			un duel</a>
 	</div>
 </body>
