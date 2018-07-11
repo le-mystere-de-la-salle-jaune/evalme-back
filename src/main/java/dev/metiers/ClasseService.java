@@ -20,8 +20,6 @@ public class ClasseService {
 	public List<Classe> lister() {
 		return classeRepository.findAll();
 	}
-<<<<<<< HEAD
-=======
 
 	public void ajouter(Classe classe) {
 		classeRepository.save(classe);
@@ -33,5 +31,4 @@ public class ClasseService {
 	public void supprimer() {
 	}
 
->>>>>>> avancement
 }
