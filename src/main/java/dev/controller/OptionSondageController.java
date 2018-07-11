@@ -1,5 +1,7 @@
 package dev.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -37,19 +39,26 @@ public class OptionSondageController {
 	}
 
 	@PostMapping("/ajouter")
-	public ModelAndView save(@ModelAttribute("optionsondage") OptionSondage optionSondage, BindingResult result,
+	public ModelAndView save(@ModelAttribute("optionsondage") @Valid OptionSondage optionSondage, BindingResult result,
 			ModelMap model) {
+
 		ModelAndView mv = new ModelAndView();
-		Long id = 0L;
-		for (OptionSondage os : optionSondageService.lister()) {
-			if (id >= os.getId()) {
-				id = os.getId();
-				id++;
+
+		if (result.hasErrors()) {
+			mv.addObject("optionsondage", optionSondage);
+			mv.setViewName("optionSondages/ajouterOptionSondage");
+		} else {
+			Long id = 0L;
+			for (OptionSondage os : optionSondageService.lister()) {
+				if (id >= os.getId()) {
+					id = os.getId();
+					id++;
+				}
 			}
+			optionSondage.setId(id);
+			optionSondageService.save(optionSondage);
+			mv.setViewName("redirect:/sondages/options/lister");
 		}
-		optionSondage.setId(id);
-		optionSondageService.save(optionSondage);
-		mv.setViewName("redirect:/sondages/options/lister");
 		return mv;
 	}
 }

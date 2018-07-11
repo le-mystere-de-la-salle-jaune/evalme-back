@@ -34,11 +34,6 @@ public class OptionSondageRepositoryMemoire implements OptionSondageRepository {
 
 	@Override
 	public void save(OptionSondage entite) {
-		// for (OptionSondage option : optionSondages) {
-		// if (option.getId() >= entite.getId()) {
-		// entite.setId(option.getId() + 1L);
-		// }
-		// }
 		optionSondages.add(entite);
 	}
 
