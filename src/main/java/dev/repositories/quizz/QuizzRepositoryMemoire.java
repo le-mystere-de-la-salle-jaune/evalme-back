@@ -2,6 +2,7 @@ package dev.repositories.quizz;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -57,6 +58,11 @@ public class QuizzRepositoryMemoire implements QuizzRepository {
 	@Override
 	public void delete(Quizz quizz) {
 		this.quizzes.remove(quizz);
+	}
+
+	@Override
+	public Optional<Quizz> findById(Long id) {
+		return this.quizzes.stream().filter(s -> s.getId().equals(id)).findFirst();
 	}
 
 }

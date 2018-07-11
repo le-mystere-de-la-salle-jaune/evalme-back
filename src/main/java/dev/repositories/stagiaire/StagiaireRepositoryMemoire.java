@@ -2,6 +2,7 @@ package dev.repositories.stagiaire;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -61,6 +62,11 @@ public class StagiaireRepositoryMemoire implements StagiaireRepository {
 	public void delete(Stagiaire stagiaire) {
 		this.stagiaires.remove(stagiaire);
 
+	}
+
+	@Override
+	public Optional<Stagiaire> findById(Long id) {
+		return this.stagiaires.stream().filter(s -> s.getId().equals(id)).findFirst();
 	}
 
 }

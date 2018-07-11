@@ -1,9 +1,13 @@
 package dev.entites;
 
+import javax.validation.constraints.NotNull;
+
 public class Duel extends BaseEntite {
 
 	private Stagiaire stagiaireA;
 	private Stagiaire stagiaireB;
+
+	@NotNull
 	private Quizz quizz;
 
 	public Stagiaire getStagiaireA() {
