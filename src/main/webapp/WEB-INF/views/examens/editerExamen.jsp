@@ -51,6 +51,7 @@
 									<div class="form-group">
 										<form:input path="titre" class="form-control input-sm"
 											placeholder="Titre du quizz" />
+											<form:errors path="titre"></form:errors>
 									</div>
 								</div>
 							</div>
@@ -77,7 +78,7 @@
 			</c:forEach>
 		</table>
 	
-	
+	<h4>Ajout d'une note pour un stagiaire :</h4>
 	<div class="row">
 			<form:form method="post" modelAttribute="note" role="form" action="/examens/editer/note">
 			<div class=" col-12 col-sm-4">
@@ -88,6 +89,7 @@
 		</div>
 		<div class="col-12 col-sm-4">
 			<form:input path="noteSur20"/>
+			<form:errors path="noteSur20"></form:errors>
 		</div>
 		<div class="col-12 col-sm-4">
 			<input type="submit" value="Valider" class="btn btn-info">

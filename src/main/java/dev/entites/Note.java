@@ -1,8 +1,14 @@
 package dev.entites;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 public class Note extends BaseEntite {
 
 	private Stagiaire stagiaire;
+
+	@Min(value = 0)
+	@Max(value = 20)
 	private Float noteSur20;
 
 	public Note() {
