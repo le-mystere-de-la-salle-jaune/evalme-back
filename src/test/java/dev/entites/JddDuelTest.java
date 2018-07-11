@@ -33,18 +33,18 @@ public class JddDuelTest {
 		assertThat(duel2.getQuizz().getTitre()).isEqualTo("Géographie");
 		assertThat(duel2.getStagiaireA().getNom()).isEqualTo("Martin");
 		assertThat(duel2.getStagiaireA().getPrenom()).isEqualTo("Marine");
-		assertThat(duel2.getStagiaireB().getNom()).isEqualTo("Detable");
-		assertThat(duel2.getStagiaireB().getPrenom()).isEqualTo("Sylvain");
+		assertThat(duel2.getStagiaireB().getNom()).isEqualTo("Mars");
+		assertThat(duel2.getStagiaireB().getPrenom()).isEqualTo("Françoise");
 	}
 
 	@Test
 	public void testDuel3() {
 		Duel duel3 = context.getBean("duel3", Duel.class);
 		assertThat(duel3.getQuizz().getTitre()).isEqualTo("Mathématiques");
-		assertThat(duel3.getStagiaireA().getNom()).isEqualTo("Mars");
-		assertThat(duel3.getStagiaireA().getPrenom()).isEqualTo("Françoise");
-		assertThat(duel3.getStagiaireB().getNom()).isEqualTo("Dupont");
-		assertThat(duel3.getStagiaireB().getPrenom()).isEqualTo("Alain");
+		assertThat(duel3.getStagiaireA().getNom()).isEqualTo("Dupont");
+		assertThat(duel3.getStagiaireA().getPrenom()).isEqualTo("Alain");
+		assertThat(duel3.getStagiaireB().getNom()).isEqualTo("Mars");
+		assertThat(duel3.getStagiaireB().getPrenom()).isEqualTo("Françoise");
 	}
 
 	@After
