@@ -20,4 +20,20 @@ public class QuestionService {
 	public List<Question> lister() {
 		return questionRepository.findAll();
 	}
+
+	/**
+	 * @return the questionRepository
+	 */
+	public QuestionRepository getQuestionRepository() {
+		return questionRepository;
+	}
+
+	/**
+	 * @param questionRepository
+	 *            the questionRepository to set
+	 */
+	public void setQuestionRepository(QuestionRepository questionRepository) {
+		this.questionRepository = questionRepository;
+	}
+
 }

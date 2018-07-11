@@ -13,15 +13,32 @@
 <body>
 	<h1>Créer une option pour les questions</h1>
 
-	<form>
-		<input name="id" />
 
-		<input name="libelle" />
-		
-		<input name="ok" />
+	<form:form modelAttribute="option">
 
+		<table class="table table-striped">
+			<tbody>
+				<tr>
+					<td>Identifiant :</td>
+					<td><form:input type="number" path="id" required="required" /> 
+					<form:errors path="id">/!\Veuillez entrer un nombre/!\</form:errors></td>
+				</tr>
+				<tr>
+					<td>Libelle :</td>
+					<td><form:input path="libelle" required="required" /> 
+					<form:errors path="libelle">/!\Veuillez entrer un libelle/!\</form:errors></td>
+				</tr>
+				<tr>
+					<td>Bonne ou mauvaise réponse ? :</td>
+					<td><form:select path="ok" required="required">
+							<option value="false">Mauvaise réponse</option>
+							<option value="true">Bonne réponse</option>
+					</form:select></td>
+				</tr>
+			</tbody>
+		</table>
 		<input type="submit" value="Valider">
-	</form>
+	</form:form>
 
 
 	<!-- jQuery first, then poper, then Bootstrap JS. -->
