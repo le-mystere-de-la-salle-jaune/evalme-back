@@ -39,7 +39,6 @@ public class ExamenController {
 		this.examenService = examenService;
 		this.quizzService = quizzService;
 		this.classeService = classeService;
-
 		this.stagiaireService = stagiaireService;
 
 	}
@@ -170,5 +169,4 @@ public class ExamenController {
 		mv.setViewName("examens/editerExamen");
 		return mv;
 	}
-
 }

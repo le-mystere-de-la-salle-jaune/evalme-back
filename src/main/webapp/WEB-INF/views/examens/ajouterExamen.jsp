@@ -54,7 +54,6 @@
 											placeholder="Titre du quizz" />
 									</div>
 								</div>
-
 							</div>
 							<input type="submit" value="Ajouter" class="btn btn-info btn-block">
 						</form:form>
@@ -64,6 +63,14 @@
 		</div>
 	</div>
 
+							</div>
+							<input type="submit" value="Ajouter" class="btn btn-info btn-block">
+						</form:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
