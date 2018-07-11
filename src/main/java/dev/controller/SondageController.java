@@ -58,29 +58,36 @@ public class SondageController {
 
 		ModelAndView mv = new ModelAndView();
 
-		for (Classe c : classeService.lister()) {
-			if (c.getId() == sondage.getClasse().getId()) {
-				sondage.setClasse(c);
-			}
-		}
-		for (OptionSondage os : optionSondageService.lister()) {
-			for (Long indice : options) {
-				if (os.getId().equals(indice)) {
-					sondage.getOptions().add(os);
+		if (result.hasErrors()) {
+			mv.addObject("listeClasse", classeService.lister());
+			mv.addObject("listeOption", optionSondageService.lister());
+			mv.addObject("sondage", sondage);
+			mv.addObject("options", options);
+			mv.setViewName("sondages/ajouterSondage");
+		} else {
+			for (Classe c : classeService.lister()) {
+				if (c.getId() == sondage.getClasse().getId()) {
+					sondage.setClasse(c);
 				}
 			}
-		}
-		Long id = 0L;
-		for (Sondage s : sondageService.lister()) {
-			if (id >= s.getId()) {
-				id = s.getId();
-				id++;
+			for (OptionSondage os : optionSondageService.lister()) {
+				for (Long indice : options) {
+					if (os.getId().equals(indice)) {
+						sondage.getOptions().add(os);
+					}
+				}
 			}
+			Long id = 0L;
+			for (Sondage s : sondageService.lister()) {
+				if (id >= s.getId()) {
+					id = s.getId();
+					id++;
+				}
+			}
+			sondage.setId(id);
+			sondageService.save(sondage);
+			mv.setViewName("redirect:/sondages/lister");
 		}
-		sondage.setId(id);
-		sondageService.save(sondage);
-		mv.setViewName("redirect:/sondages/lister");
-
 		return mv;
 	}
 }
