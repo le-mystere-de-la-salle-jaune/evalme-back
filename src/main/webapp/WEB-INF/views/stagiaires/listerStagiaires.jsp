@@ -27,13 +27,15 @@
 				<!-- JSTL itération sur la liste des stagiaires-->
 				<c:forEach items="${listeStagiaires}" var="st">
 					<tr>
-						<th>${st.nom}</th>
-						<td>${st.prenom}</td>
-						<td>${st.email}</td>
+						<td><c:out value="${st.nom}"></c:out></td>
+						<td><c:out value="${st.prenom}"></c:out></</td>
+						<td><c:out value="${st.email}"></c:out></td>
 						<td><img src="${st.photoUrl}" alt="photo de profil"
 							width="13%"></td>
 						<td><button type="submit" class="btn-create btn btn-primary"
 								onclick="window.location.href='<c:url value="/stagiaires/editer?id=${st.id}"/>'">Editer</button></td>
+						<td><button type="submit" class="btn-create btn btn-danger"
+								onclick="window.location.href='<c:url value="/stagiaires/supprimer?id=${st.id}"/>'">Supprimer</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
