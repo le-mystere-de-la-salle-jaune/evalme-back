@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import dev.entites.OptionQuestion;
@@ -43,6 +44,26 @@ public class OptionQuestionController {
 		optionQuestionService.getOptionQuestionRepository().save(option);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("questions/creerOptionQuestions");
+		return mv;
+	}
+
+	@GetMapping("/majOption")
+	public ModelAndView majOption() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("listeOptionQuestions", optionQuestionService.lister());
+		mv.addObject("option", new OptionQuestion("0", "?", "false"));
+		mv.setViewName("questions/majOptionQuestions");
+		return mv;
+	}
+
+	@PostMapping("/majOption")
+	public ModelAndView postMajOption(@ModelAttribute("option") OptionQuestion option, @RequestParam String choix,
+			BindingResult result) {
+		option.setId(Long.parseLong(choix));
+		optionQuestionService.getOptionQuestionRepository().update(option);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("listeOptionQuestions", optionQuestionService.lister());
+		mv.setViewName("questions/majOptionQuestions");
 		return mv;
 	}
 
