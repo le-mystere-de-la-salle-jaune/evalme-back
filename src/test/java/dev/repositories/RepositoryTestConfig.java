@@ -5,6 +5,6 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @PropertySource("application.properties")
-public class ExamenRepositoryTestConfig {
+public class RepositoryTestConfig {
 
 }

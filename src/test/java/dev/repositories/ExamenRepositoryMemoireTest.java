@@ -12,7 +12,7 @@ import dev.entites.Examen;
 import dev.repositories.examen.ExamenBaseRepositoryMemoire;
 
 //Sélection des classes de configuration Spring à utiliser lors du test
-@ContextConfiguration(classes = { ExamenBaseRepositoryMemoire.class, ExamenRepositoryTestConfig.class })
+@ContextConfiguration(classes = { ExamenBaseRepositoryMemoire.class, RepositoryTestConfig.class })
 // Configuration JUnit pour que Spring prenne la main sur le cycle de vie du
 // test
 @RunWith(SpringRunner.class)
