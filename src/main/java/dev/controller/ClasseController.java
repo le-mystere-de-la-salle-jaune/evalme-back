@@ -22,9 +22,6 @@ public class ClasseController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listeClasses", classeService.lister());
 		mv.setViewName("classes/listerClasses");
-		System.out.println(classeService.lister().get(0).getId());
-		System.out.println(classeService.lister().get(1).getId());
-		System.out.println(classeService.lister().get(2).getId());
 		return mv;
 	}
 

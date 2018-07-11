@@ -26,4 +26,19 @@ public class ExamenService {
 		examenRepository.save(examToAdd);
 	}
 
+	public Examen getById(Long id) {
+
+		for (Examen e : examenRepository.findAll()) {
+			if (e.getId().equals(id)) {
+				return e;
+			}
+		}
+
+		return null;
+	}
+
+	public void updateById(Examen entiteAvecId) {
+		examenRepository.update(entiteAvecId);
+	}
+
 }

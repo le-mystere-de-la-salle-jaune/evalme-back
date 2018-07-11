@@ -5,17 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
 
-	<bean id="s1" class="dev.entites.Stagiaire" p:prenom="Maxime" p:nom="Tremion" 
-	p:email="maxime.tremion@hotmail.fr" p:photoUrl="image/photoMaximeTremion">
-	</bean>
-	
-	<bean id="s2" class="dev.entites.Stagiaire" p:prenom="Anna" p:nom="Couvril" 
-	p:email="anna.couvril@hotmail.fr" p:photoUrl="image/photoAnnaCouvril">
-	</bean>
-	
-	<bean id="s3" class="dev.entites.Stagiaire" p:prenom="Melissa" p:nom="Noguera" 
-	p:email="melissa.nogueral@hotmail.fr" p:photoUrl="image/photoMelissaNoguera">
-	</bean>
+	<import resource="jdd-stagiaire.xml"/>
 
 	<bean id="c1" class="dev.entites.Classe" p:nom="D11">
 		<property name="stagiaires">
