@@ -21,9 +21,9 @@
         <tbody>
             <c:forEach items="${listeQuizz}" var="quizz">
                 <tr>
-                    <td>${quizz.titre}</td><td>-----------------------------------------------</td>
+                    <td><c:out value="${quizz.titre}"></c:out></td><td>-----------------------------------------------</td>
                     <c:forEach items="${quizz.questions}" var="questions">
-                           <tr><td></td><td>${questions.titre}</td></tr>
+                           <tr><td></td><td><c:out value="${questions.titre}"></c:out></td></tr>
                         </c:forEach>
                 </tr>
             </c:forEach>

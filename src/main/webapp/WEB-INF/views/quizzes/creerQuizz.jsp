@@ -16,7 +16,7 @@
 			<div class="form-group row justify-center">
 				<label for="inputTitle" class="col-md-1 col-form-label">Titre</label>
 				<div class="col-sm-8">
-					<form:input path="titre" />
+					<form:input path="titre"/>
 					<form:errors path="titre">
 						<font color="red">Titre obligatoire (minimum 5 caractères)</font>
 					</form:errors>
