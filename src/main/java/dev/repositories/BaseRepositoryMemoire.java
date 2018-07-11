@@ -40,10 +40,14 @@ public abstract class BaseRepositoryMemoire<T extends BaseEntite> implements Cru
 
 	@Override
 	public void update(T entityWithId) {
-		for (T elem : entityList) {
-			if (elem.getId().equals(entityWithId.getId())) {
-				entityList.set(entityList.indexOf(elem), entityWithId);
+		boolean entityFound = false;
+		int i = 0;
+		while (i < entityList.size() && !entityFound) {
+			if (entityList.get(i).getId().equals(entityWithId.getId())) {
+				entityList.set(i, entityWithId);
+				entityFound = true;
 			}
+			i++;
 		}
 	}
 
@@ -52,6 +56,10 @@ public abstract class BaseRepositoryMemoire<T extends BaseEntite> implements Cru
 		if (entityList.contains(entite)) {
 			entityList.remove(entite);
 		}
+	}
+
+	public List<T> getEntityList() {
+		return entityList;
 	}
 
 }

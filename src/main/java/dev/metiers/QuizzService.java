@@ -21,4 +21,16 @@ public class QuizzService {
 		return quizzRepository.findAll();
 	}
 
+	public void save(Quizz quizz) {
+		quizzRepository.save(quizz);
+	}
+
+	public void update(Quizz quizz) {
+		quizzRepository.update(quizz);
+	}
+
+	public void delete(Quizz quizz) {
+		quizzRepository.delete(quizz);
+	}
+
 }
