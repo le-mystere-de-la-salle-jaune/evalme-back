@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import dev.entites.Quizz;
@@ -56,6 +57,33 @@ public class QuizzController {
 			// si tout est ok on sauvegarde le nouveau stagiaire et on redirige
 			// vers lister;
 			quizzService.save(quizz);
+			mv.setViewName("redirect:/quizzes/lister");
+		}
+		return mv;
+	}
+
+	@GetMapping("/editer")
+	public ModelAndView FormFromId(@RequestParam("id") Long id) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("questions", questionService.lister());
+		mv.addObject("quizz", quizzService.findQuizzById(id));
+		mv.setViewName("quizzes/creerQuizz");
+		return mv;
+	}
+
+	@PostMapping("/editer")
+	public ModelAndView editerForm(@ModelAttribute("quizz") @Valid Quizz quizz, BindingResult result) {
+		ModelAndView mv = new ModelAndView();
+		if (result.hasErrors()) {
+			// si erreur renvoyer le formulaire avec les erreurs de form error
+			mv.addObject("questions", questionService.lister());
+			mv.addObject("quizz", quizz);
+			mv.setViewName("quizzes/creerQuizz");
+		} else {
+			// si tout est ok on sauvegarde les modifications du stagiaire et on
+			// redirige
+			// vers lister;
+			quizzService.update(quizz);
 			mv.setViewName("redirect:/quizzes/lister");
 		}
 		return mv;
