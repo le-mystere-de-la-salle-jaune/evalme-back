@@ -14,7 +14,7 @@ import dev.entites.Stagiaire;
 import dev.repositories.stagiaire.StagiaireRepositoryMemoire;
 
 //Sélection des classes de configuration Spring à utiliser lors du test
-@ContextConfiguration(classes = { StagiaireRepositoryMemoire.class })
+@ContextConfiguration(classes = { StagiaireRepositoryMemoire.class, RepositoryTestConfig.class })
 // Configuration JUnit pour que Spring prenne la main sur le cycle de vie du
 // test
 @RunWith(SpringRunner.class)

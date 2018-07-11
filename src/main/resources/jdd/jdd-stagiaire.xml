@@ -5,7 +5,6 @@
 
 	<!-- Création d'un bean stagiaire1 -->
 	<bean id="stagiaire1" class="dev.entites.Stagiaire">
-		<property name="id" value="1" />
 		<property name="prenom" value="Alain" />
 		<property name="nom" value="Dupont" />
 		<property name="email" value="alain.dupont@gmail.com" />
@@ -16,7 +15,6 @@
 
 	<!-- Création d'un bean stagiaire2 -->
 	<bean id="stagiaire2" class="dev.entites.Stagiaire">
-		<property name="id" value="2" />
 		<property name="prenom" value="Marine" />
 		<property name="nom" value="Martin" />
 		<property name="email" value="marine.matin@gmail.com" />
@@ -27,7 +25,6 @@
 
 	<!-- Création d'un bean stagiaire3 -->
 	<bean id="stagiaire3" class="dev.entites.Stagiaire">
-		<property name="id" value="3" />
 		<property name="prenom" value="Françoise" />
 		<property name="nom" value="Mars" />
 		<property name="email" value="francoise.mars@gmail.com" />
