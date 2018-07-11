@@ -43,7 +43,7 @@
 					<div class="invalid-feedback">Veuillez choisir un quizz.</div>
 				</form:errors>
 			</div>
-			<button type="submit" class="btn btn-primary">Envoyer</button>
+			<button type="submit" class="btn btn-primary">Ajouter</button>
 			<a href='<c:url value="/duels/lister" />' class="btn btn-secondary">Retour
 				à la liste</a>
 		</form:form>

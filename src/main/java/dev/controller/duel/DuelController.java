@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,10 @@ import dev.metiers.DuelService;
 import dev.repositories.quizz.QuizzRepository;
 import dev.repositories.stagiaire.StagiaireRepository;
 
+/**
+ * @author Mayeul
+ *
+ */
 @Controller
 @RequestMapping("/duels")
 public class DuelController {
@@ -27,6 +32,8 @@ public class DuelController {
 	private QuizzRepository quizzRepository;
 
 	/**
+	 * Constructeur
+	 * 
 	 * @param duelService
 	 * @param stagiaireRepository
 	 * @param quizzRepository
@@ -39,6 +46,11 @@ public class DuelController {
 		this.quizzRepository = quizzRepository;
 	}
 
+	/**
+	 * Liste des duels
+	 * 
+	 * @return
+	 */
 	@GetMapping("/lister")
 	public ModelAndView lister() {
 		ModelAndView mav = new ModelAndView();
@@ -47,6 +59,11 @@ public class DuelController {
 		return mav;
 	}
 
+	/**
+	 * Affichage du formulaire d'ajout d'un duel
+	 * 
+	 * @return
+	 */
 	@GetMapping("/ajouter")
 	public ModelAndView setupAjouterForm() {
 		ModelAndView mav = new ModelAndView();
@@ -57,6 +74,14 @@ public class DuelController {
 		return mav;
 	}
 
+	/**
+	 * Envoi du formulaire d'ajout d'un duel
+	 * 
+	 * @param duel
+	 * @param result
+	 * @param listeIds
+	 * @return
+	 */
 	@PostMapping("/ajouter")
 	public ModelAndView submitAjouterForm(@ModelAttribute("duel") @Valid Duel duel, BindingResult result,
 			@RequestParam List<Long> listeIds) {
@@ -83,6 +108,12 @@ public class DuelController {
 		return mav;
 	}
 
+	/**
+	 * Affichage du formulaire de mise à jour d'un duel
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/editer")
 	public ModelAndView setupEditerForm(@RequestParam("id") Long id) {
 		ModelAndView mav = new ModelAndView();
@@ -93,6 +124,14 @@ public class DuelController {
 		return mav;
 	}
 
+	/**
+	 * Envoi du formulaire de mise à jour d'un duel
+	 * 
+	 * @param duel
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping("/editer")
 	public ModelAndView submitEditerForm(@ModelAttribute("duel") Duel duel, @RequestParam("id") Long id)
 			throws Exception {
@@ -117,8 +156,24 @@ public class DuelController {
 	}
 
 	/**
-	 * Indique si la liste d'ids de stagiaires contient bien 2 stagiaires
-	 * différents
+	 * Envoi de la requête de suppression d'un duel
+	 * 
+	 * @param duel
+	 * @param id
+	 * @return
+	 */
+	@DeleteMapping("/duels/editer")
+	public ModelAndView supprimer(@RequestParam("id") Long id) {
+		ModelAndView mav = new ModelAndView();
+		Duel duel = duelService.getById(id);
+		duelService.supprimer(duel);
+		mav.setViewName("redirect:/duels/lister");
+		return mav;
+	}
+
+	/**
+	 * Indique si une liste d'ids de stagiaires contient bien 2 et seulement 2
+	 * stagiaires différents pour créer un duel cohérent
 	 * 
 	 * @param listeIds
 	 * @return
