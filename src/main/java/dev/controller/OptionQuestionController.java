@@ -1,10 +1,11 @@
 package dev.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import dev.entites.OptionQuestion;
@@ -32,18 +33,14 @@ public class OptionQuestionController {
 	@GetMapping("/creerOption")
 	public ModelAndView creerOption() {
 		ModelAndView mv = new ModelAndView();
+		mv.addObject("option", new OptionQuestion("0", "?", "false"));
 		mv.setViewName("questions/creerOptionQuestions");
 		return mv;
 	}
 
 	@PostMapping("/creerOption")
-	public ModelAndView postCreerOption(@RequestParam String id, @RequestParam String libelle,
-			@RequestParam String ok) {
-		OptionQuestion newOption = new OptionQuestion();
-		newOption.setId(Long.parseLong(id));
-		newOption.setLibelle(libelle);
-		newOption.setOk(Boolean.valueOf(ok));
-		optionQuestionService.lister().add(newOption);
+	public ModelAndView postCreerOption(@ModelAttribute("option") OptionQuestion option, BindingResult result) {
+		optionQuestionService.getOptionQuestionRepository().save(option);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("questions/creerOptionQuestions");
 		return mv;

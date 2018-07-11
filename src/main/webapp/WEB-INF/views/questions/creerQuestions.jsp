@@ -1,31 +1,47 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <html>
 <head>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-	crossorigin="anonymous" title="Lister OptionQuestions">
+	crossorigin="anonymous" title="Créer Questions">
 </head>
 <body>
-	<h1>Liste des options pour les questions</h1>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th scope="col">Option</th>
-				<th scope="col">Ok ?</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${ listeOptionQuestions}" var="oq">
+	<h1>Créer une question</h1>
+
+
+	<form:form modelAttribute="question">
+
+		<table class="table table-striped">
+			<tbody>
 				<tr>
-					<td>${ oq.libelle }</td>
-					<td>${oq.ok}</td>
+					<td>Identifiant :</td>
+					<td><form:input type="number" path="id" required="required" /></td>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+				<tr>
+					<td>Titre :</td>
+					<td><form:input path="titre" required="required" /></td>
+				</tr>
+				<tr>
+					<td>Sélectionnez les options de réponses pour cette question :
+					</td>
+					<td><select multiple name="choixOptions" size="3"
+						required="required">
+							<c:forEach items="${listeOptions}" var="monOption">
+								<option value="${ monOption.id }">${ monOption.libelle }
+									--> ${monOption.ok}</option>
+							</c:forEach>
+					</select></td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="submit" value="Valider">
+	</form:form>
+
 
 	<!-- jQuery first, then poper, then Bootstrap JS. -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

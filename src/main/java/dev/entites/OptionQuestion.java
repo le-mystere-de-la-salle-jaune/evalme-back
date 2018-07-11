@@ -13,6 +13,13 @@ public class OptionQuestion extends BaseEntite {
 		super();
 	}
 
+	public OptionQuestion(String id, String libelle, String ok) {
+		super();
+		this.setId(Long.parseLong(id));
+		this.libelle = libelle;
+		this.ok = Boolean.valueOf(ok);
+	}
+
 	public String getLibelle() {
 		return libelle;
 	}
