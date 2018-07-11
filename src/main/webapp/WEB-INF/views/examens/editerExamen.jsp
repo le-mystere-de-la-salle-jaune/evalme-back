@@ -51,7 +51,7 @@
 									<div class="form-group">
 										<form:input path="titre" class="form-control input-sm"
 											placeholder="Titre du quizz" />
-											<form:errors path="titre"></form:errors>
+											<form:errors path="titre"><font color="red">Le titre ne peut être vide</font></form:errors>
 									</div>
 								</div>
 							</div>
@@ -89,7 +89,7 @@
 		</div>
 		<div class="col-12 col-sm-4">
 			<form:input path="noteSur20"/>
-			<form:errors path="noteSur20"></form:errors>
+			<form:errors path="noteSur20"><font color="red">Note doit être 0 et 20</font></form:errors>
 		</div>
 		<div class="col-12 col-sm-4">
 			<input type="submit" value="Valider" class="btn btn-info">
