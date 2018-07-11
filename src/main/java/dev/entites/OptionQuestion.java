@@ -2,17 +2,38 @@ package dev.entites;
 
 import javax.validation.constraints.NotEmpty;
 
+/**
+ * OptionQuestion.java
+ * 
+ * @author matth
+ */
 public class OptionQuestion extends BaseEntite {
 
+	/**
+	 * libelle : String
+	 */
 	@NotEmpty
 	private String libelle;
+	/**
+	 * ok : Boolean
+	 */
 	@NotEmpty
 	private Boolean ok;
 
+	/**
+	 * Constructor of OptionQuestion.java
+	 */
 	public OptionQuestion() {
 		super();
 	}
 
+	/**
+	 * Constructor of OptionQuestion.java
+	 * 
+	 * @param id
+	 * @param libelle
+	 * @param ok
+	 */
 	public OptionQuestion(String id, String libelle, String ok) {
 		super();
 		this.setId(Long.parseLong(id));
@@ -20,10 +41,20 @@ public class OptionQuestion extends BaseEntite {
 		this.ok = Boolean.valueOf(ok);
 	}
 
+	/**
+	 * Fonction :
+	 * 
+	 * @return
+	 */
 	public String getLibelle() {
 		return libelle;
 	}
 
+	/**
+	 * Fonction :
+	 * 
+	 * @param libelle
+	 */
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
