@@ -92,9 +92,8 @@ public class ExamenController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/editer")
-	public String submitForm(@ModelAttribute("examen") @Valid Examen exam, @RequestParam("id") Long id,
-			BindingResult bindingResult) {
-
+	public String submitForm(@ModelAttribute("examen") @Valid Examen exam, BindingResult bindingResult,
+			@RequestParam Long id) {
 		exam.setId(id);
 
 		if (!bindingResult.hasErrors()) {
@@ -115,14 +114,16 @@ public class ExamenController {
 			}
 
 			examenService.updateById(exam);
+		} else {
+			return "redirect:/examens/editer?id=" + id;
 		}
 
 		return "redirect:/examens/lister";
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/editer/note")
-	public String submitForm(@ModelAttribute("note") @Valid Note note, @RequestParam("id") Long id,
-			BindingResult bindingResult) {
+	public ModelAndView submitForm(@ModelAttribute("note") @Valid Note note, BindingResult bindingResult,
+			@RequestParam Long id) {
 
 		if (!bindingResult.hasErrors()) {
 			for (Stagiaire s : stagiaireService.lister()) {
@@ -136,8 +137,34 @@ public class ExamenController {
 					exam.getNotes().add(note);
 				}
 			}
+			return afficherGetEdit(new Note(), id);
+		} else {
+			return afficherGetEdit(note, id);
 		}
 
-		return "redirect:/examens/editer?id=" + id;
+	}
+
+	private ModelAndView afficherGetEdit(Note note, Long id) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("examen", examenService.getById(id));
+		mv.addObject("note", note);
+		mv.addObject("quizzList", quizzService.lister());
+		mv.addObject("classeList", classeService.lister());
+		mv.addObject("noteList", examenService.getById(id).getNotes());
+		mv.addObject("listStagiaire", examenService.getById(id).getClasse().getStagiaires());
+		mv.setViewName("examens/editerExamen");
+		return mv;
+	}
+
+	private ModelAndView afficherGetEdit(Long id) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("examen", examenService.getById(id));
+		mv.addObject("note", new Note());
+		mv.addObject("quizzList", quizzService.lister());
+		mv.addObject("classeList", classeService.lister());
+		mv.addObject("noteList", examenService.getById(id).getNotes());
+		mv.addObject("listStagiaire", examenService.getById(id).getClasse().getStagiaires());
+		mv.setViewName("examens/editerExamen");
+		return mv;
 	}
 }
