@@ -3,11 +3,17 @@ package dev.entites;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Examen extends BaseEntite {
 
+	@NotEmpty
 	private String titre;
+
 	private Quizz quizz;
+
 	private Classe classe;
+
 	private List<Note> notes = new ArrayList<>();
 
 	public String getTitre() {

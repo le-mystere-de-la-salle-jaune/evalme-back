@@ -1,6 +1,9 @@
 package dev.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -89,44 +92,49 @@ public class ExamenController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/editer")
-	public String submitForm(@ModelAttribute("examen") Examen exam, @RequestParam("id") Long id) {
+	public String submitForm(@ModelAttribute("examen") @Valid Examen exam, @RequestParam("id") Long id,
+			BindingResult bindingResult) {
 
 		exam.setId(id);
 
-		for (Quizz q : quizzService.lister()) {
-			if (q.getId() == exam.getQuizz().getId()) {
-				exam.setQuizz(q);
+		if (!bindingResult.hasErrors()) {
+			for (Quizz q : quizzService.lister()) {
+				if (q.getId() == exam.getQuizz().getId()) {
+					exam.setQuizz(q);
+				}
 			}
-		}
 
-		for (Classe c : classeService.lister()) {
-			if (c.getId() == exam.getClasse().getId()) {
-				exam.setClasse(c);
+			for (Classe c : classeService.lister()) {
+				if (c.getId() == exam.getClasse().getId()) {
+					exam.setClasse(c);
+				}
 			}
+
+			if (exam.getClasse().getId().equals(examenService.getById(id).getClasse().getId())) {
+				exam.setNotes(examenService.getById(id).getNotes());
+			}
+
+			examenService.updateById(exam);
 		}
 
-		if (exam.getClasse().getId().equals(examenService.getById(id).getClasse().getId())) {
-			exam.setNotes(examenService.getById(id).getNotes());
-		}
-
-		examenService.updateById(exam);
-
-		// return "redirect:/examens/editer?id=" + id;
 		return "redirect:/examens/lister";
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/editer/note")
-	public String submitForm(@ModelAttribute("note") Note note, @RequestParam("id") Long id) {
-		ModelAndView mv = new ModelAndView();
-		for (Stagiaire s : stagiaireService.lister()) {
-			if (s.getId().equals(note.getStagiaire().getId())) {
-				note.setStagiaire(s);
-			}
-		}
+	public String submitForm(@ModelAttribute("note") @Valid Note note, @RequestParam("id") Long id,
+			BindingResult bindingResult) {
 
-		for (Examen exam : examenService.lister()) {
-			if (exam.getId().equals(id)) {
-				exam.getNotes().add(note);
+		if (!bindingResult.hasErrors()) {
+			for (Stagiaire s : stagiaireService.lister()) {
+				if (s.getId().equals(note.getStagiaire().getId())) {
+					note.setStagiaire(s);
+				}
+			}
+
+			for (Examen exam : examenService.lister()) {
+				if (exam.getId().equals(id)) {
+					exam.getNotes().add(note);
+				}
 			}
 		}
 
