@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="/webjars/bootstrap/4.1.1/css/bootstrap.css" />
 </head>
 <body>
+	<h1>Liste des options de sondage</h1>
 	<table class="table">
 		<thead class="thead-dark">
 		<tr>
