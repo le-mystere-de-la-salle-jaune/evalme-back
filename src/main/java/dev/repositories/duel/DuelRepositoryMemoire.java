@@ -2,6 +2,7 @@ package dev.repositories.duel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -20,30 +21,35 @@ public class DuelRepositoryMemoire implements DuelRepository {
 	@PostConstruct
 	public void initialiser() {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("jdd/jdd-Duel.xml");
-		duels = new ArrayList<>(context.getBeansOfType(Duel.class).values());
+		this.duels = new ArrayList<>(context.getBeansOfType(Duel.class).values());
 		context.close();
 	}
 
 	@Override
 	public List<Duel> findAll() {
-		return duels;
+		return this.duels;
 	}
 
 	@Override
 	public void save(Duel duel) {
-		duels.add(duel);
+		this.duels.add(duel);
 	}
 
 	@Override
 	public void update(Duel duelAvecId) {
-		for (Duel duel : duels)
+		for (Duel duel : this.duels)
 			if (duel.getId().equals(duelAvecId.getId()))
-				duels.set(duels.indexOf(duel), duelAvecId);
+				this.duels.set(this.duels.indexOf(duel), duelAvecId);
 	}
 
 	@Override
 	public void delete(Duel duel) {
-		duels.remove(duels.indexOf(duel));
+		this.duels.remove(this.duels.indexOf(duel));
+	}
+
+	@Override
+	public Optional<Duel> findById(Long id) {
+		return this.duels.stream().filter(s -> s.getId().equals(id)).findFirst();
 	}
 
 }

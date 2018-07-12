@@ -3,42 +3,52 @@ package dev.entites;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Examen extends BaseEntite {
 
-    private String titre;
-    private Quizz quizz;
-    private Classe classe;
-    private List<Note> notes = new ArrayList<>();
+	@NotEmpty
+	private String titre;
 
-    public String getTitre() {
-        return titre;
-    }
+	private Quizz quizz;
 
-    public void setTitre(String titre) {
-        this.titre = titre;
-    }
+	private Classe classe;
 
-    public Quizz getQuizz() {
-        return quizz;
-    }
+	private List<Note> notes = new ArrayList<>();
 
-    public void setQuizz(Quizz quizz) {
-        this.quizz = quizz;
-    }
+	public String getTitre() {
+		return titre;
+	}
 
-    public Classe getClasse() {
-        return classe;
-    }
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 
-    public void setClasse(Classe classe) {
-        this.classe = classe;
-    }
+	public Quizz getQuizz() {
+		return quizz;
+	}
 
-    public List<Note> getNotes() {
-        return notes;
-    }
+	public void setQuizz(Quizz quizz) {
+		this.quizz = quizz;
+	}
 
-    public void setNotes(List<Note> notes) {
-        this.notes = notes;
-    }
+	public Classe getClasse() {
+		return classe;
+	}
+
+	public void setClasse(Classe classe) {
+		this.classe = classe;
+	}
+
+	public List<Note> getNotes() {
+		return notes;
+	}
+
+	public void setNotes(List<Note> notes) {
+		this.notes = notes;
+	}
+
+	public double getAvg() {
+		return notes.stream().mapToDouble(Note::getNoteSur20).average().orElse(Double.NaN);
+	}
 }
