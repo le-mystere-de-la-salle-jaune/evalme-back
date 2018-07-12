@@ -29,6 +29,10 @@ public class StagiaireService {
 		stagiaireRepository.update(StagiaireAvecId);
 	}
 
+	public void delete(Stagiaire stagiaire) {
+		stagiaireRepository.delete(stagiaire);
+	}
+
 	public Stagiaire findStagiaireById(Long id) {
 		return stagiaireRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("stagiaire non trouvé avec l'id " + id));
