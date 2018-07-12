@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!doctype html>
@@ -14,7 +14,7 @@
 		<h1>Supprimer un profil de stagiaire</h1>
 		<form:form modelAttribute="stagiaire">
 			<p>Vous êtes sur le point de supprimer le profil suivant :</p>
-			<p><c:out>${stagiaire.nom} ${stagiaire.prenom}</c:out></p>
+			<p><c:out value="${stagiaire.nom} "/> <c:out value="${stagiaire.prenom}"/></p>
 			
 			<div class="row justify-content-end">
 				<div class="col-10">
