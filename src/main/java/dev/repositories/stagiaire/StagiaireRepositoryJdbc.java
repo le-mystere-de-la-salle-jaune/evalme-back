@@ -2,15 +2,12 @@ package dev.repositories.stagiaire;
 
 import java.util.List;
 import java.util.Optional;
-<<<<<<< HEAD
-=======
 
 import javax.sql.DataSource;
 
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
->>>>>>> jdbc stagiaire
 
 import dev.entites.Stagiaire;
 import dev.repositories.stagiaire.mapper.StagiaireMapper;
@@ -55,6 +52,5 @@ public class StagiaireRepositoryJdbc implements StagiaireRepository {
 	public Optional<Stagiaire> findById(Long id) {
 		throw new NotImplementedException("non implémenté");
 	}
-
 
 }
