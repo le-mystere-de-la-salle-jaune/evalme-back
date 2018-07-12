@@ -9,7 +9,18 @@
 	crossorigin="anonymous" title="Lister OptionQuestions">
 </head>
 <body>
+	<nav></nav>
 	<h1>Liste des options pour les questions</h1>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm"><a href="<%=request.getContextPath()%>/questions/lister">Aller aux questions</a></div>
+			<div class="col-sm"><a href="<%=request.getContextPath()%>/questions/creerOption">Créer une option</a></div>
+			<div class="col-sm"><a href="<%=request.getContextPath()%>/questions/majOption">Éditer une option</a></div>
+			<div class="col-sm"><a href="<%=request.getContextPath()%>/questions/supprimerOption">Supprimer une option</a></div>
+		</div>
+	</div>
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
