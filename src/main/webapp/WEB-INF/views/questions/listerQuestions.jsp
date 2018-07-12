@@ -10,7 +10,17 @@
 	crossorigin="anonymous" title="Lister Questions">
 </head>
 <body>
+	<nav></nav>
 	<h1>Liste des questions</h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm"><a href="<%=request.getContextPath()%>/questions/listerOption">Aller aux options</a></div>
+			<div class="col-sm"><a href="<%=request.getContextPath()%>/questions/creer">Créer une question</a></div>
+			<div class="col-sm"><a href="<%=request.getContextPath()%>/questions/maj">Éditer une question</a></div>
+			<div class="col-sm"><a href="<%=request.getContextPath()%>/questions/supprimer">Supprimer une question</a></div>
+		</div>
+	</div>
+
 	<table class="table table-striped">
 		<thead>
 			<tr>
