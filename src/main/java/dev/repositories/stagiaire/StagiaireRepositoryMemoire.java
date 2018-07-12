@@ -28,12 +28,11 @@ public class StagiaireRepositoryMemoire implements StagiaireRepository {
 		try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("jdd/jdd-stagiaire.xml")) {
 			this.stagiaires = new ArrayList<>(context.getBeansOfType(Stagiaire.class).values());
 
-			Long i = 1L;
-			for (Stagiaire s : stagiaires) {
-				s.setId(i);
-				i++;
-			}
-
+			// pour chaque stagiaire existant on lui ajoute un id
+			/*
+			 * for (Stagiaire stagiaire : stagiaires) {
+			 * stagiaire.setId(RandomUtils.nextLong()); }
+			 */
 		}
 
 	}

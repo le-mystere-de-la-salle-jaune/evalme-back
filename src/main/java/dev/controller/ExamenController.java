@@ -28,6 +28,7 @@ public class ExamenController {
 	private ExamenService examenService;
 	private QuizzService quizzService;
 	private ClasseService classeService;
+
 	private StagiaireService stagiaireService;
 
 	private long idExam = 2;
@@ -39,6 +40,7 @@ public class ExamenController {
 		this.quizzService = quizzService;
 		this.classeService = classeService;
 		this.stagiaireService = stagiaireService;
+
 	}
 
 	@GetMapping("/lister")
@@ -144,22 +146,28 @@ public class ExamenController {
 
 	}
 
+	@RequestMapping(method = RequestMethod.POST, value = "/supprimer")
+	public String supprimer(@RequestParam("id") Long id) {
+		if (examenService.lister() != null && examenService.lister().size() > 0) {
+			Examen examToDelete = null;
+			for (Examen exam : examenService.lister()) {
+				if (exam.getId().equals(id)) {
+					examToDelete = exam;
+				}
+			}
+
+			if (examToDelete != null) {
+				examenService.supprimerExam(examToDelete);
+			}
+		}
+
+		return "redirect:/examens/lister";
+	}
+
 	private ModelAndView afficherGetEdit(Note note, Long id) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("examen", examenService.getById(id));
 		mv.addObject("note", note);
-		mv.addObject("quizzList", quizzService.lister());
-		mv.addObject("classeList", classeService.lister());
-		mv.addObject("noteList", examenService.getById(id).getNotes());
-		mv.addObject("listStagiaire", examenService.getById(id).getClasse().getStagiaires());
-		mv.setViewName("examens/editerExamen");
-		return mv;
-	}
-
-	private ModelAndView afficherGetEdit(Long id) {
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("examen", examenService.getById(id));
-		mv.addObject("note", new Note());
 		mv.addObject("quizzList", quizzService.lister());
 		mv.addObject("classeList", classeService.lister());
 		mv.addObject("noteList", examenService.getById(id).getNotes());

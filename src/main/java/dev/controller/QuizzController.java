@@ -26,6 +26,7 @@ public class QuizzController {
 		super();
 		this.quizzService = quizzService;
 		this.questionService = questionService;
+
 	}
 
 	@GetMapping("/lister")
