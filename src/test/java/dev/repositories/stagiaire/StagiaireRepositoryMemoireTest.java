@@ -1,4 +1,4 @@
-package dev.repositories;
+package dev.repositories.stagiaire;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import dev.entites.Stagiaire;
+import dev.repositories.RepositoryTestConfig;
 import dev.repositories.stagiaire.StagiaireRepositoryMemoire;
 
 //Sélection des classes de configuration Spring à utiliser lors du test

@@ -26,3 +26,13 @@ CREATE TABLE sondage_option_sondage (
   FOREIGN KEY (id_option_sondage) REFERENCES option_sondage (id),
   FOREIGN KEY (id_sondage) REFERENCES sondage (id)
 );
+
+drop table if exists stagiaire;
+
+create table stagiaire (
+  id serial primary key,
+  nom varchar(75) not null,
+  prenom varchar(75) not null,
+  email varchar(75) not null,
+  photo_url varchar not null
+);
