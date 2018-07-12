@@ -5,6 +5,7 @@ drop table if exists sondage_option_sondage;
 drop table if exists Sondage;
 drop table if exists classe;
 drop table if exists NOTE;
+drop table if exists duel;
 drop table if exists stagiaire;
 DROP TABLE IF EXISTS quizz;
 DROP TABLE IF EXISTS question;
@@ -29,7 +30,7 @@ CREATE TABLE classe (
 
 create table quizz(
 	id serial primary key,
-	titre varchar(75) not null
+	titre varchar(255) not null
 );
 
 
@@ -88,4 +89,14 @@ CREATE TABLE sondage_option_sondage (
   id_option_sondage bigint(20) UNSIGNED DEFAULT NULL,
   FOREIGN KEY (id_option_sondage) REFERENCES option_sondage (id),
   FOREIGN KEY (id_sondage) REFERENCES sondage (id)
+);
+
+create table duel (
+	id serial primary key,
+	stagiairea_id bigint unsigned not null,
+	stagiaireb_id bigint unsigned not null,
+	quizz_id bigint unsigned not null,
+	foreign key (stagiairea_id) references stagiaire(id),
+	foreign key (stagiaireb_id) references stagiaire(id),
+	foreign key (quizz_id) references quizz(id)
 );

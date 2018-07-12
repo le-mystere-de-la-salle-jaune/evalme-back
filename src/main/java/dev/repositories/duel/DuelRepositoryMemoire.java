@@ -7,11 +7,9 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Service;
 
 import dev.entites.Duel;
 
-@Service
 public class DuelRepositoryMemoire implements DuelRepository {
 	private List<Duel> duels = new ArrayList<>();
 
