@@ -34,5 +34,5 @@ create table stagiaire (
   nom varchar(75) not null,
   prenom varchar(75) not null,
   email varchar(75) not null,
-  photo_url varchar not null
+  photo_url varchar(200) not null
 );
