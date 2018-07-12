@@ -14,7 +14,7 @@ import dev.entites.Classe;
 @Repository
 public class ClasseRepositoryMemoire implements ClasseRepository {
 
-	private List<Classe> classes = new ArrayList();
+	private List<Classe> classes = new ArrayList<>();
 
 	@PostConstruct
 	public void initialiser() {
@@ -67,7 +67,7 @@ public class ClasseRepositoryMemoire implements ClasseRepository {
 		int i = 0;
 		int index = 0;
 		for (Classe c : classes) {
-			if (classe.getId() == c.getId()) {
+			if (classe.getId().equals(c.getId())) {
 				index = i;
 			}
 			i++;

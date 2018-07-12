@@ -35,7 +35,7 @@ public class ClasseService {
 
 	public Classe trouverClasseParId(Long id) {
 		for (Classe c : lister()) {
-			if (c.getId() == id) {
+			if (c.getId().equals(id)) {
 				return c;
 			}
 		}
