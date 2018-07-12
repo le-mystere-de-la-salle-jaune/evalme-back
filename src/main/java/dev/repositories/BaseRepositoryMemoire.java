@@ -2,6 +2,7 @@ package dev.repositories;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -62,6 +63,12 @@ public abstract class BaseRepositoryMemoire<T extends BaseEntite> implements Cru
 
 	public List<T> getEntityList() {
 		return entityList;
+	}
+
+	@Override
+	public Optional<T> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

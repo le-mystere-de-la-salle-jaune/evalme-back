@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -94,6 +95,12 @@ public class QuestionRepositoryMemoire implements QuestionRepository {
 	 */
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
+	}
+
+	@Override
+	public Optional<Question> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

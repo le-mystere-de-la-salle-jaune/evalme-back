@@ -2,6 +2,7 @@ package dev.repositories.classe;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -74,6 +75,12 @@ public class ClasseRepositoryMemoire implements ClasseRepository {
 			i++;
 		}
 
+	}
+
+	@Override
+	public Optional<Classe> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

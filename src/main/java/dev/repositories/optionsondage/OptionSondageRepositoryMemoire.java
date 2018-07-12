@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -55,6 +56,12 @@ public class OptionSondageRepositoryMemoire implements OptionSondageRepository {
 			}
 		}
 		optionSondages.remove(id);
+	}
+
+	@Override
+	public Optional<OptionSondage> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

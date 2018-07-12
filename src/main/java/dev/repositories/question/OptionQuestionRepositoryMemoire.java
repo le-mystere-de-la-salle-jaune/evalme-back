@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -93,6 +94,12 @@ public class OptionQuestionRepositoryMemoire implements OptionQuestionRepository
 	 */
 	public void setOptionQuestions(List<OptionQuestion> optionQuestions) {
 		this.optionQuestions = optionQuestions;
+	}
+
+	@Override
+	public Optional<OptionQuestion> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
