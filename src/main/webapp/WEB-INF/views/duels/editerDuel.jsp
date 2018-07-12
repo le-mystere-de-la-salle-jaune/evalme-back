@@ -21,21 +21,19 @@
 			<div class="form-row">
 				<div class="col">
 					<label for="stagiaireASelect">Stagiaire A</label>
-					<form:select id="stagiaireASelect"
-						class="form-control ${isInvalidClass}" path="stagiaireA.id"
-						items="${listeStagiaires}" itemLabel="nom" itemValue="id"
-						required="required" />
+					<form:select id="stagiaireASelect" class="form-control ${isInvalidClass}"
+						path="stagiaireA.id" items="${listeStagiaires}" itemLabel="nom"
+						itemValue="id" required="required" />
 					<c:if test="${not empty erreurDoublons}">
-						<div class="invalid-feedback">Les participants doivent être
-							des stagiaires différents.</div>
+						<div class="invalid-feedback">Les participants doivent être des
+							stagiaires différents.</div>
 					</c:if>
 				</div>
 				<div class="col">
 					<label for="stagiaireBSelect">Stagiaire B</label>
-					<form:select id="stagiaireBSelect"
-						class="form-control ${isInvalidClass}" path="stagiaireB.id"
-						items="${listeStagiaires}" itemLabel="nom" itemValue="id"
-						required="required" />
+					<form:select id="stagiaireBSelect" class="form-control ${isInvalidClass}"
+						path="stagiaireB.id" items="${listeStagiaires}" itemLabel="nom"
+						itemValue="id" required="required" />
 				</div>
 			</div>
 			<br />
@@ -48,16 +46,16 @@
 				</div>
 			</div>
 			<br />
-			<button type="submit" class="btn btn-primary mr-2">Mettre à
-				jour</button>
-			<a href='<c:url value="/duels/lister" />'
-				class="btn btn-secondary mr-2">Retour à la liste</a>
-
-			<form:form method="delete" modelAttribute="duel">
-				<button type="submit" class="btn btn-danger float-right">
-					Supprimer</button>
-			</form:form>
+			<button type="submit" class="btn btn-primary mr-2">Mettre à jour</button>
+			<a href='<c:url value="/duels/lister" />' class="btn btn-secondary mr-2">Retour
+				à la liste</a>
 		</form:form>
+		<form action="/duels/supprimer" method="post" id="supprimerDuelForm">
+			<button type="submit" class="btn btn-danger float-right">Supprimer</button>
+		</form>
+
+
+
 	</div>
 </body>
 </html>
