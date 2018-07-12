@@ -16,7 +16,7 @@
 <body>
 	<div class="container-fluid">
 		<h1>Ajouter un duel</h1>
-		<form:form method="post" modelAttribute="duel" onsubmit="validate()">
+		<form:form method="post" modelAttribute="duel">
 			<div class="form-group">
 				<label for="stagiairesSelect">Stagiaires</label> <select multiple
 					name="listeIds" class="multiselect form-control ${isInvalidClass}"
@@ -43,7 +43,7 @@
 					<div class="invalid-feedback">Veuillez choisir un quizz.</div>
 				</form:errors>
 			</div>
-			<button type="submit" class="btn btn-primary">Envoyer</button>
+			<button type="submit" class="btn btn-primary">Ajouter</button>
 			<a href='<c:url value="/duels/lister" />' class="btn btn-secondary">Retour
 				à la liste</a>
 		</form:form>

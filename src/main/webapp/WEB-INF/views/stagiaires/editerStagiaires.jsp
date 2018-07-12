@@ -11,7 +11,7 @@
 
 <body>
 	<div class="container-fluid">
-		<h1>Editer mon profil</h1>
+		<h1>Editer un profil de stagiaire</h1>
 		<form:form modelAttribute="stagiaire">
 			<div class="form-group row justify-center">
 				<label for="inputName" class="col-md-2 col-form-label">Nom</label>

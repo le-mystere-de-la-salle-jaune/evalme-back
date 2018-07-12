@@ -21,9 +21,10 @@
         <tbody>
             <c:forEach items="${listeQuizz}" var="quizz">
                 <tr>
-                    <td><c:out value="${quizz.titre}"></c:out></td><td>-----------------------------------------------</td>
+                    <td><c:out value="${quizz.titre}"></c:out></td><td>-----------------------------------------------</td><td><button type="submit" class="btn-create btn btn-primary"
+								onclick="window.location.href='<c:url value="/quizzes/editer?id=${quizz.id}"/>'">Editer</button></td>
                     <c:forEach items="${quizz.questions}" var="questions">
-                           <tr><td></td><td><c:out value="${questions.titre}"></c:out></td></tr>
+                           <tr><td></td><td><c:out value="${questions.titre}"></c:out></td><td></td></tr>
                         </c:forEach>
                 </tr>
             </c:forEach>

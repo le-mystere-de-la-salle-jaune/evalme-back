@@ -14,6 +14,7 @@ public abstract class BaseRepositoryMemoire<T extends BaseEntite> implements Cru
 	private List<T> entityList = new ArrayList<>();
 	private String contextpath;
 	private final Class<T> typeOfArray;
+	protected static Long currentId = 3L;
 
 	public BaseRepositoryMemoire(String contextpath, Class<T> typeOfArray) {
 		this.contextpath = contextpath;
@@ -34,6 +35,7 @@ public abstract class BaseRepositoryMemoire<T extends BaseEntite> implements Cru
 
 	@Override
 	public void save(T entite) {
+		entite.setId(BaseRepositoryMemoire.currentId++);
 		entityList.add(entite);
 
 	}

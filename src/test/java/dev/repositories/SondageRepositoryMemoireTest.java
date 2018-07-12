@@ -35,7 +35,7 @@ public class SondageRepositoryMemoireTest {
 
 	@Test
 	public void testUpdate() {
-		assertThat(service.findAll().get(0).getTitre()).isEqualTo("Titre sondage 1");
+		assertThat(service.findAll().get(0).getTitre()).isEqualTo("Titre sondage 2");
 		Sondage s = service.findAll().get(0);
 		s.setTitre("JUNIT TEST");
 		service.update(s);
