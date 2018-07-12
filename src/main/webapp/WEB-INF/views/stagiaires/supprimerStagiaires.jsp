@@ -14,7 +14,7 @@
 		<h1>Supprimer un profil de stagiaire</h1>
 		<form:form modelAttribute="stagiaire">
 			<p>Vous êtes sur le point de supprimer le profil suivant :</p>
-			<p>${stagiaire.nom} ${stagiaire.prenom} </p>
+			<p><c:out>${stagiaire.nom} ${stagiaire.prenom}</c:out></p>
 			
 			<div class="row justify-content-end">
 				<div class="col-10">
