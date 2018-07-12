@@ -1,5 +1,7 @@
 package dev.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -87,6 +89,26 @@ public class QuizzController {
 			mv.setViewName("redirect:/quizzes/lister");
 		}
 		return mv;
+	}
+
+	@PostMapping("/supprimer")
+	public String supprimer(@RequestParam("id") Long id) {
+		if (quizzService.lister() != null && !quizzService.lister().isEmpty()) {
+			Quizz quizzToRemove = null;
+			List<Quizz> quizzList = quizzService.lister();
+			int i = 0;
+			while (i < quizzList.size() && quizzToRemove == null) {
+				Quizz currentQuizz = quizzList.get(i);
+				if (currentQuizz.getId().equals(id)) {
+					quizzToRemove = currentQuizz;
+				}
+				i++;
+			}
+			if (quizzToRemove != null) {
+				quizzService.delete(quizzToRemove);
+			}
+		}
+		return "redirect:/quizzes/lister";
 	}
 
 }
