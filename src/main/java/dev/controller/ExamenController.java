@@ -148,14 +148,20 @@ public class ExamenController {
 
 	@RequestMapping(method = RequestMethod.POST, value = "/supprimer")
 	public String supprimer(@RequestParam("id") Long id) {
-		for (Examen exam : examenService.lister()) {
-			if (exam.getId().equals(id)) {
-				examenService.supprimerExam(exam);
+		if (examenService.lister() != null && examenService.lister().size() > 0) {
+			Examen examToDelete = null;
+			for (Examen exam : examenService.lister()) {
+				if (exam.getId().equals(id)) {
+					examToDelete = exam;
+				}
+			}
+
+			if (examToDelete != null) {
+				examenService.supprimerExam(examToDelete);
 			}
 		}
 
 		return "redirect:/examens/lister";
-
 	}
 
 	private ModelAndView afficherGetEdit(Note note, Long id) {
