@@ -2,6 +2,8 @@ package dev.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,25 +55,27 @@ public class SondageController {
 	}
 
 	@PostMapping("/ajouter")
-	public ModelAndView ajouter(@ModelAttribute("sondage") Sondage sondage, BindingResult result,
-			@RequestParam("options") List<Long> options) {
+	public ModelAndView ajouter(@ModelAttribute("sondage") @Valid Sondage sondage, BindingResult result,
+			@RequestParam("opt") List<Long> opt) {
 
 		ModelAndView mv = new ModelAndView();
 
 		if (result.hasErrors()) {
+
 			mv.addObject("listeClasse", classeService.lister());
 			mv.addObject("listeOption", optionSondageService.lister());
 			mv.addObject("sondage", sondage);
-			mv.addObject("options", options);
 			mv.setViewName("sondages/ajouterSondage");
+
 		} else {
 			for (Classe c : classeService.lister()) {
 				if (c.getId() == sondage.getClasse().getId()) {
 					sondage.setClasse(c);
 				}
 			}
+
 			for (OptionSondage os : optionSondageService.lister()) {
-				for (Long indice : options) {
+				for (Long indice : opt) {
 					if (os.getId().equals(indice)) {
 						sondage.getOptions().add(os);
 					}
