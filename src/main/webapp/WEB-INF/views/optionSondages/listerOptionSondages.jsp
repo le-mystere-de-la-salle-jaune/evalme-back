@@ -10,8 +10,8 @@
 	<table class="table">
 		<thead class="thead-dark">
 		<tr>
-		<th>Libelle</th>
-		<th>description</th>
+		<th>Libellé</th>
+		<th>Description</th>
 		</tr>
 		</thead>
 		<tbody>

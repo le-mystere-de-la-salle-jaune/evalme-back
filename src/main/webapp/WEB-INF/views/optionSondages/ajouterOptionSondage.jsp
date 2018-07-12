@@ -16,14 +16,14 @@
 			<form:input type="text" id="titre" class="form-control mb-3"
 				path="libelle" />
 			<form:errors path="libelle">
-				<p class="text-danger">Le nom doit faire plus de 3 caractères</p>
+				<p class="text-danger">Le libellé doit faire plus de 3 caractères</p>
 			</form:errors>
 			</div>
-			<label for="desc">Classe : </label>
+			<label for="desc">Description : </label>
 			<form:input type="text" id="desc" class="form-control mb-3"
 				path="description" />
 			<form:errors path="description">
-				<p class="text-danger">Le nom doit faire plus de 3 caractères</p>
+				<p class="text-danger">La descrition doit faire plus de 3 caractères</p>
 			</form:errors>
 
 			<div class="row justify-content-center">
