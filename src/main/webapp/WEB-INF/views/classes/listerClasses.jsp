@@ -11,31 +11,81 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../../structure.css">
 
 </head>
 <body>
 
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th scope="col">Id</th>
-				<th scope="col">Nom</th>
-				<th scope="col">Liste des Stagiaires</th>
-			</tr>
-		</thead>
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+		<a class="navbar-brand" href="#"><img alt="Logo" src=""></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarsExample03" aria-controls="navbarsExample03"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-		<tbody>
-			<c:forEach items="${listeClasses}" var="c">
-				<tr>
-					<td>${c.getId()}</td>
-					<td>${c.nom}</td>
-					<td>[ <c:forEach items="${c.stagiaires}" var="st">
+		<div class="collapse navbar-collapse" id="navbarsExample03">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link"
+					href="../../index.html">Accueil</a></li>
+				<li class="nav-item"><a class="nav-link" href="../Gestion.html">Gestion</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<br />
+
+	<div class="row">
+		<div class="col-12 col-sm-4 offset-sm-4">
+			<fieldset class="fieldsetEntite">
+				<legend class="legendEntite">Entité Classe</legend>
+				<p class="pEntite">
+					Une Classe est composé de : <br /> -Un id (Hérité de BaseEntité,
+					auto-incrémenté)<br /> -Un nom <br /> -Une liste de Stagiaire<br />
+					<br /> Vous pouvez :<br /> -Ajouter une classe<br /> -Éditer une
+					classe<br /> -Supprimer une classe<br />
+				</p>
+			</fieldset>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-12 col-sm-4 offset-sm-4">
+			<label>Ajouter une nouvelle Classe</label> <a href="/classes/ajouter" type="button"
+				class="btn btn-secondary">Ajouter</a>
+		</div>
+	</div>
+	<br />
+	<div class="row">
+		<div class="col-12 col-sm-6 offset-sm-3">
+			<div class=tableau>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">Id</th>
+							<th scope="col">Nom</th>
+							<th scope="col">Liste des Stagiaires</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<c:forEach items="${listeClasses}" var="c">
+							<tr>
+								<td>${c.getId()}</td>
+								<td>${c.nom}</td>
+								<td>[ <c:forEach items="${c.stagiaires}" var="st">
 							[${st.nom} , ${st.prenom}]
-						</c:forEach> ]</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+						</c:forEach> ]
+								</td>
+								<td><a href="/classes/maj?id=${c.id}">Éditer</a> / <a href="/classes/supprimer?id=${c.id}"> Supprimer</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 
 	<!-- jQuery first, then poper, then Bootstrap JS. -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
