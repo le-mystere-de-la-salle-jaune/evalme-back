@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -50,7 +49,9 @@ public class StagiaireRepositoryJdbc implements StagiaireRepository {
 
 	@Override
 	public Optional<Stagiaire> findById(Long id) {
-		throw new NotImplementedException("non implémenté");
+		String sqlbyId = "SELECT * FROM stagiaire WHERE id = ?";
+		Stagiaire s = jdbcTemplate.queryForObject(sqlbyId, new StagiaireMapper(), id);
+		return Optional.ofNullable(s);
 	}
 
 }
