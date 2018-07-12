@@ -10,7 +10,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import dev.entites.Classe;
@@ -48,7 +50,6 @@ public class ClasseController {
 	}
 
 	@PostMapping("/ajouter")
-
 	public ModelAndView postSave(@ModelAttribute("classe") @Valid Classe c, BindingResult result) {
 		ModelAndView mv = new ModelAndView();
 		c.setId(classeService.lister().size() + 1L);
@@ -70,9 +71,6 @@ public class ClasseController {
 			}
 		}
 
-		// List<Stagiaire> liste = c.getStagiaires().stream().filter(s ->
-		// s.getId() != null).collect(Collectors.toList());
-
 		c.setStagiaires(listeStagiaireModfie);
 
 		if (result.hasErrors()) {
@@ -84,6 +82,68 @@ public class ClasseController {
 			mv.setViewName("redirect:/classes/lister");
 		}
 
+		return mv;
+	}
+
+	@GetMapping("/maj")
+	public ModelAndView getMajFromId(@RequestParam("id") Long id) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("classe", classeService.trouverClasseParId(id));
+		mv.addObject("listeStagiairesClasse", classeService.trouverClasseParId(id).getStagiaires());
+		mv.addObject("listeStagiaires", stagiaireService.lister());
+		mv.setViewName("classes/majClasse");
+		return mv;
+	}
+
+	@PutMapping("/maj")
+	public ModelAndView putMaj(@ModelAttribute("classe") @Valid Classe c, BindingResult result) {
+		ModelAndView mv = new ModelAndView();
+		List<Stagiaire> listeStagiaireClasse = c.getStagiaires();
+		List<Stagiaire> listeStagiaireTotal = stagiaireService.lister();
+		List<Stagiaire> listeStagiaireModfie = new ArrayList();
+
+		for (Stagiaire st : listeStagiaireClasse) {
+			if (st.getId() != null) {
+				for (Stagiaire st2 : listeStagiaireTotal) {
+					if (st.getId() == st2.getId()) {
+						st.setNom(st2.getNom());
+						st.setPrenom(st2.getPrenom());
+						st.setEmail(st2.getEmail());
+						st.setPhotoUrl(st2.getPhotoUrl());
+						listeStagiaireModfie.add(st);
+					}
+				}
+			}
+		}
+
+		c.setStagiaires(listeStagiaireModfie);
+
+		if (result.hasErrors()) {
+			mv.addObject("classe", c);
+			mv.addObject("listeStagiaires", stagiaireService.lister());
+			mv.setViewName("classes/majClasse");
+		} else {
+			classeService.maj(c);
+			mv.setViewName("redirect:/classes/lister");
+		}
+
+		return mv;
+	}
+
+	@GetMapping("/supprimer")
+	public ModelAndView getSupprimerFromId(@RequestParam("id") Long id) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("classe", classeService.trouverClasseParId(id));
+		mv.addObject("listeStagiairesClasse", classeService.trouverClasseParId(id).getStagiaires());
+		mv.setViewName("classes/supprimerClasses");
+		return mv;
+	}
+
+	@PostMapping("/supprimer")
+	public ModelAndView postSupprimer(@RequestParam("id") Long id) {
+		ModelAndView mv = new ModelAndView();
+		classeService.supprimer(classeService.trouverClasseParId(id));
+		mv.setViewName("redirect:/classes/lister");
 		return mv;
 	}
 

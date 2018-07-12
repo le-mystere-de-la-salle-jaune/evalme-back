@@ -14,7 +14,7 @@ import dev.entites.Classe;
 @Repository
 public class ClasseRepositoryMemoire implements ClasseRepository {
 
-	private List<Classe> classes = new ArrayList<>();
+	private List<Classe> classes = new ArrayList();
 
 	@PostConstruct
 	public void initialiser() {
@@ -51,30 +51,28 @@ public class ClasseRepositoryMemoire implements ClasseRepository {
 	@Override
 	public void update(Classe classeAvecId) {
 
-		Classe classe = null;
+		Long id = classeAvecId.getId();
 		for (Classe c : classes) {
-			if (classeAvecId.getId() == c.getId()) {
-				classe = c;
+			if (id.equals(c.getId())) {
+				c.setNom(classeAvecId.getNom());
+				c.setStagiaires(classeAvecId.getStagiaires());
 			}
 		}
 
-		if (classe != null) {
-			classe.setNom(classeAvecId.getNom());
-			classe.setStagiaires(classeAvecId.getStagiaires());
-		}
 	}
 
 	@Override
 	public void delete(Classe classe) {
 
 		int i = 0;
+		int index = 0;
 		for (Classe c : classes) {
 			if (classe.getId() == c.getId()) {
-				classes.remove(i);
+				index = i;
 			}
 			i++;
 		}
-
+		classes.remove(index);
 	}
 
 	@Override
