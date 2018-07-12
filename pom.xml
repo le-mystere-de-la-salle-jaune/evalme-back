@@ -102,6 +102,9 @@
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
+			<properties>
+				<platform>postgres</platform>
+			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>org.postgresql</groupId>
@@ -112,6 +115,9 @@
 		</profile>
 		<profile>
 			<id>dev</id>
+			<properties>
+				<platform>mysql</platform>
+			</properties>
 			<dependencies>
 				<dependency>
 					<groupId>mysql</groupId>
