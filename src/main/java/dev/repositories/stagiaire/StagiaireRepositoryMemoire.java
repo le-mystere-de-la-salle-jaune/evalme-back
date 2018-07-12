@@ -29,9 +29,10 @@ public class StagiaireRepositoryMemoire implements StagiaireRepository {
 			this.stagiaires = new ArrayList<>(context.getBeansOfType(Stagiaire.class).values());
 
 			// pour chaque stagiaire existant on lui ajoute un id
-			for (Stagiaire stagiaire : stagiaires) {
-				stagiaire.setId(RandomUtils.nextLong());
-			}
+			/*
+			 * for (Stagiaire stagiaire : stagiaires) {
+			 * stagiaire.setId(RandomUtils.nextLong()); }
+			 */
 		}
 
 	}
