@@ -161,7 +161,7 @@ public class DuelController {
 	 * @param id
 	 * @return
 	 */
-	@PostMapping("/duels/supprimer")
+	@PostMapping("/supprimer")
 	public ModelAndView supprimer(@RequestParam("id") Long id) {
 		ModelAndView mav = new ModelAndView();
 		Duel duel = duelService.getById(id);
