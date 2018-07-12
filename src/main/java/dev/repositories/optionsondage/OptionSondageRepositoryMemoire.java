@@ -9,11 +9,9 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.OptionSondage;
 
-@Repository
 public class OptionSondageRepositoryMemoire implements OptionSondageRepository {
 
 	private List<OptionSondage> optionSondages = new ArrayList<>();
