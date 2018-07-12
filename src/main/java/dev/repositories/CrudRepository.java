@@ -16,4 +16,6 @@ public interface CrudRepository<T> {
 	void update(T entiteAvecId);
 
 	void delete(T entite);
+
+	Long findById(Long id);
 }
