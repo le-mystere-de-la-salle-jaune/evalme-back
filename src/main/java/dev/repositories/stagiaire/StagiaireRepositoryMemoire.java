@@ -8,11 +8,9 @@ import javax.annotation.PostConstruct;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.Stagiaire;
 
-@Repository
 public class StagiaireRepositoryMemoire implements StagiaireRepository {
 
 	private List<Stagiaire> stagiaires = new ArrayList<>();
