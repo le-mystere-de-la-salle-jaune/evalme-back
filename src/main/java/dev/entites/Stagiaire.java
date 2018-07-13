@@ -15,23 +15,19 @@ public class Stagiaire extends BaseEntite {
 
 	@Column(name = "prenom")
 	@Size(min = 2)
-	@Column(name = "prenom")
 	private String prenom;
 
 	@Column(name = "nom")
 	@Size(min = 2)
-	@Column(name = "nom")
 	private String nom;
 
 	@Column(name = "email")
 	@NotEmpty
 	@Email
-	@Column(name = "email")
 	private String email;
 
 	@Column(name = "photo_url")
 	@NotEmpty
-	@Column(name = "photo_url")
 	private String photoUrl;
 
 	@ManyToOne
