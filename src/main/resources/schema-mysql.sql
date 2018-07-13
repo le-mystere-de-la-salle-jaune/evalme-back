@@ -19,6 +19,7 @@ create table classe (
   nom varchar(75) not null
 );
 
+
 create table stagiaire (
   id serial primary key,
   nom varchar(75) not null,
@@ -32,6 +33,7 @@ create table stagiaire (
 create table question (
   id serial primary key,
   titre varchar(75)
+
 );
 
 create table option_question (
@@ -107,5 +109,25 @@ create table duel (
 	foreign key (stagiairea_id) references stagiaire(id),
 	foreign key (stagiaireb_id) references stagiaire(id),
 	foreign key (quizz_id) references quizz(id)
+);
+
+
+CREATE TABLE option_sondage (
+  id serial primary key,
+  libelle varchar(75) NOT NULL,
+  description varchar(150) NOT NULL
+);
+
+CREATE TABLE sondage (
+  id serial primary key,
+  classe_id bigint(20) UNSIGNED DEFAULT NULL,
+  FOREIGN KEY (classe_id) REFERENCES classe (id)
+);
+
+CREATE TABLE sondage_option_sondage (
+  id_sondage bigint(20) UNSIGNED DEFAULT NULL,
+  id_option_sondage bigint(20) UNSIGNED DEFAULT NULL,
+  FOREIGN KEY (id_option_sondage) REFERENCES option_sondage (id),
+  FOREIGN KEY (id_sondage) REFERENCES sondage (id)
 );
 
