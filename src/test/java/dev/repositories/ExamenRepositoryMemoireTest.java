@@ -2,6 +2,7 @@ package dev.repositories;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class ExamenRepositoryMemoireTest {
 	@Autowired
 	private ExamenBaseRepositoryMemoire examenService;
 
+	@Ignore
 	@Test
 	public void testContext() {
 
@@ -32,6 +34,7 @@ public class ExamenRepositoryMemoireTest {
 
 	}
 
+	@Ignore
 	@Test
 	public void testSave() {
 

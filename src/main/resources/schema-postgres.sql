@@ -1,79 +1,105 @@
-drop table if exists EXAMEN_COMPO;
-drop table if exists EXAMEN;
-drop table if exists CLASSE;
 
-drop table if exists NOTE;
-drop table if exists duel;
+drop table if exists sondage_option_sondage;
+drop table if exists question_compo;
+drop table if exists sondage;
+drop table if exists option_sondage;
+drop table if exists note;
+drop table if exists examen;
+drop table if exists compo_quizz;
+drop table if exists quizz;
+drop table if exists option_question;
+drop table if exists question;
 drop table if exists stagiaire;
-drop table if exists QUIZZ;
-drop table if exists Concours;
-drop table if exists Concours_quizz;
-drop table if exists Concours_stagiaire;
+drop table if exists classe;
+drop table if exists concours;
+drop table if exists concours_quizz;
+drop table if exists concours_stagiaire;
+
+create table classe (
+  id serial primary key,
+  nom varchar(75) not null
+);
+
 
 create table stagiaire (
   id serial primary key,
   nom varchar(75) not null,
   prenom varchar(75) not null,
   email varchar(75) not null,
-  photo_url varchar(200) not null
+  photo_url varchar(200) not null,
+  id_classe bigint not null,
+  foreign key (id_classe) references classe(id)
 );
 
-create table CLASSE (
+create table question (
   id serial primary key,
-  nom varchar(75) not null
+  titre varchar(75)
 );
 
-create table QUIZZ(
+create table option_question (
+  id serial primary key,
+  libelle varchar(75) not null,
+  ok bit(1) not null
+);
+
+create table question_compo (
+  id serial primary key,
+  id_opt bigint not null,
+  id_que bigint not null,
+  foreign key (id_opt) references option_question(id),
+  foreign key (id_que) references question(id)
+);
+
+create table quizz(
 	id serial primary key,
 	titre varchar(200 not null
 
 );
 
-CREATE TABLE EXAMEN(
+create table compo_quizz (
 	id serial primary key,
-	titre VARCHAR(75) not null,
-	id_quizz BIGINT not null,
-	id_classe BIGINT not null,
-	FOREIGN KEY (id_quizz) REFERENCES QUIZZ(id),
-	FOREIGN KEY (id_classe) REFERENCES CLASSE(id)
+	idquizz bigint,
+	idquestion bigint,
+	foreign key (idquizz) references quizz(id),
+	foreign key (idquestion) references question(id)
 );
 
-
-create Table Concours(
+create table examen(
 	id serial primary key,
-	titre varchar(75) not null
+	titre varchar(75) not null,
+	id_quizz bigint not null,
+	id_classe bigint not null,
+	foreign key (id_quizz) references quizz(id),
+	foreign key (id_classe) references classe(id)
 );
 
-create Table Concours_stagiaire(
-	id serial primary key,
-	id_concours BIGINT not null,
-	id_stagiaire BIGINT not null,
-	FOREIGN KEY (id_concours) REFERENCES Concours(id),
-	FOREIGN KEY (id_stagiaire) REFERENCES stagiaire(id)
-);
+create table note (
 
-create Table Concours_quizz(
-	id serial primary key,
-	id_concours BIGINT not null,
-	id_quizz BIGINT not null,
-	FOREIGN KEY (id_concours) REFERENCES Concours(id),
-	FOREIGN KEY (id_quizz) REFERENCES QUIZZ(id)
-);
-
-
-create table NOTE (
   id serial primary key,
-  note_sur_20 DECIMAL(4,2) not null,
-  id_stagiaire BIGINT not null,
-  FOREIGN KEY (id_stagiaire) REFERENCES stagiaire(id)
+  note_sur_20 decimal(4,2) not null,
+  id_stagiaire bigint not null,
+  id_examen bigint not null,
+  foreign key (id_stagiaire) references stagiaire(id),
+  foreign key (id_examen) references examen(id)
 );
 
-create table EXAMEN_COMPO (
+create table option_sondage (
   id serial primary key,
-  exam_id BIGINT not null,
-  note_id BIGINT not null,
-  FOREIGN KEY (exam_id) REFERENCES EXAMEN(id),
-  FOREIGN KEY (note_id) REFERENCES NOTE(id)
+  libelle varchar(75) not null,
+  description varchar(150) not null
+);
+
+create table sondage (
+  id serial primary key,
+  classe_id bigint default null,
+  foreign key (classe_id) references classe (id)
+);
+
+create table sondage_option_sondage (
+  id_sondage bigint default null,
+  id_option_sondage bigint default null,
+  foreign key (id_option_sondage) references option_sondage (id),
+  foreign key (id_sondage) references sondage (id)
 );
 
 
@@ -85,5 +111,26 @@ create table duel (
 	foreign key (stagiairea_id) references stagiaire(id),
 	foreign key (stagiaireb_id) references stagiaire(id),
 	foreign key (quizz_id) references quizz(id)
+);
+
+create Table concours(
+	id serial primary key,
+	titre varchar(75) not null
+);
+
+create Table concours_stagiaire(
+	id serial primary key,
+	id_concours BIGINT not null,
+	id_stagiaire BIGINT not null,
+	FOREIGN KEY (id_concours) REFERENCES Concours(id),
+	FOREIGN KEY (id_stagiaire) REFERENCES stagiaire(id)
+);
+
+create Table concours_quizz(
+	id serial primary key,
+	id_concours BIGINT not null,
+	id_quizz BIGINT not null,
+	FOREIGN KEY (id_concours) REFERENCES Concours(id),
+	FOREIGN KEY (id_quizz) REFERENCES QUIZZ(id)
 );
 

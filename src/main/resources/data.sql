@@ -1,82 +1,78 @@
-insert into stagiaire(nom, prenom, email, photo_url)
-  values ('Clopin', 'Brigitte', 'bribri@hotmail.fr', 'https://www.valeursactuelles.com/sites/default/files/styles/image_article/public/2018-01/brigitte%20macron%20sipa.jpg?itok=0G8jRPfF');
+insert into classe ( nom ) values ('d11');
+insert into classe ( nom ) values ('d12');
+insert into classe ( nom ) values ('d13');
+insert into classe ( nom ) values ('d14');
 
-insert into stagiaire(nom, prenom, email, photo_url)
-  values ('Lupin', 'Patrick', 'lp@gmail.com', 'https://odgers-prod-neu-cdn-tm-endpoint.azureedge.net/media/1351/patrik-kvikant.jpg' );
+insert into stagiaire(nom, prenom, email, photo_url, id_classe)
+  values ('clopin', 'brigitte', 'bribri@hotmail.fr', 'https://www.valeursactuelles.com/sites/default/files/styles/image_article/public/2018-01/brigitte%20macron%20sipa.jpg?itok=0g8jrpff', 1);
+
+insert into stagiaire(nom, prenom, email, photo_url, id_classe)
+  values ('lupin', 'patrick', 'lp@gmail.com', 'https://odgers-prod-neu-cdn-tm-endpoint.azureedge.net/media/1351/patrik-kvikant.jpg',1 );
   
-insert into stagiaire(nom, prenom, email, photo_url)
-  values ('Lupin', 'Patrick', 'lp@gmail.com', 'https://odgers-prod-neu-cdn-tm-endpoint.azureedge.net/media/1351/patrik-kvikant.jpg' );
+insert into stagiaire(nom, prenom, email, photo_url, id_classe)
+  values ('lupin', 'patrick', 'lp@gmail.com', 'https://odgers-prod-neu-cdn-tm-endpoint.azureedge.net/media/1351/patrik-kvikant.jpg',2 );
   
-insert into stagiaire(nom, prenom, email, photo_url)
-  values ('Lupin', 'Patrick', 'lp@gmail.com', 'https://odgers-prod-neu-cdn-tm-endpoint.azureedge.net/media/1351/patrik-kvikant.jpg' );
+insert into quizz(titre) values ('les animeaux de la forêt');
+
+insert into stagiaire(nom, prenom, email, photo_url, id_classe)
+  values ('lupin', 'patrick', 'lp@gmail.com', 'https://odgers-prod-neu-cdn-tm-endpoint.azureedge.net/media/1351/patrik-kvikant.jpg',4 );
+
+insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('abitbol', 'georges', 'mondedemerde@clas.se', 'abitbol.jpg', 2);
+insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('porc', 'francis', 'dudeleesport@afes.fr', 'porc.jpg',3);
+insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('mansoif', 'gérard', 'gerard.mansoif@wanadoo.fr', 'mansoif.jpg',4);
 
 
-insert into stagiaire(nom, prenom, email, photo_url) values ('Abitbol', 'Georges', 'mondedemerde@clas.se', 'abitbol.jpg');
-insert into stagiaire(nom, prenom, email, photo_url) values ('Porc', 'Francis', 'dudeleesport@afes.fr', 'porc.jpg');
-insert into stagiaire(nom, prenom, email, photo_url) values ('Mansoif', 'Gérard', 'gerard.mansoif@wanadoo.fr', 'mansoif.jpg');
+insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animaux de la forêts', 1, 1) ;
 
+insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animeaux de la forêts', 1, 1) ;
 
-insert into NOTE(note_sur_20, id_stagiaire) values (12, 3);
-insert into NOTE(note_sur_20, id_stagiaire) values (15, 4);
+insert into note(note_sur_20, id_stagiaire, id_examen) values (12, 3, 1);
+insert into note(note_sur_20, id_stagiaire, id_examen) values (15, 4, 1);
  
-insert into CLASSE(nom) values('D12');
+insert into classe(nom) values('d12');
 
+insert into quizz(titre) values ('les animaux de la forêt');
+insert into quizz(titre) values ('géographie');
+insert into quizz(titre) values ('mathématiques');
+insert into question(titre) values ('qui est clovis?');
+insert into question(titre) values ('quel animage vole le plus vite?');
+insert into compo_quizz(idquizz, idquestion) values (1, 1);
+insert into compo_quizz(idquizz, idquestion) values (1, 2);
+insert into compo_quizz(idquizz, idquestion) values (2, 1);  
+insert into compo_quizz(idquizz, idquestion) values (2, 2);
 
-INSERT INTO quizz(titre) values ('Les animaux de la forêt');
-INSERT INTO quizz(titre) VALUES ('Géographie');
-INSERT INTO quizz(titre) VALUES ('Mathématiques');
-INSERT INTO question(titre) VALUES ('Qui est Clovis?');
-INSERT INTO question(titre) VALUES ('Quel animage vole le plus vite?');
-INSERT INTO compo_quizz(idQuizz, idQuestion) VALUES (1, 1);
-INSERT INTO compo_quizz(idQuizz, idQuestion) VALUES (1, 2);
-INSERT INTO compo_quizz(idQuizz, idQuestion) VALUES (2, 1);  
-INSERT INTO compo_quizz(idQuizz, idQuestion) VALUES (2, 2);
+insert into note(note_sur_20, id_stagiaire, id_examen) values (12, 3, 1);
+insert into note(note_sur_20, id_stagiaire, id_examen) values (15, 4, 1);
 
+insert into option_sondage(libelle, description) values ('libelle sondage 1','description du sondage numéro 1');
+insert into option_sondage(libelle, description) values ('libelle sondage 2','description du sondage numéro 2');
+insert into option_sondage(libelle, description) values ('libelle sondage 3','description du sondage numéro 3');
+insert into option_sondage(libelle, description) values ('libelle sondage 4','description du sondage numéro 4');
+insert into option_sondage(libelle, description) values ('libelle sondage 5','description du sondage numéro 5');
+insert into option_sondage(libelle, description) values ('libelle sondage 6','description du sondage numéro 6');
+insert into option_sondage(libelle, description) values ('libelle sondage 7','description du sondage numéro 7');
 
-insert into EXAMEN(titre,id_quizz,id_classe) values ('Quiz D12 animaux de la forêts', 1, 1) ;
+insert into sondage(classe_id) values (1);
+insert into sondage(classe_id) values (2);
+insert into sondage(classe_id) values (3);
+insert into sondage(classe_id) values (1);
 
+insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (1,3);
+insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (1,5);
+insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (1,7);
 
-insert into EXAMEN_COMPO(exam_id,note_id) values (1,1);
-insert into EXAMEN_COMPO(exam_id,note_id) values (1,2);
+insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (2,1);
+insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (2,4);
+insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (2,7);
 
-INSERT INTO classe ( nom ) values ('D11');
-INSERT INTO classe ( nom ) values ('D12');
-INSERT INTO classe ( nom ) values ('D13');
-INSERT INTO classe ( nom ) values ('D14');
+insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (3,2);
+insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (3,6);
 
-INSERT INTO option_sondage(libelle, description) VALUES ('libelle sondage 1','description du sondage numéro 1');
-INSERT INTO option_sondage(libelle, description) VALUES ('libelle sondage 2','description du sondage numéro 2');
-INSERT INTO option_sondage(libelle, description) VALUES ('libelle sondage 3','description du sondage numéro 3');
-INSERT INTO option_sondage(libelle, description) VALUES ('libelle sondage 4','description du sondage numéro 4');
-INSERT INTO option_sondage(libelle, description) VALUES ('libelle sondage 5','description du sondage numéro 5');
-INSERT INTO option_sondage(libelle, description) VALUES ('libelle sondage 6','description du sondage numéro 6');
-INSERT INTO option_sondage(libelle, description) VALUES ('libelle sondage 7','description du sondage numéro 7');
-
-INSERT INTO sondage(classe_id) VALUES (1);
-INSERT INTO sondage(classe_id) VALUES (2);
-INSERT INTO sondage(classe_id) VALUES (3);
-INSERT INTO sondage(classe_id) VALUES (1);
-
-
+insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (4,1);
+insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (4,7);
 
 insert into concours(titre) values ('This is concours !!!');  
 insert into concours(titre) values ('The first concours'); 
-
-
-INSERT INTO sondage_option_sondage ( id_sondage, id_option_sondage ) VALUES (1,3);
-INSERT INTO sondage_option_sondage ( id_sondage, id_option_sondage ) VALUES (1,5);
-INSERT INTO sondage_option_sondage ( id_sondage, id_option_sondage ) VALUES (1,7);
-
-INSERT INTO sondage_option_sondage ( id_sondage, id_option_sondage ) VALUES (2,1);
-INSERT INTO sondage_option_sondage ( id_sondage, id_option_sondage ) VALUES (2,4);
-INSERT INTO sondage_option_sondage ( id_sondage, id_option_sondage ) VALUES (2,7);
-
-INSERT INTO sondage_option_sondage ( id_sondage, id_option_sondage ) VALUES (3,2);
-INSERT INTO sondage_option_sondage ( id_sondage, id_option_sondage ) VALUES (3,6);
-
-INSERT INTO sondage_option_sondage ( id_sondage, id_option_sondage ) VALUES (4,1);
-INSERT INTO sondage_option_sondage ( id_sondage, id_option_sondage ) VALUES (4,7);
-
 
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 1);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 2);
