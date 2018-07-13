@@ -29,6 +29,7 @@ public class StagiaireRepositoryJdbcTest {
 		assertThat(stagiaires.isEmpty(), is(false));
 	}
 
+	@Ignore
 	@Test
 	public void testSave() {
 		Stagiaire staTest = new Stagiaire("prenomTest", "nomTest", "emailTest", "photoUrlTest");

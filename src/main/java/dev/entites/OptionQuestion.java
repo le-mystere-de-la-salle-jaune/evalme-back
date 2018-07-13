@@ -1,5 +1,13 @@
 package dev.entites;
 
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 /**
@@ -7,18 +15,26 @@ import javax.validation.constraints.NotEmpty;
  * 
  * @author matth
  */
+@Entity
+@Table(name = "OPTION_QUESTION")
 public class OptionQuestion extends BaseEntite {
 
 	/**
 	 * libelle : String
 	 */
 	@NotEmpty
+	@Column(name = "libelle")
 	private String libelle;
 	/**
 	 * ok : Boolean
 	 */
 	@NotEmpty
+	@Column(name = "ok")
 	private Boolean ok;
+
+	@ManyToMany
+	@JoinTable(name = "QUESTION_COMPO", joinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"))
+	private List<Question> questions;
 
 	/**
 	 * Constructor of OptionQuestion.java
