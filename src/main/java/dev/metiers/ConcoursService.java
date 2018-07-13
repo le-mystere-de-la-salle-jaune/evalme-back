@@ -17,8 +17,29 @@ public class ConcoursService {
 		this.concoursRepository = concoursRepository;
 	}
 
-	public List<Concours> lister() {
+	public List<Concours> list() {
 		return concoursRepository.findAll();
+	}
+
+	public void ajout(Concours entite) {
+		concoursRepository.save(entite);
+	}
+
+	public void miseajour(Concours entiteAvecId) {
+		concoursRepository.update(entiteAvecId);
+	}
+
+	public void suppression(Concours entiteAvecId) {
+		concoursRepository.delete(entiteAvecId);
+	}
+
+	public Concours FindbyId(Long Id) {
+		for (Concours lc : this.list()) {
+			if (lc.getId().equals(Id)) {
+				return lc;
+			}
+		}
+		return null;
 	}
 
 }

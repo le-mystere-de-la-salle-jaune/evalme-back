@@ -45,7 +45,7 @@ public class ConcoursRepositoryMemoire implements ConcoursRepository {
 	public void update(Concours entiteAvecId) {
 		Long id = entiteAvecId.getId();
 		for (Concours c : lesconcours) {
-			if (id == entiteAvecId.getId()) {
+			if (c.getId().equals(id)) {
 				c.setTitre(entiteAvecId.getTitre());
 				c.setParticipants(entiteAvecId.getParticipants());
 				c.setQuizzes(entiteAvecId.getQuizzes());
