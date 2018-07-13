@@ -10,8 +10,15 @@ public class Classe extends BaseEntite {
 	@NotEmpty
 	private String nom;
 
-	@NotEmpty
 	private List<Stagiaire> stagiaires = new ArrayList<>();
+
+	public Classe() {
+
+	}
+
+	public Classe(String nom) {
+		this.nom = nom;
+	}
 
 	public String getNom() {
 		return nom;

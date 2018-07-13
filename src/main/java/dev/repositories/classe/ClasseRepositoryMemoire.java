@@ -7,11 +7,10 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.Classe;
 
-@Repository
+//@Repository
 public class ClasseRepositoryMemoire implements ClasseRepository {
 
 	private List<Classe> classes = new ArrayList<>();
