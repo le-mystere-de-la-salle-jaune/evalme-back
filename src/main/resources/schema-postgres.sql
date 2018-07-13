@@ -110,8 +110,10 @@ CREATE TABLE sondage (
 );
 
 CREATE TABLE sondage_option_sondage (
+
   id_sondage bigint,
   id_option_sondage bigint,
+
   FOREIGN KEY (id_option_sondage) REFERENCES option_sondage (id),
   FOREIGN KEY (id_sondage) REFERENCES sondage (id)
 );
