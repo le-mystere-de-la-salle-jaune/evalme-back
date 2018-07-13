@@ -1,10 +1,15 @@
+DROP TABLE IF EXISTS compo_quizz;
 drop table if exists EXAMEN_COMPO;
 drop table if exists EXAMEN;
-drop table if exists CLASSE;
+drop table if exists sondage_option_sondage;
+drop table if exists Sondage;
+drop table if exists classe;
 drop table if exists NOTE;
-drop table if exists duel;
 drop table if exists stagiaire;
-drop table if exists QUIZZ;
+DROP TABLE IF EXISTS quizz;
+DROP TABLE IF EXISTS question;
+
+drop table if exists option_sondage;
 
 create table stagiaire (
   id serial primary key,
@@ -22,6 +27,19 @@ create table CLASSE (
 create table QUIZZ(
 	id serial primary key,
 	titre varchar(255) not null
+);
+
+CREATE TABLE question (
+	id SERIAL PRIMARY KEY,
+	titre VARCHAR(75) not null
+);
+
+CREATE TABLE compo_quizz (
+	id SERIAL PRIMARY KEY,
+	idQuizz BIGINT,
+	idQuestion BIGINT,
+	FOREIGN KEY (idQuizz) REFERENCES quizz(id),
+	FOREIGN KEY (idQuestion) REFERENCES question(id)
 );
 
 CREATE TABLE EXAMEN(
@@ -47,6 +65,25 @@ create table EXAMEN_COMPO (
   note_id BIGINT not null,
   FOREIGN KEY (exam_id) REFERENCES EXAMEN(id),
   FOREIGN KEY (note_id) REFERENCES NOTE(id)
+);
+
+CREATE TABLE option_sondage (
+  id serial primary key,
+  libelle varchar(75) NOT NULL,
+  description varchar(150) NOT NULL
+);
+
+CREATE TABLE sondage (
+  id serial primary key,
+  classe_id bigint(20),
+  FOREIGN KEY (classe_id) REFERENCES classe (id)
+);
+
+CREATE TABLE sondage_option_sondage (
+  id_sondage bigint(20),
+  id_option_sondage bigint(20),
+  FOREIGN KEY (id_option_sondage) REFERENCES option_sondage (id),
+  FOREIGN KEY (id_sondage) REFERENCES sondage (id)
 );
 
 create table duel (
