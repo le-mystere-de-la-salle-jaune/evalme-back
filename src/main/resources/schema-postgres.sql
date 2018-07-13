@@ -19,7 +19,7 @@ create table stagiaire (
   photo_url varchar(200) not null
 );
 
-create table CLASSE (
+create table classe (
   id serial primary key,
   nom varchar(75) not null
 );
@@ -48,7 +48,7 @@ CREATE TABLE EXAMEN(
 	id_quizz BIGINT not null,
 	id_classe BIGINT not null,
 	FOREIGN KEY (id_quizz) REFERENCES QUIZZ(id),
-	FOREIGN KEY (id_classe) REFERENCES CLASSE(id)
+	FOREIGN KEY (id_classe) REFERENCES classe(id)
 );
 
 
@@ -75,13 +75,13 @@ CREATE TABLE option_sondage (
 
 CREATE TABLE sondage (
   id serial primary key,
-  classe_id bigint(20),
+  classe_id bigint,
   FOREIGN KEY (classe_id) REFERENCES classe (id)
 );
 
 CREATE TABLE sondage_option_sondage (
   id_sondage bigint(20),
-  id_option_sondage bigint(20),
+  id_option_sondage bigint,
   FOREIGN KEY (id_option_sondage) REFERENCES option_sondage (id),
   FOREIGN KEY (id_sondage) REFERENCES sondage (id)
 );
