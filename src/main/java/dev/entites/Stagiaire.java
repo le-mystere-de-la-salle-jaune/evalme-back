@@ -1,20 +1,38 @@
 package dev.entites;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+@Entity
+@Table(name = "stagiaire")
 public class Stagiaire extends BaseEntite {
 
 	@Size(min = 2)
+	@Column(name = "prenom")
 	private String prenom;
+
 	@Size(min = 2)
+	@Column(name = "nom")
 	private String nom;
+
 	@NotEmpty
 	@Email
+	@Column(name = "email")
 	private String email;
+
 	@NotEmpty
+	@Column(name = "photo_url")
 	private String photoUrl;
+
+	@ManyToOne
+	@JoinColumn(name = "id_classe")
+	private Classe classe;
 
 	public Stagiaire() {
 	}

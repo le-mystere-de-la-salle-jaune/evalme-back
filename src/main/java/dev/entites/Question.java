@@ -3,6 +3,12 @@ package dev.entites;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 /**
@@ -10,19 +16,28 @@ import javax.validation.constraints.NotEmpty;
  * 
  * @author matth
  */
+@Entity
+@Table(name = "QUESTION")
 public class Question extends BaseEntite {
 
 	/**
 	 * titre : String
 	 */
 	@NotEmpty
+	@Column(name = "titre")
 	private String titre;
 
 	/**
 	 * options : List<OptionQuestion>
 	 */
 	@NotEmpty
+	@ManyToMany
+	@JoinTable(name = "QUESTION_COMPO", joinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"))
 	private List<OptionQuestion> options;
+
+	@ManyToMany
+	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "idQuestion", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "idQuizz", referencedColumnName = "id"))
+	private List<Quizz> quizzes;
 
 	/**
 	 * Constructor of Question.java

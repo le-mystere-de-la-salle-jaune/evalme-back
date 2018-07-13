@@ -3,24 +3,26 @@ package dev.repositories.examen;
 import java.util.List;
 import java.util.Optional;
 
-import javax.sql.DataSource;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import dev.entites.Examen;
 
-public class ExamenRepositoryJdbc implements ExamenRepository {
+@Repository
+@Transactional
+public class ExamenRepositoryJpa implements ExamenRepository {
 
-	private JdbcTemplate jdbcTemplate;
-
-	public ExamenRepositoryJdbc(DataSource datasource) {
-		this.jdbcTemplate = new JdbcTemplate(datasource);
-	}
+	// Récupération d'une instance de l'Entity Manager
+	@PersistenceContext
+	private EntityManager em;
 
 	@Override
 	public List<Examen> findAll() {
-		String sql = "SELECT * FROM EXAMEN";
-		return jdbcTemplate.query(sql, new ExamenMapper());
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
