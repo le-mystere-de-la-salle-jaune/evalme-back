@@ -11,7 +11,6 @@ drop table if exists question;
 drop table if exists stagiaire;
 drop table if exists classe;
 
-
 create table classe (
   id serial primary key,
   nom varchar(75) not null
@@ -48,7 +47,7 @@ create table question_compo (
 
 create table quizz(
 	id serial primary key,
-	titre varchar(75) not null
+	titre varchar(255) not null
 );
 
 create table compo_quizz (
@@ -95,4 +94,14 @@ create table sondage_option_sondage (
   id_option_sondage bigint default null,
   foreign key (id_option_sondage) references option_sondage (id),
   foreign key (id_sondage) references sondage (id)
+);
+
+create table duel (
+	id serial primary key,
+	stagiairea_id bigint not null,
+	stagiaireb_id bigint not null,
+	quizz_id bigint not null,
+	foreign key (stagiairea_id) references stagiaire(id),
+	foreign key (stagiaireb_id) references stagiaire(id),
+	foreign key (quizz_id) references quizz(id)
 );
