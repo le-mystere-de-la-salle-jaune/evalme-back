@@ -2,12 +2,14 @@ DROP TABLE IF EXISTS compo_quizz;
 drop table if exists EXAMEN_COMPO;
 drop table if exists EXAMEN;
 drop table if exists sondage_option_sondage;
-drop table if exists Sondage;
+drop table if exists sondage;
 drop table if exists classe;
 drop table if exists NOTE;
+drop table if exists duel;
 drop table if exists stagiaire;
 DROP TABLE IF EXISTS quizz;
 DROP TABLE IF EXISTS question;
+
 
 drop table if exists option_sondage;
 
@@ -67,6 +69,7 @@ create table EXAMEN_COMPO (
   FOREIGN KEY (note_id) REFERENCES NOTE(id)
 );
 
+
 CREATE TABLE option_sondage (
   id serial primary key,
   libelle varchar(75) NOT NULL,
@@ -95,3 +98,4 @@ create table duel (
 	foreign key (stagiaireb_id) references stagiaire(id),
 	foreign key (quizz_id) references quizz(id)
 );
+
