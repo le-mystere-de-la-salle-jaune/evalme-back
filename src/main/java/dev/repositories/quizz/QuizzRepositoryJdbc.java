@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.sql.DataSource;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -27,7 +28,7 @@ public class QuizzRepositoryJdbc implements QuizzRepository {
 		String sql = "SELECT * FROM quizz";
 		// exécution de la requête et récupération du résultat
 		// this.jdbcTemplate.query(sql, new QuizzMapper())
-		return null;
+		throw new NotImplementedException("Implémentez la méthode avant de l'utiliser, bon dieu");
 	}
 
 	@Override
