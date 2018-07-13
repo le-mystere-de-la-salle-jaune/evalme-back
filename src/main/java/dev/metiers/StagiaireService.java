@@ -25,10 +25,18 @@ public class StagiaireService {
 		stagiaireRepository.save(stagiaire);
 	}
 
-	/*
-	 * public List<Stagiaire> update() { return stagiaireRepository.update(); }
-	 * 
-	 * public List<Stagiaire> delete() { return
-	 * stagiaireRepository.delete(entite);; }
-	 */
+	public void update(Stagiaire StagiaireAvecId) {
+		stagiaireRepository.update(StagiaireAvecId);
+	}
+
+	public void delete(Stagiaire stagiaire) {
+		stagiaireRepository.delete(stagiaire);
+	}
+
+	public Stagiaire findStagiaireById(Long id) {
+		return stagiaireRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("stagiaire non trouvé avec l'id " + id));
+
+	}
+
 }

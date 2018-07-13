@@ -12,6 +12,7 @@
 		<property name="nom" value="Dupont"></property>
 		<property name="email" value="kevinDu26@hotmail.com"></property>
 		<property name="photoUrl" value="kevin.jpg"></property>
+		<property name="id" value="0"/>
 	</bean>
 
 
@@ -20,6 +21,7 @@
 		<property name="nom" value="Cohen"></property>
 		<property name="email" value="rourou@gmail.com"></property>
 		<property name="photoUrl" value="=romane.jpg"></property>
+		<property name="id" value="1"/>
 	</bean>
 
 	<!-- Classes -->
@@ -32,6 +34,7 @@
 				<ref bean="romanne" />
 			</util:list>
 		</property>
+		<property name="id" value="0"/>
 	</bean>
 
 	<!-- Quizz -->
@@ -44,6 +47,7 @@
 				<ref bean="question2" />
 			</util:list>
 		</property>
+		<property name="id" value="0"/>
 	</bean>
 
 	<bean id="quizz2" class="dev.entites.Quizz">
@@ -54,6 +58,7 @@
 				<ref bean="question4" />
 			</util:list>
 		</property>
+		<property name="id" value="1"/>
 	</bean>
 
 	<!-- Questions -->

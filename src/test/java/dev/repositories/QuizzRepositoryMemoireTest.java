@@ -16,7 +16,7 @@ import dev.entites.Quizz;
 import dev.repositories.quizz.QuizzRepositoryMemoire;
 
 // Sélection des classes de configuration Spring à utiliser lors du test
-@ContextConfiguration(classes = { QuizzRepositoryMemoire.class })
+@ContextConfiguration(classes = { QuizzRepositoryMemoire.class, RepositoryTestConfig.class })
 // Configuration JUnit pour que Spring prenne la main sur le cycle de vie du
 // test
 @RunWith(SpringRunner.class)

@@ -7,6 +7,10 @@
 		<constructor-arg name="titre" value="Quel animal court le plus vite?"/>
 	</bean>
 	
+	<bean id="animaux2" class="dev.entites.Question">
+		<constructor-arg name="titre" value="Quel animal nage le plus vite?"/>
+	</bean>
+	
 	<bean id="geo1" class="dev.entites.Question">
 		<constructor-arg name="titre" value="Quel est la capital du Mexique?"/>
 	</bean>
@@ -20,6 +24,7 @@
     	<constructor-arg name="questions">
     		<list>
     			<ref bean="animaux1"/>
+    			<ref bean="animaux2"/>
     		</list>
     	</constructor-arg>
     	<property name="id" value="0"/>

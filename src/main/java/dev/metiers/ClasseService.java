@@ -21,4 +21,25 @@ public class ClasseService {
 		return classeRepository.findAll();
 	}
 
+	public void ajouter(Classe classe) {
+		classeRepository.save(classe);
+	}
+
+	public void maj(Classe classe) {
+		classeRepository.update(classe);
+	}
+
+	public void supprimer(Classe classe) {
+		classeRepository.delete(classe);
+	}
+
+	public Classe trouverClasseParId(Long id) {
+		for (Classe c : lister()) {
+			if (c.getId().equals(id)) {
+				return c;
+			}
+		}
+		return null;
+	}
+
 }

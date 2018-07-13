@@ -2,15 +2,15 @@ package dev.repositories.stagiaire;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.Stagiaire;
 
-@Repository
 public class StagiaireRepositoryMemoire implements StagiaireRepository {
 
 	private List<Stagiaire> stagiaires = new ArrayList<>();
@@ -26,6 +26,11 @@ public class StagiaireRepositoryMemoire implements StagiaireRepository {
 		try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("jdd/jdd-stagiaire.xml")) {
 			this.stagiaires = new ArrayList<>(context.getBeansOfType(Stagiaire.class).values());
 
+			// pour chaque stagiaire existant on lui ajoute un id
+			/*
+			 * for (Stagiaire stagiaire : stagiaires) {
+			 * stagiaire.setId(RandomUtils.nextLong()); }
+			 */
 		}
 
 	}
@@ -38,8 +43,9 @@ public class StagiaireRepositoryMemoire implements StagiaireRepository {
 	}
 
 	@Override
-	public void save(Stagiaire stagiaire) {
-		this.stagiaires.add(stagiaire);
+	public void save(Stagiaire stagiaireASauvegarder) {
+		stagiaireASauvegarder.setId(RandomUtils.nextLong());
+		this.stagiaires.add(stagiaireASauvegarder);
 
 	}
 
@@ -47,11 +53,11 @@ public class StagiaireRepositoryMemoire implements StagiaireRepository {
 	public void update(Stagiaire stagiaireAvecId) {
 		Long id = stagiaireAvecId.getId();
 		for (Stagiaire s : stagiaires) {
-			if (id == stagiaireAvecId.getId()) {
+			if (id.equals(s.getId())) {
 				s.setPrenom(stagiaireAvecId.getPrenom());
 				s.setNom(stagiaireAvecId.getNom());
 				s.setEmail(stagiaireAvecId.getEmail());
-				s.setPhotoUrl(stagiaireAvecId.getEmail());
+				s.setPhotoUrl(stagiaireAvecId.getPhotoUrl());
 			}
 		}
 
@@ -61,6 +67,11 @@ public class StagiaireRepositoryMemoire implements StagiaireRepository {
 	public void delete(Stagiaire stagiaire) {
 		this.stagiaires.remove(stagiaire);
 
+	}
+
+	@Override
+	public Optional<Stagiaire> findById(Long id) {
+		return this.stagiaires.stream().filter(s -> s.getId().equals(id)).findFirst();
 	}
 
 }

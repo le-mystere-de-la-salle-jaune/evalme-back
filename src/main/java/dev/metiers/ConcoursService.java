@@ -17,6 +17,7 @@ public class ConcoursService {
 		this.concoursRepository = concoursRepository;
 	}
 
+
 	public List<Concours> list() {
 		return concoursRepository.findAll();
 	}
@@ -41,5 +42,6 @@ public class ConcoursService {
 		}
 		return null;
 	}
+
 
 }

@@ -21,6 +21,7 @@
             </tr>
         </thead>
         <tbody>
+
             <c:forEach items="${listeConcours}" var="cc">
                 <tr>
                     <td>${cc.titre}</td>
@@ -34,11 +35,14 @@
 		           	<a href="/concours/editer?id=${cc.id}" class="btn btn-secondary active" role="button" aria-pressed="true">Editer</a>
 		           	<a href="/concours/supprimer?id=${cc.id}" class="btn btn-secondary active" role="button" aria-pressed="true">Supprimer</a>
                    </td>
+
                 </tr>
             </c:forEach>
         </tbody>
     </table>
+
     <a href="/concours/creer" class="btn btn-primary active" role="button" aria-pressed="true">Ajouter un nouveau concours</a>
+
     <!-- jQuery first, then poper, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

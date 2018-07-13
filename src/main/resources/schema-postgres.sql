@@ -1,13 +1,14 @@
 drop table if exists EXAMEN_COMPO;
 drop table if exists EXAMEN;
 drop table if exists CLASSE;
+
+drop table if exists NOTE;
+drop table if exists duel;
+drop table if exists stagiaire;
+drop table if exists QUIZZ;
 drop table if exists Concours;
 drop table if exists Concours_quizz;
 drop table if exists Concours_stagiaire;
-drop table if exists NOTE;
-drop table if exists stagiaire;
-drop table if exists QUIZZ;
-
 
 create table stagiaire (
   id serial primary key,
@@ -24,7 +25,8 @@ create table CLASSE (
 
 create table QUIZZ(
 	id serial primary key,
-	titre varchar(75) not null
+	titre varchar(200 not null
+
 );
 
 CREATE TABLE EXAMEN(
@@ -35,6 +37,7 @@ CREATE TABLE EXAMEN(
 	FOREIGN KEY (id_quizz) REFERENCES QUIZZ(id),
 	FOREIGN KEY (id_classe) REFERENCES CLASSE(id)
 );
+
 
 create Table Concours(
 	id serial primary key,
@@ -57,6 +60,7 @@ create Table Concours_quizz(
 	FOREIGN KEY (id_quizz) REFERENCES QUIZZ(id)
 );
 
+
 create table NOTE (
   id serial primary key,
   note_sur_20 DECIMAL(4,2) not null,
@@ -71,3 +75,15 @@ create table EXAMEN_COMPO (
   FOREIGN KEY (exam_id) REFERENCES EXAMEN(id),
   FOREIGN KEY (note_id) REFERENCES NOTE(id)
 );
+
+
+create table duel (
+	id serial primary key,
+	stagiairea_id bigint not null,
+	stagiaireb_id bigint not null,
+	quizz_id bigint not null,
+	foreign key (stagiairea_id) references stagiaire(id),
+	foreign key (stagiaireb_id) references stagiaire(id),
+	foreign key (quizz_id) references quizz(id)
+);
+

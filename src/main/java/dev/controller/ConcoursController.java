@@ -1,5 +1,6 @@
 package dev.controller;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +22,13 @@ import dev.metiers.ConcoursService;
 import dev.metiers.QuizzService;
 import dev.metiers.StagiaireService;
 
+
 @Controller
 @RequestMapping("/concours")
 public class ConcoursController {
 
 	private ConcoursService concoursService;
+
 	private StagiaireService stagiaireService;
 	private QuizzService quizzService;
 
@@ -46,9 +49,11 @@ public class ConcoursController {
 	public ModelAndView lister() {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listeConcours", concoursService.list());
+
 		mv.setViewName("concours/listerConcours");
 		return mv;
 	}
+
 
 	@GetMapping("/creer")
 	public ModelAndView save() {
@@ -167,5 +172,6 @@ public class ConcoursController {
 		mv.setViewName("redirect:/concours/lister");
 		return mv;
 	}
+
 
 }

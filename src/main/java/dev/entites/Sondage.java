@@ -3,8 +3,11 @@ package dev.entites;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Sondage extends BaseEntite {
 
+	@NotEmpty
 	private String titre;
 	private List<OptionSondage> options = new ArrayList<>();
 	private Classe classe;

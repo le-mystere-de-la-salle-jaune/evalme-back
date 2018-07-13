@@ -22,7 +22,7 @@ public class JddSondageTest {
 		Sondage s = context.getBean("sondage1", Sondage.class);
 
 		assertThat(s.getTitre()).isEqualTo("Titre sondage 1");
-		assertThat(s.getClasse().getNom()).isEqualTo("classe 1");
+		assertThat(s.getClasse().getNom()).isEqualTo("D11");
 		assertThat(s.getOptions().get(1).getLibelle()).isEqualTo("option 2");
 	}
 
@@ -31,7 +31,7 @@ public class JddSondageTest {
 		Sondage s = context.getBean("sondage2", Sondage.class);
 
 		assertThat(s.getTitre()).isEqualTo("Titre sondage 2");
-		assertThat(s.getClasse().getNom()).isEqualTo("classe 1");
+		assertThat(s.getClasse().getNom()).isEqualTo("D12");
 		assertThat(s.getOptions().get(2).getLibelle()).isEqualTo("option 3");
 	}
 
@@ -40,7 +40,7 @@ public class JddSondageTest {
 		Sondage s = context.getBean("sondage3", Sondage.class);
 
 		assertThat(s.getTitre()).isEqualTo("Titre sondage 3");
-		assertThat(s.getClasse().getNom()).isEqualTo("classe 1");
+		assertThat(s.getClasse().getNom()).isEqualTo("D13");
 		assertThat(s.getOptions().get(0).getLibelle()).isEqualTo("option 1");
 	}
 
