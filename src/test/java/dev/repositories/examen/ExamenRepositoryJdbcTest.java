@@ -1,7 +1,5 @@
 package dev.repositories.examen;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,6 @@ public class ExamenRepositoryJdbcTest {
 	@Test
 	public void testConnexion() {
 
-		assertTrue(examenRepositoryJdbc.findAll().size() == 1);
 	}
 
 }
