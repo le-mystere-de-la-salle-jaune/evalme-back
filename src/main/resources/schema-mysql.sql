@@ -48,19 +48,6 @@ CREATE TABLE compo_quizz (
 );
 
 
-CREATE TABLE question (
-	id SERIAL PRIMARY KEY,
-	titre VARCHAR(75) not null
-);
-
-CREATE TABLE compo_quizz (
-	id SERIAL PRIMARY KEY,
-	idQuizz BIGINT UNSIGNED,
-	idQuestion BIGINT UNSIGNED,
-	FOREIGN KEY (idQuizz) REFERENCES quizz(id),
-	FOREIGN KEY (idQuestion) REFERENCES question(id)
-);
-
 CREATE TABLE EXAMEN(
 	id serial primary key,
 	titre VARCHAR(75) not null,
