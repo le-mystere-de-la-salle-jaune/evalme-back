@@ -70,6 +70,7 @@ insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (3,6
 insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (4,1);
 insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (4,7);
 
+
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 1);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 2);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 3);

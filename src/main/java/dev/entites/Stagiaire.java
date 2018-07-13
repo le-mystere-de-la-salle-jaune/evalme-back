@@ -13,21 +13,21 @@ import javax.validation.constraints.Size;
 @Table(name = "stagiaire")
 public class Stagiaire extends BaseEntite {
 
-	@Size(min = 2)
 	@Column(name = "prenom")
+	@Size(min = 2)
 	private String prenom;
 
-	@Size(min = 2)
 	@Column(name = "nom")
+	@Size(min = 2)
 	private String nom;
 
+	@Column(name = "email")
 	@NotEmpty
 	@Email
-	@Column(name = "email")
 	private String email;
 
-	@NotEmpty
 	@Column(name = "photo_url")
+	@NotEmpty
 	private String photoUrl;
 
 	@ManyToOne
@@ -81,6 +81,21 @@ public class Stagiaire extends BaseEntite {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	/**
+	 * @return the classe
+	 */
+	public Classe getClasse() {
+		return classe;
+	}
+
+	/**
+	 * @param classe
+	 *            the classe to set
+	 */
+	public void setClasse(Classe classe) {
+		this.classe = classe;
 	}
 
 }

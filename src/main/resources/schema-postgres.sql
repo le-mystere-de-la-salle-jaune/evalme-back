@@ -96,6 +96,26 @@ create table sondage_option_sondage (
   foreign key (id_sondage) references sondage (id)
 );
 
+
+CREATE TABLE option_sondage (
+  id serial primary key,
+  libelle varchar(75) NOT NULL,
+  description varchar(150) NOT NULL
+);
+
+CREATE TABLE sondage (
+  id serial primary key,
+  classe_id bigint,
+  FOREIGN KEY (classe_id) REFERENCES classe (id)
+);
+
+CREATE TABLE sondage_option_sondage (
+  id_sondage bigint,
+  id_option_sondage bigint,
+  FOREIGN KEY (id_option_sondage) REFERENCES option_sondage (id),
+  FOREIGN KEY (id_sondage) REFERENCES sondage (id)
+);
+
 create table duel (
 	id serial primary key,
 	stagiairea_id bigint not null,
@@ -105,3 +125,4 @@ create table duel (
 	foreign key (stagiaireb_id) references stagiaire(id),
 	foreign key (quizz_id) references quizz(id)
 );
+
