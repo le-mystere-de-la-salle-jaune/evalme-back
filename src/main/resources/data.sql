@@ -15,9 +15,18 @@ insert into NOTE(note_sur_20, id_stagiaire) values (15, 4);
  
 insert into CLASSE(nom) values('D12');
  
-insert into QUIZZ(titre) values ('Les animeaux de la forêt');
+INSERT INTO quizz(titre) values ('Les animaux de la forêt');
+INSERT INTO quizz(titre) VALUES ('Géographie');
+INSERT INTO quizz(titre) VALUES ('Mathématiques');
+INSERT INTO question(titre) VALUES ('Qui est Clovis?');
+INSERT INTO question(titre) VALUES ('Quel animage vole le plus vite?');
+INSERT INTO compo_quizz(idQuizz, idQuestion) VALUES (1, 1);
+INSERT INTO compo_quizz(idQuizz, idQuestion) VALUES (1, 2);
+INSERT INTO compo_quizz(idQuizz, idQuestion) VALUES (2, 1);  
+INSERT INTO compo_quizz(idQuizz, idQuestion) VALUES (2, 2);
 
-insert into EXAMEN(titre,id_quizz,id_classe) values ('Quiz D12 animeaux de la forêts', 1, 1) ;
+
+insert into EXAMEN(titre,id_quizz,id_classe) values ('Quiz D12 animaux de la forêts', 1, 1) ;
 
 insert into EXAMEN_COMPO(exam_id,note_id) values (1,1);
 insert into EXAMEN_COMPO(exam_id,note_id) values (1,2);
