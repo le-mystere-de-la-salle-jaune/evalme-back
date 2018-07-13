@@ -1,6 +1,7 @@
 package dev.repositories.examen;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.sql.DataSource;
 
@@ -40,6 +41,12 @@ public class ExamenRepositoryJdbc implements ExamenRepository {
 	public void delete(Examen entite) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Optional<Examen> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
