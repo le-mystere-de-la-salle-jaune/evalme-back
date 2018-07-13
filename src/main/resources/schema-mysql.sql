@@ -5,6 +5,7 @@ drop table if exists option_sondage;
 drop table if exists note;
 drop table if exists examen;
 drop table if exists compo_quizz;
+drop table if exists duel;
 drop table if exists quizz;
 drop table if exists option_question;
 drop table if exists question;
@@ -48,15 +49,15 @@ create table question_compo (
 
 create table quizz(
 	id serial primary key,
-	titre varchar(75) not null
+	titre varchar(255) not null
 );
 
-create table compo_quizz (
-	id serial primary key,
-	idquizz bigint unsigned,
-	idquestion bigint unsigned,
-	foreign key (idquizz) references quizz(id),
-	foreign key (idquestion) references question(id)
+CREATE TABLE compo_quizz (
+	id SERIAL PRIMARY KEY,
+	idQuizz BIGINT UNSIGNED,
+	idQuestion BIGINT UNSIGNED,
+	FOREIGN KEY (idQuizz) REFERENCES quizz(id),
+	FOREIGN KEY (idQuestion) REFERENCES question(id)
 );
 
 create table examen(
@@ -67,7 +68,6 @@ create table examen(
 	foreign key (id_quizz) references quizz(id),
 	foreign key (id_classe) references classe(id)
 );
-
 
 create table note (
   id serial primary key,
@@ -95,4 +95,15 @@ create table sondage_option_sondage (
   id_option_sondage bigint(20) unsigned default null,
   foreign key (id_option_sondage) references option_sondage (id),
   foreign key (id_sondage) references sondage (id)
+);
+
+
+create table duel (
+	id serial primary key,
+	stagiairea_id bigint unsigned not null,
+	stagiaireb_id bigint unsigned not null,
+	quizz_id bigint unsigned not null,
+	foreign key (stagiairea_id) references stagiaire(id),
+	foreign key (stagiaireb_id) references stagiaire(id),
+	foreign key (quizz_id) references quizz(id)
 );

@@ -49,6 +49,7 @@ public class StagiaireRepositoryJdbcTest {
 	}
 
 	@Test
+	@Ignore
 	public void testDelete() {
 		List<Stagiaire> stagiaires = stagiaireRepositoryJdbc.findAll();
 		Stagiaire s = stagiaireRepositoryJdbc.findAll().get(0);
