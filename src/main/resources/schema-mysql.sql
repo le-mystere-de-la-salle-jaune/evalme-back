@@ -1,16 +1,17 @@
-drop table if exists question_compo;
-DROP TABLE IF EXISTS compo_quizz;
-drop table if exists option_question;
-drop table if exists question;
-drop table if exists EXAMEN_COMPO;
-drop table if exists NOTE;
-drop table if exists EXAMEN;
-drop table if exists stagiaire;
-drop table if exists QUIZZ;
 drop table if exists sondage_option_sondage;
+drop table if exists question_compo;
 drop table if exists Sondage;
 drop table if exists option_sondage;
+drop table if exists NOTE;
+drop table if exists EXAMEN;
+DROP TABLE IF EXISTS compo_quizz;
+drop table if exists QUIZZ;
+drop table if exists QUESTION_COMPO
+drop table if exists OPTION_QUESTION;
+drop table if exists QUESTION;
+drop table if exists stagiaire;
 drop table if exists classe;
+
 
 CREATE TABLE classe (
   id serial primary key,
