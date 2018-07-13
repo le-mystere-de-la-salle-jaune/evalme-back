@@ -47,7 +47,7 @@ CREATE TABLE EXAMEN(
 	titre VARCHAR(75) not null,
 	id_quizz BIGINT not null,
 	id_classe BIGINT not null,
-	FOREIGN KEY (id_quizz) REFERENCES QUIZZ(id),
+	FOREIGN KEY (id_quizz) REFERENCES quizz(id),
 	FOREIGN KEY (id_classe) REFERENCES classe(id)
 );
 
@@ -80,7 +80,7 @@ CREATE TABLE sondage (
 );
 
 CREATE TABLE sondage_option_sondage (
-  id_sondage bigint(20),
+  id_sondage bigint,
   id_option_sondage bigint,
   FOREIGN KEY (id_option_sondage) REFERENCES option_sondage (id),
   FOREIGN KEY (id_sondage) REFERENCES sondage (id)
