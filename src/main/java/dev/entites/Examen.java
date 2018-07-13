@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name = "EXAMEN")
+@Table(name = "examen")
 public class Examen extends BaseEntite {
 
 	@NotEmpty
