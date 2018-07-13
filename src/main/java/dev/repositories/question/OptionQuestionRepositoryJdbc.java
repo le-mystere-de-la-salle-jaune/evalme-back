@@ -7,11 +7,9 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.OptionQuestion;
 
-@Repository
 public class OptionQuestionRepositoryJdbc implements OptionQuestionRepository {
 
 	// outil JdbcTemplate fourni par Spring JDBC
