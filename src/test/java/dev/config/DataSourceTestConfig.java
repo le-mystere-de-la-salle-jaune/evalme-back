@@ -12,7 +12,7 @@ public class DataSourceTestConfig {
 
 	@Bean
 	public DataSource dataSource() {
-		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).addScript("schema.sql")
+		return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).addScript("schema-mysql.sql")
 				.addScript("data.sql").build();
 	}
 
