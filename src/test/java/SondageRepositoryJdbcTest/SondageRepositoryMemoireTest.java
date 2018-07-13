@@ -1,4 +1,4 @@
-package dev.repositories;
+package SondageRepositoryJdbcTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

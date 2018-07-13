@@ -2,6 +2,7 @@ package dev.repositories.classe;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -50,30 +51,34 @@ public class ClasseRepositoryMemoire implements ClasseRepository {
 	@Override
 	public void update(Classe classeAvecId) {
 
-		Classe classe = null;
+		Long id = classeAvecId.getId();
 		for (Classe c : classes) {
-			if (classeAvecId.getId() == c.getId()) {
-				classe = c;
+			if (id.equals(c.getId())) {
+				c.setNom(classeAvecId.getNom());
+				c.setStagiaires(classeAvecId.getStagiaires());
 			}
 		}
 
-		if (classe != null) {
-			classe.setNom(classeAvecId.getNom());
-			classe.setStagiaires(classeAvecId.getStagiaires());
-		}
 	}
 
 	@Override
 	public void delete(Classe classe) {
 
 		int i = 0;
+		int index = 0;
 		for (Classe c : classes) {
-			if (classe.getId() == c.getId()) {
-				classes.remove(i);
+			if (classe.getId().equals(c.getId())) {
+				index = i;
 			}
 			i++;
 		}
+		classes.remove(index);
+	}
 
+	@Override
+	public Optional<Classe> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

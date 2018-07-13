@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -56,6 +57,12 @@ public class SondageRepositoryMemoire implements SondageRepository {
 			}
 		}
 		sondages.remove(id);
+	}
+
+	@Override
+	public Optional<Sondage> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

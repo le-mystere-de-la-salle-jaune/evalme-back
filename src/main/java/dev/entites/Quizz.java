@@ -15,15 +15,16 @@ public class Quizz extends BaseEntite {
 	private List<Question> questions = new ArrayList<>();
 
 	public Quizz() {
+		super();
 	}
 
 	public Quizz(String titre) {
-		super();
+		this();
 		this.titre = titre;
 	}
 
 	public Quizz(String titre, List<Question> questions) {
-		this.titre = titre;
+		this(titre);
 		this.questions = questions;
 	}
 

@@ -36,7 +36,7 @@
 			</div>
 			<div class="row justify-content">
 				<div class="col-2">
-					<button type="submit" class="btn-create btn-primary">Créer</button>
+					<button type="submit" class="btn-create btn btn-primary">Créer</button>
 				</div>
 			</div>
 		</form:form>

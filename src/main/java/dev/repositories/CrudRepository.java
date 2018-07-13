@@ -1,6 +1,7 @@
 package dev.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Interface de base des services.
@@ -16,4 +17,6 @@ public interface CrudRepository<T> {
 	void update(T entiteAvecId);
 
 	void delete(T entite);
+
+	Optional<T> findById(Long id);
 }

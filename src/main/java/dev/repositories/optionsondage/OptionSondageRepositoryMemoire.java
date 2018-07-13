@@ -4,15 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.OptionSondage;
 
-@Repository
 public class OptionSondageRepositoryMemoire implements OptionSondageRepository {
 
 	private List<OptionSondage> optionSondages = new ArrayList<>();
@@ -55,6 +54,12 @@ public class OptionSondageRepositoryMemoire implements OptionSondageRepository {
 			}
 		}
 		optionSondages.remove(id);
+	}
+
+	@Override
+	public Optional<OptionSondage> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

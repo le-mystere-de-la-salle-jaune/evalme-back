@@ -25,10 +25,21 @@ public class ClasseService {
 		classeRepository.save(classe);
 	}
 
-	public void maj() {
+	public void maj(Classe classe) {
+		classeRepository.update(classe);
 	}
 
-	public void supprimer() {
+	public void supprimer(Classe classe) {
+		classeRepository.delete(classe);
+	}
+
+	public Classe trouverClasseParId(Long id) {
+		for (Classe c : lister()) {
+			if (c.getId().equals(id)) {
+				return c;
+			}
+		}
+		return null;
 	}
 
 }

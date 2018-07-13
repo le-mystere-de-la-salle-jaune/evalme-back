@@ -85,4 +85,20 @@ public class StagiaireController {
 		return mv;
 	}
 
+	// supprimer
+	@GetMapping("/supprimer")
+	public ModelAndView FormFromIdDelete(@RequestParam("id") Long id) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("stagiaire", stagiaireService.findStagiaireById(id));
+		mv.setViewName("stagiaires/supprimerStagiaires");
+		return mv;
+	}
+
+	@PostMapping("/supprimer")
+	public ModelAndView supprimerForm(@RequestParam("id") Long id) {
+		ModelAndView mv = new ModelAndView();
+		stagiaireService.delete(stagiaireService.findStagiaireById(id));
+		mv.setViewName("redirect:/stagiaires/lister");
+		return mv;
+	}
 }

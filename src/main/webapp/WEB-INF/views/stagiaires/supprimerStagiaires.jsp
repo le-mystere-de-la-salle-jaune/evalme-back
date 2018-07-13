@@ -11,27 +11,10 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<form:form modelAttribute="classe" method="post">
-			<p>Vous êtes sur le point de supprimer la classe suivante :</p>
-			<p>${classe.nom}</p>
-			<br/>
-			<p>Cette classe est constitué des stagiaires suivants :<br/>
-			<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col">Nom</th>
-							<th scope="col">Prenom</th>
-						</tr>
-					</thead>
-
-					<tbody>
-						<c:forEach items="${listeStagiairesClasse}" var="stc">
-							<tr>
-								<td>${stc.nom}</td>
-								<td>${stc.prenom}</td>
-						</c:forEach>
-					</tbody>
-				</table>
+		<h1>Supprimer un profil de stagiaire</h1>
+		<form:form modelAttribute="stagiaire">
+			<p>Vous êtes sur le point de supprimer le profil suivant :</p>
+			<p><c:out value="${stagiaire.nom} "/> <c:out value="${stagiaire.prenom}"/></p>
 			
 			<div class="row justify-content-end">
 				<div class="col-10">

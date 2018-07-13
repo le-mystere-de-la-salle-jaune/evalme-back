@@ -40,4 +40,8 @@ public class ExamenService {
 		examenRepository.update(entiteAvecId);
 	}
 
+	public void supprimerExam(Examen entite) {
+		examenRepository.delete(entite);
+	}
+
 }

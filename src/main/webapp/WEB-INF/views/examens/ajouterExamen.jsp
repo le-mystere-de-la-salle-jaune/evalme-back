@@ -12,7 +12,7 @@
 <link
 	href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
 	rel="stylesheet" id="bootstrap-css">
-	<link rel="stylesheet" href="ajouterExamen.css">
+<link rel="stylesheet" href="ajouterExamen.css">
 <script
 	src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -26,7 +26,7 @@
 					<div class="panel-heading">
 						<h3 class="panel-title">Ajout d'un nouveau quizz</h3>
 					</div>
-					
+
 					<div class="panel-body">
 						<form:form method="post" modelAttribute="examen" role="form">
 							<div class="row">
@@ -34,7 +34,8 @@
 									<div class="form-group">
 										<form:select path="classe.id" class="form-control input-sm">
 											<form:option value="NONE" label="--- Select ---" />
-											<form:options items="${classeList}" itemValue="id" itemLabel="nom" />
+											<form:options items="${classeList}" itemValue="id"
+												itemLabel="nom" />
 										</form:select>
 									</div>
 								</div>
@@ -42,7 +43,8 @@
 									<div class="form-group">
 										<form:select path="quizz.id" class="form-control input-sm">
 											<form:option value="NONE" label="--- Select ---" />
-											<form:options items="${quizzList}" itemValue="id" itemLabel="titre" />
+											<form:options items="${quizzList}" itemValue="id"
+												itemLabel="titre" />
 										</form:select>
 									</div>
 								</div>
@@ -54,9 +56,9 @@
 											placeholder="Titre du quizz" />
 									</div>
 								</div>
-
 							</div>
-							<input type="submit" value="Ajouter" class="btn btn-info btn-block">
+							<input type="submit" value="Ajouter"
+								class="btn btn-info btn-block">
 						</form:form>
 					</div>
 				</div>
@@ -80,3 +82,4 @@
 		crossorigin="anonymous"></script>
 </body>
 </html>
+

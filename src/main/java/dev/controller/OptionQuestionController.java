@@ -73,7 +73,8 @@ public class OptionQuestionController {
 	public ModelAndView postCreerOption(@ModelAttribute("option") OptionQuestion option, BindingResult result) {
 		optionQuestionService.getOptionQuestionRepository().save(option);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("questions/creerOptionQuestions");
+		mv.addObject("listeOptionQuestions", optionQuestionService.lister());
+		mv.setViewName("questions/listerOptionQuestions");
 		return mv;
 	}
 
@@ -106,7 +107,7 @@ public class OptionQuestionController {
 		optionQuestionService.getOptionQuestionRepository().update(option);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listeOptionQuestions", optionQuestionService.lister());
-		mv.setViewName("questions/majOptionQuestions");
+		mv.setViewName("questions/listerOptionQuestions");
 		return mv;
 	}
 
@@ -134,7 +135,7 @@ public class OptionQuestionController {
 		optionQuestionService.getOptionQuestionRepository().delete(optionQuestionService.trouverAvecId(choix));
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listeOptionQuestions", optionQuestionService.lister());
-		mv.setViewName("questions/supprimerOptionQuestions");
+		mv.setViewName("questions/listerOptionQuestions");
 		return mv;
 	}
 

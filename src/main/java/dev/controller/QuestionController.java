@@ -91,8 +91,8 @@ public class QuestionController {
 		}
 		question.setOptions(maList);
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("listeOptions", optionQuestionService.lister());
-		mv.setViewName("questions/creerQuestions");
+		mv.addObject("listeQuestions", questionService.lister());
+		mv.setViewName("questions/listerQuestions");
 		return mv;
 	}
 
@@ -134,8 +134,7 @@ public class QuestionController {
 		questionService.getQuestionRepository().update(question);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listeQuestions", questionService.lister());
-		mv.addObject("listeOptions", optionQuestionService.lister());
-		mv.setViewName("questions/majQuestions");
+		mv.setViewName("questions/listerQuestions");
 		return mv;
 	}
 
@@ -164,8 +163,7 @@ public class QuestionController {
 		questionService.getQuestionRepository().delete(questionService.trouverAvecId(choix));
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("listeQuestions", questionService.lister());
-		mv.addObject("listeOptionQuestions", optionQuestionService.lister());
-		mv.setViewName("questions/supprimerQuestions");
+		mv.setViewName("questions/listerQuestions");
 		return mv;
 	}
 
