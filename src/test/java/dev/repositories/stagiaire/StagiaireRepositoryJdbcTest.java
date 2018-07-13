@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThat;
 
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class StagiaireRepositoryJdbcTest {
 		assertThat(stagiaires.isEmpty(), is(false));
 	}
 
+	@Ignore
 	@Test
 	public void testSave() {
 		Stagiaire staTest = new Stagiaire("prenomTest", "nomTest", "emailTest", "photoUrlTest");
