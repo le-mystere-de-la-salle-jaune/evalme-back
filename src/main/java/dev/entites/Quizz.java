@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "QUIZZ")
+@Table(name = "quizz")
 public class Quizz extends BaseEntite {
 
 	@Size(min = 5)

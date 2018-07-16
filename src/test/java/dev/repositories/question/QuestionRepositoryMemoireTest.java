@@ -1,4 +1,4 @@
-package dev.repositories;
+package dev.repositories.question;
 
 
 import static org.junit.Assert.assertEquals;
