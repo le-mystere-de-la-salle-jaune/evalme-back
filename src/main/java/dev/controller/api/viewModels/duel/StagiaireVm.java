@@ -1,37 +1,19 @@
-package dev.controller.api.duel.viewModels;
+package dev.controller.api.viewModels.duel;
 
-public class StagiaireVm {
-	private Long id;
+public class StagiaireVm extends BaseVm {
 	private String nom;
 	private String prenom;
 
 	/**
 	 * Constructeur
 	 * 
-	 * @param id
 	 * @param nom
 	 * @param prenom
 	 */
 	public StagiaireVm(Long id, String nom, String prenom) {
-		super();
-		this.id = id;
+		super(id);
 		this.nom = nom;
 		this.prenom = prenom;
-	}
-
-	/**
-	 * @return the id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	/**

@@ -1,4 +1,4 @@
-package dev.controller.api.duel.viewModels;
+package dev.controller.api.viewModels.duel;
 
 import java.util.List;
 
