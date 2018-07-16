@@ -5,12 +5,12 @@ drop table if exists option_sondage cascade;
 drop table if exists note cascade;
 drop table if exists examen;
 drop table if exists compo_quizz cascade;
+drop table if exists duel cascade;
 drop table if exists quizz cascade;
 drop table if exists option_question cascade;
 drop table if exists question cascade;
 drop table if exists stagiaire cascade;
 drop table if exists classe cascade;
-drop table if exists duel cascade;
 
 create table classe (
   id serial primary key,
