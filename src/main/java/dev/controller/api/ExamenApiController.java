@@ -2,11 +2,20 @@ package dev.controller.api;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.controller.api.viewModels.examen.ExamenVm;
+import dev.controller.api.viewModels.examen.ExamenVmCreate;
+import dev.controller.api.viewModels.examen.ExamenVmUtil;
 import dev.entites.Examen;
 import dev.metiers.ClasseService;
 import dev.metiers.ExamenService;
@@ -18,36 +27,71 @@ import dev.metiers.StagiaireService;
 public class ExamenApiController {
 
 	private ExamenService examenService;
+	private ExamenVmUtil examenVmUtil;
 	private QuizzService quizzService;
 	private ClasseService classeService;
 
 	private StagiaireService stagiaireService;
 
 	public ExamenApiController(ExamenService examenService, QuizzService quizzService, ClasseService classeService,
-			StagiaireService stagiaireService) {
+			StagiaireService stagiaireService, ExamenVmUtil examenVmUtil) {
 		super();
 		this.examenService = examenService;
 		this.quizzService = quizzService;
 		this.classeService = classeService;
 		this.stagiaireService = stagiaireService;
+		this.examenVmUtil = examenVmUtil;
 
 	}
 	
-    @RequestMapping("/lister")
-    public ResponseEntity<List<Examen>> lister() {
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<ExamenVm>> lister() {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("MyResponseHeader", "MyValue");
         
-        List<Examen> listExam  = examenService.lister();
+
+        return ResponseEntity.ok(examenVmUtil.listAllExam());
+
+    }
+    
+    
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<?> ajouter(@RequestBody ExamenVmCreate examenVmCreate, HttpServletResponse response) {
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.set("MyResponseHeader", "MyValue");
+        Examen examen = new Examen();
         
-        if(listExam != null){
-        	return ResponseEntity.ok(listExam);
+        if(classeService.trouverClasseParId(examenVmCreate.getClasseId()) != null){
+        	if(quizzService.findQuizzById(examenVmCreate.getQuizzId()).isPresent() ){
+        		examen.setClasse(classeService.trouverClasseParId(examenVmCreate.getClasseId()));
+        		examen.setQuizz(quizzService.findQuizzById(examenVmCreate.getQuizzId()).orElse(null));
+        		examen.setTitre(examenVmCreate.getTitre());
+        		
+        		examenService.ajouter(examen);
+        		
+        	}else{
+        		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Quizz ID send does not exist");
+        	}
+        }else{
+        	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Classe ID send does not exist");
         }
         
-        return null;
-        //return new ResponseEntity<String>("Hello World", responseHeaders, HttpStatus.CREATED);
+
+        return ResponseEntity.status(HttpStatus.OK).body(examenVmUtil.createExamen(examen));
+
     }
-	
+    
+    @RequestMapping(value = "/{examenId}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> supprimer(@PathVariable Long examenId){
+    	
+    	if(examenService.exist(examenId)){
+    		examenService.deleteById(examenId);
+    		return ResponseEntity.status(HttpStatus.OK).body("Examen deleted successfully");
+    	}else{
+    		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Examen id don't match any exams");
+    	}
+
+    }
 	
 	
 }

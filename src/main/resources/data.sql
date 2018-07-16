@@ -35,10 +35,10 @@ insert into quizz(titre) values ('géographie');
 insert into quizz(titre) values ('mathématiques');
 insert into question(titre) values ('qui est clovis?');
 insert into question(titre) values ('quel animage vole le plus vite?');
-insert into compo_quizz(idquizz, idquestion) values (1, 1);
-insert into compo_quizz(idquizz, idquestion) values (1, 2);
-insert into compo_quizz(idquizz, idquestion) values (2, 1);  
-insert into compo_quizz(idquizz, idquestion) values (2, 2);
+insert into compo_quizz(id_quizz, id_question) values (1, 1);
+insert into compo_quizz(id_quizz, id_question) values (1, 2);
+insert into compo_quizz(id_quizz, id_question) values (2, 1);  
+insert into compo_quizz(id_quizz, id_question) values (2, 2);
 
 insert into option_sondage(libelle, description) values ('libelle sondage 1','description du sondage numéro 1');
 insert into option_sondage(libelle, description) values ('libelle sondage 2','description du sondage numéro 2');

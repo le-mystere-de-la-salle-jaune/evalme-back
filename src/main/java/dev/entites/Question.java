@@ -36,7 +36,7 @@ public class Question extends BaseEntite {
 	private List<OptionQuestion> options;
 
 	@ManyToMany
-	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "idQuestion", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "idQuizz", referencedColumnName = "id"))
+	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "id_question", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_quizz", referencedColumnName = "id"))
 	private List<Quizz> quizzes;
 
 	/**

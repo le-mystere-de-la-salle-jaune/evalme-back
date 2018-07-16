@@ -1,8 +1,12 @@
-package dev.controller.api.viewModels;
+package dev.controller.api.viewModels.examen;
 
 public class BaseVm {
 	
 	private Long id;
+	
+	public BaseVm(){
+		
+	}
 	
 	public BaseVm(Long id){
 		this.id = id;
