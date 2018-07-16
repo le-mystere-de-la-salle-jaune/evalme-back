@@ -12,9 +12,9 @@ drop table if exists option_question cascade;
 drop table if exists question cascade;
 drop table if exists stagiaire cascade;
 drop table if exists classe cascade;
-drop table if exists concours;
 drop table if exists concours_quizz;
 drop table if exists concours_stagiaire;
+drop table if exists concours;
 
 
 create table classe (
