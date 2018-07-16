@@ -3,8 +3,11 @@ package dev.repositories.optionsondage;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import dev.entites.OptionSondage;
 
+@Repository
 public class OptionSondageRepositoryDataJpa implements OptionSondageRepository {
 
 	private OptionSondageDataJpaRepository entiteDataJpa;

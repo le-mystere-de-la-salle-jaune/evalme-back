@@ -3,8 +3,11 @@ package dev.repositories.sondage;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Repository;
+
 import dev.entites.Sondage;
 
+@Repository
 public class SondageRepositoryDataJpa implements SondageRepository {
 
 	private SondageDataJpaRepository sondageDataJpa;
@@ -41,7 +44,7 @@ public class SondageRepositoryDataJpa implements SondageRepository {
 	@Override
 	public Optional<Sondage> findById(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return sondageDataJpa.findById(id);
 	}
 
 }

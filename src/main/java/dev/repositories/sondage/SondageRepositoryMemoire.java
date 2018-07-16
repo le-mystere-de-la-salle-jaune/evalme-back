@@ -9,11 +9,9 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.Sondage;
 
-@Repository
 public class SondageRepositoryMemoire implements SondageRepository {
 
 	private List<Sondage> sondages = new ArrayList<>();

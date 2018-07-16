@@ -58,4 +58,16 @@ public class SondageRepositoryDataJpaTest {
 		sondageRepositoryDataJpa.delete(os);
 		assertThat(sizeInit).isGreaterThan(sondageRepositoryDataJpa.findAll().size());
 	}
+
+	@Test
+	public void testFindById() {
+		Sondage options;
+		try {
+			options = sondageRepositoryDataJpa.findById(1L).orElseThrow(Exception::new);
+			assertThat(options.getTitre()).isEqualTo("titre sondage 1");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
