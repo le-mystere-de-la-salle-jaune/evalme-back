@@ -16,7 +16,7 @@ import javax.validation.constraints.NotEmpty;
  * @author matth
  */
 @Entity
-@Table(name = "option_quetion")
+@Table(name = "option_question")
 public class OptionQuestion extends BaseEntite {
 
 	/**
