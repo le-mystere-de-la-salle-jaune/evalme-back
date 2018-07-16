@@ -1,6 +1,7 @@
 package dev.repositories.question;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +32,12 @@ public class QuestionRepositoryJpa implements QuestionRepository {
 	public void delete(Question entite) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Optional<Question> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,6 +1,7 @@
 package dev.repositories.question;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -44,6 +45,12 @@ public class OptionQuestionRepositoryJpa implements OptionQuestionRepository {
 	public void delete(OptionQuestion entite) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Optional<OptionQuestion> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
