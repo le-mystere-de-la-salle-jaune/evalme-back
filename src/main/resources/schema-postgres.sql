@@ -96,12 +96,6 @@ create table sondage_option_sondage (
   foreign key (id_sondage) references sondage (id)
 );
 
-CREATE TABLE sondage (
-  id serial primary key,
-  classe_id bigint,
-  FOREIGN KEY (classe_id) REFERENCES classe (id)
-);
-
 create table duel (
 	id serial primary key,
 	stagiairea_id bigint not null,
