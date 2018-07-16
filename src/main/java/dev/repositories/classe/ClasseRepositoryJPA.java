@@ -8,11 +8,9 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import org.springframework.stereotype.Repository;
-
 import dev.entites.Classe;
 
-@Repository
+//@Repository
 public class ClasseRepositoryJPA implements ClasseRepository {
 
 	@PersistenceContext
