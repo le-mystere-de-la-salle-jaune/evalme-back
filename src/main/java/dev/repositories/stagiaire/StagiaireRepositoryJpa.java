@@ -8,11 +8,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
-import org.springframework.stereotype.Repository;
-
 import dev.entites.Stagiaire;
 
-@Repository
 public class StagiaireRepositoryJpa implements StagiaireRepository {
 
 	// Récupération d'une instance de l'Entity Manager
