@@ -10,6 +10,7 @@ drop table if exists option_question cascade;
 drop table if exists question cascade;
 drop table if exists stagiaire cascade;
 drop table if exists classe cascade;
+drop table if exists duel cascade;
 
 create table classe (
   id serial primary key,
