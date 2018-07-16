@@ -80,6 +80,6 @@ insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 1);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 2);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 3);
 
-insert into option_question(libelle,ok,id_compo) values('1',0,1);
-insert into option_question(libelle,ok,id_compo) values('2',1,2);
-insert into option_question(libelle,ok,id_compo) values('3',0,3);
+insert into option_question(libelle,ok) values('1',0);
+insert into option_question(libelle,ok) values('2',1);
+insert into option_question(libelle,ok) values('3',0);
