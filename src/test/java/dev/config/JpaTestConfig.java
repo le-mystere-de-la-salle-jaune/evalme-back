@@ -36,10 +36,10 @@ public class JpaTestConfig {
 	// Cette configuration nécessite une source de données configurée.
 	// Elle s'utilise donc en association avec un autre fichier de configuration
 	// définissant un bean DataSource.
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+	public EntityManagerFactory entityManagerFactory(DataSource dataSource) {
 
 		HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
-		// vendorAdapter.setGenerateDdl(true);
+		vendorAdapter.setGenerateDdl(true);
 		// activer les logs SQL
 		vendorAdapter.setShowSql(true);
 
@@ -50,7 +50,7 @@ public class JpaTestConfig {
 		factory.setDataSource(dataSource);
 		factory.afterPropertiesSet();
 
-		return factory;
+		return factory.getObject();
 	}
 
 }

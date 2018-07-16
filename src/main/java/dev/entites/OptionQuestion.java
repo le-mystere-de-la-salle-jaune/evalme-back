@@ -12,24 +12,24 @@ import javax.validation.constraints.NotEmpty;
 
 /**
  * OptionQuestion.java
- * 
+ *
  * @author matth
  */
 @Entity
-@Table(name = "OPTION_QUESTION")
+@Table(name = "option_question")
 public class OptionQuestion extends BaseEntite {
 
 	/**
 	 * libelle : String
 	 */
+	@Column(name = "libelle", length = 75, nullable = false, unique = false)
 	@NotEmpty
-	@Column(name = "libelle")
 	private String libelle;
 	/**
 	 * ok : Boolean
 	 */
+	@Column(name = "ok", nullable = false, unique = false)
 	@NotEmpty
-	@Column(name = "ok")
 	private Boolean ok;
 
 	@ManyToMany
@@ -45,7 +45,7 @@ public class OptionQuestion extends BaseEntite {
 
 	/**
 	 * Constructor of OptionQuestion.java
-	 * 
+	 *
 	 * @param id
 	 * @param libelle
 	 * @param ok
@@ -59,7 +59,7 @@ public class OptionQuestion extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @return
 	 */
 	public String getLibelle() {
@@ -68,7 +68,7 @@ public class OptionQuestion extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @param libelle
 	 */
 	public void setLibelle(String libelle) {

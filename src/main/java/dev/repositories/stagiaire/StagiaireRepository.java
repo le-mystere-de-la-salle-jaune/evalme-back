@@ -7,6 +7,7 @@ import dev.repositories.CrudRepository;
 
 public interface StagiaireRepository extends CrudRepository<Stagiaire> {
 
+	@Override
 	public Optional<Stagiaire> findById(Long id);
 
 }
