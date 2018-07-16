@@ -9,6 +9,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  * OptionQuestion.java
@@ -29,7 +30,7 @@ public class OptionQuestion extends BaseEntite {
 	 * ok : Boolean
 	 */
 	@Column(name = "ok", nullable = false, unique = false)
-	@NotEmpty
+	@NotNull
 	private Boolean ok;
 
 	@ManyToMany

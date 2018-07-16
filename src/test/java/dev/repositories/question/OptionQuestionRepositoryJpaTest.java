@@ -2,6 +2,8 @@ package dev.repositories.question;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +30,14 @@ public class OptionQuestionRepositoryJpaTest {
 	@Test
 	public void test_Save() {
 		OptionQuestion option = new OptionQuestion();
-		option.setId((long) 12);
 		option.setLibelle("LOL");
 		option.setOk(false);
 		optionQuestionRepository.save(option);
-		// assertTrue(optionQuestionRepositoryJdbc.getOptionQuestions().contains(option));
+		List<OptionQuestion> maListe = optionQuestionRepository.findAll();
+
+		assertTrue(maListe.get(3).getLibelle().equals("LOL"));
+		// Convertir le donnée byte en booléen ?
+		// assertTrue(maListe.get(3).getOk());
 	}
 
 	@Test

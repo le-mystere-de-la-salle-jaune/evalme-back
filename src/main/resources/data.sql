@@ -84,3 +84,10 @@ insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 3);
 insert into option_question(libelle,ok) values('1',0);
 insert into option_question(libelle,ok) values('2',1);
 insert into option_question(libelle,ok) values('3',0);
+
+insert into question_compo(id_que,id_opt) values(1,1);
+insert into question_compo(id_que,id_opt) values(1,2);
+insert into question_compo(id_que,id_opt) values(1,3);
+insert into question_compo(id_que,id_opt) values(2,1);
+insert into question_compo(id_que,id_opt) values(2,2);
+insert into question_compo(id_que,id_opt) values(2,3);
