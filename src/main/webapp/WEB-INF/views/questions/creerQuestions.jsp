@@ -19,10 +19,6 @@
 		<table class="table table-striped">
 			<tbody>
 				<tr>
-					<td>Identifiant :</td>
-					<td><form:input type="number" path="id" required="required" /></td>
-				</tr>
-				<tr>
 					<td>Titre :</td>
 					<td><form:input path="titre" required="required" /></td>
 				</tr>

@@ -23,6 +23,7 @@ public class OptionQuestionAppConfig {
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
 
 		// (...) configuration de l'EMF
+		factory.setDataSource(ds);
 
 		factory.afterPropertiesSet();
 		return factory.getObject();
