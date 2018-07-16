@@ -27,27 +27,32 @@ public class OptionQuestionRepositoryDataJpa implements OptionQuestionRepository
 	}
 
 	@Override
-	public void save(OptionQuestion entite) {
+	public void save(OptionQuestion option) {
 		// TODO Auto-generated method stub
+		optionQuestionDataJpaRepo.save(option);
+	}
+
+	@Override
+	public void update(OptionQuestion optionAvecId) {
+		// TODO Auto-generated method stub
+		// OptionQuestion optionToUpdate =
+		// optionQuestionDataJpaRepo.findById(optionAvecId.getId()).get();
+		// optionToUpdate.setLibelle(optionAvecId.getLibelle());
+		// optionToUpdate.setOk(optionAvecId.getOk());
+		optionQuestionDataJpaRepo.save(optionAvecId);
 
 	}
 
 	@Override
-	public void update(OptionQuestion entiteAvecId) {
+	public void delete(OptionQuestion option) {
 		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delete(OptionQuestion entite) {
-		// TODO Auto-generated method stub
-
+		optionQuestionDataJpaRepo.delete(option);
 	}
 
 	@Override
 	public Optional<OptionQuestion> findById(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return optionQuestionDataJpaRepo.findById(id);
 	}
 
 }

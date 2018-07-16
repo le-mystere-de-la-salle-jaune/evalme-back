@@ -36,8 +36,7 @@ public class OptionQuestionRepositoryJpaTest {
 		List<OptionQuestion> maListe = optionQuestionRepository.findAll();
 
 		assertTrue(maListe.get(3).getLibelle().equals("LOL"));
-		// Convertir le donnée byte en booléen ?
-		// assertTrue(maListe.get(3).getOk());
+		assertTrue(!maListe.get(3).getOk());
 	}
 
 	@Test

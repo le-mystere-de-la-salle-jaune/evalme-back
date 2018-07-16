@@ -37,7 +37,7 @@ create table question (
 create table option_question (
   id serial primary key,
   libelle varchar(75) not null,
-  ok Boolean not null
+  ok boolean not null
 );
 
 create table question_compo (
