@@ -54,7 +54,7 @@ create table question_compo (
 
 create table quizz(
 	id serial primary key,
-	titre varchar(200 not null
+	titre varchar(75) not null
 
 );
 
@@ -118,7 +118,7 @@ create table duel (
 
 create Table concours(
 	id serial primary key,
-	titre varchar(75) not null
+	titre varchar(100) not null
 );
 
 create Table concours_stagiaire(
