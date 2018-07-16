@@ -90,26 +90,6 @@ create table sondage (
   foreign key (classe_id) references classe (id)
 );
 
-create table sondage_option_sondage (
-  id_sondage bigint default null,
-  id_option_sondage bigint default null,
-  foreign key (id_option_sondage) references option_sondage (id),
-  foreign key (id_sondage) references sondage (id)
-);
-
-
-CREATE TABLE option_sondage (
-  id serial primary key,
-  libelle varchar(75) NOT NULL,
-  description varchar(150) NOT NULL
-);
-
-CREATE TABLE sondage (
-  id serial primary key,
-  classe_id bigint,
-  FOREIGN KEY (classe_id) REFERENCES classe (id)
-);
-
 CREATE TABLE sondage_option_sondage (
 
   id_sondage bigint,
