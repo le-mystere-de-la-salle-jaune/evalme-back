@@ -11,9 +11,9 @@ drop table if exists quizz;
 drop table if exists option_question;
 drop table if exists question;
 drop table if exists stagiaire;
-DROP TABLE IF EXISTS concours;
-DROP TABLE IF EXISTS concours_stagiaire;
-DROP TABLE IF EXISTS concours_quizz;
+DROP TABLE if exists concours;
+DROP TABLE if exists concours_stagiaire;
+DROP TABLE if exists concours_quizz;
 
 drop table if exists classe;
 
