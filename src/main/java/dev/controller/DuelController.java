@@ -1,16 +1,16 @@
-package dev.controller.duel;
+package dev.controller;
 
 import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import dev.entites.Duel;
@@ -22,7 +22,7 @@ import dev.repositories.stagiaire.StagiaireRepository;
  * @author Mayeul
  *
  */
-@Controller
+@RestController
 @RequestMapping("/duels")
 public class DuelController {
 
