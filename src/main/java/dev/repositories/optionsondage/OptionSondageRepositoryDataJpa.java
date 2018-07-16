@@ -27,13 +27,13 @@ public class OptionSondageRepositoryDataJpa implements OptionSondageRepository {
 	@Override
 	public void update(OptionSondage entiteAvecId) {
 		// TODO Auto-generated method stub
-
+		entiteDataJpa.save(entiteAvecId);
 	}
 
 	@Override
 	public void delete(OptionSondage entite) {
 		// TODO Auto-generated method stub
-
+		entiteDataJpa.delete(entite);
 	}
 
 	@Override

@@ -51,10 +51,10 @@ insert into option_sondage(libelle, description) values ('libelle sondage 5','de
 insert into option_sondage(libelle, description) values ('libelle sondage 6','description du sondage numéro 6');
 insert into option_sondage(libelle, description) values ('libelle sondage 7','description du sondage numéro 7');
 
-insert into sondage(classe_id) values (1);
-insert into sondage(classe_id) values (2);
-insert into sondage(classe_id) values (3);
-insert into sondage(classe_id) values (1);
+insert into sondage(titre, classe_id) values ('titre sondage 1', 1);
+insert into sondage(titre, classe_id) values ('titre sondage 2', 2);
+insert into sondage(titre, classe_id) values ('titre sondage 3', 3);
+insert into sondage(titre, classe_id) values ('titre sondage 4', 1);
 
 insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (1,3);
 insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (1,5);

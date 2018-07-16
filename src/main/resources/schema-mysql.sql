@@ -89,6 +89,7 @@ create table option_sondage (
 
 create table sondage (
   id serial primary key,
+  titre varchar(150) not null,
   classe_id bigint(20) unsigned default null,
   foreign key (classe_id) references classe (id)
 );
