@@ -12,7 +12,7 @@ create table stagiaire (
   prenom varchar(75) not null,
   email varchar(75) not null,
   photo_url varchar(200) not null,
-  id_classe bigint unsigned,
+  id_classe bigint,
   foreign key (id_classe) references classe(id)
 );
 
