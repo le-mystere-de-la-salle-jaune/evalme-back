@@ -3,18 +3,23 @@ package dev.metiers;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import dev.entites.Examen;
+import dev.entites.Note;
 import dev.repositories.examen.ExamenRepository;
+import dev.repositories.note.NoteDataJpaRepo;
 
 @Service
 public class ExamenService {
 
 	private ExamenRepository examenRepository;
+	private NoteDataJpaRepo noteRepository;
 
-	public ExamenService(ExamenRepository examenRepository) {
+	public ExamenService(ExamenRepository examenRepository, NoteDataJpaRepo noteRepository) {
 		super();
 		this.examenRepository = examenRepository;
+		this.noteRepository = noteRepository;
 	}
 
 	public List<Examen> lister() {
@@ -27,13 +32,7 @@ public class ExamenService {
 
 	public Examen getById(Long id) {
 
-		for (Examen e : examenRepository.findAll()) {
-			if (e.getId().equals(id)) {
-				return e;
-			}
-		}
-
-		return null;
+		return examenRepository.findById(id).orElse(null);
 	}
 
 	public void updateById(Examen entiteAvecId) {
@@ -42,6 +41,12 @@ public class ExamenService {
 
 	public void supprimerExam(Examen entite) {
 		examenRepository.delete(entite);
+	}
+
+	@Transactional
+	public void addNote(Note note) {
+		noteRepository.save(note);
+		// examenRepository.findById(id).get().addNote(note);
 	}
 
 }

@@ -124,8 +124,7 @@ public class ExamenController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/editer/note")
-	public ModelAndView submitForm(@ModelAttribute("note") @Valid Note note, BindingResult bindingResult,
-			@RequestParam Long id) {
+	public ModelAndView submitForm(@ModelAttribute("note") @Valid Note note, BindingResult bindingResult) {
 
 		if (!bindingResult.hasErrors()) {
 			for (Stagiaire s : stagiaireService.lister()) {
@@ -133,15 +132,11 @@ public class ExamenController {
 					note.setStagiaire(s);
 				}
 			}
+			examenService.addNote(note);
 
-			for (Examen exam : examenService.lister()) {
-				if (exam.getId().equals(id)) {
-					exam.getNotes().add(note);
-				}
-			}
-			return afficherGetEdit(new Note(), id);
+			return afficherGetEdit(new Note(), note.getExamen().getId());
 		} else {
-			return afficherGetEdit(note, id);
+			return afficherGetEdit(note, note.getExamen().getId());
 		}
 
 	}

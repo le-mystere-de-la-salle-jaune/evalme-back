@@ -40,9 +40,6 @@ insert into compo_quizz(idquizz, idquestion) values (1, 2);
 insert into compo_quizz(idquizz, idquestion) values (2, 1);  
 insert into compo_quizz(idquizz, idquestion) values (2, 2);
 
-insert into note(note_sur_20, id_stagiaire, id_examen) values (12, 3, 1);
-insert into note(note_sur_20, id_stagiaire, id_examen) values (15, 4, 1);
-
 insert into option_sondage(libelle, description) values ('libelle sondage 1','description du sondage numéro 1');
 insert into option_sondage(libelle, description) values ('libelle sondage 2','description du sondage numéro 2');
 insert into option_sondage(libelle, description) values ('libelle sondage 3','description du sondage numéro 3');
