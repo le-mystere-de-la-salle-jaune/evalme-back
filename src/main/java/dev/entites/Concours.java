@@ -13,7 +13,9 @@ public class Concours extends BaseEntite {
 
 	public Concours(String titre, List<Stagiaire> participants, List<Quizz> quizzes) {
 		super();
-		this.setId(new Random().nextLong());
+		if (this.getId() == null) {
+			this.setId(new Random().nextLong());
+		}
 		this.titre = titre;
 		this.participants = participants;
 		this.quizzes = quizzes;

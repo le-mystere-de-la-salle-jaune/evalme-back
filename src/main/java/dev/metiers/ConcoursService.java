@@ -1,6 +1,7 @@
 package dev.metiers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,6 @@ public class ConcoursService {
 		super();
 		this.concoursRepository = concoursRepository;
 	}
-
 
 	public List<Concours> list() {
 		return concoursRepository.findAll();
@@ -34,14 +34,8 @@ public class ConcoursService {
 		concoursRepository.delete(entiteAvecId);
 	}
 
-	public Concours FindbyId(Long Id) {
-		for (Concours lc : this.list()) {
-			if (lc.getId().equals(Id)) {
-				return lc;
-			}
-		}
-		return null;
+	public Optional<Concours> concoursparid(Long Id) {
+		return concoursRepository.findById(Id);
 	}
-
 
 }

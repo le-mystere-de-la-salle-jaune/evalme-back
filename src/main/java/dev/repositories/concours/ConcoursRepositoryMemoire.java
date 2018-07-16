@@ -2,7 +2,7 @@ package dev.repositories.concours;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -46,9 +46,7 @@ public class ConcoursRepositoryMemoire implements ConcoursRepository {
 	public void update(Concours entiteAvecId) {
 		Long id = entiteAvecId.getId();
 		for (Concours c : lesconcours) {
-
 			if (c.getId().equals(id)) {
-
 				c.setTitre(entiteAvecId.getTitre());
 				c.setParticipants(entiteAvecId.getParticipants());
 				c.setQuizzes(entiteAvecId.getQuizzes());
@@ -63,6 +61,9 @@ public class ConcoursRepositoryMemoire implements ConcoursRepository {
 
 	}
 
-
+	@Override
+	public Optional<Concours> findById(Long id) {
+		return this.lesconcours.stream().filter(s -> s.getId().equals(id)).findFirst();
+	}
 
 }

@@ -1,6 +1,7 @@
 package dev.repositories.concours;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.sql.DataSource;
 
@@ -41,6 +42,12 @@ public class ConcoursRepositoryJdbc implements ConcoursRepository {
 	public void delete(Concours entite) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Optional<Concours> findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

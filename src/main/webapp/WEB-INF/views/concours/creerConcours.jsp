@@ -28,7 +28,7 @@
 		                    <div class="form-group row">
 		                        <label for="participants" class="col-sm-3 control-label">Liste des participants</label>
 		                        <div class="col-sm-9">
-		                        	<form:select path="participants" items="${participants}" itemLabel="prenom" itemValue="email" class="selectpicker form-control" multiple="true" >                              
+		                        	<form:select path="participants" items="${participants}" itemLabel="prenom" itemValue="id" class="selectpicker form-control" multiple="true" >                              
 		                            </form:select>
 		                        </div>
 		                    </div> 
