@@ -1,3 +1,4 @@
+SET FOREIGN_KEY_CHECKS = 0;
 drop table if exists sondage_option_sondage;
 drop table if exists question_compo;
 drop table if exists sondage;
@@ -11,7 +12,7 @@ drop table if exists option_question;
 drop table if exists question;
 drop table if exists stagiaire;
 drop table if exists classe;
-
+SET FOREIGN_KEY_CHECKS = 1;
 
 create table classe (
   id serial primary key,

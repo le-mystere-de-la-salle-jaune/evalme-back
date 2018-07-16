@@ -1,7 +1,7 @@
-insert into classe ( nom ) values ('d11');
-insert into classe ( nom ) values ('d12');
-insert into classe ( nom ) values ('d13');
-insert into classe ( nom ) values ('d14');
+insert into classe(nom) values ('d11');
+insert into classe(nom) values ('d12');
+insert into classe(nom) values ('d13');
+insert into classe(nom) values ('d14');
 
 insert into stagiaire(nom, prenom, email, photo_url, id_classe)
   values ('clopin', 'brigitte', 'bribri@hotmail.fr', 'https://www.valeursactuelles.com/sites/default/files/styles/image_article/public/2018-01/brigitte%20macron%20sipa.jpg?itok=0g8jrpff', 1);
@@ -27,8 +27,6 @@ insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animeaux de la fo
 
 insert into note(note_sur_20, id_stagiaire, id_examen) values (12, 3, 1);
 insert into note(note_sur_20, id_stagiaire, id_examen) values (15, 4, 1);
- 
-insert into classe(nom) values('d12');
 
 insert into quizz(titre) values ('les animaux de la forêt');
 insert into quizz(titre) values ('géographie');
@@ -70,6 +68,7 @@ insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (3,6
 insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (4,1);
 insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (4,7);
 
+
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 1);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 2);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 3);
@@ -79,3 +78,7 @@ insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 3, 3);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 1);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 2);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 3);
+
+insert into option_question(libelle,ok) values('1',0);
+insert into option_question(libelle,ok) values('2',1);
+insert into option_question(libelle,ok) values('3',0);
