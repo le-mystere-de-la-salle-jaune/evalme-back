@@ -83,4 +83,8 @@ public class Stagiaire extends BaseEntite {
 		this.email = email;
 	}
 
+	public void setClasse(Classe classe) {
+		this.classe = classe;
+	}
+
 }
