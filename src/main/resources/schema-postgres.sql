@@ -5,6 +5,7 @@ drop table if exists option_sondage;
 drop table if exists note;
 drop table if exists examen;
 drop table if exists compo_quizz;
+drop table if exists duel;
 drop table if exists quizz;
 drop table if exists option_question;
 drop table if exists question;
