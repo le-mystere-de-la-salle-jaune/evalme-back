@@ -19,6 +19,7 @@ create table classe (
   nom varchar(75) not null
 );
 
+
 create table stagiaire (
   id serial primary key,
   nom varchar(75) not null,
@@ -32,6 +33,7 @@ create table stagiaire (
 create table question (
   id serial primary key,
   titre varchar(75)
+
 );
 
 create table option_question (
