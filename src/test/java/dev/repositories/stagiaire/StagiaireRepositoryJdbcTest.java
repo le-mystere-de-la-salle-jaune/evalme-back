@@ -48,6 +48,7 @@ public class StagiaireRepositoryJdbcTest {
 		assertThat(stagiaires2.get(0).getPrenom()).isEqualTo("Paul");
 	}
 
+	@Ignore
 	@Test
 	@Ignore
 	public void testDelete() {
