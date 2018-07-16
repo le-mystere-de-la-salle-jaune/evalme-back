@@ -133,8 +133,8 @@ create Table concours_quizz(
 	id serial primary key,
 	concours_id bigint not null,
 	quizz_id bigint not null,
-	foreign key (id_concours) references concours(id),
-	foreign key (id_quizz) references quizz(id)
+	foreign key (concours_id) references concours(id),
+	foreign key (quizz_id) references quizz(id)
 );
 
 
