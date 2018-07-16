@@ -40,6 +40,9 @@ public class ClasseRepositoryJPATest {
 		int size = classes.size();
 		Classe classe = new Classe("D15");
 		List<Stagiaire> stagiaires = new ArrayList<>();
+		Stagiaire st1 = new Stagiaire("clopin", "brigitte", "bribri@hotmail.fr",
+				"https://www.valeursactuelles.com/sites/default/files/styles/image_article/public/2018-01/brigitte%20macron%20sipa.jpg?itok=0g8jrpff");
+		stagiaires.add(st1);
 		classe.setStagiaires(stagiaires);
 		classeRepositoryJPA.save(classe);
 		classes = classeRepositoryJPA.findAll();

@@ -7,12 +7,10 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.Classe;
 import dev.repositories.classe.mapper.ClasseMapper;
 
-@Repository
 public class ClasseRepositoryJdbc implements ClasseRepository {
 
 	// NE PAS IMPLEMENTER A CE STADE, NOUS ECRIRONS LE TEST AVANT
