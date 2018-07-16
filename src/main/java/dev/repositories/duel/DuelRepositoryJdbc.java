@@ -13,7 +13,6 @@ import dev.entites.Duel;
 import dev.entites.Quizz;
 import dev.entites.Stagiaire;
 
-//@Repository
 public class DuelRepositoryJdbc implements DuelRepository {
 
 	RowMapper<Duel> mapper = (ResultSet rs, int rowNum) -> {
