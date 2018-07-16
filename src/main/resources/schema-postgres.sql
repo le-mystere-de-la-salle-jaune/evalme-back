@@ -1,15 +1,16 @@
-drop table if exists sondage_option_sondage;
-drop table if exists question_compo;
-drop table if exists sondage;
-drop table if exists option_sondage;
-drop table if exists note;
+drop table if exists sondage_option_sondage cascade;
+drop table if exists question_compo cascade;
+drop table if exists sondage cascade;
+drop table if exists option_sondage cascade;
+drop table if exists note cascade;
 drop table if exists examen;
-drop table if exists compo_quizz;
-drop table if exists quizz;
-drop table if exists option_question;
-drop table if exists question;
-drop table if exists stagiaire;
-drop table if exists classe;
+drop table if exists compo_quizz cascade;
+drop table if exists quizz cascade;
+drop table if exists option_question cascade;
+drop table if exists question cascade;
+drop table if exists stagiaire cascade;
+drop table if exists classe cascade;
+drop table if exists duel cascade;
 
 create table classe (
   id serial primary key,
@@ -105,4 +106,3 @@ create table duel (
 	foreign key (stagiaireb_id) references stagiaire(id),
 	foreign key (quizz_id) references quizz(id)
 );
-
