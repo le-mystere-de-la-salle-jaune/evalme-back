@@ -31,8 +31,6 @@ public class ExamenController {
 
 	private StagiaireService stagiaireService;
 
-	private long idExam = 2;
-
 	public ExamenController(ExamenService examenService, QuizzService quizzService, ClasseService classeService,
 			StagiaireService stagiaireService) {
 		super();
@@ -68,8 +66,6 @@ public class ExamenController {
 				exam.setQuizz(q);
 			}
 		}
-
-		exam.setId(idExam++);
 
 		for (Classe c : classeService.lister()) {
 			if (c.getId() == exam.getClasse().getId()) {
