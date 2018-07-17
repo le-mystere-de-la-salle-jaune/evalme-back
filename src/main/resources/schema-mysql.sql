@@ -113,18 +113,18 @@ create Table concours(
 
 create Table concours_stagiaire(
 	id serial primary key,
-	concours_id bigint unsigned not null,
-	stagiaire_id bigint unsigned not null,
-	FOREIGN KEY (concours_id) REFERENCES Concours(id),
-	FOREIGN KEY (stagiaire_id) REFERENCES stagiaire(id)
+	id_concours bigint unsigned not null,
+	id_stagiaire bigint unsigned not null,
+	FOREIGN KEY (id_concours) REFERENCES Concours(id),
+	FOREIGN KEY (id_stagiaire) REFERENCES stagiaire(id)
 );
 
 create Table concours_quizz(
 	id serial primary key,
-	concours_id bigint unsigned not null,
-	quizz_id bigint unsigned not null,
-	FOREIGN KEY (concours_id) REFERENCES concours(id),
-	FOREIGN KEY (quizz_id) REFERENCES quizz(id)
+	id_concours bigint unsigned not null,
+	id_quizz bigint unsigned not null,
+	FOREIGN KEY (id_concours) REFERENCES concours(id),
+	FOREIGN KEY (id_quizz) REFERENCES quizz(id)
 );
 
 
