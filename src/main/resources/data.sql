@@ -1,3 +1,7 @@
+insert into utilisateur(identifiant, mot_de_passe, profil) values ('brigitte', '$2a$10$HPTkDFywa6.0LoABcwG0Hu/Vc168o66o0oWgjruQqU.Ux2bizx5Ee', 'ROLE_STAGIAIRE');
+
+
+
 insert into classe ( nom ) values ('d11');
 insert into classe ( nom ) values ('d12');
 insert into classe ( nom ) values ('d13');
