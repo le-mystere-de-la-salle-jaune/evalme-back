@@ -81,3 +81,9 @@ insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 3);
 insert into option_question(libelle,ok) values('1',FALSE);
 insert into option_question(libelle,ok) values('2',TRUE);
 insert into option_question(libelle,ok) values('3',FALSE);
+
+insert into utilisateur(identifiant,mot_de_passe) values('Toto' , '0+0=lateteatoto');
+insert into profil_utilisateur(identifiant,profil) values('Toto' , 'admin');
+
+insert into utilisateur(identifiant,mot_de_passe) values('Tata' , 'motdepasse');
+insert into profil_utilisateur(identifiant,profil) values('Tata' , 'user');
