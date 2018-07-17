@@ -57,7 +57,7 @@ public class ConcoursController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("concours", new Concours());
 		mv.addObject("participants", stagiaireService.lister());
-		// mv.addObject("quizzes", quizzService.lister());
+		mv.addObject("quizzes", quizzService.lister());
 		mv.setViewName("concours/creerConcours");
 		return mv;
 	}
@@ -89,7 +89,7 @@ public class ConcoursController {
 
 		} else if (result.hasErrors()) {
 			mv.addObject("participants", stagiaireService.lister());
-			// mv.addObject("quizzes", quizzService.lister());
+			mv.addObject("quizzes", quizzService.lister());
 			mv.setViewName("concours/creerConcours");
 		}
 
@@ -101,7 +101,7 @@ public class ConcoursController {
 		ModelAndView mv = new ModelAndView();
 		if (concoursService.concoursparid(id).isPresent()) {
 			mv.addObject("participants", stagiaireService.lister());
-			// mv.addObject("quizzes", quizzService.lister());
+			mv.addObject("quizzes", quizzService.lister());
 			Concours concours = concoursService.concoursparid(id).get();
 			mv.addObject("concours", concours);
 			mv.setViewName("concours/creerConcours");
@@ -138,7 +138,7 @@ public class ConcoursController {
 
 		} else if (result.hasErrors()) {
 			mv.addObject("participants", stagiaireService.lister());
-			// mv.addObject("quizzes", quizzService.lister());
+			mv.addObject("quizzes", quizzService.lister());
 			mv.setViewName("concours/creerConcours");
 		}
 
