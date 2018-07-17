@@ -131,8 +131,8 @@ create Table concours_stagiaire(
 
 create Table concours_quizz(
 	id serial primary key,
-	concours_id bigint not null,
-	quizz_id bigint not null,
+	id_concours bigint not null,
+	id_quizz bigint not null,
 	foreign key (id_concours) references concours(id),
 	foreign key (id_quizz) references quizz(id)
 );
