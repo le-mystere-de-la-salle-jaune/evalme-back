@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
 
 /**
  * Question.java
- * 
+ *
  * @author matth
  */
 @Entity
@@ -30,9 +30,8 @@ public class Question extends BaseEntite {
 	/**
 	 * options : List<OptionQuestion>
 	 */
-	@NotEmpty
 	@ManyToMany
-	@JoinTable(name = "QUESTION_COMPO", joinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"))
+	@JoinTable(name = "question_compo", joinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"))
 	private List<OptionQuestion> options;
 
 	@ManyToMany
@@ -48,7 +47,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Constructor of Question.java
-	 * 
+	 *
 	 * @param id
 	 * @param titre
 	 */
@@ -61,7 +60,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Constructor of Question.java
-	 * 
+	 *
 	 * @param titre
 	 */
 	public Question(String titre) {
@@ -71,7 +70,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Constructor of Question.java
-	 * 
+	 *
 	 * @param titre
 	 * @param options
 	 */
@@ -83,7 +82,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @return
 	 */
 	public String getTitre() {
@@ -92,7 +91,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @param titre
 	 */
 	public void setTitre(String titre) {
@@ -101,7 +100,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @return
 	 */
 	public List<OptionQuestion> getOptions() {
@@ -110,7 +109,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @param options
 	 */
 	public void setOptions(List<OptionQuestion> options) {

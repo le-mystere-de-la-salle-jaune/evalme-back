@@ -35,10 +35,6 @@ public class OptionQuestionRepositoryDataJpa implements OptionQuestionRepository
 	@Override
 	public void update(OptionQuestion optionAvecId) {
 		// TODO Auto-generated method stub
-		// OptionQuestion optionToUpdate =
-		// optionQuestionDataJpaRepo.findById(optionAvecId.getId()).get();
-		// optionToUpdate.setLibelle(optionAvecId.getLibelle());
-		// optionToUpdate.setOk(optionAvecId.getOk());
 		optionQuestionDataJpaRepo.save(optionAvecId);
 
 	}

@@ -45,6 +45,7 @@ public class QuestionRepositoryMemoire implements QuestionRepository {
 	@Override
 	public void save(Question question) {
 		// TODO Auto-generated method stub
+		question.setId((long) this.questions.size());
 		this.questions.add(question);
 
 	}
