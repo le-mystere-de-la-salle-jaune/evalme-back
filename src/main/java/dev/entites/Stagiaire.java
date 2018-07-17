@@ -32,6 +32,7 @@ public class Stagiaire extends BaseEntite {
 
 	@ManyToOne
 	@JoinColumn(name = "id_classe")
+	// @JsonIgnore
 	private Classe classe;
 
 	public Stagiaire() {
