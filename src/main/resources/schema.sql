@@ -1,7 +1,7 @@
+drop table if exists NOTE;
 drop table if exists EXAMEN_COMPO;
 drop table if exists EXAMEN;
 drop table if exists CLASSE;
-drop table if exists NOTE;
 drop table if exists Concours;
 drop table if exists Concours_stagiaire;
 drop table if exists Concours_quizz;
