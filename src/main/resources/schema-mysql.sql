@@ -11,6 +11,14 @@ drop table if exists option_question;
 drop table if exists question;
 drop table if exists stagiaire;
 drop table if exists classe;
+drop table if exists utilisateur;
+
+create table utilisateur (
+identifiant varchar(100),
+mot_de_passe varchar(200),
+profil varchar(100)
+);
+
 
 create table classe (
   id serial primary key,
