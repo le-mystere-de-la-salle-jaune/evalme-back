@@ -11,6 +11,8 @@ drop table if exists option_question;
 drop table if exists question;
 drop table if exists stagiaire;
 drop table if exists classe;
+drop table if exists utilisateur;
+drop table if exists profil_utilisateur;
 
 create table classe (
   id serial primary key,
@@ -107,5 +109,17 @@ create table duel (
 	foreign key (stagiairea_id) references stagiaire(id),
 	foreign key (stagiaireb_id) references stagiaire(id),
 	foreign key (quizz_id) references quizz(id)
+);
+
+create table utilisateur (
+	id serial primary key,
+	identifiant varchar(75) not null,
+	mot_de_passe varchar(75) not null
+);
+
+create table profil_utilisateur (
+	id serial primary key,
+	identifiant varchar(75) not null,
+	profil varchar(75) not null
 );
 
