@@ -93,7 +93,7 @@ create table option_sondage (
 create table sondage (
   id serial primary key,
   id_classe bigint default null,
-  foreign key (classe_id) references classe (id)
+  foreign key (id_classe) references classe (id)
 );
 
 create table sondage_option_sondage (
