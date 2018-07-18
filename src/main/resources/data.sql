@@ -21,6 +21,7 @@ insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('abitbol
 insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('porc', 'francis', 'dudeleesport@afes.fr', 'porc.jpg',3);
 insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('mansoif', 'gérard', 'gerard.mansoif@wanadoo.fr', 'mansoif.jpg',4);
 
+
 insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animaux de la forêts', 1, 1) ;
 
 insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animeaux de la forêts', 1, 1) ;
@@ -66,6 +67,10 @@ insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (3,6
 
 insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (4,1);
 insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (4,7);
+
+
+insert into concours(titre) values ('This is concours !!!');  
+insert into concours(titre) values ('The first concours'); 
 
 
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 1);

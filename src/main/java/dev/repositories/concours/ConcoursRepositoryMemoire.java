@@ -46,7 +46,7 @@ public class ConcoursRepositoryMemoire implements ConcoursRepository {
 	public void update(Concours entiteAvecId) {
 		Long id = entiteAvecId.getId();
 		for (Concours c : lesconcours) {
-			if (id == entiteAvecId.getId()) {
+			if (c.getId().equals(id)) {
 				c.setTitre(entiteAvecId.getTitre());
 				c.setParticipants(entiteAvecId.getParticipants());
 				c.setQuizzes(entiteAvecId.getQuizzes());
@@ -63,8 +63,7 @@ public class ConcoursRepositoryMemoire implements ConcoursRepository {
 
 	@Override
 	public Optional<Concours> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.lesconcours.stream().filter(s -> s.getId().equals(id)).findFirst();
 	}
 
 }
