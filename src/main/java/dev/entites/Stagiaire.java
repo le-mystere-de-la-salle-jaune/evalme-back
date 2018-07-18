@@ -84,6 +84,7 @@ public class Stagiaire extends BaseEntite {
 		this.email = email;
 	}
 
+
 	/**
 	 * @return the classe
 	 */
@@ -95,6 +96,7 @@ public class Stagiaire extends BaseEntite {
 	 * @param classe
 	 *            the classe to set
 	 */
+
 	public void setClasse(Classe classe) {
 		this.classe = classe;
 	}

@@ -13,7 +13,11 @@ drop table if exists question;
 DROP TABLE if exists concours_stagiaire;
 DROP TABLE if exists concours;
 drop table if exists stagiaire;
+DROP TABLE if exists concours;
+DROP TABLE if exists concours_stagiaire;
+DROP TABLE if exists concours_quizz;
 drop table if exists classe;
+
 
 create table classe (
   id serial primary key,

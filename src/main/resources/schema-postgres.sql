@@ -3,17 +3,21 @@ drop table if exists question_compo cascade;
 drop table if exists sondage cascade;
 drop table if exists option_sondage cascade;
 drop table if exists note cascade;
+
 drop table if exists examen cascade;
+
 drop table if exists compo_quizz cascade;
 drop table if exists duel cascade;
 drop table if exists quizz cascade;
 drop table if exists option_question cascade;
 drop table if exists question cascade;
+
 DROP TABLE if exists concours_stagiaire cascade;
 DROP TABLE if exists concours_quizz cascade;
 DROP TABLE if exists concours cascade;
 drop table if exists stagiaire cascade;
 drop table if exists classe cascade;
+
 
 
 create table classe (
@@ -107,12 +111,12 @@ create table sondage_option_sondage (
 
 create table duel (
 	id serial primary key,
-	stagiairea_id bigint not null,
-	stagiaireb_id bigint not null,
-	quizz_id bigint not null,
-	foreign key (stagiairea_id) references stagiaire(id),
-	foreign key (stagiaireb_id) references stagiaire(id),
-	foreign key (quizz_id) references quizz(id)
+	id_stagiairea bigint not null,
+	id_stagiaireb bigint not null,
+	id_quizz bigint not null,
+	foreign key (id_stagiairea) references stagiaire(id),
+	foreign key (id_stagiaireb) references stagiaire(id),
+	foreign key (id_quizz) references quizz(id)
 );
 
 
@@ -135,4 +139,6 @@ create Table concours_quizz(
 	id_quizz bigint not null,
 	foreign key (id_concours) references concours(id),
 	foreign key (id_quizz) references quizz(id)
+
 );
+
