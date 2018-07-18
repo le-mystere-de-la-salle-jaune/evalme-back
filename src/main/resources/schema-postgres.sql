@@ -59,10 +59,10 @@ create table quizz(
 
 create table compo_quizz (
 	id serial primary key,
-	idquizz bigint,
-	idquestion bigint,
+	id_quizz bigint,
+	id_question bigint,
 	foreign key (id_quizz) references quizz(id),
-	foreign key (idquestion) references question(id)
+	foreign key (id_question) references question(id)
 );
 
 create table examen(
