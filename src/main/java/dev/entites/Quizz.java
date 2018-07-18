@@ -22,7 +22,7 @@ public class Quizz extends BaseEntite {
 
 	@NotEmpty
 	@ManyToMany
-	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "idQuizz", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "idQuestion", referencedColumnName = "id"))
+	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "id_quizz", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_question", referencedColumnName = "id"))
 	private List<Question> questions = new ArrayList<>();
 
 	public Quizz() {

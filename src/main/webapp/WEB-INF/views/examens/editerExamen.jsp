@@ -80,21 +80,21 @@
 	
 	<h4>Ajout d'une note pour un stagiaire :</h4>
 	<div class="row">
-			<form:form method="post" modelAttribute="note" role="form" action="/examens/editer/note">
+		<form:form method="post" modelAttribute="note" role="form" action="/examens/editer/note">
 			<div class=" col-12 col-sm-4">
-				<form:select path="stagiaire.id" class="form-control input-sm ">
-					<option value="NONE" label="--- Select ---" />
-					<form:options items="${listStagiaire}" itemValue="id" itemLabel="prenom" />
-				</form:select>
-		</div>
-		<div class="col-12 col-sm-4">
-			<form:input path="noteSur20"/>
-			<form:errors path="noteSur20"><font color="red">Note doit être entre 0 et 20</font></form:errors>
-		</div>
-		<div class="col-12 col-sm-4">
-			<input type="submit" value="Valider" class="btn btn-info">
-		</div>
-		<form:hidden path = "id" value = "${examen.id}"/>
+			<form:select path="stagiaire.id" class="form-control input-sm ">
+				<option value="NONE" label="--- Select ---" />
+				<form:options items="${listStagiaire}" itemValue="id" itemLabel="prenom" />
+			</form:select>
+			</div>
+			<div class="col-12 col-sm-4">
+				<form:input path="noteSur20"/>
+				<form:errors path="noteSur20"><font color="red">Note doit être entre 0 et 20</font></form:errors>
+			</div>
+			<div class="col-12 col-sm-4">
+				<input type="submit" value="Valider" class="btn btn-info">
+			</div>
+			<form:hidden path = "examen.id" value = "${examen.id}"/>
 		</form:form>
 	</div>
 </div>

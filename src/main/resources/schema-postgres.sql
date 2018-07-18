@@ -91,13 +91,12 @@ create table sondage (
   foreign key (classe_id) references classe (id)
 );
 
-CREATE TABLE sondage_option_sondage (
 
-  id_sondage bigint,
-  id_option_sondage bigint,
-
-  FOREIGN KEY (id_option_sondage) REFERENCES option_sondage (id),
-  FOREIGN KEY (id_sondage) REFERENCES sondage (id)
+create table sondage_option_sondage (
+  id_sondage bigint default null,
+  id_option_sondage bigint default null,
+  foreign key (id_option_sondage) references option_sondage (id),
+  foreign key (id_sondage) references sondage (id)
 );
 
 create table duel (

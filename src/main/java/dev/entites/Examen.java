@@ -30,6 +30,14 @@ public class Examen extends BaseEntite {
 	@OneToMany(mappedBy = "examen")
 	private List<Note> notes = new ArrayList<>();
 
+	public Examen() {
+
+	}
+
+	public Examen(Long id) {
+		super.setId(id);
+	}
+
 	public String getTitre() {
 		return titre;
 	}
@@ -64,5 +72,10 @@ public class Examen extends BaseEntite {
 
 	public double getAvg() {
 		return notes.stream().mapToDouble(Note::getNoteSur20).average().orElse(Double.NaN);
+	}
+
+	public void addNote(Note note) {
+		notes.add(note);
+
 	}
 }

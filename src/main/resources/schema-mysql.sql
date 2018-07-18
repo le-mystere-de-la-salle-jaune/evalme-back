@@ -1,4 +1,3 @@
-SET FOREIGN_KEY_CHECKS = 0;
 drop table if exists sondage_option_sondage;
 drop table if exists question_compo;
 drop table if exists sondage;
@@ -12,7 +11,6 @@ drop table if exists option_question;
 drop table if exists question;
 drop table if exists stagiaire;
 drop table if exists classe;
-SET FOREIGN_KEY_CHECKS = 1;
 
 create table classe (
   id serial primary key,
@@ -57,10 +55,10 @@ create table quizz(
 
 CREATE TABLE compo_quizz (
 	id SERIAL PRIMARY KEY,
-	idQuizz BIGINT UNSIGNED,
-	idQuestion BIGINT UNSIGNED,
-	FOREIGN KEY (idQuizz) REFERENCES quizz(id),
-	FOREIGN KEY (idQuestion) REFERENCES question(id)
+	id_quizz BIGINT UNSIGNED,
+	id_question BIGINT UNSIGNED,
+	FOREIGN KEY (id_quizz) REFERENCES quizz(id),
+	FOREIGN KEY (id_question) REFERENCES question(id)
 );
 
 create table examen(
