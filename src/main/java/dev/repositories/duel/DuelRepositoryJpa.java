@@ -7,13 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import dev.entites.Duel;
 
-@Repository
 public class DuelRepositoryJpa implements DuelRepository {
 
 	@PersistenceContext

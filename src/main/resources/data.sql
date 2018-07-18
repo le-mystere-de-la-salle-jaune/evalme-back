@@ -86,4 +86,3 @@ insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 3);
 insert into option_question(libelle,ok) values('1',FALSE);
 insert into option_question(libelle,ok) values('2',TRUE);
 insert into option_question(libelle,ok) values('3',FALSE);
-
