@@ -1,4 +1,3 @@
-
 drop table if exists sondage_option_sondage;
 drop table if exists question_compo;
 drop table if exists sondage;
@@ -7,14 +6,13 @@ drop table if exists note;
 drop table if exists examen;
 drop table if exists compo_quizz;
 drop table if exists duel;
-drop table if exists quizz;
 drop table if exists option_question;
 drop table if exists question;
-drop table if exists stagiaire;
-DROP TABLE if exists concours;
 DROP TABLE if exists concours_stagiaire;
 DROP TABLE if exists concours_quizz;
-
+drop table if exists quizz;
+DROP TABLE if exists concours;
+drop table if exists stagiaire;
 drop table if exists classe;
 
 create table classe (
@@ -115,7 +113,7 @@ create Table concours_stagiaire(
 	id serial primary key,
 	id_concours bigint unsigned not null,
 	id_stagiaire bigint unsigned not null,
-	FOREIGN KEY (id_concours) REFERENCES Concours(id),
+	FOREIGN KEY (id_concours) REFERENCES concours(id),
 	FOREIGN KEY (id_stagiaire) REFERENCES stagiaire(id)
 );
 
