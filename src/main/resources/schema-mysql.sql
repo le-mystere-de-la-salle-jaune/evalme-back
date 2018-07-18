@@ -1,3 +1,4 @@
+drop table if exists utilisateur;
 drop table if exists sondage_option_sondage;
 drop table if exists question_compo;
 drop table if exists sondage;
@@ -109,3 +110,9 @@ create table duel (
 	foreign key (quizz_id) references quizz(id)
 );
 
+create table utilisateur (
+	id serial primary key,
+	username varchar(75),
+	password varchar(64),
+	role varchar(75)
+);

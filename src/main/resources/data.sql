@@ -81,3 +81,6 @@ insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 3);
 insert into option_question(libelle,ok) values('1',FALSE);
 insert into option_question(libelle,ok) values('2',TRUE);
 insert into option_question(libelle,ok) values('3',FALSE);
+
+insert into utilisateur(username, password, role) values ('admin', '$2a$10$GDfA9Pwc9.a7PVKRw7bPju8/pEs8XltgMj.zmVSLLlkgliehDp2gy', 'ROLE_ADMINISTRATEUR');
+insert into utilisateur(username, password, role) values ('random', '$2a$10$fJbgMfTN4.CGnUWr/Hiny.NxpbBm4RTgF6oCQdgrw2xeWApSdj/6e', 'ROLE_UTILISATEUR');

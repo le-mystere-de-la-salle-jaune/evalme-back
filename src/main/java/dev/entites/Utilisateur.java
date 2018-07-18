@@ -4,6 +4,7 @@ public class Utilisateur extends BaseEntite {
 
 	private String identifiant;
 	private String motDePasse;
+
 	private ProfilUtilisateur profil;
 
 	public Utilisateur() {
