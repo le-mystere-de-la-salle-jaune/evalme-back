@@ -6,11 +6,11 @@ drop table if exists note;
 drop table if exists examen;
 drop table if exists compo_quizz;
 drop table if exists duel;
+DROP TABLE if exists concours_quizz;
+drop table if exists quizz;
 drop table if exists option_question;
 drop table if exists question;
 DROP TABLE if exists concours_stagiaire;
-DROP TABLE if exists concours_quizz;
-drop table if exists quizz;
 DROP TABLE if exists concours;
 drop table if exists stagiaire;
 drop table if exists classe;
@@ -93,6 +93,7 @@ create table option_sondage (
 
 create table sondage (
   id serial primary key,
+  titre varchar(75),
   classe_id bigint(20) unsigned default null,
   foreign key (classe_id) references classe (id)
 );
@@ -135,4 +136,3 @@ create table duel (
 	foreign key (stagiaireb_id) references stagiaire(id),
 	foreign key (quizz_id) references quizz(id)
 );
-
