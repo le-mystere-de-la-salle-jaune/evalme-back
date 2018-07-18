@@ -13,7 +13,6 @@ drop table if exists question;
 DROP TABLE if exists concours_stagiaire;
 DROP TABLE if exists concours;
 drop table if exists stagiaire;
-
 drop table if exists classe;
 
 create table classe (
