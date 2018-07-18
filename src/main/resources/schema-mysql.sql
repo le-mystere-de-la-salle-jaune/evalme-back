@@ -55,10 +55,10 @@ create table quizz(
 
 CREATE TABLE compo_quizz (
 	id SERIAL PRIMARY KEY,
-	idQuizz BIGINT UNSIGNED,
-	idQuestion BIGINT UNSIGNED,
-	FOREIGN KEY (idQuizz) REFERENCES quizz(id),
-	FOREIGN KEY (idQuestion) REFERENCES question(id)
+	id_quizz BIGINT UNSIGNED,
+	id_question BIGINT UNSIGNED,
+	FOREIGN KEY (id_quizz) REFERENCES quizz(id),
+	FOREIGN KEY (id_question) REFERENCES question(id)
 );
 
 create table examen(
