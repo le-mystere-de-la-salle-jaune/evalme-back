@@ -36,10 +36,10 @@ insert into quizz(titre) values ('géographie');
 insert into quizz(titre) values ('mathématiques');
 insert into question(titre) values ('qui est clovis?');
 insert into question(titre) values ('quel animage vole le plus vite?');
-insert into compo_quizz(id_quizz, id_question) values (1, 1);
-insert into compo_quizz(id_quizz, id_question) values (1, 2);
-insert into compo_quizz(id_quizz, id_question) values (2, 1);  
-insert into compo_quizz(id_quizz, id_question) values (2, 2);
+insert into compo_quizz(id_quizz, idquestion) values (1, 1);
+insert into compo_quizz(id_quizz, idquestion) values (1, 2);
+insert into compo_quizz(id_quizz, idquestion) values (2, 1);  
+insert into compo_quizz(id_quizz, idquestion) values (2, 2);
 
 insert into option_sondage(libelle, description) values ('libelle sondage 1','description du sondage numéro 1');
 insert into option_sondage(libelle, description) values ('libelle sondage 2','description du sondage numéro 2');
@@ -73,15 +73,15 @@ insert into concours(titre) values ('This is concours !!!');
 insert into concours(titre) values ('The first concours'); 
 
 
-insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 1);
-insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 2);
-insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 3);
-insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 3, 1);
-insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 3, 2);
-insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 3, 3);
-insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 1);
-insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 2);
-insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 3);
+insert into duel(stagiairea_id, stagiaireb_id, id_quizz) values (1, 2, 1);
+insert into duel(stagiairea_id, stagiaireb_id, id_quizz) values (1, 2, 2);
+insert into duel(stagiairea_id, stagiaireb_id, id_quizz) values (1, 2, 3);
+insert into duel(stagiairea_id, stagiaireb_id, id_quizz) values (1, 3, 1);
+insert into duel(stagiairea_id, stagiaireb_id, id_quizz) values (1, 3, 2);
+insert into duel(stagiairea_id, stagiaireb_id, id_quizz) values (1, 3, 3);
+insert into duel(stagiairea_id, stagiaireb_id, id_quizz) values (2, 3, 1);
+insert into duel(stagiairea_id, stagiaireb_id, id_quizz) values (2, 3, 2);
+insert into duel(stagiairea_id, stagiaireb_id, id_quizz) values (2, 3, 3);
 
 insert into option_question(libelle,ok) values('1',FALSE);
 insert into option_question(libelle,ok) values('2',TRUE);

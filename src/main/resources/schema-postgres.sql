@@ -61,7 +61,7 @@ create table compo_quizz (
 	id serial primary key,
 	idquizz bigint,
 	idquestion bigint,
-	foreign key (idquizz) references quizz(id),
+	foreign key (id_quizz) references quizz(id),
 	foreign key (idquestion) references question(id)
 );
 
@@ -109,9 +109,9 @@ create table duel (
 	stagiairea_id bigint not null,
 	stagiaireb_id bigint not null,
 	quizz_id bigint not null,
-	foreign key (stagiairea_id) references stagiaire(id),
-	foreign key (stagiaireb_id) references stagiaire(id),
-	foreign key (quizz_id) references quizz(id)
+	foreign key (id_stagiairea) references stagiaire(id),
+	foreign key (id_stagiaireb) references stagiaire(id),
+	foreign key (id_quizz) references quizz(id)
 );
 
 
