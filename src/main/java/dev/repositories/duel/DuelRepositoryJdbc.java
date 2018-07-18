@@ -8,13 +8,11 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.Duel;
 import dev.entites.Quizz;
 import dev.entites.Stagiaire;
 
-@Repository
 public class DuelRepositoryJdbc implements DuelRepository {
 
 	RowMapper<Duel> mapper = (ResultSet rs, int rowNum) -> {

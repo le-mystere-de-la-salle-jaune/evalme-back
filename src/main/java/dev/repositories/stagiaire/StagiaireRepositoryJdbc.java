@@ -6,12 +6,10 @@ import java.util.Optional;
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.Stagiaire;
 import dev.repositories.stagiaire.mapper.StagiaireMapper;
 
-@Repository
 public class StagiaireRepositoryJdbc implements StagiaireRepository {
 
 	private JdbcTemplate jdbcTemplate;

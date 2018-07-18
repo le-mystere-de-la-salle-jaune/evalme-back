@@ -9,11 +9,9 @@ import javax.sql.DataSource;
 import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.OptionSondage;
 
-@Repository
 public class OptionSondageRepositoryJdbc implements OptionSondageRepository {
 
 	private JdbcTemplate jdbcTemplate;

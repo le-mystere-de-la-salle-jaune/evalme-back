@@ -12,28 +12,28 @@ import javax.validation.constraints.NotEmpty;
 
 /**
  * OptionQuestion.java
- * 
+ *
  * @author matth
  */
 @Entity
-@Table(name = "OPTION_QUESTION")
+@Table(name = "option_question")
 public class OptionQuestion extends BaseEntite {
 
 	/**
 	 * libelle : String
 	 */
+	@Column(name = "libelle", length = 75, nullable = false, unique = false)
 	@NotEmpty
-	@Column(name = "libelle")
 	private String libelle;
 	/**
 	 * ok : Boolean
 	 */
+	@Column(name = "ok", nullable = false, unique = false)
 	@NotEmpty
-	@Column(name = "ok")
 	private Boolean ok;
 
 	@ManyToMany
-	@JoinTable(name = "QUESTION_COMPO", joinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"))
+	@JoinTable(name = "question_compo", joinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"))
 	private List<Question> questions;
 
 	/**
@@ -45,7 +45,7 @@ public class OptionQuestion extends BaseEntite {
 
 	/**
 	 * Constructor of OptionQuestion.java
-	 * 
+	 *
 	 * @param id
 	 * @param libelle
 	 * @param ok
@@ -59,7 +59,7 @@ public class OptionQuestion extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @return
 	 */
 	public String getLibelle() {
@@ -68,7 +68,7 @@ public class OptionQuestion extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @param libelle
 	 */
 	public void setLibelle(String libelle) {
