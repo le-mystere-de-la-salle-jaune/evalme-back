@@ -60,34 +60,17 @@ public class ClasseRepositoryDataJpaTest {
 	@Transactional
 	@Test
 	public void testUpdate() {
+
 		List<Classe> classes = classeRepositoryDataJpa.findAll();
 		Classe c = classes.get(0);
 		String nom = c.getNom();
-		Stagiaire st1 = new Stagiaire("clopin", "brigitte", "bribri@hotmail.fr",
-				"https://www.valeursactuelles.com/sites/default/files/styles/image_article/public/2018-01/brigitte%20macron%20sipa.jpg?itok=0g8jrpff");
-		Stagiaire st2 = new Stagiaire("clopinette", "brigette", "bribri@hotmail.fr",
-				"https://www.valeursactuelles.com/sites/default/files/styles/image_article/public/2018-01/brigitte%20macron%20sipa.jpg?itok=0g8jrpff");
-		List<Stagiaire> stagiaires = new ArrayList<Stagiaire>();
-
-		c.setStagiaires(stagiaires);
-
-		Classe c2 = c;
-
-		classeRepositoryDataJpa.delete(c);
-
-		stagiaires.add(st1);
-		stagiaires.add(st2);
-
-		c2.setStagiaires(stagiaires);
-		c2.setNom("D15");
-
-		classeRepositoryDataJpa.save(c2);
+		c.setNom("D15");
+		classeRepositoryDataJpa.update(c);
 		classes = classeRepositoryDataJpa.findAll();
 
 		assertThat(classes.get(0).getNom()).isEqualTo("D15");
 		assertThat(classes.get(0).getNom()).isNotEqualTo(nom);
-		assertThat(classes.get(0).getStagiaires().get(0).getNom()).isEqualTo("clopin");
-		assertThat(classes.get(0).getStagiaires().get(1).getNom()).isEqualTo("clopinette");
+
 	}
 
 	@Transactional

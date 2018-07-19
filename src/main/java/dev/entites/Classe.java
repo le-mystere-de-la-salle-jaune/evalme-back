@@ -3,6 +3,7 @@ package dev.entites;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -17,7 +18,7 @@ public class Classe extends BaseEntite {
 	@Column(name = "nom")
 	private String nom;
 
-	@OneToMany(mappedBy = "classe")
+	@OneToMany(mappedBy = "classe", cascade = CascadeType.ALL)
 	private List<Stagiaire> stagiaires = new ArrayList<>();
 
 	public Classe() {
