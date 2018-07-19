@@ -2,6 +2,8 @@ package dev.controller.examen.api.viewModels;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import dev.controller.BaseVm;
+
 public class QuizzVm extends BaseVm {
 
 	private String titre;
