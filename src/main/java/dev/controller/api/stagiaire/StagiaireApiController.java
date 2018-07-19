@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,11 +35,22 @@ public class StagiaireApiController {
 		List<StagiaireVm> listeStagiaireVm = listeStagiaire.stream().map(unStagiaire -> new StagiaireVm(unStagiaire))
 				.collect(Collectors.toList());
 
-		// En précisant en "dur" le code de la réponse via la méthode statique
-		// status
-		// return ResponseEntity.status(200).body(allGrades);
-
 		// HttpStatus est une énumération regroupant les codes HTTP usuels
 		return ResponseEntity.status(HttpStatus.OK).body(listeStagiaireVm);
 	}
+
+	// créer
+	@PostMapping
+	public ResponseEntity<StagiaireCreeVm> creer(@RequestBody StagiaireVm stagiaireVm) {
+		Stagiaire stagiaire = new Stagiaire();
+		stagiaire.setNom(stagiaireVm.getNom());
+		stagiaire.setPrenom(stagiaireVm.getPrenom());
+		stagiaire.setEmail(stagiaireVm.getEmail());
+		stagiaire.setPhotoUrl(stagiaireVm.getPhotoUrl());
+		stagiaireService.save(stagiaire);
+
+		return ResponseEntity.status(HttpStatus.OK).body(new StagiaireCreeVm(stagiaire.getId()));
+
+	}
+
 }
