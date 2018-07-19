@@ -49,4 +49,13 @@ public class ExamenService {
 		// examenRepository.findById(id).get().addNote(note);
 	}
 
+	public boolean exist(Long examenId) {
+		return examenRepository.findById(examenId).isPresent();
+	}
+
+	public void deleteById(Long examenId) {
+		examenRepository.delete(getById(examenId));
+		
+	}
+
 }

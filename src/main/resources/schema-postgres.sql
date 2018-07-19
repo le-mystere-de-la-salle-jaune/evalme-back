@@ -3,19 +3,24 @@ drop table if exists question_compo cascade;
 drop table if exists sondage cascade;
 drop table if exists option_sondage cascade;
 drop table if exists note cascade;
-drop table if exists examen;
+drop table if exists examen cascade;
 drop table if exists compo_quizz cascade;
 drop table if exists duel cascade;
 drop table if exists quizz cascade;
 drop table if exists option_question cascade;
 drop table if exists question cascade;
+DROP TABLE if exists concours_stagiaire cascade;
+DROP TABLE if exists concours_quizz cascade;
+DROP TABLE if exists concours cascade;
 drop table if exists stagiaire cascade;
 drop table if exists classe cascade;
+
 
 create table classe (
   id serial primary key,
   nom varchar(75) not null
 );
+
 
 create table stagiaire (
   id serial primary key,
@@ -48,7 +53,8 @@ create table question_compo (
 
 create table quizz(
 	id serial primary key,
-	titre varchar(255) not null
+	titre varchar(75) not null
+
 );
 
 create table compo_quizz (
@@ -68,8 +74,8 @@ create table examen(
 	foreign key (id_classe) references classe(id)
 );
 
-
 create table note (
+
   id serial primary key,
   note_sur_20 decimal(4,2) not null,
   id_stagiaire bigint not null,
@@ -86,6 +92,7 @@ create table option_sondage (
 
 create table sondage (
   id serial primary key,
+  titre varchar(75),
   classe_id bigint default null,
   foreign key (classe_id) references classe (id)
 );
@@ -97,6 +104,7 @@ create table sondage_option_sondage (
   foreign key (id_sondage) references sondage (id)
 );
 
+
 create table duel (
 	id serial primary key,
 	stagiairea_id bigint not null,
@@ -105,4 +113,26 @@ create table duel (
 	foreign key (stagiairea_id) references stagiaire(id),
 	foreign key (stagiaireb_id) references stagiaire(id),
 	foreign key (quizz_id) references quizz(id)
+);
+
+
+create Table concours(
+	id serial primary key,
+	titre varchar(100) not null
+);
+
+create Table concours_stagiaire(
+	id serial primary key,
+	id_concours bigint not null,
+	id_stagiaire bigint not null,
+	foreign key (id_concours) references concours(id),
+	foreign key (id_stagiaire) references stagiaire(id)
+);
+
+create Table concours_quizz(
+	id serial primary key,
+	id_concours bigint not null,
+	id_quizz bigint not null,
+	foreign key (id_concours) references concours(id),
+	foreign key (id_quizz) references quizz(id)
 );
