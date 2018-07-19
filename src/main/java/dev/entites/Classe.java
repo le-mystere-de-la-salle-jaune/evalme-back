@@ -17,7 +17,6 @@ public class Classe extends BaseEntite {
 	@Column(name = "nom")
 	private String nom;
 
-	@NotEmpty
 	@OneToMany(mappedBy = "classe")
 	private List<Stagiaire> stagiaires = new ArrayList<>();
 
