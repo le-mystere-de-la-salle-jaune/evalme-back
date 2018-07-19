@@ -1,8 +1,12 @@
 package dev.entites;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
@@ -34,6 +38,10 @@ public class Stagiaire extends BaseEntite {
 	@JoinColumn(name = "id_classe")
 	// @JsonIgnore
 	private Classe classe;
+
+	@ManyToMany
+	@JoinTable(name = "concours_stagiaire", joinColumns = @JoinColumn(name = "id_stagiaire", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_concours", referencedColumnName = "id"))
+	private List<Concours> concours;
 
 	public Stagiaire() {
 	}
@@ -97,6 +105,14 @@ public class Stagiaire extends BaseEntite {
 	 */
 	public void setClasse(Classe classe) {
 		this.classe = classe;
+	}
+
+	public List<Concours> getConcours() {
+		return concours;
+	}
+
+	public void setConcours(List<Concours> concours) {
+		this.concours = concours;
 	}
 
 }
