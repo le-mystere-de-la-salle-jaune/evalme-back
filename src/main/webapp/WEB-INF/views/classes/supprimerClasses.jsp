@@ -12,10 +12,10 @@
 <body>
 	<div class="container-fluid">
 		<form:form modelAttribute="classe" method="post">
-			<p>Vous êtes sur le point de supprimer la classe suivante :</p>
+			<p>Vous Ãªtes sur le point de supprimer la classe suivante :</p>
 			<p>${classe.nom}</p>
 			<br/>
-			<p>Cette classe est constitué des stagiaires suivants :<br/>
+			<p>Cette classe est constituÃ©e des stagiaires suivants :<br/>
 			<table class="table table-striped">
 					<thead>
 						<tr>

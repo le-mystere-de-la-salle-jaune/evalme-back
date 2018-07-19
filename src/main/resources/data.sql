@@ -29,7 +29,7 @@ insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animeaux de la fo
 insert into note(note_sur_20, id_stagiaire, id_examen) values (12, 3, 1);
 insert into note(note_sur_20, id_stagiaire, id_examen) values (15, 4, 1);
  
-insert into classe(nom) values('d12');
+insert into classe(nom) values('d12-sans-stagiaires');
 
 insert into quizz(titre) values ('les animaux de la forêt');
 insert into quizz(titre) values ('géographie');
