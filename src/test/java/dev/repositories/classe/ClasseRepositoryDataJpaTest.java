@@ -27,11 +27,6 @@ public class ClasseRepositoryDataJpaTest {
 	private ClasseRepository classeRepositoryDataJpa;
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testFindAll() {
 		List<Classe> classes = classeRepositoryDataJpa.findAll();
 		assertThat(classes).isNotEmpty();

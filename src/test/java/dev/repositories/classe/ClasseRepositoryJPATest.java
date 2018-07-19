@@ -1,7 +1,6 @@
 package dev.repositories.classe;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,11 +21,6 @@ public class ClasseRepositoryJPATest {
 
 	@Autowired
 	ClasseRepository classeRepositoryJPA;
-
-	@Test
-	public void test() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testFindAll() {
