@@ -58,7 +58,9 @@ public class ExamenApiController {
         if(classeService.trouverClasseParId(examenVmCreate.getClasseId()) != null){
         	if(quizzService.findQuizzById(examenVmCreate.getQuizzId()).isPresent() ){
         		
-        		examenService.updateById(examenVmUtil.ExamenVmCreateToEntity(examenVmCreate));
+        		examen = examenVmUtil.ExamenVmCreateToEntity(examenVmCreate);
+        		
+        		examenService.ajouter(examen);
         		
         	}else{
         		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Quizz ID send does not exist");
