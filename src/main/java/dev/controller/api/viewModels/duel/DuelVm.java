@@ -60,9 +60,4 @@ public class DuelVm extends BaseVm {
 		this.quizz = quizz;
 	}
 
-	public Object listAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

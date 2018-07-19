@@ -1,27 +1,29 @@
 package dev.controller.api.duel;
 
-import java.net.URI;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
+import dev.controller.api.viewModels.duel.DuelCreateVm;
+import dev.controller.api.viewModels.duel.DuelReturnVm;
 import dev.controller.api.viewModels.duel.DuelVm;
 import dev.entites.Duel;
+import dev.entites.Quizz;
+import dev.entites.Stagiaire;
 import dev.metiers.DuelService;
 import dev.metiers.QuizzService;
 import dev.metiers.StagiaireService;
 import dev.metiers.api.duel.DuelVmService;
-import dev.repositories.duel.DuelRepository;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/duels")
 public class DuelApiController {
 
 	private DuelService duelService;
@@ -47,28 +49,32 @@ public class DuelApiController {
 		this.quizzService = quizzService;
 	}
 
-	@GetMapping("/duels")
+	@GetMapping
 	public ResponseEntity<List<DuelVm>> lister() {
 		return ResponseEntity.ok(duelVmService.listAllDuel());
 	}
 
-	@PostMapping("/duels")
-	public ResponseEntity<Duel> ajouter(@RequestParam("stagiaireA_id") Long stagiaireAId,
-			@RequestParam("stagiaireB_id") Long stagiaireBId, @RequestParam("quizz_id") Long quizzId) throws Exception {
+	@PostMapping
+	public ResponseEntity<DuelReturnVm> ajouter(@RequestBody DuelCreateVm duelCreateVm) throws Exception {
 		Duel duel = new Duel();
-		duel.setStagiaireA(stagiaireService.findStagiaireById(stagiaireAId));
-		duel.setStagiaireB(stagiaireService.findStagiaireById(stagiaireAId));
-		duel.setQuizz(quizzService.findQuizzById(quizzId).orElseThrow(Exception::new));
-		// this.duelService.creer(idsStagiaires, quizz); ????????
+		Stagiaire stagiaireA = new Stagiaire();
+		Stagiaire stagiaireB = new Stagiaire();
+		Quizz quizz = new Quizz();
 
-		URI uri = MvcUriComponentsBuilder
-				.fromMethodCall(MvcUriComponentsBuilder.on(DuelRepository.class).findById(duel.getId())).build()
-				.encode().toUri();
+		stagiaireA.setId(duelCreateVm.getStagiaireAId());
+		stagiaireB.setId(duelCreateVm.getStagiaireBId());
+		quizz.setId(duelCreateVm.getQuizzId());
 
-		return ResponseEntity.created(uri).body(duel);
+		duel.setStagiaireA(stagiaireA);
+		duel.setStagiaireB(stagiaireB);
+		duel.setQuizz(quizz);
+
+		Duel duelSauve = duelService.creer(duel);
+
+		return ResponseEntity.status(HttpStatus.OK).body(new DuelReturnVm(duelSauve));
 	}
 
-	@GetMapping("/duels/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Duel> afficherDuel(@PathVariable Long id) throws Exception {
 		return ResponseEntity.ok(this.duelService.getById(id));
 	}
