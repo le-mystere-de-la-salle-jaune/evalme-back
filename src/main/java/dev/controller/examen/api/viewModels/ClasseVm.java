@@ -1,5 +1,7 @@
 package dev.controller.examen.api.viewModels;
 
+import dev.controller.BaseVm;
+
 public class ClasseVm extends BaseVm {
 
 	private String nom;

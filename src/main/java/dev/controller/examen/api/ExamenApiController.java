@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.controller.examen.api.viewModels.ExamenVm;
 import dev.controller.examen.api.viewModels.ExamenVmCreate;
-import dev.controller.examen.api.viewModels.ExamenVmUtil;
 import dev.entites.Examen;
 import dev.metiers.ClasseService;
 import dev.metiers.ExamenService;

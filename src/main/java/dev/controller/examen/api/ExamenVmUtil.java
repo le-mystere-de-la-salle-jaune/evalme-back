@@ -1,4 +1,4 @@
-package dev.controller.examen.api.viewModels;
+package dev.controller.examen.api;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import dev.controller.examen.api.viewModels.ExamenVm;
 import dev.entites.Examen;
 import dev.metiers.ExamenService;
 

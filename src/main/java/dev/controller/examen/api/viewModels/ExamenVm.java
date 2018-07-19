@@ -1,5 +1,6 @@
 package dev.controller.examen.api.viewModels;
 
+import dev.controller.BaseVm;
 import dev.entites.Examen;
 
 public class ExamenVm extends BaseVm {
