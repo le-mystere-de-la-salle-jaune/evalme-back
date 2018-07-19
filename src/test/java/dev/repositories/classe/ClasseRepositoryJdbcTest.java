@@ -51,16 +51,22 @@ public class ClasseRepositoryJdbcTest {
 	@Test
 	public void testDelete() {
 		List<Classe> classes = classeRepositoryJdbc.findAll();
-		Classe classe = classes.get(0);
-		Long id = classe.getId();
-		System.out.println(id);
-		String nom = classe.getNom();
-		classeRepositoryJdbc.delete(classe);
-		classes = classeRepositoryJdbc.findAll();
+		int size = classes.size();
+		Classe c1 = new Classe();
 		for (Classe c : classes) {
-			assertThat(c.getNom()).isNotEqualTo(nom);
-			assertThat(c.getId()).isNotEqualTo(id);
+			if (c.getNom().equals("d12-sans-stagiaires")) {
+				c1 = c;
+			}
 		}
+
+		Long id = c1.getId();
+
+		classeRepositoryJdbc.delete(c1);
+
+		classes = classeRepositoryJdbc.findAll();
+
+		assertThat(classes.size()).isEqualTo(size - 1); //
+		assertThat(classes.get(0).getId()).isNotEqualTo(id);
 	}
 
 	@Test

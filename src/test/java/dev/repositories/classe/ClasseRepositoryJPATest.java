@@ -66,9 +66,17 @@ public class ClasseRepositoryJPATest {
 	public void delete() {
 		List<Classe> classes = classeRepositoryJPA.findAll();
 		int size = classes.size();
-		Classe c = classes.get(0);
-		Long id = c.getId();
-		classeRepositoryJPA.delete(c);
+		Classe c1 = new Classe();
+		for (Classe c : classes) {
+			if (c.getNom().equals("d12-sans-stagiaires")) {
+				c1 = c;
+			}
+		}
+
+		Long id = c1.getId();
+
+		classeRepositoryJPA.delete(c1);
+
 		classes = classeRepositoryJPA.findAll();
 
 		assertThat(classes.size()).isEqualTo(size - 1); //
