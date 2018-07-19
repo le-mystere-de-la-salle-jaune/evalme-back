@@ -19,11 +19,6 @@
 		<table class="table table-striped">
 			<tbody>
 				<tr>
-					<td>Identifiant :</td>
-					<td><form:input type="number" path="id" required="required" /> 
-					<form:errors path="id">/!\Veuillez entrer un nombre/!\</form:errors></td>
-				</tr>
-				<tr>
 					<td>Libelle :</td>
 					<td><form:input path="libelle" required="required" /> 
 					<form:errors path="libelle">/!\Veuillez entrer un libelle/!\</form:errors></td>

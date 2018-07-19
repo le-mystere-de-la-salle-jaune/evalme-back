@@ -45,7 +45,9 @@ public class OptionQuestionRepositoryMemoire implements OptionQuestionRepository
 	@Override
 	public void save(OptionQuestion optionQuestion) {
 		// TODO Auto-generated method stub
+		optionQuestion.setId((long) this.optionQuestions.size());
 		this.optionQuestions.add(optionQuestion);
+
 	}
 
 	@Override
