@@ -78,14 +78,16 @@ public class ClasseRepositoryDataJpaTest {
 	public void delete() {
 		List<Classe> classes = classeRepositoryDataJpa.findAll();
 		int size = classes.size();
-		Classe c = classes.get(0);
-		Long id = c.getId();
+		Classe c1 = new Classe();
+		for (Classe c : classes) {
+			if (c.getNom().equals("d12-sans-stagiaires")) {
+				c1 = c;
+			}
+		}
 
-		List<Stagiaire> stagiaires = new ArrayList<Stagiaire>();
+		Long id = c1.getId();
 
-		c.setStagiaires(stagiaires);
-
-		classeRepositoryDataJpa.delete(c);
+		classeRepositoryDataJpa.delete(c1);
 
 		classes = classeRepositoryDataJpa.findAll();
 
