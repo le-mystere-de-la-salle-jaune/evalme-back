@@ -8,7 +8,7 @@ public class ListerQuestionVM {
 
 	private long id;
 	private String titre;
-	private List<OptionQuestion> questions;
+	private List<OptionQuestion> options;
 
 	/**
 	 * @return the id
@@ -43,16 +43,16 @@ public class ListerQuestionVM {
 	/**
 	 * @return the questions
 	 */
-	public List<OptionQuestion> getQuestions() {
-		return questions;
+	public List<OptionQuestion> getOptions() {
+		return options;
 	}
 
 	/**
 	 * @param questions
 	 *            the questions to set
 	 */
-	public void setQuestions(List<OptionQuestion> questions) {
-		this.questions = questions;
+	public void setOptions(List<OptionQuestion> options) {
+		this.options = options;
 	}
 
 }

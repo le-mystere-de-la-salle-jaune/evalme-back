@@ -32,7 +32,7 @@ public class QuestionBuilder {
 			ListerQuestionVM lq = new ListerQuestionVM();
 			lq.setId(q.getId());
 			lq.setTitre(q.getTitre());
-			lq.setQuestions(q.getOptions());
+			lq.setOptions(q.getOptions());
 			listeQuestion.add(lq);
 		}
 
