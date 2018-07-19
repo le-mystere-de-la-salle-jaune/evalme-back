@@ -57,11 +57,8 @@ public class ExamenApiController {
         
         if(classeService.trouverClasseParId(examenVmCreate.getClasseId()) != null){
         	if(quizzService.findQuizzById(examenVmCreate.getQuizzId()).isPresent() ){
-        		examen.setClasse(classeService.trouverClasseParId(examenVmCreate.getClasseId()));
-        		examen.setQuizz(quizzService.findQuizzById(examenVmCreate.getQuizzId()).orElse(null));
-        		examen.setTitre(examenVmCreate.getTitre());
         		
-        		examenService.ajouter(examen);
+        		examenService.updateById(examenVmUtil.ExamenVmCreateToEntity(examenVmCreate));
         		
         	}else{
         		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Quizz ID send does not exist");
@@ -86,7 +83,7 @@ public class ExamenApiController {
 
     }
     
-    @RequestMapping(value = "/{examenId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/{examenId}", method = RequestMethod.PUT)
     public ResponseEntity<?> updateExamen(@PathVariable Long examenId, @RequestBody ExamenVmCreate examenVmCreate){
     	
     	if(examenService.exist(examenId)){
@@ -96,11 +93,8 @@ public class ExamenApiController {
     		
             if(classeService.trouverClasseParId(examenVmCreate.getClasseId()) != null){
             	if(quizzService.findQuizzById(examenVmCreate.getQuizzId()).isPresent() ){
-            		examen.setClasse(classeService.trouverClasseParId(examenVmCreate.getClasseId()));
-            		examen.setQuizz(quizzService.findQuizzById(examenVmCreate.getQuizzId()).orElse(null));
-            		examen.setTitre(examenVmCreate.getTitre());
-            		
-            		examenService.ajouter(examen);
+	
+            		examenService.updateById(examenVmUtil.ExamenVmCreateToEntity(examenVmCreate, examenId));
             		
             	}else{
             		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Quizz ID send does not exist");
