@@ -21,6 +21,19 @@ public class Classe extends BaseEntite {
 	@OneToMany(mappedBy = "classe")
 	private List<Stagiaire> stagiaires = new ArrayList<>();
 
+	public Classe() {
+
+	}
+
+	public Classe(String nom) {
+		this.nom = nom;
+	}
+
+	public Classe(String nom, List<Stagiaire> stagiaires) {
+		this.nom = nom;
+		this.stagiaires = stagiaires;
+	}
+
 	public String getNom() {
 		return nom;
 	}
