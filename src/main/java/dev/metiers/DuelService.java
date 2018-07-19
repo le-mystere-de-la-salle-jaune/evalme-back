@@ -67,4 +67,12 @@ public class DuelService {
 		return null;
 	}
 
+	public boolean exist(Long id) {
+		return duelRepository.findById(id).isPresent();
+	}
+
+	public void deleteById(Long id) {
+		duelRepository.delete(getById(id));
+	}
+
 }
