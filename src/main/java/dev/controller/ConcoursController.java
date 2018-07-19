@@ -73,7 +73,7 @@ public class ConcoursController {
 
 			if (quizzes.isPresent()) {
 				for (long i : quizzes.get()) {
-					listequizz.add(quizzService.findQuizzById(i).get());
+					listequizz.add(quizzService.findQuizzById(i));
 				}
 			}
 
@@ -121,7 +121,7 @@ public class ConcoursController {
 
 			if (quizzes.isPresent()) {
 				for (long i : quizzes.get()) {
-					listequizz.add(quizzService.findQuizzById(i).get());
+					listequizz.add(quizzService.findQuizzById(i));
 				}
 			}
 

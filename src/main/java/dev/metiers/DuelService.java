@@ -1,8 +1,6 @@
 package dev.metiers;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -30,18 +28,21 @@ public class DuelService {
 		this.quizzRepository = quizzRepository;
 	}
 
-	public void creer(List<Long> idsStagiaires, Quizz quizz) throws Exception {
+	public Duel creer(List<Long> idsStagiaires, Quizz quizz) throws Exception {
 		Duel duel = new Duel();
 
-		// l'id créé est égal à l'id existant le plus grand auquel
-		// on ajoute 1
-		Long newId = Collections.max(duelRepository.findAll().stream().map(Duel::getId).collect(Collectors.toList()))
-				+ 1;
-		duel.setId(newId);
 		duel.setStagiaireA(stagiaireRepository.findById(idsStagiaires.get(0)).orElseThrow(Exception::new));
 		duel.setStagiaireB(stagiaireRepository.findById(idsStagiaires.get(1)).orElseThrow(Exception::new));
 		duel.setQuizz(quizzRepository.findById(quizz.getId()).orElseThrow(Exception::new));
 		this.duelRepository.save(duel);
+
+		return duel;
+	}
+
+	public Duel creer(Duel duel) {
+		this.duelRepository.save(duel);
+
+		return duel;
 	}
 
 	/**
@@ -59,11 +60,17 @@ public class DuelService {
 		this.duelRepository.delete(duel);
 	}
 
-	public Duel getById(Long id) {
-		for (Duel duel : duelRepository.findAll())
-			if (duel.getId().equals(id))
-				return duel;
-		return null;
+	public Duel findDuelById(Long id) {
+		return duelRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Aucun duel trouvé pour l'id " + id));
+	}
+
+	public boolean exist(Long id) {
+		return duelRepository.findById(id).isPresent();
+	}
+
+	public void deleteById(Long id) {
+		duelRepository.delete(findDuelById(id));
 	}
 
 }

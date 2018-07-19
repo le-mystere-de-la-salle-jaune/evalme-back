@@ -1,7 +1,6 @@
 package dev.metiers;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -34,8 +33,9 @@ public class QuizzService {
 		quizzRepository.delete(quizz);
 	}
 
-	public Optional<Quizz> findQuizzById(Long id) {
-		return quizzRepository.findById(id);
+	public Quizz findQuizzById(Long id) {
+		return quizzRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Quizz non trouvé avec l'id " + id));
 	}
 
 }
