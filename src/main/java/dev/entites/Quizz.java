@@ -25,10 +25,6 @@ public class Quizz extends BaseEntite {
 	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "id_quizz", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_question", referencedColumnName = "id"))
 	private List<Question> questions = new ArrayList<>();
 
-	@ManyToMany
-	@JoinTable(name = "concours_quizz", joinColumns = @JoinColumn(name = "id_quizz", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_concours", referencedColumnName = "id"))
-	private List<Concours> concours;
-
 	public Quizz() {
 		super();
 	}
@@ -59,11 +55,4 @@ public class Quizz extends BaseEntite {
 		this.questions = questions;
 	}
 
-	public List<Concours> getConcours() {
-		return concours;
-	}
-
-	public void setConcours(List<Concours> concours) {
-		this.concours = concours;
-	}
 }

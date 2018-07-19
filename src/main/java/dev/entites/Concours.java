@@ -18,11 +18,11 @@ public class Concours extends BaseEntite {
 	private String titre;
 
 	@ManyToMany
-	@JoinTable(name = "concours_stagiaire", joinColumns = @JoinColumn(name = "id_stagiaire", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_concours", referencedColumnName = "id"))
+	@JoinTable(name = "concours_stagiaire", joinColumns = @JoinColumn(name = "id_concours", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_stagiaire", referencedColumnName = "id"))
 	private List<Stagiaire> participants;
 
 	@ManyToMany
-	@JoinTable(name = "concours_quizz", joinColumns = @JoinColumn(name = "id_quizz", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_concours", referencedColumnName = "id"))
+	@JoinTable(name = "concours_quizz", joinColumns = @JoinColumn(name = "id_concours", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_quizz", referencedColumnName = "id"))
 	private List<Quizz> quizzes;
 
 	public Concours(String titre, List<Stagiaire> participants, List<Quizz> quizzes) {

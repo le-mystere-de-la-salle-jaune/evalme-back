@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,7 @@ public class ConcoursApiController {
 
 	// lister
 	@GetMapping
+	@Transactional
 	public ResponseEntity<List<ConcoursVm>> findAll() {
 		List<Concours> listeConcours = this.concoursService.list();
 
