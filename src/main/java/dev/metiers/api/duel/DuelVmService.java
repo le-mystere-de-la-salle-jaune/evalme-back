@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import dev.controller.api.viewModels.duel.DuelReturnVm;
 import dev.controller.api.viewModels.duel.DuelVm;
 import dev.entites.Duel;
 import dev.metiers.DuelService;
@@ -25,8 +26,18 @@ public class DuelVmService {
 	}
 
 	@Transactional
+	public DuelReturnVm createDuelReturnVm(Duel duel) {
+		return new DuelReturnVm(duel);
+	}
+
+	@Transactional
 	public DuelVm createDuelVm(Duel duel) {
 		return new DuelVm(duel);
+	}
+
+	@Transactional
+	public DuelVm findById(Long id) {
+		return createDuelVm(duelService.getById(id));
 	}
 
 }

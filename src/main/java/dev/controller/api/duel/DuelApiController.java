@@ -75,8 +75,8 @@ public class DuelApiController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Duel> afficherDuel(@PathVariable Long id) throws Exception {
-		return ResponseEntity.ok(this.duelService.getById(id));
+	public ResponseEntity<DuelVm> afficherDuel(@PathVariable Long id) throws Exception {
+		return ResponseEntity.ok(duelVmService.findById(id));
 	}
 
 }
