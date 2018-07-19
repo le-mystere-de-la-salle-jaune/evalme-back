@@ -22,12 +22,12 @@ public class ListerQuestionApiController {
 		this.questionBuilder = questionBuilder;
 	}
 
-	@GetMapping("/lister")
+	@GetMapping("")
 	public ResponseEntity<List<ListerQuestionVM>> getList() {
 		return ResponseEntity.ok(questionBuilder.creerJsonLister());
 	}
 
-	@GetMapping("/lister/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<QuestionByIdVM> getQuestion(@PathVariable long id) throws Exception {
 		return ResponseEntity.ok(questionBuilder.creerJsonListerById(id));
 	}

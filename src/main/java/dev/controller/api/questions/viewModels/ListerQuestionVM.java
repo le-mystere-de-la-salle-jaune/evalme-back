@@ -1,10 +1,14 @@
 package dev.controller.api.questions.viewModels;
 
+import java.util.List;
+
+import dev.entites.OptionQuestion;
+
 public class ListerQuestionVM {
 
 	private long id;
 	private String titre;
-	private int nb_option;
+	private List<OptionQuestion> questions;
 
 	/**
 	 * @return the id
@@ -37,18 +41,18 @@ public class ListerQuestionVM {
 	}
 
 	/**
-	 * @return the nb_option
+	 * @return the questions
 	 */
-	public int getNb_option() {
-		return nb_option;
+	public List<OptionQuestion> getQuestions() {
+		return questions;
 	}
 
 	/**
-	 * @param nb_option
-	 *            the nb_option to set
+	 * @param questions
+	 *            the questions to set
 	 */
-	public void setNb_option(int nb_option) {
-		this.nb_option = nb_option;
+	public void setQuestions(List<OptionQuestion> questions) {
+		this.questions = questions;
 	}
 
 }
