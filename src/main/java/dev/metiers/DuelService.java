@@ -60,11 +60,9 @@ public class DuelService {
 		this.duelRepository.delete(duel);
 	}
 
-	public Duel getById(Long id) {
-		for (Duel duel : duelRepository.findAll())
-			if (duel.getId().equals(id))
-				return duel;
-		return null;
+	public Duel findDuelById(Long id) {
+		return duelRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Aucun duel trouvé pour l'id " + id));
 	}
 
 	public boolean exist(Long id) {
@@ -72,7 +70,7 @@ public class DuelService {
 	}
 
 	public void deleteById(Long id) {
-		duelRepository.delete(getById(id));
+		duelRepository.delete(findDuelById(id));
 	}
 
 }

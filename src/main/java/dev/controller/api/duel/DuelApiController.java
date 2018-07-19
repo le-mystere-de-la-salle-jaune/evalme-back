@@ -56,23 +56,30 @@ public class DuelApiController {
 	}
 
 	@PostMapping
-	public ResponseEntity<DuelReturnVm> ajouter(@RequestBody DuelCreateVm duelCreateVm) throws Exception {
+	public ResponseEntity<?> ajouter(@RequestBody DuelCreateVm duelCreateVm) throws Exception {
 		Duel duel = new Duel();
 		Stagiaire stagiaireA = new Stagiaire();
 		Stagiaire stagiaireB = new Stagiaire();
 		Quizz quizz = new Quizz();
 
-		stagiaireA.setId(duelCreateVm.getStagiaireAId());
-		stagiaireB.setId(duelCreateVm.getStagiaireBId());
-		quizz.setId(duelCreateVm.getQuizzId());
+		if (stagiaireService.findStagiaireById(duelCreateVm.getStagiaireAId()) == null
+				|| stagiaireService.findStagiaireById(duelCreateVm.getStagiaireBId()) == null
+				|| quizzService.findQuizzById(duelCreateVm.getQuizzId()) == null)
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Paramètres incohérents");
+		else {
 
-		duel.setStagiaireA(stagiaireA);
-		duel.setStagiaireB(stagiaireB);
-		duel.setQuizz(quizz);
+			stagiaireA.setId(duelCreateVm.getStagiaireAId());
+			stagiaireB.setId(duelCreateVm.getStagiaireBId());
+			quizz.setId(duelCreateVm.getQuizzId());
 
-		Duel duelSauve = duelService.creer(duel);
+			duel.setStagiaireA(stagiaireA);
+			duel.setStagiaireB(stagiaireB);
+			duel.setQuizz(quizz);
 
-		return ResponseEntity.status(HttpStatus.OK).body(new DuelReturnVm(duelSauve));
+			Duel duelSauve = duelService.creer(duel);
+
+			return ResponseEntity.status(HttpStatus.OK).body(new DuelReturnVm(duelSauve));
+		}
 	}
 
 	@GetMapping("/{id}")

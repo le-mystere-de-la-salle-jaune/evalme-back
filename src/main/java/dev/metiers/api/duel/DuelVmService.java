@@ -37,7 +37,7 @@ public class DuelVmService {
 
 	@Transactional
 	public DuelVm findById(Long id) {
-		return createDuelVm(duelService.getById(id));
+		return createDuelVm(duelService.findDuelById(id));
 	}
 
 }
