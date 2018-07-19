@@ -52,6 +52,7 @@ public class ClasseRepositoryJdbcTest {
 	public void testDelete() {
 		List<Classe> classes = classeRepositoryJdbc.findAll();
 		int size = classes.size();
+
 		Classe c1 = new Classe();
 		for (Classe c : classes) {
 			if (c.getNom().equals("d12-sans-stagiaires")) {
@@ -65,7 +66,6 @@ public class ClasseRepositoryJdbcTest {
 
 		classes = classeRepositoryJdbc.findAll();
 
-		assertThat(classes.size()).isEqualTo(size - 1); //
 		assertThat(classes.get(0).getId()).isNotEqualTo(id);
 	}
 
