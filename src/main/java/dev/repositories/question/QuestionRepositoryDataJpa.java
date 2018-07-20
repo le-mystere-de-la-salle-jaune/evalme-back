@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import dev.entites.Question;
 
+@Repository
 public class QuestionRepositoryDataJpa implements QuestionRepository {
 
 	@Autowired
@@ -25,21 +27,21 @@ public class QuestionRepositoryDataJpa implements QuestionRepository {
 	@Override
 	public void save(Question question) {
 		// TODO Auto-generated method stub
-		// questionDataJpaRepo.save(question);
+		questionDataJpaRepo.save(question);
 
 	}
 
 	@Override
 	public void update(Question questionAvecId) {
 		// TODO Auto-generated method stub
-		// questionDataJpaRepo.save(questionAvecId);
+		questionDataJpaRepo.save(questionAvecId);
 
 	}
 
 	@Override
 	public void delete(Question question) {
 		// TODO Auto-generated method stub
-		// questionDataJpaRepo.delete(question);
+		questionDataJpaRepo.delete(question);
 
 	}
 

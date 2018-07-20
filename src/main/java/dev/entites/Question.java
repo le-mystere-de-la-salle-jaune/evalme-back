@@ -3,8 +3,10 @@ package dev.entites;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -30,7 +32,7 @@ public class Question extends BaseEntite {
 	/**
 	 * options : List<OptionQuestion>
 	 */
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "question_compo", joinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"))
 	private List<OptionQuestion> options;
 
@@ -43,6 +45,7 @@ public class Question extends BaseEntite {
 	 */
 	public Question() {
 		super();
+		this.options = new ArrayList<OptionQuestion>();
 	}
 
 	/**
