@@ -1,6 +1,6 @@
 package dev.controller.api.viewModels.classe;
 
-import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -10,10 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import dev.entites.Classe;
 import dev.entites.Stagiaire;
@@ -43,19 +42,28 @@ public class ClasseApiController {
 		return ResponseEntity.status(HttpStatus.OK).body(classesVm);
 	}
 
-	@PostMapping("/ajouter")
-	public ResponseEntity<Classe> ajouter(@RequestParam("nom") String nomClasse,
-			@RequestParam("stagiaires") List<Stagiaire> stagiairesClasse) throws Exception {
+	@PostMapping
+	public ResponseEntity<ClasseVmAjouter> ajouter(@RequestBody ClasseVmAjouter classeVmAjouter)
+			throws Exception {
 		Classe classe = new Classe();
-		classe.setNom(nomClasse);
-		classe.setStagiaires(stagiairesClasse);
+		List<StagiaireVm> stagiaires = classeVmAjouter.getStagiairesVmAjouter()
+		List<Stagiaire> stagiairesAll = stagiaireRepository.findAll();
+		List<Stagiaire> listeStClasse = new ArrayList<>();
+		if (!stagiaires.isEmpty()) {
+			for (Long id : stagiaires) {
+				for (Stagiaire st : stagiairesAll) {
+					if (id.equals(st.getId())) {
+						listeStClasse.add(st);
+					}
+				}
+			}
+		}
+
+		classe.setNom(classeVmAjouter.getNom());
+		classe.setStagiaires(listeStClasse);
 		this.classeRepository.save(classe);
 
-		URI uri = MvcUriComponentsBuilder
-				.fromMethodCall(MvcUriComponentsBuilder.on(ClasseRepository.class).findById(classe.getId())).build()
-				.encode().toUri();
-
-		return ResponseEntity.created(uri).body(classe);
+		return ResponseEntity.status(HttpStatus.OK).body(new ClasseVmAjouter(classe.getId()));
 	}
 
 	@GetMapping("/{id}")
