@@ -3,6 +3,7 @@ package dev.entites;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -21,7 +22,7 @@ public class Quizz extends BaseEntite {
 	private String titre;
 
 	@NotEmpty
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "id_quizz", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_question", referencedColumnName = "id"))
 	private List<Question> questions = new ArrayList<>();
 

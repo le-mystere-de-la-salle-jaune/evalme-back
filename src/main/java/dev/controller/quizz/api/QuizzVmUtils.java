@@ -29,8 +29,13 @@ public class QuizzVmUtils {
 	}
 
 	@Transactional
-	public QuizzVm createQuizz(Quizz quizz) {
-		return new QuizzVm(quizz);
+	public QuizzVm getQuizzVmById(Long id) {
+		return new QuizzVm(quizzService.findQuizzById(id).get());
+	}
+
+	@Transactional
+	public void createQuizz(Quizz quizz) {
+		this.quizzService.save(quizz);
 	}
 
 	public static List<QuestionVm> getQuestionsVm(List<Question> questions) {
@@ -41,8 +46,11 @@ public class QuizzVmUtils {
 		return questionsVm;
 	}
 
-	public QuizzVm getQuizzVmById(Long id) {
-		return new QuizzVm(quizzService.findQuizzById(id).get());
+	public static List<Question> getQuestions(List<QuestionVm> questionsVm) {
+		List<Question> questions = new ArrayList<>();
+		for (QuestionVm questionVm : questionsVm) {
+			questions.add(new Question(questionVm.getTitre()));
+		}
+		return questions;
 	}
-
 }

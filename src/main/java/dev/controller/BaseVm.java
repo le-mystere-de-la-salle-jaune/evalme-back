@@ -1,7 +1,10 @@
 package dev.controller;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BaseVm {
 
+	@JsonProperty("id")
 	private Long id;
 
 	public BaseVm() {

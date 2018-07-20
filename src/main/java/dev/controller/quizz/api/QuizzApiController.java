@@ -5,10 +5,13 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.controller.quizz.api.viewModels.QuizzVm;
+import dev.entites.Quizz;
 
 @RestController
 @RequestMapping("/api/quizzes")
@@ -19,7 +22,6 @@ public class QuizzApiController {
 	public QuizzApiController(QuizzVmUtils quizzUtils) {
 		super();
 		this.quizzUtils = quizzUtils;
-
 	}
 
 	@GetMapping("/lister")
@@ -30,6 +32,15 @@ public class QuizzApiController {
 	@GetMapping("/lister/{id}")
 	public ResponseEntity<QuizzVm> getQuizzById(@PathVariable Long id) {
 		return ResponseEntity.ok(this.quizzUtils.getQuizzVmById(id));
+	}
+
+	@PostMapping("/creer")
+	public ResponseEntity<String> creer(@RequestBody QuizzVm quizzVm) {
+		Quizz quizz = new Quizz();
+		quizz.setTitre(quizzVm.getTitre());
+		quizz.setQuestions(QuizzVmUtils.getQuestions(quizzVm.getQuestions()));
+		quizzUtils.createQuizz(quizz);
+		return ResponseEntity.ok("Id du quizz Créé: " + quizz.getId());
 	}
 
 }

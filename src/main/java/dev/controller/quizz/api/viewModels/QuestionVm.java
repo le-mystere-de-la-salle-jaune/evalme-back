@@ -10,6 +10,10 @@ public class QuestionVm extends BaseVm {
 	@JsonProperty("titre")
 	private String titre;
 
+	public QuestionVm() {
+		super();
+	}
+
 	public QuestionVm(Question question) {
 		super(question.getId());
 		this.titre = question.getTitre();

@@ -30,7 +30,7 @@ public class Question extends BaseEntite {
 	/**
 	 * options : List<OptionQuestion>
 	 */
-	@NotEmpty
+
 	@ManyToMany
 	@JoinTable(name = "question_compo", joinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"))
 	private List<OptionQuestion> options;

@@ -15,6 +15,10 @@ public class QuizzVm extends BaseVm {
 	@JsonProperty("questions")
 	private List<QuestionVm> questions;
 
+	public QuizzVm() {
+		super();
+	}
+
 	public QuizzVm(Quizz quizz) {
 		super(quizz.getId());
 		this.titre = quizz.getTitre();
