@@ -4,8 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import dev.entites.Stagiaire;
 
-public class StagiaireVm {
+public class StagiaireVm extends BaseEntiteVm {
 
+	private Long id;
 	private String prenom;
 	private String nom;
 	private String email;
@@ -25,7 +26,7 @@ public class StagiaireVm {
 	}
 
 	public StagiaireVm(Stagiaire s) {
-		super();
+		super(s.getId());
 		this.prenom = s.getPrenom();
 		this.nom = s.getNom();
 		this.email = s.getEmail();
