@@ -76,6 +76,7 @@ public class ExamenApiController {
 	public ResponseEntity<?> supprimer(@PathVariable Long examenId) {
 
 		if (examenService.exist(examenId)) {
+			examenService.deleteAllNote(examenId);
 			examenService.deleteById(examenId);
 			return ResponseEntity.status(HttpStatus.OK).body("Examen deleted successfully");
 		} else {
@@ -94,7 +95,6 @@ public class ExamenApiController {
 
 			if (classeService.trouverClasseParId(examenVmCreate.getClasseId()) != null) {
 				if (quizzService.findQuizzById(examenVmCreate.getQuizzId()) != null) {
-
 					examenService.updateById(examenVmUtil.ExamenVmCreateToEntity(examenVmCreate, examenId));
 
 				} else {

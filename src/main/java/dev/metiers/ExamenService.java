@@ -58,4 +58,12 @@ public class ExamenService {
 		
 	}
 
+	@Transactional
+	public void deleteAllNote(Long examenId) {
+		for(Note note : getById(examenId).getNotes()){
+			noteRepository.delete(note);
+		}
+		
+	}
+
 }
