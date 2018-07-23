@@ -6,11 +6,11 @@ drop table if exists note;
 drop table if exists examen;
 drop table if exists compo_quizz;
 drop table if exists duel;
-drop table if exists quizz;
 drop table if exists option_question;
 drop table if exists question;
 drop table if exists stagiaire;
 drop table if exists classe;
+drop table if exists quizz;
 
 create table classe (
   id serial primary key,
