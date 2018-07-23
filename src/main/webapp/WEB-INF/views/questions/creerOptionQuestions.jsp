@@ -20,7 +20,7 @@
 			<tbody>
 				<tr>
 					<td>Libelle :</td>
-					<td><form:input path="libelle" required="required" /> 
+					<td><form:input path="libelle" required="required" maxlength="100" /> 
 					<form:errors path="libelle">/!\Veuillez entrer un libelle/!\</form:errors></td>
 				</tr>
 				<tr>

@@ -28,7 +28,6 @@ public class QuestionRepositoryDataJpa implements QuestionRepository {
 	public void save(Question question) {
 		// TODO Auto-generated method stub
 		questionDataJpaRepo.save(question);
-
 	}
 
 	@Override

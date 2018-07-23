@@ -29,7 +29,7 @@ create table stagiaire (
 
 create table question (
   id serial primary key,
-  titre varchar(75)
+  titre varchar(255)
 );
 
 create table option_question (
