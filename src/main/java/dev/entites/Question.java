@@ -19,7 +19,7 @@ import javax.validation.constraints.NotEmpty;
  * @author matth
  */
 @Entity
-@Table(name = "QUESTION")
+@Table(name = "question")
 public class Question extends BaseEntite {
 
 	/**
