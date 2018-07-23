@@ -7,11 +7,9 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.Concours;
 
-@Repository
 public class ConcoursRepositoryMemoire implements ConcoursRepository {
 
 	private List<Concours> lesconcours = new ArrayList<>();
