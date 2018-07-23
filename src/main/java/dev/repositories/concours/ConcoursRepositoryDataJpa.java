@@ -24,7 +24,7 @@ public class ConcoursRepositoryDataJpa implements ConcoursRepository{
 	@Override
 	public void save(Concours entite) {
 		concourDataJpaRepo.save(entite);
-		
+
 	}
 
 	@Override
@@ -32,18 +32,18 @@ public class ConcoursRepositoryDataJpa implements ConcoursRepository{
 		if(concourDataJpaRepo.existsById(entiteAvecId.getId())){
 			save(entiteAvecId);
 		}
-		
 	}
 
 	@Override
 	public void delete(Concours entite) {
 		concourDataJpaRepo.delete(entite);
-		
+
 	}
 
 	@Override
 	public Optional<Concours> findById(Long id) {
 		return concourDataJpaRepo.findById(id);
+
 	}
 
 }

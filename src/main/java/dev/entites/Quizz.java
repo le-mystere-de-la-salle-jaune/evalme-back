@@ -54,4 +54,5 @@ public class Quizz extends BaseEntite {
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
+
 }
