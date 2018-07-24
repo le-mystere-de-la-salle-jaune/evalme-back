@@ -1,6 +1,5 @@
 package dev.repositories.question;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -16,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import dev.entites.OptionQuestion;
 import dev.entites.Question;
-import dev.repositories.question.QuestionRepositoryMemoire;
 
 //Sélection des classes de configuration Spring à utiliser lors du test
 @ContextConfiguration(classes = { QuestionRepositoryMemoire.class })
@@ -67,7 +65,6 @@ public class QuestionRepositoryMemoireTest {
 		quizz.setTitre("Trop bien !");
 
 		OptionQuestion option = new OptionQuestion();
-		option.setId((long) 12);
 		option.setLibelle("LOL");
 		option.setOk(false);
 
@@ -79,11 +76,10 @@ public class QuestionRepositoryMemoireTest {
 		service.save(quizz);
 
 		Question quizz2 = new Question();
-		quizz2.setId((long) 123456789);
+		quizz2.setId(quizz.getId());
 		quizz2.setTitre("Trop bien ?");
 
 		OptionQuestion option2 = new OptionQuestion();
-		option2.setId((long) 12);
 		option2.setLibelle("Pas LOL");
 		option2.setOk(true);
 
@@ -97,7 +93,6 @@ public class QuestionRepositoryMemoireTest {
 		int id = service.getQuestions().indexOf(quizz2);
 
 		assertTrue(service.getQuestions().get(id).getTitre().equals("Trop bien ?"));
-		assertTrue(service.getQuestions().get(id).getOptions().get(0).getId().equals((long) 12));
 		assertTrue(service.getQuestions().get(id).getOptions().get(0).getOk());
 		assertTrue(service.getQuestions().get(id).getOptions().get(0).getLibelle().equals("Pas LOL"));
 
