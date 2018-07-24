@@ -41,7 +41,6 @@ create table question (
 create table option_question (
   id serial primary key,
   libelle varchar(100) not null,
-
   ok boolean not null
 );
 

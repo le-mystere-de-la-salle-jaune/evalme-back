@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import dev.config.DataJpaTestConfig;
 import dev.entites.OptionQuestion;
 
-@SuppressWarnings("unused")
 @ContextConfiguration(classes = { OptionQuestionRepositoryDataJpa.class, DataJpaTestConfig.class })
 @RunWith(SpringRunner.class)
 public class OptionQuestionRepositoryDataJpaTest {
