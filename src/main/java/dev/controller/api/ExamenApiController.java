@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,55 +42,74 @@ public class ExamenApiController {
 		this.examenVmUtil = examenVmUtil;
 
 	}
-	
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<ExamenVm>> lister() {
-        HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("MyResponseHeader", "MyValue");
-        
 
-        return ResponseEntity.ok(examenVmUtil.listAllExam());
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<ExamenVm>> lister() {
 
-    }
-    
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> ajouter(@RequestBody ExamenVmCreate examenVmCreate, HttpServletResponse response) {
-        HttpHeaders responseHeaders = new HttpHeaders();
-        responseHeaders.set("MyResponseHeader", "MyValue");
-        Examen examen = new Examen();
-        
-        if(classeService.trouverClasseParId(examenVmCreate.getClasseId()) != null){
-        	if(quizzService.findQuizzById(examenVmCreate.getQuizzId()).isPresent() ){
-        		examen.setClasse(classeService.trouverClasseParId(examenVmCreate.getClasseId()));
-        		examen.setQuizz(quizzService.findQuizzById(examenVmCreate.getQuizzId()).orElse(null));
-        		examen.setTitre(examenVmCreate.getTitre());
-        		
-        		examenService.ajouter(examen);
-        		
-        	}else{
-        		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Quizz ID send does not exist");
-        	}
-        }else{
-        	return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Classe ID send does not exist");
-        }
-        
+		return ResponseEntity.ok(examenVmUtil.listAllExam());
 
-        return ResponseEntity.status(HttpStatus.OK).body(examenVmUtil.createExamen(examen));
+	}
 
-    }
-    
-    @RequestMapping(value = "/{examenId}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> supprimer(@PathVariable Long examenId){
-    	
-    	if(examenService.exist(examenId)){
-    		examenService.deleteById(examenId);
-    		return ResponseEntity.status(HttpStatus.OK).body("Examen deleted successfully");
-    	}else{
-    		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Examen id don't match any exams");
-    	}
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<?> ajouter(@RequestBody ExamenVmCreate examenVmCreate, HttpServletResponse response) {
+		Examen examen = new Examen();
 
-    }
-	
-	
+		if (classeService.trouverClasseParId(examenVmCreate.getClasseId()) != null) {
+			if (quizzService.findQuizzById(examenVmCreate.getQuizzId()) != null) {
+
+				examen = examenVmUtil.ExamenVmCreateToEntity(examenVmCreate);
+
+				examenService.ajouter(examen);
+
+			} else {
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Quizz ID send does not exist");
+			}
+		} else {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Classe ID send does not exist");
+		}
+
+		return ResponseEntity.status(HttpStatus.CREATED).body(examenVmUtil.createExamen(examen));
+
+	}
+
+	@RequestMapping(value = "/{examenId}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> supprimer(@PathVariable Long examenId) {
+
+		if (examenService.exist(examenId)) {
+			examenService.deleteById(examenId);
+			return ResponseEntity.status(HttpStatus.OK).body("Examen deleted successfully");
+		} else {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Examen id don't match any exams");
+		}
+
+	}
+
+	@RequestMapping(value = "/{examenId}", method = RequestMethod.PUT)
+	public ResponseEntity<?> updateExamen(@PathVariable Long examenId, @RequestBody ExamenVmCreate examenVmCreate) {
+
+		if (examenService.exist(examenId)) {
+
+			Examen examen = new Examen();
+			examen.setId(examenId);
+
+			if (classeService.trouverClasseParId(examenVmCreate.getClasseId()) != null) {
+				if (quizzService.findQuizzById(examenVmCreate.getQuizzId()) != null) {
+
+					examenService.updateById(examenVmUtil.ExamenVmCreateToEntity(examenVmCreate, examenId));
+
+				} else {
+					return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Quizz ID send does not exist");
+				}
+			} else {
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Classe ID send does not exist");
+			}
+
+			return ResponseEntity.status(HttpStatus.OK).body("Examen updated successfully");
+
+		} else {
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Examen id don't match any exams");
+		}
+
+	}
+
 }

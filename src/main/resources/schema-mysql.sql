@@ -35,13 +35,13 @@ create table stagiaire (
 create table question (
 
   id serial primary key,
-  titre varchar(75)
+  titre varchar(100)
+  );
 
-);
 
 create table option_question (
   id serial primary key,
-  libelle varchar(75) not null,
+  libelle varchar(100) not null,
   ok boolean not null
 );
 

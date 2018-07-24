@@ -9,11 +9,9 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.Question;
 
-@Repository
 public class QuestionRepositoryMemoire implements QuestionRepository {
 
 	private List<Question> questions = new ArrayList<>();

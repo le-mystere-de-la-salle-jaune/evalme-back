@@ -79,6 +79,7 @@ public class QuestionRepositoryMemoireTest {
 
 		OptionQuestion option2 = new OptionQuestion();
 		option2.setId(option.getId());
+
 		option2.setLibelle("Pas LOL");
 		option2.setOk(true);
 

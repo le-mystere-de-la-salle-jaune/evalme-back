@@ -45,6 +45,7 @@ public class OptionQuestionRepositoryMemoireTest {
 
 	@Test
 	public void test_Update() {
+
 		OptionQuestion option = new OptionQuestion();
 		option.setLibelle("LOL");
 		option.setOk(false);
@@ -65,6 +66,7 @@ public class OptionQuestionRepositoryMemoireTest {
 
 	@Test
 	public void test_Delete() {
+
 		OptionQuestion option = new OptionQuestion();
 		option.setId((long) 12);
 		option.setLibelle("LOL");
@@ -72,6 +74,7 @@ public class OptionQuestionRepositoryMemoireTest {
 		service.save(option);
 		service.delete(option);
 		assertTrue(!service.getOptionQuestions().contains(option));
+
 	}
 
 }

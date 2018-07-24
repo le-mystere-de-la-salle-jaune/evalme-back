@@ -1,16 +1,16 @@
-package dev.controller.duel;
+package dev.controller;
 
 import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import dev.entites.Duel;
@@ -22,7 +22,7 @@ import dev.repositories.stagiaire.StagiaireRepository;
  * @author Mayeul
  *
  */
-@Controller
+@RestController
 @RequestMapping("/duels")
 public class DuelController {
 
@@ -116,7 +116,7 @@ public class DuelController {
 	@GetMapping("/editer")
 	public ModelAndView setupEditerForm(@RequestParam("id") Long id) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("duel", duelService.getById(id));
+		mav.addObject("duel", duelService.findDuelById(id));
 		mav.addObject("listeStagiaires", stagiaireRepository.findAll());
 		mav.addObject("listeQuizzes", quizzRepository.findAll());
 		mav.setViewName("duels/editerDuel");
@@ -137,7 +137,7 @@ public class DuelController {
 		ModelAndView mav = new ModelAndView();
 
 		if (duel.getStagiaireA().getId().equals(duel.getStagiaireB().getId())) {
-			mav.addObject("duel", duelService.getById(id));
+			mav.addObject("duel", duelService.findDuelById(id));
 			mav.addObject("listeStagiaires", stagiaireRepository.findAll());
 			mav.addObject("listeQuizzes", quizzRepository.findAll());
 			mav.addObject("erreurDoublons", "#");
@@ -164,7 +164,7 @@ public class DuelController {
 	@PostMapping("/supprimer")
 	public ModelAndView supprimer(@RequestParam("id") Long id) {
 		ModelAndView mav = new ModelAndView();
-		Duel duel = duelService.getById(id);
+		Duel duel = duelService.findDuelById(id);
 		duelService.supprimer(duel);
 		mav.setViewName("redirect:/duels/lister");
 		return mav;

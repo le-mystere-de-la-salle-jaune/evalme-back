@@ -8,5 +8,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Import(JpaTestConfig.class)
 @EnableJpaRepositories("dev.repositories")
 public class DataJpaTestConfig {
-  
+
 }

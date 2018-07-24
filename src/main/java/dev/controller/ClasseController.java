@@ -66,6 +66,7 @@ public class ClasseController {
 						st.setEmail(st2.getEmail());
 						st.setPhotoUrl(st2.getPhotoUrl());
 						listeStagiaireModfie.add(st);
+						st.setClasse(c);
 					}
 				}
 			}
@@ -111,6 +112,7 @@ public class ClasseController {
 						st.setEmail(st2.getEmail());
 						st.setPhotoUrl(st2.getPhotoUrl());
 						listeStagiaireModfie.add(st);
+						st.setClasse(c);
 					}
 				}
 			}

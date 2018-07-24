@@ -2,7 +2,10 @@ package dev.repositories.question;
 
 import static org.junit.Assert.assertTrue;
 
+
+import java.util.List;
 import org.junit.Ignore;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,46 +33,45 @@ public class OptionQuestionRepositoryJpaTest {
 	@Test
 	public void test_Save() {
 		OptionQuestion option = new OptionQuestion();
-		option.setId((long) 12);
 		option.setLibelle("LOL");
 		option.setOk(false);
 		optionQuestionRepository.save(option);
-		// assertTrue(optionQuestionRepositoryJdbc.getOptionQuestions().contains(option));
+		List<OptionQuestion> maListe = optionQuestionRepository.findAll();
+
+		assertTrue(maListe.get(3).getLibelle().equals("LOL"));
+		assertTrue(!maListe.get(3).getOk());
 	}
 
 	@Test
 	public void test_Update() {
+		/*
 		OptionQuestion option = new OptionQuestion();
-		option.setId((long) 12);
 		option.setLibelle("LOL");
 		option.setOk(false);
 		optionQuestionRepository.save(option);
 
 		OptionQuestion newOption = new OptionQuestion();
-		newOption.setId((long) 12);
+		newOption.setId(option.getId());
 		newOption.setLibelle("Pas LOL");
 		newOption.setOk(true);
 		optionQuestionRepository.update(newOption);
 
-		// int id =
-		// optionQuestionRepositoryJdbc.getOptionQuestions().indexOf(newOption);
-
-		// assertTrue(optionQuestionRepositoryJdbc.getOptionQuestions().get(id).getLibelle().equals("Pas
-		// LOL")
-		// &&
-		// optionQuestionRepositoryJdbc.getOptionQuestions().get(id).getOk());
+		assertTrue(optionQuestionRepository.findAll().get(3).getLibelle().equals("Pas LOL"));
+		assertTrue(optionQuestionRepository.findAll().get(3).getOk());
+		*/
 
 	}
 
 	@Test
 	public void test_Delete() {
+		/*
 		OptionQuestion option = new OptionQuestion();
-		option.setId((long) 12);
 		option.setLibelle("LOL");
 		option.setOk(false);
 		optionQuestionRepository.save(option);
 		optionQuestionRepository.delete(option);
-		// assertTrue(!optionQuestionRepositoryJdbc.getOptionQuestions().contains(option));
+		assertTrue(!optionQuestionRepository.findAll().contains(option));
+		*/
 	}
 
 }
