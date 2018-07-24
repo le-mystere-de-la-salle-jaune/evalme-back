@@ -44,7 +44,7 @@
 			<tbody>
 				<tr>
 					<td>Titre :</td>
-					<td><form:input path="titre" required="required" /></td>
+					<td><form:input path="titre" required="required" maxlength="100" /></td>
 				</tr>
 				<tr>
 					<td>Sélectionnez les options de réponses pour cette question :

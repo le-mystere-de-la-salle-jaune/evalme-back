@@ -1,3 +1,4 @@
+
 drop table if exists sondage_option_sondage cascade;
 drop table if exists question_compo cascade;
 drop table if exists sondage cascade;
@@ -34,12 +35,12 @@ create table stagiaire (
 
 create table question (
   id serial primary key,
-  titre varchar(75)
+  titre varchar(100)
 );
 
 create table option_question (
   id serial primary key,
-  libelle varchar(75) not null,
+  libelle varchar(100) not null,
   ok boolean not null
 );
 
@@ -103,7 +104,6 @@ create table sondage_option_sondage (
   foreign key (id_option_sondage) references option_sondage (id),
   foreign key (id_sondage) references sondage (id)
 );
-
 
 create table duel (
 	id serial primary key,
