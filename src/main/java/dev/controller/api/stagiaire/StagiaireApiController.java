@@ -17,7 +17,7 @@ import dev.metiers.StagiaireService;
 
 @RestController
 @RequestMapping(value = "/api/stagiaires")
-@CrossOrigin
+@CrossOrigin 	
 public class StagiaireApiController {
 
 	private StagiaireService stagiaireService;

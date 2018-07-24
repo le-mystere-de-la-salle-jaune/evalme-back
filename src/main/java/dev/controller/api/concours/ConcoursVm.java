@@ -3,23 +3,26 @@ package dev.controller.api.concours;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import dev.controller.api.viewModels.examen.BaseVm;
 import dev.controller.api.viewModels.examen.QuizzVm;
 import dev.entites.Concours;
 import dev.entites.Quizz;
-import dev.entites.Stagiaire;
 
 public class ConcoursVm extends BaseVm {
 
 	private String titre;
-	private List<Stagiaire> participants;
-	private List<QuizzVm> quizzes;
+	@JsonProperty("nb_participants")
+	private int nbParticipants;
+	@JsonProperty("nb_quizzes")
+	private int nbQuizzes;
 
 	public ConcoursVm(Concours c) {
 		super(c.getId());
 		this.titre = c.getTitre();
-		this.participants = c.getParticipants();
-		this.quizzes = transform(c.getQuizzes());
+		this.nbParticipants = c.getParticipants().size();
+		this.nbQuizzes = c.getQuizzes().size();
 	}
 
 	public String getTitre() {
@@ -28,25 +31,6 @@ public class ConcoursVm extends BaseVm {
 
 	public void setTitre(String titre) {
 		this.titre = titre;
-	}
-
-	public String getParticipants() {
-		String ss;
-		ss = "[ ";
-		for (Stagiaire s : participants) {
-			ss += s.getId() + " ";
-		}
-		;
-		ss += "]";
-		return ss;
-	}
-
-	public void setParticipants(List<Stagiaire> participants) {
-		this.participants = participants;
-	}
-
-	public List<QuizzVm> getQuizzes() {
-		return quizzes;
 	}
 
 	public List<QuizzVm> transform(List<Quizz> quizzes) {
@@ -59,8 +43,22 @@ public class ConcoursVm extends BaseVm {
 		return QVM;
 	}
 
-	public void setQuizzes(List<QuizzVm> quizzes) {
-		this.quizzes = quizzes;
+	public int getNbParticipants() {
+		return nbParticipants;
 	}
+
+	public void setNbParticipants(int nbParticipants) {
+		this.nbParticipants = nbParticipants;
+	}
+
+	public int getNbQuizzes() {
+		return nbQuizzes;
+	}
+
+	public void setNbQuizzes(int nbQuizzes) {
+		this.nbQuizzes = nbQuizzes;
+	}
+	
+	
 
 }

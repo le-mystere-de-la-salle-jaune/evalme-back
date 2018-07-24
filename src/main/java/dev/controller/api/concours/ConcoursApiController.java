@@ -30,7 +30,17 @@ public class ConcoursApiController {
 	public ResponseEntity<List<ConcoursVm>> findAll() {
 		List<Concours> listeConcours = this.concoursService.list();
 
-		List<ConcoursVm> listeConcoursVm = listeConcours.stream().map(unConcours -> new ConcoursVm(unConcours))
+		List<ConcoursVm> listeConcoursVm = listeConcours.stream().map(ConcoursVm::new)
+				.collect(Collectors.toList());
+
+		return ResponseEntity.status(HttpStatus.OK).body(listeConcoursVm);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, params = {"idStagiaire"})
+	public ResponseEntity<List<ConcoursVm>> findAll2() {
+		List<Concours> listeConcours = this.concoursService.list();
+
+		List<ConcoursVm> listeConcoursVm = listeConcours.stream().map(ConcoursVm::new)
 				.collect(Collectors.toList());
 
 		return ResponseEntity.status(HttpStatus.OK).body(listeConcoursVm);

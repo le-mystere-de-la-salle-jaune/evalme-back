@@ -72,6 +72,15 @@ insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (4,7
 insert into concours(titre) values ('This is concours !!!');  
 insert into concours(titre) values ('The first concours'); 
 
+insert into concours_stagiaire(id_concours,id_stagiaire) values (1,1);  
+insert into concours_stagiaire(id_concours,id_stagiaire) values (1,2);  
+insert into concours_stagiaire(id_concours,id_stagiaire) values (2,1); 
+insert into concours_stagiaire(id_concours,id_stagiaire) values (2,2); 
+
+insert into concours_quizz(id_concours,id_quizz) values (1,1);  
+insert into concours_quizz(id_concours,id_quizz) values (1,2);  
+insert into concours_quizz(id_concours,id_quizz) values (2,1);
+insert into concours_quizz(id_concours,id_quizz) values (2,2); 
 
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 1);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 2);
