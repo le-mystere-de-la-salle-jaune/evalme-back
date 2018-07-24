@@ -1,4 +1,4 @@
-package dev.repositories;
+package dev.repositories.classe;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

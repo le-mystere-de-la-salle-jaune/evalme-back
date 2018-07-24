@@ -5,14 +5,9 @@ import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
-
-import org.springframework.stereotype.Repository;
 
 import dev.entites.Examen;
 
-@Repository
-@Transactional
 public class ExamenRepositoryJpa implements ExamenRepository {
 
 	// Récupération d'une instance de l'Entity Manager

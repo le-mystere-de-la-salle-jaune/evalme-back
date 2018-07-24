@@ -13,7 +13,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "QUIZZ")
+@Table(name = "quizz")
 public class Quizz extends BaseEntite {
 
 	@Size(min = 5)
@@ -22,7 +22,7 @@ public class Quizz extends BaseEntite {
 
 	@NotEmpty
 	@ManyToMany
-	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "idQuizz", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "idQuestion", referencedColumnName = "id"))
+	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "id_quizz", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_question", referencedColumnName = "id"))
 	private List<Question> questions = new ArrayList<>();
 
 	public Quizz() {
@@ -54,4 +54,5 @@ public class Quizz extends BaseEntite {
 	public void setQuestions(List<Question> questions) {
 		this.questions = questions;
 	}
+
 }

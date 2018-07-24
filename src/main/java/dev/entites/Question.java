@@ -32,12 +32,13 @@ public class Question extends BaseEntite {
 	/**
 	 * options : List<OptionQuestion>
 	 */
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "question_compo", joinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"))
 	private List<OptionQuestion> options;
 
 	@ManyToMany
-	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "idQuestion", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "idQuizz", referencedColumnName = "id"))
+	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "id_question", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_quizz", referencedColumnName = "id"))
 	private List<Quizz> quizzes;
 
 	/**

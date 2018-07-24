@@ -25,4 +25,8 @@ public class SondageService {
 		sondageRepository.save(s);
 	}
 
+	public Sondage findById(Long id) throws Exception {
+		return sondageRepository.findById(id).orElseThrow(Exception::new);
+	}
+
 }
