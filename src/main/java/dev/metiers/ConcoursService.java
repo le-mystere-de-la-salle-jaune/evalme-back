@@ -6,14 +6,14 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import dev.entites.Concours;
-import dev.repositories.concours.ConcoursRepository;
+import dev.repositories.concours.ConcoursDataJpaRepo;
 
 @Service
 public class ConcoursService {
 
-	private ConcoursRepository concoursRepository;
+	private ConcoursDataJpaRepo concoursRepository;
 
-	public ConcoursService(ConcoursRepository concoursRepository) {
+	public ConcoursService(ConcoursDataJpaRepo concoursRepository) {
 		super();
 		this.concoursRepository = concoursRepository;
 	}
@@ -27,7 +27,7 @@ public class ConcoursService {
 	}
 
 	public void miseajour(Concours entiteAvecId) {
-		concoursRepository.update(entiteAvecId);
+		concoursRepository.save(entiteAvecId);
 	}
 
 	public void suppression(Concours entiteAvecId) {
@@ -36,6 +36,10 @@ public class ConcoursService {
 
 	public Optional<Concours> concoursparid(Long Id) {
 		return concoursRepository.findById(Id);
+	}
+	
+	public List<Concours> getConcoursOfStagiaire(Long idStagiaire){
+		return concoursRepository.findConcoursByStagiaire(idStagiaire);
 	}
 
 }

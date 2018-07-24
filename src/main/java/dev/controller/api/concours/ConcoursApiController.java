@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.entites.Concours;
@@ -37,8 +38,9 @@ public class ConcoursApiController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, params = {"idStagiaire"})
-	public ResponseEntity<List<ConcoursVm>> findAll2() {
-		List<Concours> listeConcours = this.concoursService.list();
+	public ResponseEntity<List<ConcoursVm>> findAll2(@RequestParam(value="idStagiaire")Long idStagiaire) {
+		
+		List<Concours> listeConcours = this.concoursService.getConcoursOfStagiaire(idStagiaire);
 
 		List<ConcoursVm> listeConcoursVm = listeConcours.stream().map(ConcoursVm::new)
 				.collect(Collectors.toList());
