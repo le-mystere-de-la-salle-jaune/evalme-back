@@ -10,21 +10,21 @@ insert into stagiaire(nom, prenom, email, photo_url, id_classe)
   values ('lupin', 'patrick', 'lp@gmail.com', 'https://odgers-prod-neu-cdn-tm-endpoint.azureedge.net/media/1351/patrik-kvikant.jpg',1 );
   
 insert into stagiaire(nom, prenom, email, photo_url, id_classe)
-  values ('lupin', 'patrick', 'lp@gmail.com', 'https://odgers-prod-neu-cdn-tm-endpoint.azureedge.net/media/1351/patrik-kvikant.jpg',2 );
+  values ('bacon', 'kevin', 'lp@gmail.com', 'https://media.tenor.com/images/fdf2719aec175f0ed123ba0632e9d7dd/tenor.png',2 );
   
 insert into quizz(titre) values ('les animeaux de la forêt');
 
 insert into stagiaire(nom, prenom, email, photo_url, id_classe)
-  values ('lupin', 'patrick', 'lp@gmail.com', 'https://odgers-prod-neu-cdn-tm-endpoint.azureedge.net/media/1351/patrik-kvikant.jpg',4 );
+  values ('dylan', 'bob', 'lp@gmail.com', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdvk3gFQRP00NeRzNVGF02QQ6F96rMFP8jo3Zb-RV5CA8uUgu64w',4 );
 
-insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('abitbol', 'georges', 'mondedemerde@clas.se', 'abitbol.jpg', 2);
-insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('porc', 'francis', 'dudeleesport@afes.fr', 'porc.jpg',3);
-insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('mansoif', 'gérard', 'gerard.mansoif@wanadoo.fr', 'mansoif.jpg',4);
+insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('abitbol', 'georges', 'mondedemerde@clas.se', 'https://i.ytimg.com/vi/aenO5RQtTWg/hqdefault.jpg', 2);
+insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('porc', 'francis', 'dudeleesport@afes.fr', 'https://i.ytimg.com/vi/Wse5ynlj-T0/hqdefault.jpg',3);
+insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('mansoif', 'gérard', 'gerard.mansoif@wanadoo.fr', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCWhUlJhpUoQ2PjamHUChYm1eSpU6LbVQj4tiZdfezPBKEzBAu',4);
 
 
 insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animaux de la forêts', 1, 1) ;
 
-insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animeaux de la forêts', 1, 1) ;
+insert into examen(titre,id_quizz,id_classe) values ('quiz d13 animeaux de la forêts', 1, 3) ;
 
 insert into note(note_sur_20, id_stagiaire, id_examen) values (12, 3, 1);
 insert into note(note_sur_20, id_stagiaire, id_examen) values (15, 4, 1);
