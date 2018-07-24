@@ -5,16 +5,17 @@ import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.entites.Concours;
 import dev.metiers.ConcoursService;
 
 @RestController
-@RequestMapping(value = "/concours/lister/api")
+@RequestMapping(value = "/api/concours")
+@CrossOrigin
 public class ConcoursApiController {
 
 	private ConcoursService concoursService;
@@ -25,8 +26,7 @@ public class ConcoursApiController {
 	}
 
 	// lister
-	@GetMapping
-	@Transactional
+	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<ConcoursVm>> findAll() {
 		List<Concours> listeConcours = this.concoursService.list();
 
