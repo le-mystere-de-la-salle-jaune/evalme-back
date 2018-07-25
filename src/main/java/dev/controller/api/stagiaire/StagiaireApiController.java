@@ -5,7 +5,6 @@ import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +16,6 @@ import dev.metiers.StagiaireService;
 
 @RestController
 @RequestMapping(value = "/api/stagiaires")
-@CrossOrigin
 public class StagiaireApiController {
 
 	private StagiaireService stagiaireService;
