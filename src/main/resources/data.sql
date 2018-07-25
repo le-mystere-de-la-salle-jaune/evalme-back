@@ -18,14 +18,6 @@ insert into stagiaire(nom, prenom, email, photo_url, id_classe)
 insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('abitbol', 'georges', 'mondedemerde@clas.se', 'https://i.ytimg.com/vi/aenO5RQtTWg/hqdefault.jpg', 2);
 insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('porc', 'francis', 'dudeleesport@afes.fr', 'https://i.ytimg.com/vi/Wse5ynlj-T0/hqdefault.jpg',3);
 insert into stagiaire(nom, prenom, email, photo_url, id_classe) values ('mansoif', 'gérard', 'gerard.mansoif@wanadoo.fr', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCWhUlJhpUoQ2PjamHUChYm1eSpU6LbVQj4tiZdfezPBKEzBAu',4);
-
-
-insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animaux de la forêts', 1, 1) ;
-
-insert into examen(titre,id_quizz,id_classe) values ('quiz d13 animeaux de la forêts', 1, 3) ;
-
-insert into note(note_sur_20, id_stagiaire, id_examen) values (12, 3, 1);
-insert into note(note_sur_20, id_stagiaire, id_examen) values (15, 4, 1);
  
 insert into classe(nom) values('d12-sans-stagiaires');
 
@@ -42,6 +34,8 @@ insert into compo_quizz(id_quizz, id_question) values (2, 1);
 insert into compo_quizz(id_quizz, id_question) values (2, 2);
 insert into compo_quizz(id_quizz, id_question) values (3, 1);
 insert into compo_quizz(id_quizz, id_question) values (3, 2);
+insert into compo_quizz(id_quizz, id_question) values (4, 1);
+insert into compo_quizz(id_quizz, id_question) values (4, 2);
 
 insert into option_sondage(libelle, description) values ('libelle sondage 1','description du sondage numéro 1');
 insert into option_sondage(libelle, description) values ('libelle sondage 2','description du sondage numéro 2');
@@ -50,6 +44,12 @@ insert into option_sondage(libelle, description) values ('libelle sondage 4','de
 insert into option_sondage(libelle, description) values ('libelle sondage 5','description du sondage numéro 5');
 insert into option_sondage(libelle, description) values ('libelle sondage 6','description du sondage numéro 6');
 insert into option_sondage(libelle, description) values ('libelle sondage 7','description du sondage numéro 7');
+
+insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animaux de la forêts', 1, 1) ;
+insert into examen(titre,id_quizz,id_classe) values ('quiz d13 animeaux de la forêts', 4, 3) ;
+
+insert into note(note_sur_20, id_stagiaire, id_examen) values (12, 3, 1);
+insert into note(note_sur_20, id_stagiaire, id_examen) values (15, 4, 1);
 
 insert into sondage(titre, classe_id) values ('titre sondage 1', 1);
 insert into sondage(titre, classe_id) values ('titre sondage 2', 2);
