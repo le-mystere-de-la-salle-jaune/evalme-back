@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.controller.api.viewModels.examen.ExamenNoteVm;
 import dev.controller.api.viewModels.examen.ExamenVm;
 import dev.controller.api.viewModels.examen.ExamenVmCreate;
 import dev.controller.api.viewModels.examen.ExamenVmUtil;
@@ -116,6 +117,11 @@ public class ExamenApiController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Examen id don't match any exams");
 		}
 
+	}
+
+	@GetMapping("/notes/{idStagiaire}")
+	public ResponseEntity<List<ExamenNoteVm>> resultatExamenStagiaire(@PathVariable Long idStagiaire) {
+		return ResponseEntity.ok(examenVmUtil.listerResultatsStagiaire(idStagiaire));
 	}
 
 }
