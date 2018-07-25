@@ -24,17 +24,17 @@ public class QuizzApiController {
 		this.quizzUtils = quizzUtils;
 	}
 
-	@GetMapping("/lister")
+	@GetMapping
 	public ResponseEntity<List<QuizzVm>> getList() {
 		return ResponseEntity.ok(this.quizzUtils.listAllQuizzes());
 	}
 
-	@GetMapping("/lister/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<QuizzVm> getQuizzById(@PathVariable Long id) {
 		return ResponseEntity.ok(this.quizzUtils.getQuizzVmById(id));
 	}
 
-	@PostMapping("/creer")
+	@PostMapping
 	public ResponseEntity<String> creer(@RequestBody QuizzVm quizzVm) {
 		Quizz quizz = new Quizz();
 		quizz.setTitre(quizzVm.getTitre());

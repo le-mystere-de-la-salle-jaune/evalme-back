@@ -12,6 +12,8 @@ public class QuizzVm extends BaseVm {
 
 	@JsonProperty("titre")
 	private String titre;
+	@JsonProperty("nb_questions")
+	private int nbQuestion;
 	@JsonProperty("questions")
 	private List<QuestionVm> questions;
 
@@ -22,6 +24,7 @@ public class QuizzVm extends BaseVm {
 	public QuizzVm(Quizz quizz) {
 		super(quizz.getId());
 		this.titre = quizz.getTitre();
+		this.nbQuestion = quizz.getQuestions().size();
 		this.questions = QuizzVmUtils.getQuestionsVm(quizz.getQuestions());
 	}
 
@@ -33,12 +36,17 @@ public class QuizzVm extends BaseVm {
 		this.titre = titre;
 	}
 
+	public int getNbQuestion() {
+		return nbQuestion;
+	}
+
 	public List<QuestionVm> getQuestions() {
 		return this.questions;
 	}
 
 	public void setQuestions(List<QuestionVm> questions) {
 		this.questions = questions;
+		this.nbQuestion = questions.size();
 	}
 
 }
