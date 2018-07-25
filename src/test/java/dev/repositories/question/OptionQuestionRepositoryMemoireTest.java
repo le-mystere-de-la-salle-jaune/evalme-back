@@ -37,7 +37,6 @@ public class OptionQuestionRepositoryMemoireTest {
 	@Test
 	public void test_Save() {
 		OptionQuestion option = new OptionQuestion();
-		option.setId((long) 12);
 		option.setLibelle("LOL");
 		option.setOk(false);
 		service.save(option);

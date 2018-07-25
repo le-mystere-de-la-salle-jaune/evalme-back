@@ -44,7 +44,6 @@ public class QuestionRepositoryMemoireTest {
 		quizz.setId((long) 123456789);
 
 		OptionQuestion option = new OptionQuestion();
-		option.setId((long) 12);
 		option.setLibelle("LOL");
 		option.setOk(false);
 
@@ -61,7 +60,6 @@ public class QuestionRepositoryMemoireTest {
 	@Test
 	public void test_Update() {
 		Question quizz = new Question();
-		quizz.setId((long) 123456789);
 		quizz.setTitre("Trop bien !");
 
 		OptionQuestion option = new OptionQuestion();
@@ -80,6 +78,8 @@ public class QuestionRepositoryMemoireTest {
 		quizz2.setTitre("Trop bien ?");
 
 		OptionQuestion option2 = new OptionQuestion();
+		option2.setId(option.getId());
+
 		option2.setLibelle("Pas LOL");
 		option2.setOk(true);
 
@@ -90,7 +90,7 @@ public class QuestionRepositoryMemoireTest {
 
 		service.update(quizz2);
 
-		int id = service.getQuestions().indexOf(quizz2);
+		int id = quizz.getId().intValue();
 
 		assertTrue(service.getQuestions().get(id).getTitre().equals("Trop bien ?"));
 		assertTrue(service.getQuestions().get(id).getOptions().get(0).getOk());
@@ -101,11 +101,9 @@ public class QuestionRepositoryMemoireTest {
 	@Test
 	public void test_Delete() {
 		Question quizz = new Question();
-		quizz.setId((long) 123456789);
 		quizz.setTitre("Trop bien !");
 
 		OptionQuestion option = new OptionQuestion();
-		option.setId((long) 12);
 		option.setLibelle("LOL");
 		option.setOk(false);
 
