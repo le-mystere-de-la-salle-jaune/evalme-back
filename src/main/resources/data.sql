@@ -1,8 +1,8 @@
 insert into classe (nom) values ('d11');
 insert into classe (nom) values ('d12');
-insert into classe (nom) values ('d12-sans-stagiaires');
 insert into classe (nom) values ('d13');
 insert into classe (nom) values ('d14');
+insert into classe (nom) values ('d12-sans-stagiaires');
 
 insert into quizz(titre) values ('les animaux de la forêt');
 insert into quizz(titre) values ('géographie');
