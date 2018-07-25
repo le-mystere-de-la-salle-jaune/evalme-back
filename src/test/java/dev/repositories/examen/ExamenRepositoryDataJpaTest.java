@@ -19,7 +19,7 @@ public class ExamenRepositoryDataJpaTest {
 
 	@Test
 	public void testSelect() {
-		assertTrue(entiteRepositoryDataJpa.findAll().size() == 2);
+		assertTrue(entiteRepositoryDataJpa.findAll().size() != 0);
 
 	}
 }

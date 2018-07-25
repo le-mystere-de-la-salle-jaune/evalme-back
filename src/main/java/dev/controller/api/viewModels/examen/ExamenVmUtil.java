@@ -38,6 +38,18 @@ public class ExamenVmUtil {
 	}
 
 	@Transactional
+	public List<ExamenNoteVm> listerResultatsStagiaire(Long idStagiaire) {
+
+		List<Examen> exams = examenService.lister();
+		Stagiaire stagiaire = stagiaireService.findStagiaireById(idStagiaire);
+
+		List<ExamenNoteVm> examenNoteVm = exams.stream()
+				.filter(e -> e.getClasse().getId().equals(stagiaire.getClasse().getId()))
+				.map(e -> new ExamenNoteVm(e, idStagiaire)).collect(Collectors.toList());
+		return examenNoteVm;
+	}
+
+	@Transactional
 	public List<ExamenVm> listAllExam() {
 
 		List<ExamenVm> listExam = examenService.lister().stream().map(ExamenVm::new).collect(Collectors.toList());
