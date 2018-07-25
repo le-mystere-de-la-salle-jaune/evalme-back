@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import dev.controller.api.viewModels.passageConcours.PassageConcoursReturnVm;
 import dev.controller.api.viewModels.passageConcours.PassageConcoursVm;
 import dev.metiers.PassageConcoursService;
 
@@ -24,7 +25,7 @@ public class PassageConcoursController {
 	public ResponseEntity<?> submitForm(@RequestBody PassageConcoursVm passageConcoursVm) {
 		
 
-		return ResponseEntity.status(HttpStatus.CREATED).body("passage_concours_id "+passageConcoursService.createPassage(passageConcoursVm));
+		return ResponseEntity.status(HttpStatus.CREATED).body(new PassageConcoursReturnVm(passageConcoursService.createPassage(passageConcoursVm)));
 	}
 
 }
