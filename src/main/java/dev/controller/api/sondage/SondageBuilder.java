@@ -10,18 +10,23 @@ import dev.controller.api.sondage.viewModels.ClasseListerSondageVM;
 import dev.controller.api.sondage.viewModels.ListerSondageVM;
 import dev.controller.api.sondage.viewModels.OptionListerSondageVM;
 import dev.controller.api.sondage.viewModels.SondageByIdVM;
+import dev.entites.Classe;
 import dev.entites.OptionSondage;
 import dev.entites.Sondage;
+import dev.entites.Stagiaire;
 import dev.metiers.SondageService;
+import dev.metiers.StagiaireService;
 
 @Service
 public class SondageBuilder {
 
 	private SondageService sondageService;
+	private StagiaireService stagiaireService;
 
-	public SondageBuilder(SondageService sondageService) {
+	public SondageBuilder(SondageService sondageService, StagiaireService stagiaireService) {
 		super();
 		this.sondageService = sondageService;
+		this.stagiaireService = stagiaireService;
 	}
 
 	@Transactional
@@ -68,5 +73,23 @@ public class SondageBuilder {
 		sondageVM.setOptions(options);
 
 		return sondageVM;
+	}
+
+	@Transactional
+	public List<ListerSondageVM> creerJsonListerByIdStagiaire(Long idStagiaire) throws Exception {
+		List<ListerSondageVM> listeSondages = creerJsonLister();
+		Stagiaire stagiaire = stagiaireService.findStagiaireById(idStagiaire);
+		Classe classe = stagiaire.getClasse();
+		System.out.println(classe.getNom());
+
+		List<ListerSondageVM> listeSondagesStagiaire = new ArrayList<ListerSondageVM>();
+
+		for (ListerSondageVM ls : listeSondages) {
+			if (ls.getClasse().getId() == (classe.getId())) {
+				listeSondagesStagiaire.add(ls);
+			}
+		}
+
+		return listeSondagesStagiaire;
 	}
 }
