@@ -1,11 +1,11 @@
-package dev.controller.api.concours;
+package dev.controller.api.viewModels.concours;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import dev.controller.api.viewModels.examen.BaseVm;
+import dev.controller.api.viewModels.BaseVm;
 import dev.controller.api.viewModels.examen.QuizzVm;
 import dev.entites.Concours;
 import dev.entites.Quizz;

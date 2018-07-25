@@ -8,11 +8,13 @@ drop table if exists compo_quizz;
 drop table if exists duel;
 DROP TABLE if exists concours_quizz;
 drop table if exists quizz;
-drop table if exists option_question;
-drop table if exists question;
+drop table if exists resultat_question_concours;
+drop table if exists passage_concours;
 DROP TABLE if exists concours_stagiaire;
 DROP TABLE if exists concours;
 drop table if exists stagiaire;
+drop table if exists option_question;
+drop table if exists question;
 drop table if exists classe;
 
 create table classe (
@@ -126,6 +128,24 @@ create Table concours_quizz(
 	FOREIGN KEY (id_quizz) REFERENCES quizz(id)
 );
 
+create Table passage_concours(
+	id serial primary key,
+	id_concours bigint unsigned not null,
+	id_stagiaire bigint unsigned not null,
+	date_passage DATE not null,
+	FOREIGN KEY (id_concours) REFERENCES concours(id),
+	FOREIGN KEY (id_stagiaire) REFERENCES stagiaire(id)
+);
+
+create Table resultat_question_concours(
+	id serial primary key,
+	id_passage bigint unsigned not null,
+	id_question bigint unsigned not null,
+	id_option_reponse bigint unsigned not null,
+	FOREIGN KEY (id_passage) REFERENCES passage_concours(id),
+	FOREIGN KEY (id_question) REFERENCES question(id),
+	FOREIGN KEY (id_option_reponse) REFERENCES option_question(id)
+);
 
 create table duel (
 	id serial primary key,

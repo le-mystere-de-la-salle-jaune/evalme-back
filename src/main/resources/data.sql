@@ -11,8 +11,6 @@ insert into stagiaire(nom, prenom, email, photo_url, id_classe)
   
 insert into stagiaire(nom, prenom, email, photo_url, id_classe)
   values ('bacon', 'kevin', 'lp@gmail.com', 'https://media.tenor.com/images/fdf2719aec175f0ed123ba0632e9d7dd/tenor.png',2 );
-  
-insert into quizz(titre) values ('les animeaux de la forêt');
 
 insert into stagiaire(nom, prenom, email, photo_url, id_classe)
   values ('dylan', 'bob', 'lp@gmail.com', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdvk3gFQRP00NeRzNVGF02QQ6F96rMFP8jo3Zb-RV5CA8uUgu64w',4 );
@@ -34,12 +32,16 @@ insert into classe(nom) values('d12-sans-stagiaires');
 insert into quizz(titre) values ('les animaux de la forêt');
 insert into quizz(titre) values ('géographie');
 insert into quizz(titre) values ('mathématiques');
+insert into quizz(titre) values ('Le java EE');
+
 insert into question(titre) values ('qui est clovis?');
 insert into question(titre) values ('quel animage vole le plus vite?');
 insert into compo_quizz(id_quizz, id_question) values (1, 1);
 insert into compo_quizz(id_quizz, id_question) values (1, 2);
 insert into compo_quizz(id_quizz, id_question) values (2, 1);  
 insert into compo_quizz(id_quizz, id_question) values (2, 2);
+insert into compo_quizz(id_quizz, id_question) values (3, 1);
+insert into compo_quizz(id_quizz, id_question) values (3, 2);
 
 insert into option_sondage(libelle, description) values ('libelle sondage 1','description du sondage numéro 1');
 insert into option_sondage(libelle, description) values ('libelle sondage 2','description du sondage numéro 2');

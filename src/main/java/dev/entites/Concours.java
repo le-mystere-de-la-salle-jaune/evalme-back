@@ -47,6 +47,10 @@ public class Concours extends BaseEntite {
 		this.titre = titre;
 	}
 
+	public Concours(Long idConcours) {
+		super.setId(idConcours);
+	}
+
 	public String getTitre() {
 		return titre;
 	}

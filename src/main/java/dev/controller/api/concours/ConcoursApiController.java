@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.controller.api.viewModels.concours.ConcoursVm;
 import dev.entites.Concours;
 import dev.metiers.ConcoursService;
 

@@ -1,4 +1,4 @@
-package dev.controller.api.viewModels.examen;
+package dev.controller.api.viewModels;
 
 public class BaseVm {
 	

@@ -52,6 +52,10 @@ public class Stagiaire extends BaseEntite {
 		this.photoUrl = photoUrl;
 	}
 
+	public Stagiaire(Long idStagiaire) {
+		super.setId(idStagiaire);
+	}
+
 	public String getPhotoUrl() {
 		return photoUrl;
 	}
