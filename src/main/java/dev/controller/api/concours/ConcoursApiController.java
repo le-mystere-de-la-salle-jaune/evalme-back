@@ -33,5 +33,4 @@ public class ConcoursApiController {
 
 		return ResponseEntity.status(HttpStatus.OK).body(listeConcoursVm);
 	}
-
 }

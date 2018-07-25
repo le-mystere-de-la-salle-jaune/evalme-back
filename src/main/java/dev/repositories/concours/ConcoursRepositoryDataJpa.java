@@ -8,45 +8,42 @@ import org.springframework.stereotype.Repository;
 import dev.entites.Concours;
 
 @Repository
-public class ConcoursRepositoryDataJpa implements ConcoursRepository {
+public class ConcoursRepositoryDataJpa implements ConcoursRepository{
 
-	private ConcoursDataJpaRepo ConcoursDataJpaRepo;
-
-	public ConcoursRepositoryDataJpa(dev.repositories.concours.ConcoursDataJpaRepo concoursDataJpaRepo) {
-		super();
-		ConcoursDataJpaRepo = concoursDataJpaRepo;
+	private ConcourDataJpaRepo concourDataJpaRepo;
+	
+	public ConcoursRepositoryDataJpa(ConcourDataJpaRepo concourDataJpaRepo) {
+		this.concourDataJpaRepo = concourDataJpaRepo;
 	}
-
+	
 	@Override
 	public List<Concours> findAll() {
-
-		return ConcoursDataJpaRepo.findAll();
+		return concourDataJpaRepo.findAll();
 	}
 
 	@Override
 	public void save(Concours entite) {
-		ConcoursDataJpaRepo.save(entite);
+		concourDataJpaRepo.save(entite);
 
 	}
 
 	@Override
 	public void update(Concours entiteAvecId) {
-		if (entiteAvecId != null) {
-			ConcoursDataJpaRepo.save(entiteAvecId);
+		if(concourDataJpaRepo.existsById(entiteAvecId.getId())){
+			save(entiteAvecId);
 		}
-
 	}
 
 	@Override
 	public void delete(Concours entite) {
-		ConcoursDataJpaRepo.delete(entite);
+		concourDataJpaRepo.delete(entite);
 
 	}
 
 	@Override
 	public Optional<Concours> findById(Long id) {
-		Optional<Concours> c = ConcoursDataJpaRepo.findById(id);
-		return c;
+		return concourDataJpaRepo.findById(id);
+
 	}
 
 }
