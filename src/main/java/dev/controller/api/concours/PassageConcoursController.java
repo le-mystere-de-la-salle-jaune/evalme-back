@@ -6,9 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import dev.controller.api.viewModels.passageConcours.PassageConcoursReturnVm;
 import dev.controller.api.viewModels.passageConcours.PassageConcoursVm;
+import dev.controller.api.viewModels.passageConcours.ResultatConcoursVm;
 import dev.metiers.PassageConcoursService;
 
 @Controller
@@ -22,10 +24,16 @@ public class PassageConcoursController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/start")
-	public ResponseEntity<?> submitForm(@RequestBody PassageConcoursVm passageConcoursVm) {
+	public ResponseEntity<?> startConcours(@RequestBody PassageConcoursVm passageConcoursVm) {
 		
 
 		return ResponseEntity.status(HttpStatus.CREATED).body(new PassageConcoursReturnVm(passageConcoursService.createPassage(passageConcoursVm)));
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/resultat")
+	public ResponseEntity<?> getResultatByStagiaire(@RequestParam(value="id_stagiaire") Long stagiaireId) {
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(new ResultatConcoursVm(2L, "Non implemented", 100));
 	}
 
 }
