@@ -6,7 +6,6 @@ import dev.entites.Stagiaire;
 
 public class StagiaireVm extends BaseEntiteVm {
 
-	private Long id;
 	private String prenom;
 	private String nom;
 	private String email;
@@ -92,5 +91,4 @@ public class StagiaireVm extends BaseEntiteVm {
 	public void setPhotoUrl(String photoUrl) {
 		this.photoUrl = photoUrl;
 	}
-
 }
