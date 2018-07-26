@@ -30,6 +30,10 @@ public class Examen extends BaseEntite {
 	@OneToMany(mappedBy = "examen")
 	private List<Note> notes = new ArrayList<>();
 
+	// ExamenReponse
+	@OneToMany(mappedBy = "examen")
+	private List<ExamenReponse> reponseExam;
+
 	public Examen() {
 
 	}

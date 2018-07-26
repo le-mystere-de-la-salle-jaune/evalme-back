@@ -8,18 +8,24 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import dev.controller.api.viewModels.examen.ExamenNoteVm;
+import dev.controller.api.viewModels.examen.ExamenReponseVm;
 import dev.controller.api.viewModels.examen.ExamenVm;
 import dev.controller.api.viewModels.examen.ExamenVmCreate;
 import dev.controller.api.viewModels.examen.ExamenVmUtil;
 import dev.entites.Examen;
+import dev.entites.ExamenReponse;
 import dev.metiers.ClasseService;
+import dev.metiers.ExamenReponseService;
 import dev.metiers.ExamenService;
+import dev.metiers.OptionQuestionService;
+import dev.metiers.QuestionService;
 import dev.metiers.QuizzService;
 import dev.metiers.StagiaireService;
 
@@ -31,18 +37,36 @@ public class ExamenApiController {
 	private ExamenVmUtil examenVmUtil;
 	private QuizzService quizzService;
 	private ClasseService classeService;
-
 	private StagiaireService stagiaireService;
+	private ExamenReponseService examReponseService;
+	private QuestionService questionService;
+	private OptionQuestionService optionQuestionService;
 
 	public ExamenApiController(ExamenService examenService, QuizzService quizzService, ClasseService classeService,
-			StagiaireService stagiaireService, ExamenVmUtil examenVmUtil) {
+			StagiaireService stagiaireService, ExamenVmUtil examenVmUtil, ExamenReponseService examReponseService,
+			QuestionService questionService, OptionQuestionService optionQuestionService) {
 		super();
 		this.examenService = examenService;
 		this.quizzService = quizzService;
 		this.classeService = classeService;
-		this.stagiaireService = stagiaireService;
 		this.examenVmUtil = examenVmUtil;
+		this.stagiaireService = stagiaireService;
+		this.questionService = questionService;
+		this.optionQuestionService = optionQuestionService;
+	}
 
+	@PostMapping("/reponse")
+	public ResponseEntity<ExamenReponseVm> saveReponse(@RequestBody ExamenReponseVm examenReponseVm,
+			HttpServletResponse response) {
+		ExamenReponse reponse = new ExamenReponse();
+		reponse.setExamen(examenService.getById(examenReponseVm.getIdExamen()));
+		reponse.setStagiaire(stagiaireService.findStagiaireById(examenReponseVm.getIdStagiaire()));
+		reponse.setQuestion(questionService.findById(examenReponseVm.getIdQuestion()));
+		reponse.setOptionQuestion(optionQuestionService.findById(examenReponseVm.getIdOptionQuestion()));
+
+		examReponseService.saveResultExamenStagiaireQuestion(reponse);
+
+		return ResponseEntity.ok(examenReponseVm);
 	}
 
 	@GetMapping("/{id}")

@@ -1,3 +1,4 @@
+drop table if exists reponse_examen;
 drop table if exists sondage_option_sondage;
 drop table if exists question_compo;
 drop table if exists sondage;
@@ -135,4 +136,16 @@ create table duel (
 	foreign key (stagiairea_id) references stagiaire(id),
 	foreign key (stagiaireb_id) references stagiaire(id),
 	foreign key (quizz_id) references quizz(id)
+);
+
+create table reponse_examen (
+	id serial primary key,
+	id_stagiaire bigint unsigned not null,
+	id_examen bigint unsigned not null,
+	id_question bigint unsigned not null,
+	id_option_question bigint unsigned not null,
+	foreign key (id_stagiaire) references stagiaire(id),
+	foreign key (id_examen) references examen(id),
+	foreign key (id_question) references question(id),
+	foreign key (id_option_question) references option_question(id)
 );
