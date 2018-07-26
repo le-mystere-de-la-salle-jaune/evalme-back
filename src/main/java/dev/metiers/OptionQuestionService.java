@@ -39,6 +39,10 @@ public class OptionQuestionService {
 		return optionQuestionRepository.findAll();
 	}
 
+	public OptionQuestion findById(Long id) {
+		return optionQuestionRepository.findById(id).get();
+	}
+
 	/**
 	 * Fonction :
 	 *

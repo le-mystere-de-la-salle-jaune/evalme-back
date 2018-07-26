@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -40,6 +41,10 @@ public class Question extends BaseEntite {
 	@ManyToMany
 	@JoinTable(name = "compo_quizz", joinColumns = @JoinColumn(name = "id_question", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_quizz", referencedColumnName = "id"))
 	private List<Quizz> quizzes;
+
+	// ExamenReponse
+	@OneToMany(mappedBy = "question")
+	private List<ExamenReponse> reponseExam;
 
 	/**
 	 * Constructor of Question.java
