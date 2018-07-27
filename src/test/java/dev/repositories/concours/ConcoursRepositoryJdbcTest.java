@@ -24,7 +24,7 @@ public class ConcoursRepositoryJdbcTest {
 	@Test
 	public void testFindAll() {
 		List<Concours> c = concoursRepositoryJdbc.findAll();
-		assertThat(c.size())!= 0;
+		assertThat(c.size()!= 0);
 	}
 
 }
