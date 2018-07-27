@@ -57,7 +57,7 @@ public class ExamenApiController {
 		this.optionQuestionService = optionQuestionService;
 	}
 
-	@GetMapping("/start/{idExam}/{idStagiaire}")
+	@GetMapping("/{idExam}/{idStagiaire}")
 	public ResponseEntity<QuestionExamVm> getRandomQuestionForExamen(@PathVariable Long idExam,
 			@PathVariable Long idStagiaire) {
 		return ResponseEntity.ok(examenVmUtil.getRandomQuestion(idExam, idStagiaire));

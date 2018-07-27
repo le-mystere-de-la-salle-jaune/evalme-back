@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 import java.util.Optional;
 
-import org.junit.Test;
 import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -36,6 +36,7 @@ public class OptionQuestionRepositoryDataJpaTest {
 		assertTrue(!test.get().getOk());
 	}
 
+	@Ignore
 	@Test
 	public void test_Save() {
 		OptionQuestion option = new OptionQuestion();
