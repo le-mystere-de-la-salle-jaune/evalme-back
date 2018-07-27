@@ -1,6 +1,7 @@
 
 drop table if exists sondage_option_sondage cascade;
 drop table if exists question_compo cascade;
+drop table if exists resultatsondage cascade;
 drop table if exists sondage cascade;
 drop table if exists option_sondage cascade;
 drop table if exists note cascade;
@@ -135,4 +136,14 @@ create Table concours_quizz(
 	id_quizz bigint not null,
 	foreign key (id_concours) references concours(id),
 	foreign key (id_quizz) references quizz(id)
+);
+
+create table resultatsondage (
+	id serial primary key,
+	id_stagiaire bigint not null,
+	id_sondage bigint not null,
+	id_optionsondage bigint not null,
+	foreign key (id_stagiaire) references stagiaire(id),
+	foreign key (id_sondage) references sondage(id),
+	foreign key (id_optionsondage) references option_sondage(id)
 );
