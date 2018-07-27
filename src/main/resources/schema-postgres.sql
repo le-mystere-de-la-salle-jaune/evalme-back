@@ -144,6 +144,7 @@ create Table passage_concours(
 	id_concours bigint not null,
 	id_stagiaire bigint not null,
 	date_passage DATE not null,
+	score int,
 	FOREIGN KEY (id_concours) REFERENCES concours(id),
 	FOREIGN KEY (id_stagiaire) REFERENCES stagiaire(id)
 );

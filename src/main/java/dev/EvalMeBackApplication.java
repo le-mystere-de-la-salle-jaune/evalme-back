@@ -20,7 +20,7 @@ public class EvalMeBackApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
 					.allowedOrigins("*")
-					.allowedMethods("GET", "POST", "PATCH");
+					.allowedMethods("GET", "POST", "PATCH", "PUT");
 			}
 		};
 	}

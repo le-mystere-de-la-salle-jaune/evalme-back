@@ -2,7 +2,9 @@ package dev.controller.api.viewModels.passageConcours;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ResultatConcoursVm {
+import dev.controller.api.viewModels.BaseVm;
+
+public class ResultatConcoursVm extends BaseVm {
 
 	@JsonProperty("concours_id")
 	private Long idConcours;
@@ -11,9 +13,10 @@ public class ResultatConcoursVm {
 
 	private int rang;
 	
-	public ResultatConcoursVm(Long id, String titre, int rang){
-		idConcours = id;
-		titreConcours = titre;
+	public ResultatConcoursVm(Long id, Long idConcours, String titre, int rang){
+		super.setId(id);
+		this.idConcours = idConcours;
+		this.titreConcours = titre;
 		this.rang = rang;
 	}
 
