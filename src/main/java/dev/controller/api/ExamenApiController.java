@@ -19,6 +19,7 @@ import dev.controller.api.viewModels.examen.ExamenReponseVm;
 import dev.controller.api.viewModels.examen.ExamenVm;
 import dev.controller.api.viewModels.examen.ExamenVmCreate;
 import dev.controller.api.viewModels.examen.ExamenVmUtil;
+import dev.controller.api.viewModels.examen.QuestionExamVm;
 import dev.entites.Examen;
 import dev.entites.ExamenReponse;
 import dev.metiers.ClasseService;
@@ -50,9 +51,16 @@ public class ExamenApiController {
 		this.quizzService = quizzService;
 		this.classeService = classeService;
 		this.examenVmUtil = examenVmUtil;
+		this.examReponseService = examReponseService;
 		this.stagiaireService = stagiaireService;
 		this.questionService = questionService;
 		this.optionQuestionService = optionQuestionService;
+	}
+
+	@GetMapping("/start/{idExam}/{idStagiaire}")
+	public ResponseEntity<QuestionExamVm> getRandomQuestionForExamen(@PathVariable Long idExam,
+			@PathVariable Long idStagiaire) {
+		return ResponseEntity.ok(examenVmUtil.getRandomQuestion(idExam, idStagiaire));
 	}
 
 	@PostMapping("/reponse")

@@ -1,9 +1,15 @@
 package dev.controller.api.viewModels.examen;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class ExamenReponseVm {
+	@JsonProperty("id_stagiaire")
 	private Long idStagiaire;
+	@JsonProperty("id_examen")
 	private Long idExamen;
+	@JsonProperty("id_question")
 	private Long idQuestion;
+	@JsonProperty("id_option_question")
 	private Long idOptionQuestion;
 
 	public ExamenReponseVm(Long idStagiaire, Long idExamen, Long idQuestion, Long idOptionQuestion) {
