@@ -2,6 +2,7 @@ package dev.controller.api.viewModels.examen;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import dev.controller.api.viewModels.BaseVm;
 import dev.entites.Quizz;
 
 public class QuizzVm extends BaseVm {
