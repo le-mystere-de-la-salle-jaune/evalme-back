@@ -15,6 +15,8 @@ DROP TABLE if exists concours_stagiaire cascade;
 DROP TABLE if exists concours_quizz cascade;
 DROP TABLE if exists concours cascade;
 drop table if exists stagiaire cascade;
+drop table if exists resultat_question_concours cascade;
+drop table if exists passage_concours cascade;
 drop table if exists classe cascade;
 
 
@@ -138,6 +140,7 @@ create Table concours_quizz(
 	foreign key (id_quizz) references quizz(id)
 );
 
+
 create table resultatsondage (
 	id serial primary key,
 	id_stagiaire bigint not null,
@@ -146,4 +149,23 @@ create table resultatsondage (
 	foreign key (id_stagiaire) references stagiaire(id),
 	foreign key (id_sondage) references sondage(id),
 	foreign key (id_optionsondage) references option_sondage(id)
+
+create Table passage_concours(
+	id serial primary key,
+	id_concours bigint not null,
+	id_stagiaire bigint not null,
+	date_passage DATE not null,
+	FOREIGN KEY (id_concours) REFERENCES concours(id),
+	FOREIGN KEY (id_stagiaire) REFERENCES stagiaire(id)
+);
+
+create Table resultat_question_concours(
+	id serial primary key,
+	id_passage bigint not null,
+	id_question bigint not null,
+	id_option_reponse bigint not null,
+	FOREIGN KEY (id_passage) REFERENCES passage_concours(id),
+	FOREIGN KEY (id_question) REFERENCES question(id),
+	FOREIGN KEY (id_option_reponse) REFERENCES option_question(id)
+
 );

@@ -7,6 +7,7 @@ insert into classe (nom) values ('d12-sans-stagiaires');
 insert into quizz(titre) values ('les animaux de la forêt');
 insert into quizz(titre) values ('géographie');
 insert into quizz(titre) values ('mathématiques');
+insert into quizz(titre) values ('Le java EE');
 
 insert into stagiaire(nom, prenom, email, photo_url, id_classe)
   values ('Clopin', 'Brigitte', 'bribri@hotmail.fr', 'https://www.valeursactuelles.com/sites/default/files/styles/image_article/public/2018-01/brigitte%20macron%20sipa.jpg?itok=0g8jrpff', 1);
@@ -39,6 +40,10 @@ insert into compo_quizz(id_quizz, id_question) values (1, 1);
 insert into compo_quizz(id_quizz, id_question) values (1, 2);
 insert into compo_quizz(id_quizz, id_question) values (2, 1);  
 insert into compo_quizz(id_quizz, id_question) values (2, 2);
+insert into compo_quizz(id_quizz, id_question) values (3, 1);
+insert into compo_quizz(id_quizz, id_question) values (3, 2);
+insert into compo_quizz(id_quizz, id_question) values (4, 1);
+insert into compo_quizz(id_quizz, id_question) values (4, 2);
 
 insert into option_sondage(libelle, description) values ('libelle sondage 1','description du sondage numéro 1');
 insert into option_sondage(libelle, description) values ('libelle sondage 2','description du sondage numéro 2');
@@ -47,6 +52,12 @@ insert into option_sondage(libelle, description) values ('libelle sondage 4','de
 insert into option_sondage(libelle, description) values ('libelle sondage 5','description du sondage numéro 5');
 insert into option_sondage(libelle, description) values ('libelle sondage 6','description du sondage numéro 6');
 insert into option_sondage(libelle, description) values ('libelle sondage 7','description du sondage numéro 7');
+
+insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animaux de la forêts', 1, 1) ;
+insert into examen(titre,id_quizz,id_classe) values ('quiz d13 animeaux de la forêts', 4, 3) ;
+
+insert into note(note_sur_20, id_stagiaire, id_examen) values (12, 3, 1);
+insert into note(note_sur_20, id_stagiaire, id_examen) values (15, 4, 1);
 
 insert into sondage(titre, classe_id) values ('titre sondage 1', 1);
 insert into sondage(titre, classe_id) values ('titre sondage 2', 2);
@@ -69,6 +80,20 @@ insert into sondage_option_sondage ( id_sondage, id_option_sondage ) values (4,7
 
 insert into concours(titre) values ('This is concours !!!');  
 insert into concours(titre) values ('The first concours'); 
+insert into concours(titre) values ('Le java EE'); 
+
+insert into concours_stagiaire(id_concours,id_stagiaire) values (1,1);  
+insert into concours_stagiaire(id_concours,id_stagiaire) values (1,2);  
+insert into concours_stagiaire(id_concours,id_stagiaire) values (2,1); 
+insert into concours_stagiaire(id_concours,id_stagiaire) values (2,2);
+insert into concours_stagiaire(id_concours,id_stagiaire) values (3,2);
+
+insert into concours_quizz(id_concours,id_quizz) values (1,1);  
+insert into concours_quizz(id_concours,id_quizz) values (1,2);  
+insert into concours_quizz(id_concours,id_quizz) values (2,1);
+insert into concours_quizz(id_concours,id_quizz) values (2,2);
+insert into concours_quizz(id_concours,id_quizz) values (3,1); 
+
 
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 1);
 insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (1, 2, 2);
