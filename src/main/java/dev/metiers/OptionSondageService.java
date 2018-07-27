@@ -24,4 +24,11 @@ public class OptionSondageService {
 	public void save(OptionSondage option) {
 		optionSondageRepository.save(option);
 	}
+
+	public OptionSondage findById(Long id) {
+		return optionSondageRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("OptionSondage non trouvé avec l'id " + id));
+
+	}
+
 }
