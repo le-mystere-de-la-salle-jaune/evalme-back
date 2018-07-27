@@ -8,8 +8,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import dev.entites.Classe;
 import dev.entites.Examen;
+import dev.entites.ExamenReponse;
+import dev.entites.Question;
 import dev.entites.Quizz;
 import dev.entites.Stagiaire;
+import dev.metiers.ExamenReponseService;
 import dev.metiers.ExamenService;
 import dev.metiers.StagiaireService;
 
@@ -18,10 +21,48 @@ public class ExamenVmUtil {
 
 	private ExamenService examenService;
 	private StagiaireService stagiaireService;
+	private ExamenReponseService examenReponseService;
 
-	public ExamenVmUtil(ExamenService examenService, StagiaireService stagiaireService) {
+	public ExamenVmUtil(ExamenService examenService, StagiaireService stagiaireService,
+			ExamenReponseService examenReponseService) {
 		this.examenService = examenService;
 		this.stagiaireService = stagiaireService;
+		this.examenReponseService = examenReponseService;
+	}
+
+	@Transactional
+	public QuestionExamVm getRandomQuestion(Long idExam, Long idStagiaire) {
+		List<Question> questions = examenService.getById(idExam).getQuizz().getQuestions();
+		List<ExamenReponse> quesTraite = examenReponseService.findAll().stream()
+				.filter(r -> (r.getExamen().getId().equals(idExam) && r.getStagiaire().getId().equals(idStagiaire)))
+				.collect(Collectors.toList());
+		List<Question> questNonTraite = questions;
+
+		for (Question q : questions) {
+			for (ExamenReponse er : quesTraite) {
+				if (er.getQuestion().getId().equals(q.getId())) {
+					questNonTraite.remove(q);
+				}
+			}
+		}
+
+		QuestionExamVm questionExamVm = new QuestionExamVm();
+
+		if (questNonTraite.size() >= 1) {
+			Question q = questNonTraite.get(0);
+			questionExamVm.setId(q.getId());
+			questionExamVm.setTitre(q.getTitre());
+			questionExamVm.setOptions(q.getOptions().stream()
+					.map(oq -> new OptionQuestionVm(oq.getId(), oq.getLibelle())).collect(Collectors.toList()));
+
+			questionExamVm.setLast(false);
+		} else {
+			questionExamVm.setId(null);
+			questionExamVm.setLast(true);
+			questionExamVm.setTitre(null);
+			questionExamVm.setOptions(null);
+		}
+		return questionExamVm;
 	}
 
 	@Transactional

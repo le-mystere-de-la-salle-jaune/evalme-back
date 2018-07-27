@@ -18,6 +18,10 @@ public class ExamenReponseService {
 		this.examenReponseRepo = examenReponseRepo;
 	}
 
+	public List<ExamenReponse> findAll() {
+		return examenReponseRepo.findAll();
+	}
+
 	public List<ExamenReponse> findAllResultExamenStagiaire(Long idExamen, Long idStagiaire) {
 		List<ExamenReponse> reponses = examenReponseRepo.findAll();
 

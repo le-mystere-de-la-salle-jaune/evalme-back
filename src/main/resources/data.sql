@@ -3,10 +3,12 @@ insert into classe (nom) values ('d12');
 insert into classe (nom) values ('d13');
 insert into classe (nom) values ('d14');
 insert into classe (nom) values ('d12-sans-stagiaires');
+insert into classe (nom) values ('classe qcm test');
 
 insert into quizz(titre) values ('les animaux de la forêt');
 insert into quizz(titre) values ('géographie');
 insert into quizz(titre) values ('mathématiques');
+insert into quizz(titre) values ('quizz sur java');
 
 insert into stagiaire(nom, prenom, email, photo_url, id_classe)
   values ('Clopin', 'Brigitte', 'bribri@hotmail.fr', 'https://www.valeursactuelles.com/sites/default/files/styles/image_article/public/2018-01/brigitte%20macron%20sipa.jpg?itok=0g8jrpff', 1);
@@ -22,10 +24,13 @@ insert into stagiaire(nom, prenom, email, photo_url, id_classe)
 	values ('Porc', 'Francis', 'dudeleesport@afes.fr', 'https://i.ytimg.com/vi/Wse5ynlj-T0/hqdefault.jpg',3);	
 insert into stagiaire(nom, prenom, email, photo_url, id_classe)
 	values ('Mansoif', 'Gérard', 'gerard.mansoif@wanadoo.fr', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCWhUlJhpUoQ2PjamHUChYm1eSpU6LbVQj4tiZdfezPBKEzBAu',4);
-
+insert into stagiaire(nom, prenom, email, photo_url, id_classe)
+  values ('Torres', 'Corentin', 'correntin.torres@gmail.com', 'https://www.agoravox.fr/local/cache-vignettes/L300xH170/Sans_dents-97a0a.jpg',6 );
+  
 insert into examen(titre,id_quizz,id_classe) values ('quiz d12 animaux de la forêts', 1, 1) ;
 insert into examen(titre,id_quizz,id_classe) values ('quiz d13 animaux de la forêts', 1, 3) ;
 insert into examen(titre,id_quizz,id_classe) values ('Géographie', 2, 1);
+insert into examen(titre,id_quizz,id_classe) values ('exam java test', 4, 6) ;
 
 insert into note(note_sur_20, id_stagiaire, id_examen) values (12, 1, 1);
 insert into note(note_sur_20, id_stagiaire, id_examen) values (15, 2, 1);
@@ -34,11 +39,13 @@ insert into note(note_sur_20, id_stagiaire, id_examen) values (18, 2, 3);
 
 insert into question(titre) values ('qui est clovis?');
 insert into question(titre) values ('quel animage vole le plus vite?');
+insert into question(titre) values ('Comment déclarer un entier ?');
 
 insert into compo_quizz(id_quizz, id_question) values (1, 1);
 insert into compo_quizz(id_quizz, id_question) values (1, 2);
 insert into compo_quizz(id_quizz, id_question) values (2, 1);  
 insert into compo_quizz(id_quizz, id_question) values (2, 2);
+insert into compo_quizz(id_quizz, id_question) values (4, 3);
 
 insert into option_sondage(libelle, description) values ('libelle sondage 1','description du sondage numéro 1');
 insert into option_sondage(libelle, description) values ('libelle sondage 2','description du sondage numéro 2');
@@ -83,6 +90,10 @@ insert into duel(stagiairea_id, stagiaireb_id, quizz_id) values (2, 3, 3);
 insert into option_question(libelle,ok) values('1',FALSE);
 insert into option_question(libelle,ok) values('2',TRUE);
 insert into option_question(libelle,ok) values('3',FALSE);
+insert into option_question(libelle,ok) values('int variable;',TRUE);			
+insert into option_question(libelle,ok) values('String variable;',FALSE);
+insert into option_question(libelle,ok) values('char variable;',FALSE);
+
 
 insert into question_compo(id_que,id_opt) values(1,1);
 insert into question_compo(id_que,id_opt) values(1,2);
@@ -90,4 +101,7 @@ insert into question_compo(id_que,id_opt) values(1,3);
 insert into question_compo(id_que,id_opt) values(2,1);
 insert into question_compo(id_que,id_opt) values(2,2);
 insert into question_compo(id_que,id_opt) values(2,3);
+insert into question_compo(id_que,id_opt) values(3,4);
+insert into question_compo(id_que,id_opt) values(3,5);
+insert into question_compo(id_que,id_opt) values(3,6);
 
