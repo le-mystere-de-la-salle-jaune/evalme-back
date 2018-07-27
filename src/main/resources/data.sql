@@ -11,6 +11,7 @@ insert into quizz(titre) values ('Le java EE');
 
 insert into stagiaire(nom, prenom, email, photo_url, id_classe)
   values ('Clopin', 'Brigitte', 'bribri@hotmail.fr', 'https://www.valeursactuelles.com/sites/default/files/styles/image_article/public/2018-01/brigitte%20macron%20sipa.jpg?itok=0g8jrpff', 1);
+insert into stagiaire(nom, prenom, email, photo_url, id_classe)
   values ('Lupin', 'Patrick', 'lp@gmail.com', 'https://odgers-prod-neu-cdn-tm-endpoint.azureedge.net/media/1351/patrik-kvikant.jpg',1 );
 insert into stagiaire(nom, prenom, email, photo_url, id_classe)
   values ('Bacon', 'Kevin', 'lp@gmail.com', 'https://media.tenor.com/images/fdf2719aec175f0ed123ba0632e9d7dd/tenor.png',2 );
