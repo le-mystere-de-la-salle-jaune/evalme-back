@@ -44,7 +44,6 @@ public class StagiaireRepositoryDataJpa implements StagiaireRepository {
 	@Override
 	public Optional<Stagiaire> findById(Long id) {
 		Optional<Stagiaire> s = stagiaireDataJpaRepo.findById(id);
-
 		return s;
 	}
 

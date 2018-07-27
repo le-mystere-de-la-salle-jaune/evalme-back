@@ -7,6 +7,17 @@ public class ListerSondageVM {
 	private ClasseListerSondageVM classe;
 	private int nb_options;
 
+	public ListerSondageVM() {
+
+	}
+
+	public ListerSondageVM(long id, String titre, ClasseListerSondageVM classe, int nb_options) {
+		this.id = id;
+		this.titre = titre;
+		this.classe = classe;
+		this.nb_options = nb_options;
+	}
+
 	public long getId() {
 		return id;
 	}

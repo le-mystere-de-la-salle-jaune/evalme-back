@@ -46,7 +46,9 @@ public class ExamenApiController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<List<ExamenVm>> listerParIdStagiaire(@PathVariable Long id) {
-		return ResponseEntity.ok(examenVmUtil.listStagiaireExam(id));
+		return this.examenVmUtil.listStagiaireExam(id)
+				.map(listeExams -> ResponseEntity.status(HttpStatus.OK).body(listeExams))
+				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
 	}
 
 	@RequestMapping(method = RequestMethod.GET)

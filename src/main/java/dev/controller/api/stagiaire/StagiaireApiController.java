@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,18 +50,27 @@ public class StagiaireApiController {
 		stagiaire.setEmail(stagiaireVm.getEmail());
 		stagiaire.setPhotoUrl(stagiaireVm.getPhotoUrl());
 		stagiaireService.save(stagiaire);
-
 		return ResponseEntity.status(HttpStatus.OK).body(new StagiaireCreeVm(stagiaire.getId()));
 
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<StagiaireVm> afficherStagiaire(@PathVariable Long id) throws Exception {
+	public ResponseEntity<StagiaireVm> afficherStagiaire(@PathVariable Long id) {
+		return this.stagiaireService.findStagiaireById(id).map(stagiaireFound -> {
+			StagiaireVm stagiaireVm = new StagiaireVm(stagiaireFound);
+			return ResponseEntity.status(HttpStatus.OK).body(stagiaireVm);
+		}).orElse(ResponseEntity.status(HttpStatus.NO_CONTENT).body(null));
+	}
 
-		Stagiaire stagiaire = this.stagiaireService.findStagiaireById(id);
-
-		StagiaireVm stagiaireVm = new StagiaireVm(stagiaire);
-
-		return ResponseEntity.status(HttpStatus.OK).body(stagiaireVm);
+	@PutMapping("/{id}")
+	public ResponseEntity<StagiaireVm> update(@RequestBody StagiaireVm stagiaireVm, @PathVariable Long id) {
+		return stagiaireService.findStagiaireById(id).map(stagiaire -> {
+			stagiaire.setNom(stagiaireVm.getNom());
+			stagiaire.setPrenom(stagiaireVm.getPrenom());
+			stagiaire.setEmail(stagiaireVm.getEmail());
+			stagiaire.setPhotoUrl(stagiaireVm.getPhotoUrl());
+			stagiaireService.update(stagiaire);
+			return ResponseEntity.status(HttpStatus.OK).body(new StagiaireVm(stagiaire));
+		}).orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
 	}
 }
