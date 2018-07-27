@@ -36,7 +36,7 @@ insert into note(note_sur_20, id_stagiaire, id_examen) values (18, 2, 3);
 insert into question(titre) values ('qui est clovis?');
 insert into question(titre) values ('quel animage vole le plus vite?');
 insert into question(titre) values ('Que veut dire JS ?');
-insert into question(titre) values ("Quel est le language d'un fichier .java ?");
+insert into question(titre) values ('Quel est le language d''un fichier .java ?');
 insert into question(titre) values ('Que représente le E de JEE ?');
 
 insert into option_question(libelle,ok) values('JAVA',TRUE); 			/*1*/
