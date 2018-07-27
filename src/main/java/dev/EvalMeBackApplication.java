@@ -13,14 +13,13 @@ public class EvalMeBackApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EvalMeBackApplication.class, args);
 	}
+
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**")
-					.allowedOrigins("*")
-					.allowedMethods("GET", "POST", "PATCH");
+				registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "PATCH", "PUT");
 			}
 		};
 	}
