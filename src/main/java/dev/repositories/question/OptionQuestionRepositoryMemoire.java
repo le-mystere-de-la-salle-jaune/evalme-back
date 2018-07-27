@@ -9,11 +9,9 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Repository;
 
 import dev.entites.OptionQuestion;
 
-@Repository
 public class OptionQuestionRepositoryMemoire implements OptionQuestionRepository {
 
 	private List<OptionQuestion> optionQuestions = new ArrayList<>();
@@ -45,7 +43,9 @@ public class OptionQuestionRepositoryMemoire implements OptionQuestionRepository
 	@Override
 	public void save(OptionQuestion optionQuestion) {
 		// TODO Auto-generated method stub
+		optionQuestion.setId((long) this.optionQuestions.size());
 		this.optionQuestions.add(optionQuestion);
+
 	}
 
 	@Override

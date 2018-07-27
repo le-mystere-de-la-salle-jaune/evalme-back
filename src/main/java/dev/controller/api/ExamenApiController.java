@@ -6,12 +6,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.controller.api.viewModels.examen.ExamenNoteVm;
 import dev.controller.api.viewModels.examen.ExamenVm;
 import dev.controller.api.viewModels.examen.ExamenVmCreate;
 import dev.controller.api.viewModels.examen.ExamenVmUtil;
@@ -41,6 +43,11 @@ public class ExamenApiController {
 		this.stagiaireService = stagiaireService;
 		this.examenVmUtil = examenVmUtil;
 
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<List<ExamenVm>> listerParIdStagiaire(@PathVariable Long id) {
+		return ResponseEntity.ok(examenVmUtil.listStagiaireExam(id));
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -76,6 +83,7 @@ public class ExamenApiController {
 	public ResponseEntity<?> supprimer(@PathVariable Long examenId) {
 
 		if (examenService.exist(examenId)) {
+			examenService.deleteAllNote(examenId);
 			examenService.deleteById(examenId);
 			return ResponseEntity.status(HttpStatus.OK).body("Examen deleted successfully");
 		} else {
@@ -94,7 +102,6 @@ public class ExamenApiController {
 
 			if (classeService.trouverClasseParId(examenVmCreate.getClasseId()) != null) {
 				if (quizzService.findQuizzById(examenVmCreate.getQuizzId()) != null) {
-
 					examenService.updateById(examenVmUtil.ExamenVmCreateToEntity(examenVmCreate, examenId));
 
 				} else {
@@ -110,6 +117,11 @@ public class ExamenApiController {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Examen id don't match any exams");
 		}
 
+	}
+
+	@GetMapping("/notes/{idStagiaire}")
+	public ResponseEntity<List<ExamenNoteVm>> resultatExamenStagiaire(@PathVariable Long idStagiaire) {
+		return ResponseEntity.ok(examenVmUtil.listerResultatsStagiaire(idStagiaire));
 	}
 
 }

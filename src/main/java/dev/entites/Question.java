@@ -3,8 +3,10 @@ package dev.entites;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -13,7 +15,7 @@ import javax.validation.constraints.NotEmpty;
 
 /**
  * Question.java
- * 
+ *
  * @author matth
  */
 @Entity
@@ -30,8 +32,8 @@ public class Question extends BaseEntite {
 	/**
 	 * options : List<OptionQuestion>
 	 */
-	@NotEmpty
-	@ManyToMany
+
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "question_compo", joinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"))
 	private List<OptionQuestion> options;
 
@@ -44,11 +46,12 @@ public class Question extends BaseEntite {
 	 */
 	public Question() {
 		super();
+		this.options = new ArrayList<OptionQuestion>();
 	}
 
 	/**
 	 * Constructor of Question.java
-	 * 
+	 *
 	 * @param id
 	 * @param titre
 	 */
@@ -61,7 +64,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Constructor of Question.java
-	 * 
+	 *
 	 * @param titre
 	 */
 	public Question(String titre) {
@@ -71,7 +74,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Constructor of Question.java
-	 * 
+	 *
 	 * @param titre
 	 * @param options
 	 */
@@ -83,7 +86,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @return
 	 */
 	public String getTitre() {
@@ -92,7 +95,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @param titre
 	 */
 	public void setTitre(String titre) {
@@ -101,7 +104,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @return
 	 */
 	public List<OptionQuestion> getOptions() {
@@ -110,7 +113,7 @@ public class Question extends BaseEntite {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @param options
 	 */
 	public void setOptions(List<OptionQuestion> options) {

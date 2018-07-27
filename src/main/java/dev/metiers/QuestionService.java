@@ -23,12 +23,27 @@ public class QuestionService {
 
 	/**
 	 * Fonction :
-	 * 
+	 *
 	 * @param identifiant
 	 * @return
 	 */
 	public Question trouverAvecId(String identifiant) {
 		long id = Long.parseLong(identifiant);
+		for (Question maQuestion : questionRepository.findAll()) {
+			if (id == maQuestion.getId()) {
+				return maQuestion;
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Fonction :
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public Question findById(long id) {
 		for (Question maQuestion : questionRepository.findAll()) {
 			if (id == maQuestion.getId()) {
 				return maQuestion;

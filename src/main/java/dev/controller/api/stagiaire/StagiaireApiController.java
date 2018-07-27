@@ -7,7 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +38,6 @@ public class StagiaireApiController {
 		// contient les attributs souhaités
 		List<StagiaireVm> listeStagiaireVm = listeStagiaire.stream().map(unStagiaire -> new StagiaireVm(unStagiaire))
 				.collect(Collectors.toList());
-
 		// HttpStatus est une énumération regroupant les codes HTTP usuels
 		return ResponseEntity.status(HttpStatus.OK).body(listeStagiaireVm);
 	}
@@ -52,6 +53,29 @@ public class StagiaireApiController {
 		stagiaireService.save(stagiaire);
 
 		return ResponseEntity.status(HttpStatus.OK).body(new StagiaireCreeVm(stagiaire.getId()));
+
+	}
+
+	@GetMapping("/{id}")
+	public ResponseEntity<StagiaireVm> afficherStagiaire(@PathVariable Long id) throws Exception {
+
+		Stagiaire stagiaire = this.stagiaireService.findStagiaireById(id);
+
+		StagiaireVm stagiaireVm = new StagiaireVm(stagiaire);
+
+		return ResponseEntity.status(HttpStatus.OK).body(stagiaireVm);
+	}
+
+	@PutMapping
+	public ResponseEntity<StagiaireVm> update(@RequestBody StagiaireVm stagiaireVm) {
+		Stagiaire stagiaire = stagiaireService.findStagiaireById(stagiaireVm.getId());
+		stagiaire.setNom(stagiaireVm.getNom());
+		stagiaire.setPrenom(stagiaireVm.getPrenom());
+		stagiaire.setEmail(stagiaireVm.getEmail());
+		stagiaire.setPhotoUrl(stagiaireVm.getPhotoUrl());
+		stagiaireService.update(stagiaire);
+
+		return ResponseEntity.status(HttpStatus.OK).body(new StagiaireVm(stagiaire));
 
 	}
 

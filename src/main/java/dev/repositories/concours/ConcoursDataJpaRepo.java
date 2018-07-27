@@ -13,4 +13,5 @@ public interface ConcoursDataJpaRepo extends JpaRepository<Concours, Long> {
 	@Query("select c from Concours c JOIN c.participants p where p.id = :idStagiaire")
     List<Concours> findConcoursByStagiaire(@Param("idStagiaire") Long idStagiaire);
 
+
 }

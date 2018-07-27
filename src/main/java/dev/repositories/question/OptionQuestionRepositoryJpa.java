@@ -30,9 +30,9 @@ public class OptionQuestionRepositoryJpa implements OptionQuestionRepository {
 	}
 
 	@Override
-	public void save(OptionQuestion entite) {
+	public void save(OptionQuestion optionQuestion) {
 		// TODO Auto-generated method stub
-
+		em.persist(optionQuestion);
 	}
 
 	@Override

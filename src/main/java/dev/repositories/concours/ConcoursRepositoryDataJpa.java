@@ -10,43 +10,40 @@ import dev.entites.Concours;
 @Repository
 public class ConcoursRepositoryDataJpa implements ConcoursRepository {
 
-	private ConcoursDataJpaRepo ConcoursDataJpaRepo;
+	private ConcoursDataJpaRepo concoursDataJpaRepo;
 
-	public ConcoursRepositoryDataJpa(dev.repositories.concours.ConcoursDataJpaRepo concoursDataJpaRepo) {
-		super();
-		ConcoursDataJpaRepo = concoursDataJpaRepo;
+	public ConcoursRepositoryDataJpa(ConcoursDataJpaRepo concourDataJpaRepo) {
+		this.concoursDataJpaRepo = concourDataJpaRepo;
 	}
 
 	@Override
 	public List<Concours> findAll() {
-
-		return ConcoursDataJpaRepo.findAll();
+		return concoursDataJpaRepo.findAll();
 	}
 
 	@Override
 	public void save(Concours entite) {
-		ConcoursDataJpaRepo.save(entite);
+		concoursDataJpaRepo.save(entite);
 
 	}
 
 	@Override
 	public void update(Concours entiteAvecId) {
-		if (entiteAvecId != null) {
-			ConcoursDataJpaRepo.save(entiteAvecId);
+		if (concoursDataJpaRepo.existsById(entiteAvecId.getId())) {
+			save(entiteAvecId);
 		}
-
 	}
 
 	@Override
 	public void delete(Concours entite) {
-		ConcoursDataJpaRepo.delete(entite);
+		concoursDataJpaRepo.delete(entite);
 
 	}
 
 	@Override
 	public Optional<Concours> findById(Long id) {
-		Optional<Concours> c = ConcoursDataJpaRepo.findById(id);
-		return c;
+		return concoursDataJpaRepo.findById(id);
+
 	}
 
 }
