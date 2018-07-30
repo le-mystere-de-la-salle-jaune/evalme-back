@@ -49,8 +49,8 @@ public class OptionSondageRepositoryJpa implements OptionSondageRepository {
 
 	@Override
 	public Optional<OptionSondage> findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		OptionSondage os = em.find(OptionSondage.class, id);
+		return Optional.ofNullable(os);
 	}
 
 }

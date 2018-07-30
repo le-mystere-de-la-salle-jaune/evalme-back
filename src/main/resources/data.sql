@@ -137,3 +137,4 @@ insert into question_compo(id_que,id_opt) values(2,1);
 insert into question_compo(id_que,id_opt) values(2,2);
 insert into question_compo(id_que,id_opt) values(2,3);
 
+insert into resultatsondage(id_stagiaire, id_sondage, id_optionsondage) values (1, 1, 5);

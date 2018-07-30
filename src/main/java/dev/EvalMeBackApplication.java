@@ -13,6 +13,7 @@ public class EvalMeBackApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EvalMeBackApplication.class, args);
 	}
+
 	@Bean
 	public WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurerAdapter() {
