@@ -4,12 +4,15 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Service;
 
+import dev.controller.api.questions.viewModels.QuestionPassageConcoursVm;
 import dev.controller.api.viewModels.passageConcours.PassageConcoursVm;
 import dev.controller.api.viewModels.passageConcours.ResultatConcoursVm;
 import dev.entites.Concours;
@@ -73,5 +76,19 @@ public class PassageConcoursService {
 
 	}
 
+	@Transactional
+	public Optional<QuestionPassageConcoursVm> getNextQuestion(Long idPassage){
+		
+		
+		return passageConcoursRepository.findById(idPassage)
+			.flatMap(
+					passage -> passage.getConcours().getQuizzes().stream()
+									.flatMap(q -> q.getQuestions().stream())
+									.filter(question -> passage.getListResultatQuestions().stream().noneMatch(resultatQuestion -> resultatQuestion.getQuestion().getId().equals(question.getId()) ))
+									.collect(Collectors.reducing((p1, p2) -> RandomUtils.nextBoolean() ? p1 : p2))
+									//.findAny()
+									.map(uneQuestion -> new QuestionPassageConcoursVm(uneQuestion))
+					);
+	}
 	
 }

@@ -46,8 +46,10 @@ public class PassageConcoursController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/next_question")
 	public ResponseEntity<?> getNextQuestion(@RequestParam(value="id_passage") Long passageId) {
-		
-		return ResponseEntity.status(HttpStatus.OK).body(passageConcoursService.getResultatByStagiaire(passageId));
+		return passageConcoursService.getNextQuestion(passageId)
+				.map(pcvm -> ResponseEntity.status(HttpStatus.OK).body(pcvm))
+				.orElse(ResponseEntity.notFound().build());
+		//return ResponseEntity.status(HttpStatus.OK).body(passageConcoursService.getResultatByStagiaire(passageId));
 	}
 
 }

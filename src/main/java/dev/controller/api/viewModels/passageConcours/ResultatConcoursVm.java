@@ -14,7 +14,7 @@ public class ResultatConcoursVm extends BaseVm {
 	private int rang;
 	
 	public ResultatConcoursVm(Long id, Long idConcours, String titre, int rang){
-		super.setId(id);
+		super(id);
 		this.idConcours = idConcours;
 		this.titreConcours = titre;
 		this.rang = rang;

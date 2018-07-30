@@ -15,5 +15,8 @@ public interface PassageConcoursRepository extends JpaRepository<PassageConcours
 	
 	@Query("select pc from PassageConcours pc where pc.concours.id = :idConcours")
     List<PassageConcours> findPassageByConcours(@Param("idConcours") Long idConcours);
+	
+	//@Query("select q from Question q, PassageConcours pc, Quizz quizz where pc.id = :idPassage and pc.concours.")
+    //List<Question> getUnansweredQuestions(@Param("idPassage") Long idPassage);
 
 }
