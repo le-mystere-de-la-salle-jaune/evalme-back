@@ -4,22 +4,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import dev.controller.api.viewModels.BaseVm;
 
-public class PassageConcoursVm extends BaseVm{
-	
+public class PassageConcoursVm extends BaseVm {
+
+	public PassageConcoursVm(Long id) {
+		super(id);
+		// TODO Auto-generated constructor stub
+	}
+
 	@JsonProperty("concours_id")
 	private Long concours;
-	
+
 	@JsonProperty("stagiaire_id")
 	private Long stagiaire;
-	
-	public PassageConcoursVm(){
-		
-	}
-	
-	public PassageConcoursVm(Long c, Long s){
-		concours = c;
-		stagiaire = s;
-	}
 
 	public Long getConcours() {
 		return concours;
@@ -36,7 +32,5 @@ public class PassageConcoursVm extends BaseVm{
 	public void setStagiaire(Long stagiaire) {
 		this.stagiaire = stagiaire;
 	}
-	
-	
 
 }

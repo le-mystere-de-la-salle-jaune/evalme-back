@@ -179,5 +179,6 @@ create table reponse_examen (
 	foreign key (id_examen) references examen(id),
 	foreign key (id_question) references question(id),
 	foreign key (id_option_question) references option_question(id)
+);
 
 );

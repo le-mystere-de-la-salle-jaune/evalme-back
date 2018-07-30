@@ -2,13 +2,20 @@ package dev.controller.api.viewModels.examen;
 
 import java.util.List;
 
-import dev.controller.api.viewModels.classe.BaseVm;
+public class QuestionExamVm {
 
-public class QuestionExamVm extends BaseVm {
-
+	private Long id;
 	private String titre;
 	private List<OptionQuestionVm> options;
 	private boolean last;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getTitre() {
 		return titre;
