@@ -19,7 +19,9 @@ public class EvalMeBackApplication {
 		return new WebMvcConfigurerAdapter() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "PATCH", "PUT");
+				registry.addMapping("/**")
+					.allowedOrigins("*")
+					.allowedMethods("GET", "POST", "PATCH", "PUT");
 			}
 		};
 	}

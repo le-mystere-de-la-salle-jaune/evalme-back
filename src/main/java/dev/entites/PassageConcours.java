@@ -1,11 +1,13 @@
 package dev.entites;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +24,12 @@ public class PassageConcours extends BaseEntite {
 	
 	@Column(name = "date_passage")
 	private LocalDateTime datePassage;
+	
+	@Column(name = "score")
+	private Integer score;
+	
+	@OneToMany(mappedBy="passageConcours")
+	private List<ResultatQuestionConcours> listResultatQuestions;
 	
 	public PassageConcours(){
 		
@@ -54,6 +62,24 @@ public class PassageConcours extends BaseEntite {
 	public void setDatePassage(LocalDateTime datePassage) {
 		this.datePassage = datePassage;
 	}
+
+	public List<ResultatQuestionConcours> getListResultatQuestions() {
+		return listResultatQuestions;
+	}
+
+	public void setListResultatQuestions(List<ResultatQuestionConcours> listResultatQuestions) {
+		this.listResultatQuestions = listResultatQuestions;
+	}
+
+	public Integer getScore() {
+		return score;
+	}
+
+	public void setScore(Integer score) {
+		this.score = score;
+	}
+	
+	
 	
 	
 }

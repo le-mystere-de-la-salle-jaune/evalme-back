@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.junit.Test;
-import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -32,8 +31,8 @@ public class OptionQuestionRepositoryDataJpaTest {
 	@Test
 	public void test_FindById() {
 		Optional<OptionQuestion> test = optionQuestionRepositoryDataJpa.findById((long) 1);
-		assertTrue(test.get().getLibelle().equals("1"));
-		assertTrue(!test.get().getOk());
+		assertTrue(test.get().getLibelle().equals("JAVA"));
+		assertTrue(test.get().getOk());
 	}
 
 	@Test
@@ -44,8 +43,8 @@ public class OptionQuestionRepositoryDataJpaTest {
 		optionQuestionRepositoryDataJpa.save(option);
 		List<OptionQuestion> maListe = optionQuestionRepositoryDataJpa.findAll();
 
-		assertTrue(maListe.get(3).getLibelle().equals("LOL"));
-		assertTrue(!maListe.get(3).getOk());
+		assertTrue(maListe.get(maListe.size()-1).getLibelle().equals("LOL"));
+		assertTrue(!maListe.get(maListe.size()-1).getOk());
 	}
 
 	@Test

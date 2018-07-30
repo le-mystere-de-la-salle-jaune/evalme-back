@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import dev.controller.api.viewModels.passageConcours.PassageConcoursReturnVm;
 import dev.controller.api.viewModels.passageConcours.PassageConcoursVm;
-import dev.controller.api.viewModels.passageConcours.ResultatConcoursVm;
+import dev.controller.api.viewModels.passageConcours.ScoreConcoursVm;
 import dev.metiers.PassageConcoursService;
 
 @Controller
@@ -26,14 +26,28 @@ public class PassageConcoursController {
 	@RequestMapping(method = RequestMethod.POST, value = "/start")
 	public ResponseEntity<?> startConcours(@RequestBody PassageConcoursVm passageConcoursVm) {
 		
-
 		return ResponseEntity.status(HttpStatus.CREATED).body(new PassageConcoursReturnVm(passageConcoursService.createPassage(passageConcoursVm)));
 	}
+	
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/resultat")
 	public ResponseEntity<?> getResultatByStagiaire(@RequestParam(value="id_stagiaire") Long stagiaireId) {
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(new ResultatConcoursVm(2L, "Non implemented", 100));
+		return ResponseEntity.status(HttpStatus.OK).body(passageConcoursService.getResultatByStagiaire(stagiaireId));
+	}
+	
+	@RequestMapping(method = RequestMethod.PUT, value = "/resultat")
+	public ResponseEntity<?> saveNoteByStagiaire(@RequestBody ScoreConcoursVm scoreStagiaire) {
+		
+		passageConcoursService.saveNote(scoreStagiaire.getIdPassage(), scoreStagiaire.getScore());
+
+		return ResponseEntity.status(HttpStatus.OK).body("Note saved");
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/next_question")
+	public ResponseEntity<?> getNextQuestion(@RequestParam(value="id_passage") Long passageId) {
+		
+		return ResponseEntity.status(HttpStatus.OK).body(passageConcoursService.getResultatByStagiaire(passageId));
 	}
 
 }
