@@ -43,5 +43,11 @@ public class PassageConcoursController {
 
 		return ResponseEntity.status(HttpStatus.OK).body("Note saved");
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/next_question")
+	public ResponseEntity<?> getNextQuestion(@RequestParam(value="id_passage") Long passageId) {
+		
+		return ResponseEntity.status(HttpStatus.OK).body(passageConcoursService.getResultatByStagiaire(passageId));
+	}
 
 }

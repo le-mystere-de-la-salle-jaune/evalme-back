@@ -2,10 +2,9 @@ package dev.repositories.question;
 
 import static org.junit.Assert.assertTrue;
 
-
 import java.util.List;
-import org.junit.Ignore;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +37,8 @@ public class OptionQuestionRepositoryJpaTest {
 		optionQuestionRepository.save(option);
 		List<OptionQuestion> maListe = optionQuestionRepository.findAll();
 
-		assertTrue(maListe.get(3).getLibelle().equals("LOL"));
-		assertTrue(!maListe.get(3).getOk());
+		assertTrue(maListe.get(maListe.size()-1).getLibelle().equals("LOL"));
+		assertTrue(!maListe.get(maListe.size()-1).getOk());
 	}
 
 	@Test

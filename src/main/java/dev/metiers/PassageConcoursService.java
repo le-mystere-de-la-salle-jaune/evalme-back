@@ -72,5 +72,6 @@ public class PassageConcoursService {
 		return listePassage.stream().sorted(Comparator.comparing(PassageConcours::getScore)).collect(Collectors.toList()).indexOf(temp)+1;
 
 	}
+
 	
 }
