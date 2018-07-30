@@ -149,6 +149,7 @@ create table resultatsondage (
 	foreign key (id_stagiaire) references stagiaire(id),
 	foreign key (id_sondage) references sondage(id),
 	foreign key (id_optionsondage) references option_sondage(id)
+);
 
 create Table passage_concours(
 	id serial primary key,
