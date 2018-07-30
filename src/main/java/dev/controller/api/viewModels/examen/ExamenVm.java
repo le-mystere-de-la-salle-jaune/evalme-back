@@ -17,10 +17,6 @@ public class ExamenVm extends BaseVm {
 				examen.getQuizz().getQuestions().size());
 	}
 
-	public ExamenVm() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public String getTitre() {
 		return titre;
 	}

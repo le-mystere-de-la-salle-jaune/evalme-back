@@ -2,6 +2,8 @@ package dev.controller.api.viewModels.examen;
 
 import java.util.List;
 
+import dev.controller.api.viewModels.classe.BaseVm;
+
 public class QuestionExamVm extends BaseVm {
 
 	private String titre;
