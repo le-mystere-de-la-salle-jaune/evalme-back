@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import dev.entites.Stagiaire;
 
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class StagiaireVm extends BaseEntiteVm {
 
 	private String prenom;

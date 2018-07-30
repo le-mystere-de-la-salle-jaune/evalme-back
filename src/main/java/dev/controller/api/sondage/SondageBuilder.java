@@ -2,6 +2,8 @@ package dev.controller.api.sondage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,10 +12,8 @@ import dev.controller.api.sondage.viewModels.ClasseListerSondageVM;
 import dev.controller.api.sondage.viewModels.ListerSondageVM;
 import dev.controller.api.sondage.viewModels.OptionListerSondageVM;
 import dev.controller.api.sondage.viewModels.SondageByIdVM;
-import dev.entites.Classe;
 import dev.entites.OptionSondage;
 import dev.entites.Sondage;
-import dev.entites.Stagiaire;
 import dev.metiers.SondageService;
 import dev.metiers.StagiaireService;
 
@@ -76,20 +76,15 @@ public class SondageBuilder {
 	}
 
 	@Transactional
-	public List<ListerSondageVM> creerJsonListerByIdStagiaire(Long idStagiaire) throws Exception {
-		List<ListerSondageVM> listeSondages = creerJsonLister();
-		Stagiaire stagiaire = stagiaireService.findStagiaireById(idStagiaire);
-		Classe classe = stagiaire.getClasse();
-		System.out.println(classe.getNom());
+	public Optional<List<ListerSondageVM>> creerJsonListerByIdStagiaire(Long idStagiaire) throws Exception {
 
-		List<ListerSondageVM> listeSondagesStagiaire = new ArrayList<ListerSondageVM>();
-
-		for (ListerSondageVM ls : listeSondages) {
-			if (ls.getClasse().getId() == (classe.getId())) {
-				listeSondagesStagiaire.add(ls);
-			}
-		}
-
-		return listeSondagesStagiaire;
+		return this.stagiaireService.findStagiaireById(idStagiaire).map(stagiaire -> {
+			return sondageService.lister().stream()
+					.filter(sondage -> sondage.getClasse().getId().equals(stagiaire.getClasse().getId()))
+					.map(sondage -> new ListerSondageVM(sondage.getId(), sondage.getTitre(),
+							new ClasseListerSondageVM(sondage.getClasse().getId(), sondage.getClasse().getNom()),
+							sondage.getOptions().size()))
+					.collect(Collectors.toList());
+		});
 	}
 }

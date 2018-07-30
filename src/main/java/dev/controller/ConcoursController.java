@@ -79,7 +79,7 @@ public class ConcoursController {
 
 			if (participants.isPresent()) {
 				for (long i : participants.get()) {
-					listeparticipant.add(stagiaireService.findStagiaireById(i));
+					stagiaireService.findStagiaireById(i).map(stagiaire -> listeparticipant.add(stagiaire));
 				}
 			}
 			c.setParticipants(listeparticipant);
@@ -127,7 +127,7 @@ public class ConcoursController {
 
 			if (participants.isPresent()) {
 				for (long i : participants.get()) {
-					listeparticipant.add(stagiaireService.findStagiaireById(i));
+					stagiaireService.findStagiaireById(i).map(stagiaire -> listeparticipant.add(stagiaire));
 				}
 			}
 

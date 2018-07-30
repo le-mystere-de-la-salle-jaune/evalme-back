@@ -4,6 +4,14 @@ public class ClasseListerSondageVM {
 	private long id;
 	private String nom;
 
+	public ClasseListerSondageVM() {
+	}
+
+	public ClasseListerSondageVM(long id, String nom) {
+		this.id = id;
+		this.nom = nom;
+	}
+
 	public long getId() {
 		return id;
 	}

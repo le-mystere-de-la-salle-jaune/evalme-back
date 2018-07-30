@@ -2,6 +2,7 @@ package dev.controller.api.sondage;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +39,8 @@ public class ListerSondageApiController {
 
 	@GetMapping
 	public ResponseEntity<List<ListerSondageVM>> getSondageStagiaire(@RequestParam Long idStagiaire) throws Exception {
-		return ResponseEntity.ok(sondageBuilder.creerJsonListerByIdStagiaire(idStagiaire));
+		return sondageBuilder.creerJsonListerByIdStagiaire(idStagiaire)
+				.map(listeSondagesVm -> ResponseEntity.ok().body(listeSondagesVm))
+				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
 	}
 }

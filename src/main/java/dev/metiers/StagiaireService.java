@@ -1,6 +1,7 @@
 package dev.metiers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -33,10 +34,8 @@ public class StagiaireService {
 		stagiaireRepository.delete(stagiaire);
 	}
 
-	public Stagiaire findStagiaireById(Long id) {
-		return stagiaireRepository.findById(id)
-				.orElseThrow(() -> new IllegalArgumentException("stagiaire non trouvé avec l'id " + id));
-
+	public Optional<Stagiaire> findStagiaireById(Long id) {
+		return stagiaireRepository.findById(id);
 	}
 
 }

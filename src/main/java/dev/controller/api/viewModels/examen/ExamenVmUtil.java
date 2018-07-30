@@ -1,6 +1,7 @@
 package dev.controller.api.viewModels.examen;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
@@ -9,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import dev.entites.Classe;
 import dev.entites.Examen;
 import dev.entites.Quizz;
-import dev.entites.Stagiaire;
 import dev.metiers.ExamenService;
 import dev.metiers.StagiaireService;
 
@@ -25,16 +25,13 @@ public class ExamenVmUtil {
 	}
 
 	@Transactional
-	public List<ExamenVm> listStagiaireExam(Long id) {
+	public Optional<List<ExamenVm>> listStagiaireExam(Long id) {
 
-		List<Examen> exams = examenService.lister();
-		Stagiaire stagiaire = stagiaireService.findStagiaireById(id);
-
-		List<ExamenVm> examenVm = exams.stream()
-				.filter(exam -> exam.getClasse().getId().equals(stagiaire.getClasse().getId()))
-				.map(examen -> new ExamenVm(examen)).collect(Collectors.toList());
-
-		return examenVm;
+		return this.stagiaireService.findStagiaireById(id).map(stagiaire -> {
+			return examenService.lister().stream()
+					.filter(exam -> exam.getClasse().getId().equals(stagiaire.getClasse().getId()))
+					.map(examen -> new ExamenVm(examen)).collect(Collectors.toList());
+		});
 	}
 
 	@Transactional
