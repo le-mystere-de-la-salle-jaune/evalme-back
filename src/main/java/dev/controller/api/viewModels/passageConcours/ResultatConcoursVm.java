@@ -12,9 +12,9 @@ public class ResultatConcoursVm extends BaseVm {
 	private String titreConcours;
 
 	private int rang;
-	
-	public ResultatConcoursVm(Long id, Long idConcours, String titre, int rang){
-		super.setId(id);
+
+	public ResultatConcoursVm(Long id, Long idConcours, String titre, int rang) {
+		super(id);
 		this.idConcours = idConcours;
 		this.titreConcours = titre;
 		this.rang = rang;
@@ -43,7 +43,5 @@ public class ResultatConcoursVm extends BaseVm {
 	public void setRang(int rang) {
 		this.rang = rang;
 	}
-	
-	
-	
+
 }
