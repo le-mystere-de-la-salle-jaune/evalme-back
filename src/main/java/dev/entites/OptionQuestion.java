@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -36,6 +37,10 @@ public class OptionQuestion extends BaseEntite {
 	@ManyToMany
 	@JoinTable(name = "question_compo", joinColumns = @JoinColumn(name = "id_opt", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_que", referencedColumnName = "id"))
 	private List<Question> questions;
+
+	// ExamenReponse
+	@OneToMany(mappedBy = "optionQuestion")
+	private List<ExamenReponse> reponseExam;
 
 	/**
 	 * Constructor of OptionQuestion.java

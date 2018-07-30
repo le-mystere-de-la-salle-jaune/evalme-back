@@ -1,4 +1,4 @@
-
+drop table if exists reponse_examen cascade;
 drop table if exists sondage_option_sondage cascade;
 drop table if exists question_compo cascade;
 drop table if exists resultatsondage cascade;
@@ -169,4 +169,16 @@ create Table resultat_question_concours(
 	FOREIGN KEY (id_question) REFERENCES question(id),
 	FOREIGN KEY (id_option_reponse) REFERENCES option_question(id)
 
+);
+
+create table reponse_examen (
+	id serial primary key,
+	id_stagiaire bigint not null,
+	id_examen bigint not null,
+	id_question bigint not null,
+	id_option_question bigint not null,
+	foreign key (id_stagiaire) references stagiaire(id),
+	foreign key (id_examen) references examen(id),
+	foreign key (id_question) references question(id),
+	foreign key (id_option_question) references option_question(id)
 );

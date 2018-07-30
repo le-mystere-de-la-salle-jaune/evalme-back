@@ -15,11 +15,6 @@ public class ExamenVm extends BaseVm {
 		classe = new ClasseVm(examen.getClasse().getId(), examen.getClasse().getNom());
 		quizz = new QuizzVm(examen.getQuizz().getId(), examen.getQuizz().getTitre(),
 				examen.getQuizz().getQuestions().size());
-
-	}
-
-	public ExamenVm() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getTitre() {

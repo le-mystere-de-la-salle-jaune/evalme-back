@@ -1,14 +1,10 @@
 package dev.controller.api.viewModels;
 
 public class BaseVm {
-	
+
 	private Long id;
-	
-	public BaseVm(){
-		
-	}
-	
-	public BaseVm(Long id){
+
+	public BaseVm(Long id) {
 		this.id = id;
 	}
 
@@ -19,7 +15,5 @@ public class BaseVm {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
 
 }

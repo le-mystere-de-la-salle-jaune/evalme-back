@@ -8,10 +8,6 @@ public class ClasseVm extends BaseVm{
 
 	private String nom;
 
-	public ClasseVm() {
-
-	}
-
 	public ClasseVm(Long id, String nom) {
 		super(id);
 		this.nom = nom;
