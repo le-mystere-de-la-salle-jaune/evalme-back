@@ -1,5 +1,7 @@
+drop table if exists reponse_examen;
 drop table if exists sondage_option_sondage;
 drop table if exists question_compo;
+drop table if exists resultatsondage;
 drop table if exists sondage;
 drop table if exists option_sondage;
 drop table if exists note;
@@ -8,11 +10,13 @@ drop table if exists compo_quizz;
 drop table if exists duel;
 DROP TABLE if exists concours_quizz;
 drop table if exists quizz;
-drop table if exists option_question;
-drop table if exists question;
+drop table if exists resultat_question_concours;
+drop table if exists passage_concours;
 DROP TABLE if exists concours_stagiaire;
 DROP TABLE if exists concours;
 drop table if exists stagiaire;
+drop table if exists option_question;
+drop table if exists question;
 drop table if exists classe;
 
 create table classe (
@@ -126,6 +130,25 @@ create Table concours_quizz(
 	FOREIGN KEY (id_quizz) REFERENCES quizz(id)
 );
 
+create Table passage_concours(
+	id serial primary key,
+	id_concours bigint unsigned not null,
+	id_stagiaire bigint unsigned not null,
+	date_passage DATE not null,
+	score int,
+	FOREIGN KEY (id_concours) REFERENCES concours(id),
+	FOREIGN KEY (id_stagiaire) REFERENCES stagiaire(id)
+);
+
+create Table resultat_question_concours(
+	id serial primary key,
+	id_passage bigint unsigned not null,
+	id_question bigint unsigned not null,
+	id_option_reponse bigint unsigned not null,
+	FOREIGN KEY (id_passage) REFERENCES passage_concours(id),
+	FOREIGN KEY (id_question) REFERENCES question(id),
+	FOREIGN KEY (id_option_reponse) REFERENCES option_question(id)
+);
 
 create table duel (
 	id serial primary key,
@@ -135,4 +158,26 @@ create table duel (
 	foreign key (stagiairea_id) references stagiaire(id),
 	foreign key (stagiaireb_id) references stagiaire(id),
 	foreign key (quizz_id) references quizz(id)
+);
+
+create table resultatsondage (
+	id serial primary key,
+	id_stagiaire bigint unsigned not null,
+	id_sondage bigint unsigned not null,
+	id_optionsondage bigint unsigned not null,
+	foreign key (id_stagiaire) references stagiaire(id),
+	foreign key (id_sondage) references sondage(id),
+	foreign key (id_optionsondage) references option_sondage(id)
+);
+
+create table reponse_examen (
+	id serial primary key,
+	id_stagiaire bigint unsigned not null,
+	id_examen bigint unsigned not null,
+	id_question bigint unsigned not null,
+	id_option_question bigint unsigned not null,
+	foreign key (id_stagiaire) references stagiaire(id),
+	foreign key (id_examen) references examen(id),
+	foreign key (id_question) references question(id),
+	foreign key (id_option_question) references option_question(id)
 );

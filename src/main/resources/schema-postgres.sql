@@ -1,6 +1,7 @@
-
+drop table if exists reponse_examen cascade;
 drop table if exists sondage_option_sondage cascade;
 drop table if exists question_compo cascade;
+drop table if exists resultatsondage cascade;
 drop table if exists sondage cascade;
 drop table if exists option_sondage cascade;
 drop table if exists note cascade;
@@ -14,6 +15,8 @@ DROP TABLE if exists concours_stagiaire cascade;
 DROP TABLE if exists concours_quizz cascade;
 DROP TABLE if exists concours cascade;
 drop table if exists stagiaire cascade;
+drop table if exists resultat_question_concours cascade;
+drop table if exists passage_concours cascade;
 drop table if exists classe cascade;
 
 
@@ -135,4 +138,47 @@ create Table concours_quizz(
 	id_quizz bigint not null,
 	foreign key (id_concours) references concours(id),
 	foreign key (id_quizz) references quizz(id)
+);
+
+
+create table resultatsondage (
+	id serial primary key,
+	id_stagiaire bigint not null,
+	id_sondage bigint not null,
+	id_optionsondage bigint not null,
+	foreign key (id_stagiaire) references stagiaire(id),
+	foreign key (id_sondage) references sondage(id),
+	foreign key (id_optionsondage) references option_sondage(id));
+
+create Table passage_concours(
+	id serial primary key,
+	id_concours bigint not null,
+	id_stagiaire bigint not null,
+	date_passage DATE not null,
+	score int,
+	FOREIGN KEY (id_concours) REFERENCES concours(id),
+	FOREIGN KEY (id_stagiaire) REFERENCES stagiaire(id)
+);
+
+create Table resultat_question_concours(
+	id serial primary key,
+	id_passage bigint not null,
+	id_question bigint not null,
+	id_option_reponse bigint not null,
+	FOREIGN KEY (id_passage) REFERENCES passage_concours(id),
+	FOREIGN KEY (id_question) REFERENCES question(id),
+	FOREIGN KEY (id_option_reponse) REFERENCES option_question(id)
+
+);
+
+create table reponse_examen (
+	id serial primary key,
+	id_stagiaire bigint not null,
+	id_examen bigint not null,
+	id_question bigint not null,
+	id_option_question bigint not null,
+	foreign key (id_stagiaire) references stagiaire(id),
+	foreign key (id_examen) references examen(id),
+	foreign key (id_question) references question(id),
+	foreign key (id_option_question) references option_question(id)
 );
